@@ -8,11 +8,12 @@
 
 #ifndef Core_hpp
 #define Core_hpp
-#include "Runner.hpp" //This file is required.
+#include "../cfsrc/Runner.hpp" //This file is required.
+#include "CoreMain.h"
 
 class Core : public BaseCore{
 public:
-    Core(){};
+    Core();
     ~Core();
     void draw();
     void update();

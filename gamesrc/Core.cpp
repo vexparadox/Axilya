@@ -10,6 +10,10 @@
 //for graphics
 using namespace Graphics;
 
+Core::Core(){
+	
+}
+
 Core::~Core(){
 }
 

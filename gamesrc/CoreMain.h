@@ -9,8 +9,8 @@
 #ifndef CoreMain_h
 #define CoreMain_h
 
-#include "Math.h"
-#include "Types.h"
-#include "Graphics.hpp"
+#include "../cfsrc/Math.h"
+#include "../cfsrc/Types.h"
+#include "../cfsrc/Graphics.hpp"
 
 #endif /* CoreMain_h */
