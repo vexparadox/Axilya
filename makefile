@@ -5,5 +5,5 @@ main: cfsrc/*.cpp
 	g++ -g -c cfsrc/*.cpp -Wno-c++11-extensions
 game: gamesrc/*.cpp
 	g++ -g -c gamesrc/*.cpp -Wno-c++11-extensions
-SOIL: cfsrc/SOIL/*.c
-	g++ -g -c cfsrc/SOIL/*.c -Wno-c++11-compat-deprecated-writable-strings
+SOIL: cfsrc/SOIL/*.cpp
+	g++ -g -c cfsrc/SOIL/*.cpp -Wno-c++11-compat-deprecated-writable-strings
