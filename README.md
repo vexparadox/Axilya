@@ -1,5 +1,7 @@
 #closedFrameworks v0.4 MAKE VERSION
-A basic 2D game framework written in C++, runnable on xCode OSX 10.7+
+A basic 2D game framework written in C++, runnable with Make
+
+Note that the wiki is currently out of date for this Make version, run using make NOT xCode.
 
 Core.cpp and Core.hpp is the user entry point into the framework. The methods contained are explained in the wiki.
 
