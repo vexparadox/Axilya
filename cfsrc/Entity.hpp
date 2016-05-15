@@ -12,16 +12,21 @@
 #include <stdio.h>
 #include "Math.h"
 #include "Transform.hpp"
+#include "RigidBody.hpp"
 
 #endif /* Entity_hpp */
 
 class Entity{
     //a list of components
+    Transform* transform;
     std::vector<Component*> components;
 public:
     //constructors
     Entity();
     Entity(const Math::Vector2D& pos);
+    virtual void update();
     //add a new component
     void addComponent(Component*);
+    //return the transform
+    Transform* getTransform();
 };

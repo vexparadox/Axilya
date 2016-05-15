@@ -13,8 +13,11 @@
 #include "Component.hpp"
 
 class RigidBody : public Component{
-    RigidBody();
-    void update(){};
+    Entity* owner;
+    bool gravity = true;
+public:
+    RigidBody(Entity* owner);
+    void update();
 };
 
 

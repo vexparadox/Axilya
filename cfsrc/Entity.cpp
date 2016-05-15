@@ -13,9 +13,17 @@ Entity::Entity(){
 }
 
 Entity::Entity(const Math::Vector2D& pos){
-    addComponent(new Transform(pos));
+    transform = new Transform(pos);
 }
 
 void Entity::addComponent(Component* c){
     components.push_back(c);
+}
+
+Transform* Entity::getTransform(){
+    return transform;
+}
+
+void Entity::update(){
+    
 }
