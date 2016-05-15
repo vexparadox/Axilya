@@ -26,7 +26,7 @@ public:
     ~Image();
     Image(std::string nameInput);
     //load the image
-    bool loadImage(std::string &nameInput);
+    bool loadImage(std::string nameInput);
     
     //various different draw methods
     void draw(const Math::Vector2D &v, float w, float h);

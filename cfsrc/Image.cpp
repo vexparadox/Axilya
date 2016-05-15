@@ -17,7 +17,7 @@ namespace Graphics{
         this->loadImage(name);
     }
     
-    bool Image::loadImage(std::string &nameInput){
+    bool Image::loadImage(std::string nameInput){
         if(loaded){
             std::cout << "Image: already loaded" << std::endl;
             return false;
