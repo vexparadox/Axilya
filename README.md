@@ -1,11 +1,12 @@
-#closedFrameworks v0.4 MAKE VERSION
+# closedFrameworks v0.4 MAKE VERSION
+
 A basic 2D game framework written in C++, runnable with Make
 
 Note that the wiki is currently out of date for this Make version, run using make NOT xCode.
 
 Core.cpp and Core.hpp is the user entry point into the framework. The methods contained are explained in the wiki.
 
-##v0.4 Changelog
+## v0.4 Changelog
 
 -Push pop Matrixes
 
@@ -21,7 +22,7 @@ Core.cpp and Core.hpp is the user entry point into the framework. The methods co
 
 -Increased perforamce other collisions
 
-##v0.3 Changelog
+## v0.3 Changelog
 
 -Optimised shape drawing
 
@@ -41,7 +42,7 @@ Core.cpp and Core.hpp is the user entry point into the framework. The methods co
 
 -Added GLEW for text rendering
 
-##v0.2 Changelog
+## v0.2 Changelog
 
 -Finalised the CSV Reader
 
