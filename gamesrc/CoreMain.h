@@ -12,5 +12,6 @@
 #include "../cfsrc/Math.h"
 #include "../cfsrc/Types.h"
 #include "../cfsrc/Graphics.hpp"
+#include "../cfsrc/Components.h"
 
 #endif /* CoreMain_h */

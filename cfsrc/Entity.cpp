@@ -9,16 +9,16 @@
 #include "Entity.hpp"
 
 Entity::Entity(){
-    addComponent(new Transform);
+    // addComponent(new Transform);
 }
 
 Entity::Entity(const Math::Vector2D& pos){
-    transform = new Transform(pos);
+    transform = new Transform(pos, this);
 }
 
-void Entity::addComponent(Component* c){
-    components.push_back(c);
-}
+// void Entity::addComponent(Component* c){
+//     components.push_back(c);
+// }
 
 Transform* Entity::getTransform(){
     return transform;

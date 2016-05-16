@@ -8,11 +8,7 @@
 
 #include "Transform.hpp"
 
-Transform::Transform(){
-    
-}
-
-Transform::Transform(const Math::Vector2D& pos): position(pos){
+Transform::Transform(const Math::Vector2D& pos, Entity* owner): Component(owner), position(pos){
     
 }
 

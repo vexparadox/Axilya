@@ -9,12 +9,11 @@
 #include "RigidBody.hpp"
 
 
-RigidBody::RigidBody(Entity* owner) : owner(owner){
-    
+RigidBody::RigidBody(Entity* owner) : Component(owner){
 }
 
 void RigidBody::update(){
     if(gravity){
-        owner->getTransform()->getPos().x++;
+        // getOwner()->getTransform()->getPos().x++;
     }
 }

@@ -19,14 +19,14 @@
 class Entity{
     //a list of components
     Transform* transform;
-    std::vector<Component*> components;
+    // std::vector<Component*> components;
 public:
     //constructors
     Entity();
     Entity(const Math::Vector2D& pos);
     virtual void update();
     //add a new component
-    void addComponent(Component*);
+    // void addComponent(Component*);
     //return the transform
     Transform* getTransform();
 };

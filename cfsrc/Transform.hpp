@@ -11,12 +11,11 @@
 
 #include <stdio.h>
 #include "Component.hpp"
-
+class Entity;
 class Transform : public Component{
     Math::Vector2D position;
 public:
-    Transform();
-    Transform(const Math::Vector2D& pos);
+    Transform(const Math::Vector2D& pos, Entity* owner);
     Math::Vector2D& getPos();
 };
 #endif /* Transform_hpp */

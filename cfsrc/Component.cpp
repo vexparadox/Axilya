@@ -8,6 +8,10 @@
 
 #include "Component.hpp"
 
-Component::Component(){
+Component::Component(Entity* owner) : owner(owner){
     
+}
+
+Entity* Component::getOwner(){
+    return owner;
 }

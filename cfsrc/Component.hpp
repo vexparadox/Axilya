@@ -11,9 +11,12 @@
 
 #include <stdio.h>
 #include "Math.h"
+class Entity;
 class Component{
-protected:
-    Component();
+    Entity* owner;
+protected:  
+    Entity* getOwner();
+    Component(Entity* owner);
     virtual void update(){};
 };
 
