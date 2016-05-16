@@ -11,6 +11,8 @@
 
 #include <stdio.h>
 #include "Math.h"
+#include "Graphics.hpp"
+//components
 #include "Transform.hpp"
 #include "RigidBody.hpp"
 
@@ -20,10 +22,16 @@ class Entity{
     //a list of components
     Transform* transform;
     std::vector<Component*> components;
+    Graphics::Image* texture;
 public:
     //constructors
     Entity(const Math::Vector2D& pos);
     virtual void update();
+    //add a new texture
+    void addTexture(std::string);
+    void addTexture(Graphics::Image*);
+    //get the texture
+    Graphics::Image* getTexture();
     //add a new component
     void addComponent(Component*);
     //return the transform

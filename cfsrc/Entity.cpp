@@ -25,3 +25,15 @@ void Entity::update(){
         c->update();
     }
 }
+
+void Entity::addTexture(std::string s){
+    this->texture = new Graphics::Image(s);
+}
+
+void Entity::addTexture(Graphics::Image* i){
+    this->texture = i;
+}
+
+Graphics::Image* Entity::getTexture(){
+    return this->texture;
+}
