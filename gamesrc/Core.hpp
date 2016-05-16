@@ -22,7 +22,7 @@ public:
     void mousePressed(int button);
     void mouseReleased(int button);
     void exitCalled();
-    Entity* e;
+    std::vector<Entity*> entities;
 };
 
 #endif /* Core_hpp */

@@ -18,16 +18,21 @@ Core::~Core(){
 
 void Core::setup(){
     setBackground(255, 255, 255, 255);
-	e = new Entity(Math::Vector2D(0,0));
+	Entity* e = new Entity(Math::Vector2D(0,0));
 	e->addComponent(new RigidBody(e));
+	entities.push_back(e);
 }
 
 void Core::update(){
-	e->update();
+	for(auto e : entities){
+		e->update();
+	}
 }
 
 void Core::draw(){
-	e->draw();
+	for(auto e : entities){
+		e->draw();
+	}
 }
 
 void Core::exitCalled(){
