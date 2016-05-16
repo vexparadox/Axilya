@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include "Math.h"
+
 class Entity;
 class Component{
     Entity* owner;
