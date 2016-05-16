@@ -18,14 +18,16 @@ Core::~Core(){
 
 void Core::setup(){
     setBackground(255, 255, 255, 255);
+	e = new Entity(Math::Vector2D(0,0));
+	e->addComponent(new RigidBody(e));
 }
 
 void Core::update(){
+	e->update();
 }
 
 void Core::draw(){
-	fill(255, 0, 0);
-	drawRect(mouseX, mouseY, 50, 50);
+	e->draw();
 }
 
 void Core::exitCalled(){

@@ -29,6 +29,9 @@ void Entity::update(){
 void Entity::draw(){
     if(texture){
         texture->draw(transform->getPos());
+    }else{
+        Graphics::fill(255, 0, 0);
+        Graphics::drawRect(transform->getPos(), 10, 10);
     }
 }
 

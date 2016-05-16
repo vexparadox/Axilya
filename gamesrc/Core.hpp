@@ -22,6 +22,7 @@ public:
     void mousePressed(int button);
     void mouseReleased(int button);
     void exitCalled();
+    Entity* e;
 };
 
 #endif /* Core_hpp */
