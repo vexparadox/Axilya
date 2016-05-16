@@ -26,6 +26,12 @@ void Entity::update(){
     }
 }
 
+void Entity::draw(){
+    if(texture){
+        texture->draw(transform->getPos());
+    }
+}
+
 void Entity::addTexture(std::string s){
     this->texture = new Graphics::Image(s);
 }

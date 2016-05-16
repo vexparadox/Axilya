@@ -27,6 +27,7 @@ public:
     //constructors
     Entity(const Math::Vector2D& pos);
     virtual void update();
+    virtual void draw();
     //add a new texture
     void addTexture(std::string);
     void addTexture(Graphics::Image*);
