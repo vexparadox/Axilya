@@ -21,5 +21,7 @@ Transform* Entity::getTransform(){
 }
 
 void Entity::update(){
-    
+    for(auto c : components){
+        c->update();
+    }
 }

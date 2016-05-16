@@ -14,10 +14,11 @@
 
 class Entity;
 class Component{
+protected:
     Entity* owner;
-protected:  
     Entity* getOwner();
     Component(Entity* owner);
+public:  
     virtual void update(){};
 };
 
