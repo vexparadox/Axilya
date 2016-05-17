@@ -10,8 +10,9 @@
 #define Rect_h
 
 #include "Math.h"
+#include "Shape.h"
 namespace Graphics{
-    class Rect{
+    class Rect : public Shape{
         Math::Vector2D v;
         float w, h;
     public:
