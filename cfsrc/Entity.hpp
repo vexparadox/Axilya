@@ -13,18 +13,16 @@
 #include "Math.h"
 #include "Graphics.hpp"
 //components
-// #include "Transform.hpp"
-// #include "RigidBody.hpp"
 #include "Components.h"
 
 #endif /* Entity_hpp */
 
 class Entity{
     //a list of components
-    Transform* transform;
+    Transform* transform = 0;
     std::vector<Component*> components;
-    Collider* collider;
-    Graphics::Image* texture;
+    Collider* collider = 0;
+    Graphics::Image* texture = 0;
 public:
     //constructors
     Entity(const Math::Vector2D& pos);
@@ -35,6 +33,8 @@ public:
     void addTexture(Graphics::Image*);
     //get the texture
     Graphics::Image* getTexture();
+    //get the collider
+    Collider* getCollider();
     //add a new component
     void addComponent(Component*);
     //return the transform
