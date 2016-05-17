@@ -34,8 +34,11 @@ public:
     void addTexture(Graphics::Image*);
     //get the texture
     Graphics::Image* getTexture();
+    //add a collider
+    void addCollider(Collider*);
     //get the collider
     Collider* getCollider();
+    
     //add a new component
     void addComponent(Component*);
     //return the transform

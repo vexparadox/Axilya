@@ -46,10 +46,14 @@ void Entity::addTexture(Graphics::Image* i){
     this->texture = i;
 }
 
+void Entity::addCollider(Collider* c){
+    this->collider = c;
+}
+
 Graphics::Image* Entity::getTexture(){
     return this->texture;
 }
 
 Collider* Entity::getCollider(){
-    return collider;
+    return this->collider;
 }
