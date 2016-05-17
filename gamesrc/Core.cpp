@@ -18,7 +18,7 @@ Core::~Core(){
 
 void Core::setup(){
     setBackground(255, 255, 255, 255);
-	Entity* e = new Entity(Math::Vector2D(0,0));
+	Entity* e = new Entity(50, 50);
 	e->addComponent(new RigidBody(e));
 	entities.push_back(e);
 }

@@ -19,13 +19,14 @@
 
 class Entity{
     //a list of components
-    Transform* transform = 0;
+    Transform* transform = nullptr;
     std::vector<Component*> components;
-    Collider* collider = 0;
-    Graphics::Image* texture = 0;
+    Collider* collider = nullptr;
+    Graphics::Image* texture = nullptr;
 public:
     //constructors
     Entity(const Math::Vector2D& pos);
+    Entity(float x, float y);
     virtual void update();
     virtual void draw();
     //add a new texture
