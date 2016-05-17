@@ -11,5 +11,5 @@
 
 #include "RigidBody.hpp"
 #include "Transform.hpp"
-#include "Entity.hpp"
+#include "Collider.hpp"
 #endif /* Math_h */

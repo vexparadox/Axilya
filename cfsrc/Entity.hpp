@@ -13,8 +13,9 @@
 #include "Math.h"
 #include "Graphics.hpp"
 //components
-#include "Transform.hpp"
-#include "RigidBody.hpp"
+// #include "Transform.hpp"
+// #include "RigidBody.hpp"
+#include "Components.h"
 
 #endif /* Entity_hpp */
 
@@ -22,6 +23,7 @@ class Entity{
     //a list of components
     Transform* transform;
     std::vector<Component*> components;
+    Collider* collider;
     Graphics::Image* texture;
 public:
     //constructors

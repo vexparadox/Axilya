@@ -13,5 +13,6 @@
 #include "../cfsrc/Types.h"
 #include "../cfsrc/Graphics.hpp"
 #include "../cfsrc/Components.h"
+#include "../cfsrc/Entity.hpp"
 
 #endif /* CoreMain_h */

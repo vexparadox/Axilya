@@ -14,6 +14,8 @@
 
 class RigidBody : public Component{
     bool gravity = true;
+    Math::Vector2D acceleration;
+    float terminalVelocity = 2;
 public:
     RigidBody(Entity* owner);
     void update();

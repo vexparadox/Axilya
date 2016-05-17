@@ -14,7 +14,8 @@ RigidBody::RigidBody(Entity* owner) : Component(owner){
 }
 
 void RigidBody::update(){
-    if(gravity){
-        getOwner()->getTransform()->getPos().y++;
+    if(gravity && acceleration.y < terminalVelocity){
+        acceleration.y += 0.2;
     }
+    getOwner()->getTransform()->getPos() + this->acceleration;
 }
