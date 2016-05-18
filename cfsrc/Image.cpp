@@ -61,7 +61,7 @@ namespace Graphics{
     
     
     void Image::draw(float x, float y){
-        this->draw(x, w, this->w, this->h);
+        this->draw(x, y, this->w, this->h);
     }
     
     void Image::draw(const Math::Vector2D &v){
@@ -77,7 +77,7 @@ namespace Graphics{
             std::cout << "No image has been loaded" << std::endl;
             return;
         }
-        std::cout << "drawing image" << std::endl;
+        std::cout << "X : " << x << " Y: " << y << " W: " << width << " H: " << height << std::endl;
         glBindTexture(GL_TEXTURE_2D, textureID);
         glEnable(GL_TEXTURE_2D);
         glBegin(GL_QUADS);

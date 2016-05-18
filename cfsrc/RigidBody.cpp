@@ -9,13 +9,17 @@
 #include "RigidBody.hpp"
 #include "Entity.hpp"
 
-RigidBody::RigidBody(Entity* owner) : Component(owner){
+RigidBody::RigidBody(Entity* owner) : Component(owner), acceleration(0, 0){
     
 }
 
 void RigidBody::update(){
-    if(gravity && acceleration.y < terminalVelocity){
-        acceleration.y += 0.2;
+    if(gravity){
+        if(acceleration.y > terminalVelocity){
+            acceleration.y = terminalVelocity;
+        }else{
+            acceleration.y += 0.2;
+        }
     }
     if(!getOwner()->getCollider()){
         // std::cout << "No Collider" << std::endl;

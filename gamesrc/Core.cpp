@@ -30,7 +30,7 @@ void Core::update(){
 }
 
 void Core::draw(){
-	
+
 }
 
 void Core::exitCalled(){

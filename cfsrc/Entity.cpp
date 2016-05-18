@@ -31,7 +31,6 @@ void Entity::update(){
 
 void Entity::draw(){
     if(texture){
-        std::cout << "Drawing image: " << texture->getTextureID() << std::endl;
         texture->draw(transform->getPos());
     }else{
         Graphics::fill(0.0f);
