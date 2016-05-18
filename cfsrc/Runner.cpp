@@ -92,6 +92,7 @@ Runner::Runner(float windowWidth, float windowHeight, int frameRate, const char*
         //swap the buffers
         glfwSwapBuffers(window);
         if(!iconified && focused){
+            //update
             Runner::update();
         }
         glfwPollEvents();
@@ -103,16 +104,22 @@ Runner::Runner(float windowWidth, float windowHeight, int frameRate, const char*
 }
 
 void Runner::update(){
+    //calls the Core update and update on all scenes
     Runner::c->update();
     for(auto s : scenes){
-        s->update();
+        if(s->isActive()){
+            s->update();
+        }
     }
 }
 
 void Runner::draw(){
+    //calls the Core draw and draw on all scenes
     Runner::c->draw();
     for(auto s : scenes){
-        s->draw();
+        if(s->isActive()){
+            s->draw();
+        }
     }
 }
 
