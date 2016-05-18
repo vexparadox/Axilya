@@ -36,7 +36,7 @@ void Core::draw(){
 void Core::exitCalled(){
 	std::exit(0);
 }
-
+  
 void Core::keyPressed(int key){
 
 }

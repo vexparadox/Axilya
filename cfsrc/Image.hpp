@@ -17,11 +17,12 @@ namespace Graphics{
 class Image{
 private:
     GLuint textureID;
+    std::string path;
     int w, h, mipMapLeveCount;
     bool loaded = false;
-    GLuint getTextureID();
     void openGlLoad(const char* name);
 public:
+    GLuint getTextureID();
     Image(){};
     ~Image();
     Image(std::string nameInput);
@@ -42,6 +43,8 @@ public:
     bool grabScreen(float x, float y, float w, float h);
     //returns if the image is loaded
     bool isLoaded();
+    //returns the path the file was loaded from
+    std::string getPath();
 };
 }
 

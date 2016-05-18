@@ -23,6 +23,7 @@ namespace Graphics{
             return false;
         }
         std::string temp = "data/" + nameInput;
+        this->path = temp;
         const char* name = temp.c_str();
         //check if it's already loaded, if so load into the same texture point
         if(!loaded){
@@ -76,18 +77,16 @@ namespace Graphics{
             std::cout << "No image has been loaded" << std::endl;
             return;
         }
+        std::cout << "drawing image" << std::endl;
         glBindTexture(GL_TEXTURE_2D, textureID);
         glEnable(GL_TEXTURE_2D);
         glBegin(GL_QUADS);
         
         glTexCoord2d(0, 1); glVertex2f(x, y+height);
-        
         //bottom left
         glTexCoord2d(0, 0); glVertex2f(x,y);
-        
         //top left
         glTexCoord2d(1, 0); glVertex2f(x+width, y);
-        
         //top right
         glTexCoord2d(1, 1); glVertex2f(x+width, y+height);
         //bottom right
@@ -105,6 +104,10 @@ namespace Graphics{
 
     bool Image::isLoaded(){
         return loaded;
+    }
+    
+    std::string Image::getPath(){
+        return path;
     }
 
     GLuint Image::getTextureID(){
