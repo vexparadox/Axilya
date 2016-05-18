@@ -1,8 +1,8 @@
 # closedFrameworks v0.4 MAKE VERSION
 
-A basic 2D game framework written in C++, runnable with Make. To see the initial production of this project see: `https://github.com/vexparadox/closedFrameworks`
+A basic 2D game framework written in C++, runnable with Make. To see the initial production of this project see: https://github.com/vexparadox/closedFrameworks
 
-Note that the wiki is currently out of date for this Make version, run using make NOT xCode.
+Note that the wiki is partially out of date for this Make version, Entity Component System explaination is coming with v0.5! (maybe)
 
 Core.cpp and Core.hpp is the user entry point into the framework. The methods contained are explained in the wiki.
 
