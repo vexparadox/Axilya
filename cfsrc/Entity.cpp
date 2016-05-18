@@ -30,12 +30,12 @@ void Entity::update(){
 }
 
 void Entity::draw(){
-    // if(texture){
-        // texture->draw(transform->getPos());
-    // }else{
+    if(texture){
+        texture->draw(transform->getPos());
+    }else{
         Graphics::fill(0.0f);
         Graphics::drawRect(transform->getPos(), 10, 10);
-    // }
+    }
 }
 
 void Entity::addTexture(std::string s){

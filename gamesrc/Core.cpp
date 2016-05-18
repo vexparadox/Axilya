@@ -20,6 +20,7 @@ void Core::setup(){
     setBackground(255, 255, 255, 255);
 	Entity* e = new Entity(50, 50);
 	e->addComponent(new RigidBody(e));
+	e->addTexture(new Image("lol.png"));
 	entities.push_back(e);
 }
 
