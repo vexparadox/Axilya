@@ -30,6 +30,8 @@ public:
     static void draw();
     //add a new scene
     static void addScene(Scene*);
+    //get the scenes
+    static std::vector<Scene*>& getScenes();
     //event call backs
     static void errorCallback(int error, const char* description);
     static void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods);

@@ -129,6 +129,10 @@ void Runner::addScene(Scene* s){
     }
 }
 
+std::vector<Scene*>& Runner::getScenes(){
+    return Runner::scenes;
+}
+
 bool Runner::fps(int framerate)
 {
     currentTime = glfwGetTime();
