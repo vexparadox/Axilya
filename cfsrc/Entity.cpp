@@ -33,7 +33,7 @@ void Entity::draw(){
     if(texture){
         texture->draw(transform->getPos());
     }else{
-        Graphics::fill(255, 0, 0);
+        Graphics::fill(0.0f);
         Graphics::drawRect(transform->getPos(), 10, 10);
     }
 }

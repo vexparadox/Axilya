@@ -9,9 +9,10 @@
 #ifndef Ellipse_h
 #define Ellipse_h
 #include "Vector2D.h"
+#include "Shape.h"
 
 namespace Graphics{
-    class Ellipse{
+    class Ellipse : public Shape{
     private:
         //Center point
         Math::Vector2D cp;

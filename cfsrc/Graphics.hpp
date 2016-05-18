@@ -53,6 +53,7 @@ namespace Graphics{
     
     //colours
     void fill(const Graphics::Colour &c);
+    void fill(const float &rgb);
     void fill(const float &r, const float &g, const float &b, const float &a);
     void fill(const float &r, const float &g, const float &b);
     void clearFill();

@@ -10,9 +10,10 @@
 #define Triangle_h
 
 #include "Vector2D.h"
+#include "Shape.h"
 
 namespace Graphics{
-class Triangle{
+class Triangle : public Shape{
     Math::Vector2D v1, v2, v3;
 public:
     Triangle(const Math::Vector2D &v1, const Math::Vector2D &v2, const Math::Vector2D &v3){

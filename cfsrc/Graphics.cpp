@@ -143,6 +143,10 @@ namespace Graphics{
         glColor4f(c.getR(), c.getG(), c.getB(), c.getA());
     }
     
+    void fill(const float &rgb){
+        glColor4f(rgb/255, rgb/255, rgb/255, 1);
+    }
+    
     void fill(const float &r, const float &g, const float &b, const float &a){
         glColor4f(r/255, g/255, b/255, a/255);
     }
@@ -154,6 +158,5 @@ namespace Graphics{
     void clearFill(){
         glColor4f(1, 1, 1, 0);
     }
-
 
 }
