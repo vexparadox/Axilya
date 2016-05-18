@@ -25,8 +25,11 @@ public:
     //the creation of the runner
     Runner(float windowWidth, float windowHeight, int frameRate, const char* title, BaseCore* c);
     ~Runner(){};
+    //calls Update and Draw on the program
     static void update();
     static void draw();
+    //add a new scene
+    static void addScene(Scene*);
     static void errorCallback(int error, const char* description);
     static void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods);
     static void mouseCallback(GLFWwindow* window, int button, int action, int mods);

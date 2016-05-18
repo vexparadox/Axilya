@@ -123,6 +123,12 @@ void Runner::draw(){
     }
 }
 
+void Runner::addScene(Scene* s){
+    if(s){
+        Runner::scenes.push_back(s);
+    }
+}
+
 bool Runner::fps(int framerate)
 {
     currentTime = glfwGetTime();
