@@ -77,7 +77,7 @@ namespace Graphics{
             std::cout << "No image has been loaded" << std::endl;
             return;
         }
-        std::cout << "X : " << x << " Y: " << y << " W: " << width << " H: " << height << std::endl;
+        // std::cout << "X : " << x << " Y: " << y << " W: " << width << " H: " << height << std::endl;
         glBindTexture(GL_TEXTURE_2D, textureID);
         glEnable(GL_TEXTURE_2D);
         glBegin(GL_QUADS);

@@ -4,7 +4,9 @@ A basic 2D game framework written in C++, runnable with Make. To see the initial
 
 Note that the wiki is partially out of date for this Make version, Entity Component System explaination is coming with v0.5! (maybe)
 
-Core.cpp and Core.hpp is the user entry point into the framework. The methods contained are explained in the wiki.
+This framework is going to be the base of the yet-to-be-named 2D engine I am making, this is the reason for going towards a Unity styled ECS.
+
+Please see the WIKI on how to use this framework. It's not very scary once you get started.
 
 ## v0.5 COMING SOON
 
