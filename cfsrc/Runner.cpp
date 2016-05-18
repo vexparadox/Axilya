@@ -12,11 +12,13 @@ float Runner::g = 1;
 float Runner::b = 1;
 float Runner::a = 1;
 int Runner::keysPressed =0;
+std::vector<Scene*> Runner::scenes;
 int Runner::mbsPressed = 0;
-Runner::Runner(float windowWidth, float windowHeight, int frameRate,const char* title,BaseCore* c){
+BaseCore* Runner::c = 0;
+Runner::Runner(float windowWidth, float windowHeight, int frameRate, const char* title, BaseCore* c){
     //assign the core to the pointer
-    this->c = c;
-        //sets the event call back method in basecore
+    Runner::c = c;
+    //sets the event call back method in basecore
     //set the error method in basecore
     glfwSetErrorCallback(errorCallback);
     //if it fails then exit
@@ -62,7 +64,6 @@ Runner::Runner(float windowWidth, float windowHeight, int frameRate,const char* 
         //this stops the window running in the background and if it's been minimised
         if(iconified || !focused){
             glfwWaitEvents();
-        
         }
         if(fps(frameRate)){
             continue;
@@ -86,12 +87,12 @@ Runner::Runner(float windowWidth, float windowHeight, int frameRate,const char* 
         //call update and then draw if the window isn't iconified
         if(!iconified && focused){
             //draw
-            c->draw();
+            Runner::draw();
         }
         //swap the buffers
         glfwSwapBuffers(window);
         if(!iconified && focused){
-            c->update();
+            Runner::update();
         }
         glfwPollEvents();
     }
@@ -99,6 +100,20 @@ Runner::Runner(float windowWidth, float windowHeight, int frameRate,const char* 
     glfwDestroyWindow(window);
     glfwTerminate();
     exit(EXIT_SUCCESS);
+}
+
+void Runner::update(){
+    Runner::c->update();
+    for(auto s : scenes){
+        s->update();
+    }
+}
+
+void Runner::draw(){
+    Runner::c->draw();
+    for(auto s : scenes){
+        s->draw();
+    }
 }
 
 bool Runner::fps(int framerate)
