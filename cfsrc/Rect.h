@@ -13,23 +13,20 @@
 #include "Shape.h"
 namespace Graphics{
     class Rect : public Shape{
-        Math::Vector2D v;
         float w, h;
     public:
-        Rect(const Math::Vector2D &v1, float w, float h){
-            this->v = v1;
+        Rect(const Math::Vector2D &v1, float w, float h): Shape(v1){
             this->w = w;
             this->h = h;
         }
         
-        Rect(float x, float y, float w, float h){
-            this->v = Math::Vector2D(x, y);
+        Rect(float x, float y, float w, float h) : Shape(Math::Vector2D(x, y)){
             this->w = w;
             this->h = h;
         }
         
         void set(const Math::Vector2D &v, float w, float h){
-            this->v = v;
+            this->position = v;
             this->w = w;
             this->h = h;
         }
@@ -39,11 +36,11 @@ namespace Graphics{
         }
         
         const float getX() const{
-            return v.x;
+            return position.x;
         }
         
         const float getY() const{
-            return v.y;
+            return position.y;
         }
         
         const float getWidth() const{

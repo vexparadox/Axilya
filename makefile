@@ -1,5 +1,5 @@
 exename := closedFrameworks
-all: game main SOIL
+all: SOIL main game
 	g++ -g -o $(exename) *.o -framework OpenGL -framework Cocoa -framework IOKit -framework CoreVideo -framework CoreFoundation -Llib/ -Wl -ldrawtext-noft -lGLEW -lglfw3
 	rm *.o
 	./$(exename)

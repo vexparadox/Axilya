@@ -18,7 +18,7 @@ void RigidBody::update(){
         acceleration.y += 0.2;
     }
     if(!getOwner()->getCollider()){
-        std::cout << "No Collider" << std::endl;
+        // std::cout << "No Collider" << std::endl;
     }
     getOwner()->getTransform()->getPos() + this->acceleration;
 }
