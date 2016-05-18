@@ -11,6 +11,7 @@
 
 #include "Ellipse.h"
 #include "Triangle.h"
+#include "Shape.h"
 #include "Rect.h"
 #include "Poly.h"
 #include "Image.hpp"
