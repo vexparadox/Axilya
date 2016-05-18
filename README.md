@@ -6,46 +6,52 @@ Note that the wiki is currently out of date for this Make version, run using mak
 
 Core.cpp and Core.hpp is the user entry point into the framework. The methods contained are explained in the wiki.
 
+## v0.5 COMING SOON
+
+- Entity Component System (alpha stage)
+
+- General error fixing
+
 ## v0.4 Changelog
 
--Push pop Matrixes
+- Push pop Matrixes
 
--Matrix translation
+- Matrix translation
 
--Fixes to the timer
+- Fixes to the timer
 
--New Wiki pages!
+- New Wiki pages!
 
--Ellipse rendering and collision
+- Ellipse rendering and collision
 
--Colour fills, you can now easily colour shapes
+- Colour fills, you can now easily colour shapes
 
--Increased perforamce other collisions
+- Increased perforamce other collisions
 
 ## v0.3 Changelog
 
--Optimised shape drawing
+- Optimised shape drawing
+ 
+- Added text rendering! Only uses glyphmaps at the moment
 
--Added text rendering! Only uses glyphmaps at the moment
+- Fixed lines being drawn around images, they weren't being clamped properly
 
--Fixed lines being drawn around images, they weren't being clamped properly
+- Added exitCalled() call back in the Core
 
--Added exitCalled() call back in the Core
+- Commented a lot of the collision and Math code
 
--Commented a lot of the collision and Math code
+- mousePressed and keyPressed should now be accurate and take account to multiple presses
 
--mousePressed and keyPressed should now be accurate and take account to multiple presses
+- Added a Timer class
 
--Added a Timer class
+- Cleaned up Vector code
 
--Cleaned up Vector code
-
--Added GLEW for text rendering
+- Added GLEW for text rendering
 
 ## v0.2 Changelog
 
--Finalised the CSV Reader
+- Finalised the CSV Reader
 
--You can normalise 3D Vectors
+- You can normalise 3D Vectors
 
--Triangles are now labelled properly
+- Triangles are now labelled properly
