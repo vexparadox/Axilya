@@ -22,7 +22,7 @@ public:
     void mousePressed(int button);
     void mouseReleased(int button);
     void exitCalled();
-    std::vector<Entity*> entities;
+    Scene* scene1 = nullptr;
 };
 
 #endif /* Core_hpp */

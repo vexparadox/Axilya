@@ -18,22 +18,19 @@ Core::~Core(){
 
 void Core::setup(){
     setBackground(255, 255, 255, 255);
+	scene1 = new Scene(true);
 	Entity* e = new Entity(50, 50);
 	e->addComponent(new RigidBody(e));
 	e->addTexture(new Image("lol.png"));
-	entities.push_back(e);
+	scene1->addEntity(e);
 }
 
 void Core::update(){
-	for(auto e : entities){
-		e->update();
-	}
+	
 }
 
 void Core::draw(){
-	for(auto e : entities){
-		e->draw();
-	}
+	
 }
 
 void Core::exitCalled(){

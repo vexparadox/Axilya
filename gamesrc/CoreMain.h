@@ -14,5 +14,6 @@
 #include "../cfsrc/Graphics.hpp"
 #include "../cfsrc/Components.h"
 #include "../cfsrc/Entity.hpp"
+#include "../cfsrc/Scene.hpp"
 
 #endif /* CoreMain_h */

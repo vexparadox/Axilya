@@ -1,8 +1,9 @@
 #include "Entity.hpp"
+#include "Runner.hpp"
 #include "Scene.hpp"
 
 Scene::Scene(bool active) : active(active){
-    
+    Runner::addScene(this);
 }
 
 void Scene::draw(){

@@ -20,7 +20,7 @@ class Runner{
     static int mbsPressed;
     static std::vector<Scene*> scenes;
 public:
-    //the RGBA of the next screen flush
+    //the RGBA of the next screen flush IE the background
     static float r, g, b, a;
     //the creation of the runner
     Runner(float windowWidth, float windowHeight, int frameRate, const char* title, BaseCore* c);
@@ -30,6 +30,7 @@ public:
     static void draw();
     //add a new scene
     static void addScene(Scene*);
+    //event call backs
     static void errorCallback(int error, const char* description);
     static void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods);
     static void mouseCallback(GLFWwindow* window, int button, int action, int mods);
