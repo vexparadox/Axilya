@@ -17,6 +17,10 @@ namespace Graphics{
         this->loadImage(name);
     }
     
+    bool Image::fileExists (const std::string& name) {
+        return ( access( name.c_str(), F_OK ) != -1 );
+    }
+    
     bool Image::loadImage(std::string nameInput){
         if(loaded){
             std::cout << "Image: already loaded" << std::endl;
@@ -25,6 +29,9 @@ namespace Graphics{
         std::string temp = "data/" + nameInput;
         this->path = temp;
         const char* name = temp.c_str();
+        if(!fileExists(temp)){
+            return false;
+        }
         //check if it's already loaded, if so load into the same texture point
         if(!loaded){
             openGlLoad(name);
@@ -47,7 +54,6 @@ namespace Graphics{
         glGenTextures(1, &texture_id);
         glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, texture_id);
-        // std::cout << " W: " << this->w << " H: " << this->h << std::endl;
         unsigned char* imageDataPtr = SOIL_load_image(name, &this->w, &this->h, 0, SOIL_LOAD_RGBA);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);

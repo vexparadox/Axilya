@@ -13,6 +13,9 @@
 #include "GLFW/glfw3.h"
 #include "Vector2D.h"
 #include <iostream>
+#include <sys/stat.h>
+#include <unistd.h>
+
 namespace Graphics{
 class Image{
 private:
@@ -28,6 +31,9 @@ public:
     Image(std::string nameInput);
     //load the image
     bool loadImage(std::string nameInput);
+    
+    //checks if files exists
+    bool fileExists(const std::string& name);
     
     //various different draw methods
     void draw(const Math::Vector2D &v, float w, float h);
