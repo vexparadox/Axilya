@@ -65,7 +65,6 @@ namespace Graphics{
         this->textureID = texture_id;
     }
     
-    
     void Image::draw(float x, float y){
         this->draw(x, y, this->w, this->h);
     }

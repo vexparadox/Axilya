@@ -2,12 +2,8 @@
 #include "Collider.hpp"
 #include "Entity.hpp"
 
-Collider::Collider(Entity* owner, Shape* bounds) : Component(owner), bounds(bounds){
+Collider::Collider(Entity* owner) : Component(owner){
     
-}
-
-Shape* Collider::getBounds(){
-    return bounds;
 }
 
 bool Collider::collideCheck(){

@@ -9,8 +9,7 @@ class Collider : public Component{
     Shape* bounds; 
 public:
     //take the owner and bounds of the collider 
-    Collider(Entity*, Shape*);
-    Shape* getBounds();
+    Collider(Entity*);
     bool collideCheck();
 };
 

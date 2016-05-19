@@ -12,4 +12,5 @@
 #include "RigidBody.hpp"
 #include "Transform.hpp"
 #include "Collider.hpp"
+#include "BoxCollider.hpp"
 #endif /* Math_h */

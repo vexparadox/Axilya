@@ -21,6 +21,7 @@ void Core::setup(){
 	Entity* e = new Entity(50, 50);
 	e->addComponent(new RigidBody(e));
 	e->addTexture(new Image("img.png"));
+	e->addCollider(new BoxCollider(e));
 	scene1->addEntity(e);
 }
 
