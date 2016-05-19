@@ -10,7 +10,7 @@ class Collider : public Component{
 public:
     //take the owner and bounds of the collider 
     Collider(Entity*);
-    bool collideCheck();
+    virtual bool collideCheck();
 };
 
 #endif

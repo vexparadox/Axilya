@@ -6,7 +6,8 @@
 class Entity;
 class BoxCollider : public Collider{
 public:
-    BoxCollider(Entity* owner);  
+    BoxCollider(Entity* owner);
+    bool collideCheck();
 };
 
 #endif
