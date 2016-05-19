@@ -18,7 +18,7 @@ class Image{
 private:
     GLuint textureID;
     std::string path;
-    int w, h, mipMapLeveCount;
+    int w = 0, h = 0, mipMapLeveCount = 0;
     bool loaded = false;
     void openGlLoad(const char* name);
 public:
