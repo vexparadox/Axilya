@@ -30,8 +30,6 @@ Runner::Runner(float windowWidth, float windowHeight, int frameRate, const char*
     //create the window using the height and stuff
     c->getWindow() = glfwCreateWindow(windowWidth, windowHeight, title, NULL, NULL);
     GLFWwindow* window = c->getWindow();
-    //set a userpointer for the window to this version of Runner
-    glfwSetWindowUserPointer(window, this);
     //set the key_callback method
     glfwSetKeyCallback(window, keyCallback);
     //set mousepressed callback
@@ -151,56 +149,48 @@ void Runner::errorCallback(int error, const char* description){
 }
 
 void Runner::cursorCallback(GLFWwindow* window, double xpos, double ypos){
-    void* data = glfwGetWindowUserPointer(window);
-    Runner* r = static_cast<Runner*>(data);
-    r->c->mouseX = xpos;
-    r->c->mouseY = ypos;
+    Runner::c->mouseX = xpos;
+    Runner::c->mouseY = ypos;
 }
 
 void Runner::mouseCallback(GLFWwindow *window, int button, int action, int mods){
-    void* data = glfwGetWindowUserPointer(window);
-    Runner* r = static_cast<Runner*>(data);
     if(action == GLFW_PRESS){
         mbsPressed++;
-        r->c->mousePressed(button);
-        r->c->mouseIsPressed = true;
-        r->c->mouseButton = button;
+        Runner::c->mousePressed(button);
+        Runner::c->mouseIsPressed = true;
+        Runner::c->mouseButton = button;
         return;
     }
     if(action == GLFW_RELEASE){
         mbsPressed--;
         if(mbsPressed < 1){
-            r->c->mouseIsPressed = false;
-            r->c->mouseButton = -1;
+            Runner::c->mouseIsPressed = false;
+            Runner::c->mouseButton = -1;
         }
-        r->c->mouseReleased(button);
+        Runner::c->mouseReleased(button);
         return;
     }
 }
 
 void Runner::keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods){
     if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS){
-        void* data = glfwGetWindowUserPointer(window);
-        Runner* r = static_cast<Runner*>(data);
-        r->c->exitCalled();
+        Runner::c->exitCalled();
         return;
     }
-    void* data = glfwGetWindowUserPointer(window);
-    Runner* r = static_cast<Runner*>(data);
     if(action == GLFW_PRESS){
-        r->c->keyIsPressed = true;
-        r->c->keyCode = key;
-        r->c->keyPressed(key);
+        Runner::c->keyIsPressed = true;
+        Runner::c->keyCode = key;
+        Runner::c->keyPressed(key);
         keysPressed++;
         return;
     }
     if(action == GLFW_RELEASE){
         keysPressed--;
         if(keysPressed <1){
-            r->c->keyCode = 0;
-            r->c->keyIsPressed = false;
+            Runner::c->keyCode = 0;
+            Runner::c->keyIsPressed = false;
         }
-        r->c->keyReleased(key);
+        Runner::c->keyReleased(key);
         return;
     }
 }

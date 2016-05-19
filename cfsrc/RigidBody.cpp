@@ -14,6 +14,9 @@ RigidBody::RigidBody(Entity* owner) : Component(owner), acceleration(0, 0){
 }
 
 void RigidBody::update(){
+    if(!getOwner()->getCollider()->collideCheck()){
+        return;
+    }
     if(gravity){
         if(acceleration.y > terminalVelocity){
             acceleration.y = terminalVelocity;
