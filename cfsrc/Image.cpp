@@ -47,9 +47,8 @@ namespace Graphics{
         glGenTextures(1, &texture_id);
         glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, texture_id);
-        std::cout << " W: " << this->w << " H: " << this->h << std::endl;
+        // std::cout << " W: " << this->w << " H: " << this->h << std::endl;
         unsigned char* imageDataPtr = SOIL_load_image(name, &this->w, &this->h, 0, SOIL_LOAD_RGBA);
-        std::cout << " W: " << this->w << " H: " << this->h << std::endl;
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
         glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
@@ -78,8 +77,7 @@ namespace Graphics{
             std::cout << "No image has been loaded" << std::endl;
             return;
         }
-        width = this->w;
-        height = this->h;
+        std::cout << "X: " << x << " Y :" << y << " W: " << width << " H: " << height << std::endl;
         glBindTexture(GL_TEXTURE_2D, textureID);
         glEnable(GL_TEXTURE_2D);
         glBegin(GL_QUADS);

@@ -1,10 +1,10 @@
 program_NAME := closedFrameworks
+program_C_SRCS := $(wildcard cfsrc/SOIL/*.c)
 program_CXX_SRCS := $(wildcard cfsrc/*.cpp)
 program_CXX_SRCS += $(wildcard gamesrc/*.cpp)
-program_CXX_SRCS += $(wildcard cfsrc/SOIL/*.cpp)
 program_C_OBJS := ${program_C_SRCS:.c=.o}
 program_CXX_OBJS := ${program_CXX_SRCS:.cpp=.o}
-program_OBJS := $(program_CXX_OBJS)
+program_OBJS := $(program_C_OBJS) $(program_CXX_OBJS)
 program_INCLUDE_DIRS :=
 program_LIBRARY_DIRS := ./lib/
 program_LIBRARIES := drawtext-noft GLEW glfw3

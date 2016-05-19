@@ -21,6 +21,7 @@ void Core::setup(){
 	Entity* e = new Entity(50, 50);
 	e->addComponent(new RigidBody(e));
 	e->addTexture(new Image("lol.png"));
+	std::cout << e->getTexture()->getPath();
 	scene1->addEntity(e);
 }
 
