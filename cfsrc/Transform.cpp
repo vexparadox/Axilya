@@ -12,6 +12,10 @@ Transform::Transform(const Math::Vector2D& pos, const Math::Vector2D& size, Enti
     
 }
 
+Transform::Transform(float x, float y, float w, float h, Entity* owner) : Component(owner), position(x, y), size(w, h){
+    
+}
+
 Math::Vector2D& Transform::getPos(){
     return position;
 }

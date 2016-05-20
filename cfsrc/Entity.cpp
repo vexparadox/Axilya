@@ -8,7 +8,7 @@
 
 #include "Entity.hpp"
 Entity::Entity(float x, float y, float w, float h){
-    transform = new Transform(Math::Vector2D(x, y), Math::Vector2D(w, h), this);
+    transform = new Transform(x, y, w, h, this);
 }
 
 Entity::Entity(const Math::Vector2D& pos, const Math::Vector2D& size){

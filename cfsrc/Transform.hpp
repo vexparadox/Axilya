@@ -16,6 +16,7 @@ class Transform : public Component{
     Math::Vector2D position, size;
 public:
     Transform(const Math::Vector2D& pos, const Math::Vector2D& size, Entity* owner);
+    Transform(float x, float y, float w, float h, Entity* owner);
     Math::Vector2D& getPos();
     Math::Vector2D& getSize();
 };
