@@ -20,7 +20,9 @@ protected:
     virtual ~Component();
 public:  
     Entity* getOwner();
+    void setOwner(Entity*);
     virtual void update(){};
+    
 };
 
 #endif /* Component_hpp */

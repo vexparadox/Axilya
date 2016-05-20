@@ -18,10 +18,12 @@
 #endif /* Entity_hpp */
 
 class Entity{
-    //a list of components
+    //a list of standard components
     Transform* transform = 0;
-    std::vector<Component*> components;
     Collider* collider = 0;
+    RigidBody* rigidBody = 0;
+    //a list of custom components
+    std::vector<Component*> components;
     Graphics::Image* texture = 0;
 public:
     //constructors
@@ -32,13 +34,15 @@ public:
     //add a new texture
     void addTexture(std::string);
     void addTexture(Graphics::Image*);
+    //add RigidBody
+    void addRigidBody(RigidBody*);
+    void addRigidBody(bool);
     //get the texture
     Graphics::Image* getTexture();
     //add a collider
     void addCollider(Collider*);
     //get the collider
     Collider* getCollider();
-    
     //add a new component
     void addComponent(Component*);
     //return the transform

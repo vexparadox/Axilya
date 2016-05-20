@@ -19,6 +19,15 @@ void Entity::addComponent(Component* c){
     components.push_back(c);
 }
 
+void Entity::addRigidBody(RigidBody* r){
+    r->setOwner(this);
+    this->rigidBody = r;
+}
+
+void Entity::addRigidBody(bool gravity){
+    this->rigidBody = new RigidBody(this, gravity);
+}
+
 Transform* Entity::getTransform(){
     return transform;
 }

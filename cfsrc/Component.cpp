@@ -18,3 +18,7 @@ Component::~Component(){
 Entity* Component::getOwner(){
     return owner;
 }
+
+void Component::setOwner(Entity* o){
+    this->owner = o;
+}
