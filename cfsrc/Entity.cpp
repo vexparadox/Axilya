@@ -31,9 +31,10 @@ void Entity::update(){
 
 void Entity::draw(){
     if(texture){
+        // Graphics::fill(255, 255, 255, 255);
         texture->draw(transform->getPos(), transform->getSize().x, transform->getSize().y);
     }else{
-        Graphics::fill(0.0f);
+        Graphics::fill(0, 0, 0, 255);
         Graphics::drawRect(transform->getPos(), transform->getSize().x, transform->getSize().y);
     }
 }

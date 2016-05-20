@@ -12,6 +12,9 @@ Component::Component(Entity* owner) : owner(owner){
     
 }
 
+Component::~Component(){
+}
+
 Entity* Component::getOwner(){
     return owner;
 }

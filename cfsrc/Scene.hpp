@@ -14,6 +14,7 @@ public:
     virtual void update();
     virtual void draw();
     void addEntity(Entity*);
+    int numEntities();
 };
 
 #endif

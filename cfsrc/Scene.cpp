@@ -27,3 +27,7 @@ void Scene::update(){
 void Scene::addEntity(Entity* e){
     this->entities.push_back(e);
 }
+
+int Scene::numEntities(){
+    return this->entities.size();
+}
