@@ -5,6 +5,13 @@
 Scene::Scene(){
 }
 
+Scene::~Scene(){
+    for(auto e : entities){
+        delete e;
+        e = nullptr;
+    }
+}
+
 void Scene::draw(){
     for(auto e : entities){
         e->draw();

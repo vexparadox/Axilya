@@ -9,6 +9,7 @@ class Scene{
 public:
     //constructor
     Scene();
+    ~Scene();
     //loop calls
     virtual void update();
     virtual void draw();
