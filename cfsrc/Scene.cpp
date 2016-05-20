@@ -6,7 +6,6 @@ Scene::Scene(){
 }
 
 Scene::~Scene(){
-    // std::cout << "DEAD";
     for(auto e : entities){
         delete e;
         e = 0;

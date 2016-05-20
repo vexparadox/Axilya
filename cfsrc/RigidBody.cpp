@@ -17,10 +17,9 @@ void RigidBody::update(){
     this->applyDrag();
     this->applyGravity();
     this->terminalVelocity();
-    std::cout << "X: " << velocity.x << " Y: " << velocity.y << std::endl;
-
     this->owner->getCollider()->collideCheck(velocity);
     this->owner->getTransform()->getPos()+this->velocity;
+    std::cout << "X: " << velocity.x << " Y: " << velocity.y << std::endl;
 }
 
 void RigidBody::applyGravity(){
