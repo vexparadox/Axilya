@@ -18,7 +18,7 @@ Core::~Core(){
 void Core::setup(){
     setBackground(255, 255, 255, 255);
 	scene1 = new Scene(true);
-	Entity* e = new Entity(50, 50, 10 ,10);
+	Entity* e = new Entity(50, 50, 50 ,50);
 	e->addComponent(new RigidBody(e));
 	// e->addTexture(new Image("img.png"));
 	e->addCollider(new BoxCollider(e));
