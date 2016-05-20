@@ -17,12 +17,14 @@ Core::~Core(){
 
 void Core::setup(){
     setBackground(255, 255, 255, 255);
-	scene1 = new Scene(true);
+	scene1 = new Scene();
+	Runner::setActiveScene(scene1);
 	Entity* e = new Entity(50, 50, 50 ,50);
-	e->addComponent(new RigidBody(e, false));
+	e->addComponent(new RigidBody(e, true));
 	e->addTexture(new Image("img.png"));
 	e->addCollider(new BoxCollider(e));
-	scene1->addEntity(e); 
+	scene1->addEntity(e);
+	
 }
 
 void Core::update(){

@@ -12,8 +12,8 @@ float Runner::g = 1;
 float Runner::b = 1;
 float Runner::a = 1;
 int Runner::keysPressed =0;
-std::vector<Scene*> Runner::scenes;
 int Runner::mbsPressed = 0;
+Scene* Runner::activeScene = nullptr;
 BaseCore* Runner::c = 0;
 Runner::Runner(float windowWidth, float windowHeight, int frameRate, const char* title, BaseCore* c){
     //assign the core to the pointer
@@ -104,31 +104,17 @@ Runner::Runner(float windowWidth, float windowHeight, int frameRate, const char*
 void Runner::update(){
     //calls the Core update and update on all scenes
     Runner::c->update();
-    for(auto s : scenes){
-        if(s->isActive()){
-            s->update();
-        }
+    if(Runner::activeScene){
+        Runner::activeScene->update();
     }
 }
 
 void Runner::draw(){
     //calls the Core draw and draw on all scenes
     Runner::c->draw();
-    for(auto s : scenes){
-        if(s->isActive()){
-            s->draw();
-        }
+    if(Runner::activeScene){
+        Runner::activeScene->draw();
     }
-}
-
-void Runner::addScene(Scene* s){
-    if(s){
-        Runner::scenes.push_back(s);
-    }
-}
-
-std::vector<Scene*>& Runner::getScenes(){
-    return Runner::scenes;
 }
 
 bool Runner::fps(int framerate)
@@ -193,6 +179,10 @@ void Runner::keyCallback(GLFWwindow* window, int key, int scancode, int action, 
         Runner::c->keyReleased(key);
         return;
     }
+}
+
+void Runner::setActiveScene(Scene* s){
+    Runner::activeScene = s;
 }
 
 int Runner::getHeight(){

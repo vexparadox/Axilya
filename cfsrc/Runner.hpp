@@ -15,10 +15,10 @@
 class Runner{
     static BaseCore* c;
     double currentTime, lastTime;
+    static Scene* activeScene;
     bool fps(int framerate);
     static int keysPressed;
     static int mbsPressed;
-    static std::vector<Scene*> scenes;
 public:
     //the RGBA of the next screen flush IE the background
     static float r, g, b, a;
@@ -31,10 +31,9 @@ public:
     //calls Update and Draw on the program
     static void update();
     static void draw();
-    //add a new scene
-    static void addScene(Scene*);
-    //get the scenes
-    static std::vector<Scene*>& getScenes();
+    //set active scene
+    static void setActiveScene(Scene*);
+    static void setActiveScene(int);
     //event call backs
     static void errorCallback(int error, const char* description);
     static void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods);

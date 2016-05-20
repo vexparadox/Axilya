@@ -2,8 +2,7 @@
 #include "Runner.hpp"
 #include "Scene.hpp"
 
-Scene::Scene(bool active) : active(active){
-    Runner::addScene(this);
+Scene::Scene(){
 }
 
 void Scene::draw(){
@@ -16,10 +15,6 @@ void Scene::update(){
     for(auto e : entities){
         e->update();
     }
-}
-
-bool Scene::isActive(){
-    return active;
 }
 
 void Scene::addEntity(Entity* e){
