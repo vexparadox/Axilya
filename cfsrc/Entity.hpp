@@ -25,8 +25,8 @@ class Entity{
     Graphics::Image* texture = nullptr;
 public:
     //constructors
-    Entity(const Math::Vector2D& pos);
-    Entity(float x, float y);
+    Entity(const Math::Vector2D& pos, const Math::Vector2D& size);
+    Entity(float x, float y, float w, float h);
     virtual void update();
     virtual void draw();
     //add a new texture

@@ -7,12 +7,12 @@
 //
 
 #include "Entity.hpp"
-Entity::Entity(float x, float y){
-    transform = new Transform(Math::Vector2D(x, y), this);
+Entity::Entity(float x, float y, float w, float h){
+    transform = new Transform(Math::Vector2D(x, y), Math::Vector2D(w, h), this);
 }
 
-Entity::Entity(const Math::Vector2D& pos){
-    transform = new Transform(pos, this);
+Entity::Entity(const Math::Vector2D& pos, const Math::Vector2D& size){
+    transform = new Transform(pos, size, this);
 }
 
 void Entity::addComponent(Component* c){
@@ -31,10 +31,10 @@ void Entity::update(){
 
 void Entity::draw(){
     if(texture){
-        texture->draw(transform->getPos());
+        texture->draw(transform->getPos(), transform->getSize().x, transform->getSize().y);
     }else{
         Graphics::fill(0.0f);
-        Graphics::drawRect(transform->getPos(), 10, 10);
+        Graphics::drawRect(transform->getPos(), transform->getSize().x, transform->getSize().y);
     }
 }
 

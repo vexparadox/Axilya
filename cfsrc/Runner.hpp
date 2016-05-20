@@ -25,6 +25,9 @@ public:
     //the creation of the runner
     Runner(float windowWidth, float windowHeight, int frameRate, const char* title, BaseCore* c);
     ~Runner(){};
+    //get window size
+    static int getWidth();
+    static int getHeight();
     //calls Update and Draw on the program
     static void update();
     static void draw();

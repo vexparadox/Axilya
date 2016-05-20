@@ -194,3 +194,11 @@ void Runner::keyCallback(GLFWwindow* window, int key, int scancode, int action, 
         return;
     }
 }
+
+int Runner::getHeight(){
+    return Runner::c->windowHeight;
+}
+
+int Runner::getWidth(){
+    return Runner::c->windowWidth;
+}

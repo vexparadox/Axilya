@@ -13,9 +13,10 @@
 #include "Component.hpp"
 class Entity;
 class Transform : public Component{
-    Math::Vector2D position;
+    Math::Vector2D position, size;
 public:
-    Transform(const Math::Vector2D& pos, Entity* owner);
+    Transform(const Math::Vector2D& pos, const Math::Vector2D& size, Entity* owner);
     Math::Vector2D& getPos();
+    Math::Vector2D& getSize();
 };
 #endif /* Transform_hpp */
