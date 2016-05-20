@@ -1,4 +1,0 @@
-install: make
-language: cpp
-compiler: clang
-notifications: never
