@@ -22,7 +22,7 @@ public:
     void mousePressed(int button);
     void mouseReleased(int button);
     void exitCalled();
-    Scene* scene1 = nullptr;
+    Scene* scene1 = 0;
 };
 
 #endif /* Core_hpp */
