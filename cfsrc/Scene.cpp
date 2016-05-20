@@ -8,7 +8,7 @@ Scene::Scene(){
 Scene::~Scene(){
     for(auto e : entities){
         delete e;
-        e = nullptr;
+        e = 0;
     }
 }
 
