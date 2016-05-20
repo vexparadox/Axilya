@@ -19,10 +19,10 @@
 
 class Entity{
     //a list of components
-    Transform* transform = nullptr;
+    Transform* transform = 0;
     std::vector<Component*> components;
-    Collider* collider = nullptr;
-    Graphics::Image* texture = nullptr;
+    Collider* collider = 0;
+    Graphics::Image* texture = 0;
 public:
     //constructors
     Entity(const Math::Vector2D& pos, const Math::Vector2D& size);
