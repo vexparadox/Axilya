@@ -19,8 +19,11 @@ protected:
     Component(Entity* owner);
     virtual ~Component();
 public:  
+    //change what entity owns this component
     Entity* getOwner();
+    //returns what entity owns this component
     void setOwner(Entity*);
+    //a virutal update method that Component's can use
     virtual void update(){};
     
 };

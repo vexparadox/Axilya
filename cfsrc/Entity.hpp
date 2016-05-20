@@ -18,17 +18,20 @@
 #endif /* Entity_hpp */
 
 class Entity{
-    //a list of standard components
+    //a list of standard components, these are presets
     Transform* transform = 0;
     Collider* collider = 0;
     RigidBody* rigidBody = 0;
     //a list of custom components
     std::vector<Component*> components;
+    //the texture/image the Entity owns
     Graphics::Image* texture = 0;
 public:
     //constructors
     Entity(const Math::Vector2D& pos, const Math::Vector2D& size);
     Entity(float x, float y, float w, float h);
+    virtual ~Entity();
+    //update and draws
     virtual void update();
     virtual void draw();
     //add a new texture

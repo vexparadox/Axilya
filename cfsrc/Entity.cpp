@@ -15,6 +15,20 @@ Entity::Entity(const Math::Vector2D& pos, const Math::Vector2D& size){
     transform = new Transform(pos, size, this);
 }
 
+Entity::~Entity(){
+    //remove all the components
+    delete transform;
+    transform = 0;
+    delete collider;
+    collider = 0;
+    delete rigidBody;
+    rigidBody = 0;
+    for(auto c : components){
+        delete c;
+        c = 0;
+    }
+}
+
 void Entity::addComponent(Component* c){
     components.push_back(c);
 }
