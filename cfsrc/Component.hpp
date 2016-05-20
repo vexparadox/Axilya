@@ -16,9 +16,9 @@ class Entity;
 class Component{
 protected:
     Entity* owner;
-    Entity* getOwner();
     Component(Entity* owner);
 public:  
+    Entity* getOwner();
     virtual void update(){};
 };
 

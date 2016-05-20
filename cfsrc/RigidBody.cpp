@@ -9,23 +9,42 @@
 #include "RigidBody.hpp"
 #include "Entity.hpp"
 
-RigidBody::RigidBody(Entity* owner) : Component(owner), acceleration(0, 0){
+RigidBody::RigidBody(Entity* owner) : Component(owner), velocity(0, 0), drag(0.1, 0.1){
     
 }
 
 void RigidBody::update(){
-    if(!getOwner()->getCollider()->collideCheck()){
-        return;
-    }
+    // this->applyDrag();
+    this->applyGravity();
+    this->owner->getCollider()->collideCheck(velocity);
+    this->owner->getTransform()->getPos()+this->velocity;
+}
+
+void RigidBody::applyGravity(){
     if(gravity){
-        if(acceleration.y > terminalVelocity){
-            acceleration.y = terminalVelocity;
+        if(velocity.y >= terminalVelocity){
+            velocity.y = terminalVelocity; 
         }else{
-            acceleration.y += 0.2;
+            velocity.y += 0.981;
         }
     }
-    if(!getOwner()->getCollider()){
-        // std::cout << "No Collider" << std::endl;
+}
+
+void RigidBody::applyDrag(){
+    if(velocity.y > 0){
+        velocity.y -= drag.y;
+    }else{
+        velocity.y += drag.y;
     }
-    getOwner()->getTransform()->getPos() + this->acceleration;
+    if(velocity.x > 0){
+        velocity.x -= drag.x;
+    }else{
+        velocity.x += drag.x;
+    }
+    if(Math::absolute(velocity.x) < 0.2){
+        velocity.x = 0;
+    }
+    if(Math::absolute(velocity.y) < 0.2){
+        velocity.y = 0;
+    }
 }

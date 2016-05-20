@@ -5,6 +5,6 @@ BoxCollider::BoxCollider(Entity* owner) : Collider(owner){
     
 }
 
-bool BoxCollider::collideCheck(){
-    return false;
+void BoxCollider::collideCheck(Math::Vector2D& v){
+    
 }

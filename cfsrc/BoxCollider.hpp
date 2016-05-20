@@ -7,7 +7,7 @@ class Entity;
 class BoxCollider : public Collider{
 public:
     BoxCollider(Entity* owner);
-    bool collideCheck();
+    virtual void collideCheck(Math::Vector2D& v);
 };
 
 #endif

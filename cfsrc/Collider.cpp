@@ -5,7 +5,3 @@
 Collider::Collider(Entity* owner) : Component(owner){
     
 }
-
-bool Collider::collideCheck(){
-    return false;
-}

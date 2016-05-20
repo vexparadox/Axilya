@@ -12,10 +12,13 @@
 #include <stdio.h>
 #include "Component.hpp"
 
+
 class RigidBody : public Component{
     bool gravity = true;
-    Math::Vector2D acceleration;
-    float terminalVelocity = 1;
+    Math::Vector2D velocity, drag;
+    float terminalVelocity = 2;
+    void applyDrag();
+    void applyGravity();
 public:
     RigidBody(Entity* owner);
     void update();
