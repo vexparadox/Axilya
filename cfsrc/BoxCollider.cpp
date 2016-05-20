@@ -15,7 +15,17 @@ void BoxCollider::collideCheck(Math::Vector2D& v){
         newPos.y = screenHeight-size.y;
     }
     if(newPos.y+v.y < 0){
-        v.y = -newPos.y;
+        v.y = 0;
+        newPos.y = 0;
     }
+    if(newPos.x+size.x+v.x >= screenWidth){
+        v.x = 0;
+        newPos.x = screenWidth-size.x;
+    }
+    if(newPos.x+v.x < 0){
+        v.x = 0;
+        newPos.x = 0;
+    }
+    
     owner->getTransform()->getPos() = newPos;
 }

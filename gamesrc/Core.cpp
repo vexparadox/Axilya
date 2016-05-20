@@ -20,7 +20,7 @@ void Core::setup(){
 	scene1 = new Scene();
 	Runner::setActiveScene(scene1);
 	
-	Entity* e = new Entity(50, 50, 50 ,50);
+	e = new Entity(50, 50, 50 ,50);
 	e->addComponent(new RigidBody(e, true));
 	e->addTexture("img.png");
 	e->addCollider(new BoxCollider(e));
@@ -37,16 +37,17 @@ void Core::setup(){
 	e->addTexture("img.png");
 	e->addCollider(new BoxCollider(e));
 	scene1->addEntity(e);
-	e->getRigidBody()->addForce(0.4, 0);
+
 	std::cout << scene1->numEntities()<<std::endl;
 	
 }
 
 void Core::update(){
-	
+
 }
 
 void Core::draw(){
+		e->getRigidBody()->addForce(3, 0);
 
 }
 

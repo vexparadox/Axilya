@@ -23,6 +23,7 @@ public:
     void mouseReleased(int button);
     void exitCalled();
     Scene* scene1 = 0;
+    Entity* e;
 };
 
 #endif /* Core_hpp */
