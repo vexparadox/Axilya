@@ -14,14 +14,15 @@
 
 
 class RigidBody : public Component{
-    bool gravity = true;
+    bool gravity;
     Math::Vector2D velocity, drag;
     float terminalVelocity = 2;
     void applyDrag();
     void applyGravity();
 public:
-    RigidBody(Entity* owner);
+    RigidBody(Entity* owner, bool gravity);
     void update();
+    void setGravity(bool);
 };
 
 

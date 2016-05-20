@@ -9,7 +9,7 @@
 #include "RigidBody.hpp"
 #include "Entity.hpp"
 
-RigidBody::RigidBody(Entity* owner) : Component(owner), velocity(0, 0), drag(0.1, 0.1){
+RigidBody::RigidBody(Entity* owner, bool gravity) : Component(owner), velocity(0, 0), drag(0.1, 0.1), gravity(gravity){
     
 }
 
@@ -47,4 +47,8 @@ void RigidBody::applyDrag(){
     if(Math::absolute(velocity.y) < 0.2){
         velocity.y = 0;
     }
+}
+
+void RigidBody::setGravity(bool g){
+    this->gravity = g;
 }
