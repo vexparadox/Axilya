@@ -34,12 +34,14 @@ public:
     //update and draws
     virtual void update();
     virtual void draw();
-    //add a new texture
-    void addTexture(std::string);
-    void addTexture(Graphics::Image*);
     //add RigidBody
     void addRigidBody(RigidBody*);
     void addRigidBody(bool);
+    //get the rigidBody
+    RigidBody* getRigidBody();    
+    //add a new texture
+    void addTexture(std::string);
+    void addTexture(Graphics::Image*);
     //get the texture
     Graphics::Image* getTexture();
     //add a collider

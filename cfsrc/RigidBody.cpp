@@ -52,3 +52,12 @@ void RigidBody::applyDrag(){
 void RigidBody::setGravity(bool g){
     this->gravity = g;
 }
+
+void RigidBody::addForce(float x, float y){
+    this->velocity.x += x;
+    this->velocity.y += y;
+}
+
+void RigidBody::addForce(const Math::Vector2D& f){
+    velocity += f;
+}

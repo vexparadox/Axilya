@@ -33,11 +33,11 @@ void Core::setup(){
 	scene1->addEntity(e);
 	
 	e = new Entity(200, 60, 20, 20);
-	e->addComponent(new RigidBody(e, true));
+	e->addRigidBody(true);
 	e->addTexture("img.png");
 	e->addCollider(new BoxCollider(e));
 	scene1->addEntity(e);
-	
+	e->getRigidBody()->addForce(0.4, 0);
 	std::cout << scene1->numEntities()<<std::endl;
 	
 }

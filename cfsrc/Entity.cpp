@@ -29,6 +29,25 @@ Entity::~Entity(){
     }
 }
 
+void Entity::draw(){
+    if(texture){
+        // Graphics::fill(255, 255, 255, 255);
+        texture->draw(transform->getPos(), transform->getSize().x, transform->getSize().y);
+    }else{
+        Graphics::fill(0, 0, 0, 255);
+        Graphics::drawRect(transform->getPos(), transform->getSize().x, transform->getSize().y);
+    }
+}
+void Entity::update(){
+    if(rigidBody){
+        rigidBody->update();
+    }
+    for(auto c : components){
+        c->update();
+    }
+}
+
+
 void Entity::addComponent(Component* c){
     components.push_back(c);
 }
@@ -42,25 +61,15 @@ void Entity::addRigidBody(bool gravity){
     this->rigidBody = new RigidBody(this, gravity);
 }
 
+RigidBody* Entity::getRigidBody(){
+    return rigidBody;
+}
+
 Transform* Entity::getTransform(){
     return transform;
 }
 
-void Entity::update(){
-    for(auto c : components){
-        c->update();
-    }
-}
 
-void Entity::draw(){
-    if(texture){
-        // Graphics::fill(255, 255, 255, 255);
-        texture->draw(transform->getPos(), transform->getSize().x, transform->getSize().y);
-    }else{
-        Graphics::fill(0, 0, 0, 255);
-        Graphics::drawRect(transform->getPos(), transform->getSize().x, transform->getSize().y);
-    }
-}
 
 void Entity::addTexture(std::string s){
     this->texture = new Graphics::Image(s);

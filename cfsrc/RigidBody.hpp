@@ -20,7 +20,9 @@ class RigidBody : public Component{
     void applyDrag();
     void applyGravity();
 public:
-    RigidBody(Entity* owner, bool gravity);
+    RigidBody(Entity*, bool);
+    void addForce(float, float);
+    void addForce(const Math::Vector2D&);
     void update();
     void setGravity(bool);
 };
