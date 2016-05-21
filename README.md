@@ -10,7 +10,7 @@ Please see the WIKI on how to use this framework. It's not very scary once you g
 
 ## v0.495 Changelog
 
-- New wiki coming soon!
+- New wiki updates!
 
 - Entity Component System implemented (alpha stage)
 
