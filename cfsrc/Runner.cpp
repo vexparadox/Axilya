@@ -13,7 +13,6 @@ float Runner::b = 1;
 float Runner::a = 1;
 int Runner::keysPressed =0;
 int Runner::mbsPressed = 0;
-Scene* Runner::activeScene = 0;
 BaseCore* Runner::c = 0;
 Runner::Runner(float windowWidth, float windowHeight, int frameRate, const char* title, BaseCore* c){
     //assign the core to the pointer
@@ -85,13 +84,13 @@ Runner::Runner(float windowWidth, float windowHeight, int frameRate, const char*
         //call update and then draw if the window isn't iconified
         if(!iconified && focused){
             //draw
-            Runner::draw();
+            c->draw();
         }
         //swap the buffers
         glfwSwapBuffers(window);
         if(!iconified && focused){
             //update
-            Runner::update();
+            c->update();
         }
         glfwPollEvents();
     }
@@ -99,22 +98,6 @@ Runner::Runner(float windowWidth, float windowHeight, int frameRate, const char*
     glfwDestroyWindow(window);
     glfwTerminate();
     exit(EXIT_SUCCESS);
-}
-
-void Runner::update(){
-    //calls the Core update and update on all scenes
-    Runner::c->update();
-    if(Runner::activeScene){
-        Runner::activeScene->update();
-    }
-}
-
-void Runner::draw(){
-    //calls the Core draw and draw on all scenes
-    Runner::c->draw();
-    if(Runner::activeScene){
-        Runner::activeScene->draw();
-    }
 }
 
 bool Runner::fps(int framerate)
@@ -179,10 +162,6 @@ void Runner::keyCallback(GLFWwindow* window, int key, int scancode, int action, 
         Runner::c->keyReleased(key);
         return;
     }
-}
-
-void Runner::setActiveScene(Scene* s){
-    Runner::activeScene = s;
 }
 
 int Runner::getHeight(){

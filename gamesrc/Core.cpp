@@ -18,7 +18,7 @@ Core::~Core(){
 void Core::setup(){
     setBackground(255, 255, 255, 255);
 	scene1 = new Scene();
-	Runner::setActiveScene(scene1);
+	// Runner::setActiveScene(scene1);
 	
 	e = new Entity(50, 50, 50 ,50);
 	e->addRigidBody(true);
@@ -40,6 +40,7 @@ void Core::setup(){
 }
 
 void Core::update(){
+	scene1->update();
 	if(keyIsPressed){
 		e->getRigidBody()->addForce(0, -4);
 	}else if(mouseIsPressed){
@@ -48,14 +49,14 @@ void Core::update(){
 }
 
 void Core::draw(){
-
+	scene1->draw();
 }
 
 void Core::exitCalled(){
 	std::exit(0);
 }
   
-void Core::keyPressed(int key){
+void Core::keyPressed(int keyA){
 	
 }
 
