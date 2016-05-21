@@ -6,7 +6,5 @@ class exampleComponent : public Component{
     public:
     exampleComponent(Entity* owner);
     virtual void update();
-    
 };
-
 #endif

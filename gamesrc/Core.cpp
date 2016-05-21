@@ -40,14 +40,6 @@ void Core::exitCalled(){
 	std::exit(0);
 }
   
-void Core::keyPressed(int keyA){
-	
-}
-
-void Core::keyReleased(int key){
-	
-}
-
 void Core::mousePressed(int button){
 	
 }
