@@ -9,6 +9,7 @@
 #define Core_hpp
 #include "../cfsrc/Runner.hpp" //This file is required.
 #include "CoreMain.h"
+#include "exampleComponent.hpp"
 
 class Core : public BaseCore{
 public:
@@ -23,7 +24,7 @@ public:
     void mouseReleased(int button);
     void exitCalled();
     Scene* scene1 = 0;
-    Entity* e = 0;
+    Entity* character = 0;
 };
 
 #endif /* Core_hpp */
