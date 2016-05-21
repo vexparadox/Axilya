@@ -41,10 +41,12 @@ void Core::setup(){
 
 void Core::update(){
 	scene1->update();
-	if(keyIsPressed){
+	if(Input::keyUp()){
 		e->getRigidBody()->addForce(0, -4);
-	}else if(mouseIsPressed){
+	}else if(Input::keyRight()){
 		e->getRigidBody()->addForce(2, 0);
+	}else if(Input::keyLeft()){
+		e->getRigidBody()->addForce(-2, 0);
 	}
 }
 
