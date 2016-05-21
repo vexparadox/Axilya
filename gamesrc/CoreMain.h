@@ -15,5 +15,6 @@
 #include "../cfsrc/Components.h"
 #include "../cfsrc/Entity.hpp"
 #include "../cfsrc/Scene.hpp"
+#include "../cfsrc/Input.hpp"
 
 #endif /* CoreMain_h */

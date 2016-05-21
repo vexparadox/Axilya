@@ -149,8 +149,9 @@ void Runner::keyCallback(GLFWwindow* window, int key, int scancode, int action, 
     if(action == GLFW_PRESS){
         Runner::c->keyIsPressed = true;
         Runner::c->keyCode = key;
-        Runner::c->keyPressed(key);
+        // Runner::c->keyPressed(key);
         keysPressed++;
+        Input::setKeyDown(key);        
         return;
     }
     if(action == GLFW_RELEASE){
@@ -159,7 +160,8 @@ void Runner::keyCallback(GLFWwindow* window, int key, int scancode, int action, 
             Runner::c->keyCode = 0;
             Runner::c->keyIsPressed = false;
         }
-        Runner::c->keyReleased(key);
+        Input::setKeyUp(key);
+        // Runner::c->keyReleased(key);
         return;
     }
 }

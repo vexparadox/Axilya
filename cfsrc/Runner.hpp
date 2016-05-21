@@ -11,6 +11,7 @@
 #include <vector>
 #include "BaseCore.hpp"
 #include "Scene.hpp"
+#include "Input.hpp"
 //this class controls the main game loop, calls BaseCore update and render
 class Runner{
     static BaseCore* c;
