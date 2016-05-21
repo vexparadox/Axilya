@@ -17,6 +17,10 @@ Core::~Core(){
 
 void Core::setup(){
     setBackground(255, 255, 255, 255);
+	//Create a new scene
+	//scenes contain entities and worlds
+	//scenes will update entities and worlds appropriately
+	//this will in turn update components
 	scene1 = new Scene();
 
 	//Start a new Entity

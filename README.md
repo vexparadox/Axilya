@@ -8,9 +8,15 @@ This framework is going to be the base of the yet-to-be-named 2D engine I am mak
 
 Please see the WIKI on how to use this framework. It's not very scary once you get started.
 
-## v0.5 COMING SOON
+## v0.495 Changelog
 
-- Entity Component System (alpha stage)
+- New wiki coming soon!
+
+- Entity Component System implemented (alpha stage)
+
+- See Core.cpp/hpp and new exampleComponent for how things work
+
+- framework has been re-worked to fit the new ECO
 
 - General error fixing
 
