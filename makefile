@@ -2,7 +2,7 @@ program_NAME := closedFrameworks
 lib_NAME := libcf
 program_C_SRCS := $(wildcard cfsrc/SOIL/*.c)
 program_CXX_SRCS := $(wildcard cfsrc/*.cpp)
-program_CXX_SRCS += $(wildcard gamesrc/*.cpp)
+program_CXX_SRCS += $(shell find gamesrc/ -type f -name '*.cpp')
 program_C_OBJS := ${program_C_SRCS:.c=.o}
 program_CXX_OBJS := ${program_CXX_SRCS:.cpp=.o}
 program_OBJS := $(program_C_OBJS) $(program_CXX_OBJS) 
