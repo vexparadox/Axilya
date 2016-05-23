@@ -7,9 +7,8 @@
 //
 #ifndef Core_hpp
 #define Core_hpp
-#include "../cfsrc/Runner.hpp" //This file is required.
-#include "CoreMain.h"
-#include "myComponents/exampleComponent.hpp"
+#include "../CoreMain.h"
+#include "../myComponents/exampleComponent.hpp"
 
 class Core : public BaseCore{
 public:
