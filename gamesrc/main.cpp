@@ -5,8 +5,7 @@
 //  Created by William Meaton on 07/12/2015.
 //  Copyright © 2015 WillMeaton.uk. All rights reserved.
 //
-#include "Runner.hpp"
-#include "../gamesrc/Core.hpp"
+#include "CoreMain.h"
 
 int main(int argc, char *argv[])
 {
