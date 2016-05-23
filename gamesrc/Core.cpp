@@ -9,11 +9,6 @@
 #include "Core.hpp"
 //for graphics
 using namespace Graphics;
-Core::Core(){
-}
-
-Core::~Core(){
-}
 
 void Core::setup(){
     setBackground(255, 255, 255, 255);
@@ -38,16 +33,4 @@ void Core::update(){
 
 void Core::draw(){
 	scene1->draw();
-}
-
-void Core::exitCalled(){
-	std::exit(0);
-}
-  
-void Core::mousePressed(int button){
-	
-}
-
-void Core::mouseReleased(int button){
-	
-}
+} 

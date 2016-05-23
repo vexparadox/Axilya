@@ -13,14 +13,9 @@
 
 class Core : public BaseCore{
 public:
-    Core();
-    ~Core();
     void draw();
     void update();
     void setup();
-    void mousePressed(int button);
-    void mouseReleased(int button);
-    void exitCalled();
     Scene* scene1 = 0;
     Entity* character = 0;
 };
