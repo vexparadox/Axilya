@@ -34,6 +34,8 @@ namespace Graphics{
         glBegin(GL_QUADS);
         glVertex3f(x, y, 0.0f);
         //top left
+        
+
         glVertex3f(x, y+h, 0.0f );
         //bottom left
         glVertex3f(x+w, y+h, 0.0f );

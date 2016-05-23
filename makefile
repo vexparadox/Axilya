@@ -1,4 +1,5 @@
 program_NAME := closedFrameworks
+lib_NAME := libcf
 program_C_SRCS := $(wildcard cfsrc/SOIL/*.c)
 program_CXX_SRCS := $(wildcard cfsrc/*.cpp)
 program_CXX_SRCS += $(wildcard gamesrc/*.cpp)
@@ -18,8 +19,13 @@ LDFLAGS += $(foreach library,$(program_LIBRARIES),-l$(library))
 
 all: $(program_NAME) run
 
+lib: $(lib_NAME)
+
 run:
 	./closedFrameworks
+	
+$(lib_NAME): $(program_OBJS)
+	ar rsc $(lib_NAME).a $(program_OBJS)
 
 $(program_NAME): $(program_OBJS)
 	$(LINK.cc) $(program_OBJS) -o $(program_NAME)
