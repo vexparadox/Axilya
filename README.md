@@ -1,24 +1,31 @@
-# closedFrameworks v0.4 MAKE VERSION
+# closedFrameworks v0.495 MAKE VERSION
 
 A basic 2D game framework written in C++, runnable with Make. To see the initial production of this project see: https://github.com/vexparadox/closedFrameworks
 
-Note that the wiki is partially out of date for this Make version, Entity Component System explaination is coming with v0.5! (maybe)
-
-This framework is going to be the base of the yet-to-be-named 2D engine I am making, this is the reason for going towards a Unity styled ECS.
+This framework is going to be the base of the yet-to-be-named 2D engine I am making for my third year at University, this is the reason for going towards a Unity styled ECS.
 
 Please see the WIKI on how to use this framework. It's not very scary once you get started.
+
+## Coming Soon!
+
+- Inter-Entity collisions
+- Better physics on RigidBodies
+- MouseInput in the Input class
+- Handling random key presses in the Input class
 
 ## v0.495 Changelog
 
 - New wiki updates!
 
+- New example code!
+
 - Entity Component System implemented (alpha stage)
 
-- See Core.cpp/hpp and new exampleComponent for how things work
-
-- framework has been re-worked to fit the new ECO
+- Framework has been re-worked to fit the new ECS 
 
 - General error fixing
+
+- Now uses Make not xCode
 
 ## v0.4 Changelog
 
