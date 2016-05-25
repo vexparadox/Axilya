@@ -1,4 +1,4 @@
-# closedFrameworks v0.495 MAKE VERSION
+# closedFrameworks v0.495
 
 A basic 2D game framework written in C++, runnable with Make. To see the initial production of this project see: https://github.com/vexparadox/closedFrameworks
 
@@ -6,7 +6,7 @@ This framework is going to be the base of the yet-to-be-named 2D engine I am mak
 
 Please see the WIKI on how to use this framework. It's not very scary once you get started.
 
-## Coming Soon!
+## Coming Soon
 
 - Inter-Entity collisions
 - Better physics on RigidBodies
