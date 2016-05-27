@@ -16,8 +16,10 @@
 #include "Components.h"
 
 #endif /* Entity_hpp */
-
+class Scene;
 class Entity{
+    //the scene this entity belongs to
+    Scene* scene = 0;
     //a list of standard components, these are presets
     Transform* transform = 0;
     Collider* collider = 0;
@@ -34,6 +36,9 @@ public:
     //update and draws
     virtual void update();
     virtual void draw();
+    //set and get scene
+    void setScene(Scene*);
+    Scene* getScene();
     //add RigidBody
     void addRigidBody(RigidBody*);
     void addRigidBody(bool);

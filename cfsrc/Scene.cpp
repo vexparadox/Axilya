@@ -25,6 +25,7 @@ void Scene::update(){
 }
 
 void Scene::addEntity(Entity* e){
+    e->setScene(this);
     this->entities.push_back(e);
 }
 

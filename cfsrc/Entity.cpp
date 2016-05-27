@@ -7,6 +7,7 @@
 //
 
 #include "Entity.hpp"
+#include "Scene.hpp"
 Entity::Entity(float x, float y, float w, float h){
     transform = new Transform(x, y, w, h, this);
 }
@@ -32,6 +33,7 @@ Entity::~Entity(){
 void Entity::draw(){
     if(texture){
         // Graphics::fill(255, 255, 255, 255);
+        std::cout << "Drawing texture" << std::endl;
         texture->draw(transform->getPos(), transform->getSize().x, transform->getSize().y);
     }else{
         Graphics::fill(0, 0, 0, 255);
@@ -47,6 +49,14 @@ void Entity::update(){
     }
 }
 
+
+Scene* Entity::getScene(){
+    return scene;
+}
+
+void Entity::setScene(Scene* s){
+    this->scene = s;
+}
 
 void Entity::addComponent(Component* c){
     components.push_back(c);
@@ -68,8 +78,6 @@ RigidBody* Entity::getRigidBody(){
 Transform* Entity::getTransform(){
     return transform;
 }
-
-
 
 void Entity::addTexture(std::string s){
     this->texture = new Graphics::Image(s);
