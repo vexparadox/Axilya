@@ -13,8 +13,8 @@ program_LIBRARY_DIRS := ./lib/
 program_LIBRARIES := drawtext-noft GLEW glfw3
 
 
-CPPFLAGS += $(program_HEADERS) -Wno-c++11-extensions -Wno-c++11-compat-deprecated-writable-strings
-LDFLAGS += $(program_HEADERS) -framework OpenGL -framework Cocoa -framework IOKit -framework CoreVideo -framework CoreFoundation -Wl $(foreach librarydir,$(program_LIBRARY_DIRS),-L$(librarydir))
+CPPFLAGS += -Wno-c++11-extensions -Wno-c++11-compat-deprecated-writable-strings
+LDFLAGS += -framework OpenGL -framework Cocoa -framework IOKit -framework CoreVideo -framework CoreFoundation -Wl $(foreach librarydir,$(program_LIBRARY_DIRS),-L$(librarydir))
 LDFLAGS += $(foreach library,$(program_LIBRARIES),-l$(library)) 
 
 .PHONY: all clean distclean
@@ -30,7 +30,7 @@ $(lib_NAME): $(program_OBJS)
 	ar rsc $(lib_NAME).a $(program_OBJS)
 
 $(program_NAME): $(program_OBJS)
-	g++ $(program_OBJS) -o $(program_NAME) 
+	g++ $(CPPFLAGS) $(program_OBJS) -o $(program_NAME) $(LDFLAGS)
 
 clean:
 	@- $(RM) $(program_NAME)
