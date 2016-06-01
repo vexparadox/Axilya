@@ -7,8 +7,8 @@
 //
 #ifndef Core_hpp
 #define Core_hpp
-#include "../CoreMain.h"
-#include "../myComponents/exampleComponent.hpp"
+#include <CoreMain.h>
+#include <exampleComponent.hpp>
 
 class Core : public BaseCore{
 public:
