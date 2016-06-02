@@ -28,14 +28,13 @@ namespace Graphics{
         void set(const Math::Vector2D &v, float w, float h){
             this->set(v.x, v.y, w, h);
         }
-       /*
+       /*!
        * A method to set the Rect's parameters
        * @param x a float to set the x value to
        * @param y a float to set the y value to
        * @param w a float to set the width to
        * @param h a float to set the height to
        * @see Rect::set(const Math::Vector2D &v, float w, float h)
-       * @return void
        */
         void set(float x, float y, float w, float h){
             this->position.x = x;
@@ -43,30 +42,26 @@ namespace Graphics{
             this->w = w;
             this->h = h;
         }
-       /*
+       /*!
        * A method to get the Rect's x position
-       * @return const float
        */
         const float getX() const{
             return position.x;
         }
-       /*
+       /*!
        * A method to get the Rect's y position
-       * @return const float
        */
         const float getY() const{
             return position.y;
         }
-       /*
+       /*!
        * A method to get the Rect's width
-       * @return const float
        */
         const float getWidth() const{
             return w;
         }
-       /*
+       /*!
        * A method to get the Rect's height
-       * @return const float
        */
         const float getHeight() const{
             return h;
