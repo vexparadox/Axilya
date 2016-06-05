@@ -19,24 +19,47 @@ namespace Math {
         //stores the begin and end time of the timer
         unsigned long beginTime = 0;
         unsigned long endTime = 0;
-        
         //bools state the current state of the timer
         bool running = false, started = false;
     public:
-        Timer(bool);
+        /*!
+        * Constructor of Timer
+        * @param startNow if the timer should start when it's created
+        */
+        Timer(bool startNow);
         Timer();
-        //start the timer, set the begin time
+        /*!
+        * Starts the timer
+        */
         void start();
-        //stop the timer, set the end time
+        /*!
+        * Stops the timer
+        * @see Timer::elapsedTime()
+        */
         void stop();
-        //reset the timer like brand new
+        /*!
+        * Resets the timer
+        * Takes the timer back to as if it were just created
+        */       
         void reset();
-        //returns if it's running
+        /*!
+        * Returns if the timer is running
+        * @return current state of timer
+        */
         bool isRunning();
-        //returns if the timer has been started before
+        /*!
+        * Returns if the timer has been started
+        * @return start state of the timer
+        */
         bool isStarted();
         
-        //returns the elapsed time in seconds
+        /*!
+        * Returns the elapsed time
+        * If the timer has been stopped it will return between start and stop calls
+        * If the timer is still running it will return between start and elapsedTime calls
+        * If the timer hasn't been started/has been reset it will return 0
+        * @return the elapsed time
+        */
         float elapsedTime();
     };
 }

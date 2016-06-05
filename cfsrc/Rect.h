@@ -19,7 +19,14 @@ namespace Graphics{
             this->w = w;
             this->h = h;
         }
-        
+        /*!
+       * The constructor of a Rect
+       * @param x a float to set the x position
+       * @param y a float to set the y position
+       * @param w a float to set the width to
+       * @param h a float to set the height to
+       * @see Shape constructor
+       */
         Rect(float x, float y, float w, float h) : Shape(Math::Vector2D(x, y)){
             this->w = w;
             this->h = h;

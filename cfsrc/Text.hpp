@@ -21,10 +21,32 @@ namespace Graphics{
         bool loaded = false;
     public:
         Text();
+        /*!
+        * Creates a new Text object
+        * @param size string to be drawn
+        * @param load whether the glyphmap will be loaded or not
+        */
         Text(float size, bool load);
+        /*!
+        * Will draw the given string at x, y
+        * @param str string to be drawn
+        * @param x the x position of the string
+        * @param y the y position of the string
+        * @see Text::draw(const std::string &str, const Math::Vector2D &v)
+        */
         void draw(const std::string &str, float x, float y);
         void draw(const std::string &str, const Math::Vector2D &v);
+        /*!
+        * Loads the glyphmap for Text
+        * Can be called by the Text constructor
+        * Required before drawing
+        * @param size the scaled size the glyphmap will be loaded at
+        */
         void loadGlyphmap(float size);
+          /*!
+        * Changes the set size of the Text
+        * @param size sets the size of the Text being drawn
+        */
         void setSize(int size);
     };
 }

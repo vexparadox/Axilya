@@ -15,9 +15,25 @@ class Entity;
 class Transform : public Component{
     Math::Vector2D position, size;
 public:
+    /*!
+    * Constructor of the Transform
+    * This is called automatically by the Entity constructor
+    * @param pos the Entities position
+    * @param size the Entities size
+    * @param owner The Entity this Component belongs too
+    * @see Entity constructor
+    */
     Transform(const Math::Vector2D& pos, const Math::Vector2D& size, Entity* owner);
     Transform(float x, float y, float w, float h, Entity* owner);
+    /*!
+    * Returns the position
+    * @return the position of the Entity
+    */
     Math::Vector2D& getPos();
+    /*!
+    * Returns the size
+    * @return the size of the Entity
+    */
     Math::Vector2D& getSize();
 };
 #endif /* Transform_hpp */

@@ -21,10 +21,28 @@ class RigidBody : public Component{
     void applyGravity();
     void terminalVelocity();
 public:
-    RigidBody(Entity*, bool);
-    void addForce(float, float);
-    void addForce(const Math::Vector2D&);
+    /*!
+    * Adds a force to the rigid body 
+    * @param owner the Entity which this component belongs too
+    * @param gravity wheather this RigidBody has gravity
+    */
+    RigidBody(Entity* owner, bool gravity);
+    /*!
+    * Adds a force to the rigid body 
+    * @param x directional force
+    * @param y directional force
+    * @see RigidBody::addForce(cont Math::Vector2D& force)
+    */
+    void addForce(float x, float y);
+    void addForce(const Math::Vector2D& force);
+    /*!
+    * Called every game loop
+    * Called from the Entity which owns this component
+    */
     void update();
+    /*!
+    * A method to set the gravity value
+    */
     void setGravity(bool);
 };
 
