@@ -19,12 +19,20 @@ void Core::setup(){
 	scene1 = new Scene();
 
 	//Start a new Entity
-	character = new Entity(200, 60, 20, 20); // Create a new entity with x, y, w, h
+	character = new Entity(300, 60, 20, 20); // Create a new entity with x, y, w, h
 	character->addRigidBody(true); // makes the object solid and react to physics
 	// character->addTexture(""); //add a texture if you like
 	character->addCollider(new BoxCollider(character)); // Adds a simple box collider 
 	character->addComponent(new exampleComponent(character)); // This is a custom component!
 	scene1->addEntity(character); //add your entity to the scene
+	
+	character = new Entity(200, 60, 20, 20); // Create a new entity with x, y, w, h
+	character->addRigidBody(true); // makes the object solid and react to physics
+	// character->addTexture(""); //add a texture if you like
+	// character->addCollider(new BoxCollider(character)); // Adds a simple box collider 
+	// character->addComponent(new exampleComponent(character)); // This is a custom component!
+	scene1->addEntity(character); //add your entity to the scene
+
 }
 
 void Core::update(){

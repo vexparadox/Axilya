@@ -11,13 +11,13 @@ public:
     ~Scene();
     
     /*!
-    * Called via the Core game loop
+    * Called via the Core game loop. 
     * This will call Update on all Entities and thus Components 
     */
     void update();
     
     /*!
-    * Called via the Core game loop
+    * Called via the Core game loop.
     * This will call Draw on all Entities and thus Components 
     */
     void draw();
