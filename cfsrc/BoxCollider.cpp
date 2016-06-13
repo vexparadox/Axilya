@@ -2,35 +2,41 @@
 #include "Entity.hpp"
 
 BoxCollider::BoxCollider(Entity* owner) : Collider(owner){
+    //create a bounds with the position and size of the entity
     bounds = new Graphics::Rect(owner->getTransform()->getPos(), owner->getTransform()->getSize());
 }
 
 void BoxCollider::worldCollideCheck(Math::Vector2D& v){
-    Math::Vector2D newPos = bounds->getPosition();
+    //get the bounds
+    Math::Vector2D position = bounds->getPosition();
     Math::Vector2D size = Math::Vector2D(bounds->getWidth(), bounds->getHeight());
+    //get the offset between the collider and the entity
+    float xOffset = position.x-owner->getTransform()->getPos().x;
+    float yOffset = position.y-owner->getTransform()->getPos().y;
     int screenWidth = Runner::getWidth();
     int screenHeight = Runner::getHeight();
-    if(newPos.y+size.y+v.y >= screenHeight){
+    if(position.y+size.y+v.y >= screenHeight){
         v.y = 0;
-        newPos.y = screenHeight-size.y;
+        position.y = screenHeight-size.y;
     }
-    if(newPos.y+v.y < 0){
+    if(position.y+v.y < 0){
         v.y = 0;
-        newPos.y = 0;
+        position.y = 0;
     }
-    if(newPos.x+size.x+v.x >= screenWidth){
+    if(position.x+size.x+v.x >= screenWidth){
         v.x = 0;
-        newPos.x = screenWidth-size.x;
+        position.x = screenWidth-size.x;
     }
-    if(newPos.x+v.x < 0){
+    if(position.x+v.x < 0){
         v.x = 0;
-        newPos.x = 0;
+        position.x = 0;
     }
-    owner->getTransform()->getPos() = newPos;
+    owner->getTransform()->getPos() = position;
 }
 
 void BoxCollider::collisionEntityCheck(Entity* e){
     if(!e){
         return;
     }
+    Shape* otherBounds = e->getCollider()->getBounds(); 
 }

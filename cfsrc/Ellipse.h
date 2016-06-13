@@ -18,66 +18,53 @@ namespace Graphics{
         float xR, yR;
     public:
 
-        Ellipse(const Math::Vector2D &cp, float xR, float yR) : Shape(cp)
+        Ellipse(const Math::Vector2D &cp, float xR, float yR) : Shape(cp, Math::Vector2D(xR, yR))
         {
-            this->xR=xR;
-            this->yR=yR;   
+        }
+        Ellipse(const Math::Vector2D &cp, float r) : Shape(cp, Math::Vector2D(r, r))
+        {   
+        }
+        Ellipse(float x, float y, float xR, float yR) : Shape(Math::Vector2D(x, y), Math::Vector2D(xR, yR))
+        {
         }
         
         //Circle
-        Ellipse(const Math::Vector2D &cp, float r) : Shape(cp)
+        Ellipse(float x, float y, float r) : Shape(Math::Vector2D(x, y), Math::Vector2D(r, r))
         {
-            xR=r;
-            yR=r;   
-        }
-        
-        Ellipse(float x, float y, float xR, float yR) : Shape(Math::Vector2D(x, y))
-        {
-            xR = xR;
-            yR = yR;
-        }
-        
-        //Circle
-        Ellipse(float x, float y, float r) : Shape(Math::Vector2D(x, y))
-        {
-            xR = r;
-            yR = r;
         }
         
         void set(const Math::Vector2D &cp, float xR, float yR)
         {
-            this->position=cp;
-            this->xR=xR;
-            this->yR=yR;
-            
+            this->set(cp.x, cp.y, xR, yR);
         }
         
         void set(const Math::Vector2D &cp, float r)
         {
-            this->position=cp;
-            this->xR=r;
-            this->yR=r;
+            this->set(cp.x, cp.y, r, r);
         }
         
         void set(float x, float y, float xR, float yR)
         {
-            position = Math::Vector2D(x, y);
-            this->xR = xR;
-            this->yR = yR;
+            this->position.x = x;
+            this->position.y = y;
+            this->size.x = xR;
+            this->size.y = yR;
         }
 
         void set(float x, float y, float r)
         {
-            position = Math::Vector2D(x, y);
-            this->xR = r;
-            this->yR = r;
+            this->set(x, y, r, r);
         }
+
         //Getters
         Math::Vector2D getVec() const { return  position;};
-        float getCX() const { return position.x;};
-        float getCY() const { return position.y;};
-        float getXR() const { return xR;};
-        float getYR() const { return yR;};
+        
+        const Math::Vector2D& getPosition() const{
+            return position;
+        }
+        const Math::Vector2D& getSize() const {
+            return size;
+        } 
     };
 }
 

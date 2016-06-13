@@ -11,6 +11,7 @@ protected:
 public:
     //take the owner and bounds of the collider 
     Collider(Entity*);
+    Shape* getBounds();
     virtual void worldCollideCheck(Math::Vector2D&) = 0;
     virtual void collisionEntityCheck(Entity* e) = 0;
 };

@@ -64,7 +64,7 @@ namespace Graphics{
     
     //ELLIPSES
     void drawEllipse(Ellipse &e){
-        drawEllipse(e.getCX(), e.getCY(), e.getXR(), e.getYR());
+        drawEllipse(e.getPosition().x, e.getPosition().y, e.getSize().x, e.getSize().y);
     }
     
     void drawEllipse(const Math::Vector2D &cp, float xR, float yR){

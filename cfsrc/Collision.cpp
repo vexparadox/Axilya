@@ -82,7 +82,7 @@ namespace Math {
     bool isInsideEllipse(const Vector2D &point, const Graphics::Ellipse &e)
     {
         //(((x-cp.x)^2)/rX^2 + ((y-cp.y)^2)/rY^2) <= 1
-        return  ( (pow((point.x-e.getVec().x),2)/pow(e.getXR(),2)) + (pow((point.y-e.getVec().y),2)/pow(e.getYR(),2)) ) <=1;
+        return  ( (pow((point.x-e.getVec().x),2)/pow(e.getSize().x,2)) + (pow((point.y-e.getVec().y),2)/pow(e.getSize().y,2)) ) <=1;
     }
     
     bool isInsideEllipse(const Vector2D &point, const Vector2D &cp, float r)

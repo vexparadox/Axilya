@@ -13,16 +13,11 @@
 #include "Shape.h"
 namespace Graphics{
     class Rect : public Shape{
-        float w, h;
     public:
-        Rect(const Math::Vector2D &v1, float w, float h): Shape(v1){
-            this->w = w;
-            this->h = h;
+        Rect(const Math::Vector2D &v1, float w, float h): Shape(v1, Math::Vector2D(w, h)){
         }
         
-        Rect(const Math::Vector2D &v1, const Math::Vector2D& size): Shape(v1){
-            this->w = size.x;
-            this->h = size.y;
+        Rect(const Math::Vector2D &v1, const Math::Vector2D& size): Shape(v1, size){
         }
         /*!
        * The constructor of a Rect
@@ -32,13 +27,11 @@ namespace Graphics{
        * @param h a float to set the height to
        * @see Shape constructor
        */
-        Rect(float x, float y, float w, float h) : Shape(Math::Vector2D(x, y)){
-            this->w = w;
-            this->h = h;
+        Rect(float x, float y, float w, float h) : Shape(Math::Vector2D(x, y), Math::Vector2D(w, h)){
         }
         
-        void set(const Math::Vector2D &v, float w, float h){
-            this->set(v.x, v.y, w, h);
+        void set(const Math::Vector2D &v, const Math::Vector2D &size){
+            this->set(v.x, v.y, size.x, size.y);
         }
        /*!
        * A method to set the Rect's parameters
@@ -51,14 +44,21 @@ namespace Graphics{
         void set(float x, float y, float w, float h){
             this->position.x = x;
             this->position.y = y;
-            this->w = w;
-            this->h = h;
+            this->size.x = w;
+            this->size.y = h;
         }
-
+        /*!
+       * A method to get the Rect's position
+       */
         const Math::Vector2D& getPosition() const{
             return position;
         }
-
+        /*!
+       * A method to get the Rect's size
+       */
+        const Math::Vector2D& getSize() const{
+            return size;
+        }
        /*!
        * A method to get the Rect's x position
        */
@@ -75,13 +75,13 @@ namespace Graphics{
        * A method to get the Rect's width
        */
         const float getWidth() const{
-            return w;
+            return size.x;
         }
        /*!
        * A method to get the Rect's height
        */
         const float getHeight() const{
-            return h;
+            return size.y;
         }
     };
 }
