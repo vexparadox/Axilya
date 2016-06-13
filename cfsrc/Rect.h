@@ -19,6 +19,11 @@ namespace Graphics{
             this->w = w;
             this->h = h;
         }
+        
+        Rect(const Math::Vector2D &v1, const Math::Vector2D& size): Shape(v1){
+            this->w = size.x;
+            this->h = size.y;
+        }
         /*!
        * The constructor of a Rect
        * @param x a float to set the x position
@@ -49,6 +54,11 @@ namespace Graphics{
             this->w = w;
             this->h = h;
         }
+
+        const Math::Vector2D& getPosition() const{
+            return position;
+        }
+
        /*!
        * A method to get the Rect's x position
        */

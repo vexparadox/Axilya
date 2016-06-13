@@ -13,5 +13,9 @@ public:
     Shape(const Math::Vector2D& v){
         this->position = v;
     }
+
+    virtual const float getWidth() const = 0;
+    virtual const float getHeight() const = 0;
+    virtual const Math::Vector2D& getPosition() const = 0; 
 };
 #endif

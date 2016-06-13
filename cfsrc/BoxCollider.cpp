@@ -2,12 +2,12 @@
 #include "Entity.hpp"
 
 BoxCollider::BoxCollider(Entity* owner) : Collider(owner){
-    
+    bounds = new Graphics::Rect(owner->getTransform()->getPos(), owner->getTransform()->getSize());
 }
 
 void BoxCollider::worldCollideCheck(Math::Vector2D& v){
-    Math::Vector2D newPos = owner->getTransform()->getPos();
-    Math::Vector2D size = owner->getTransform()->getSize();
+    Math::Vector2D newPos = bounds->getPosition();
+    Math::Vector2D size = Math::Vector2D(bounds->getWidth(), bounds->getHeight());
     int screenWidth = Runner::getWidth();
     int screenHeight = Runner::getHeight();
     if(newPos.y+size.y+v.y >= screenHeight){

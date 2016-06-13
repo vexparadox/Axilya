@@ -6,9 +6,8 @@
 #include "Types.h"
 
 class Collider : public Component{
-    Shape* bounds; 
 protected:
-    Vector2D::
+    Shape* bounds = 0; 
 public:
     //take the owner and bounds of the collider 
     Collider(Entity*);
