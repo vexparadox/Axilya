@@ -7,7 +7,10 @@ class Entity;
 class BoxCollider : public Collider{
 public:
     BoxCollider(Entity* owner);
-    virtual void collideCheck(Math::Vector2D& v);
+    //checks and corrects against the world boundries
+    virtual void worldCollideCheck(Math::Vector2D& v);
+    //checks and corrects against collision with this Collider's owner and an enitity  
+    virtual void collisionEntityCheck(Entity* e);
 };
 
 #endif

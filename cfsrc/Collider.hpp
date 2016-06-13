@@ -7,10 +7,13 @@
 
 class Collider : public Component{
     Shape* bounds; 
+protected:
+    Vector2D::
 public:
     //take the owner and bounds of the collider 
     Collider(Entity*);
-    virtual void collideCheck(Math::Vector2D&) = 0;
+    virtual void worldCollideCheck(Math::Vector2D&) = 0;
+    virtual void collisionEntityCheck(Entity* e) = 0;
 };
 
 #endif

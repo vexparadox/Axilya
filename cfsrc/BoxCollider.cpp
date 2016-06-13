@@ -5,7 +5,7 @@ BoxCollider::BoxCollider(Entity* owner) : Collider(owner){
     
 }
 
-void BoxCollider::collideCheck(Math::Vector2D& v){
+void BoxCollider::worldCollideCheck(Math::Vector2D& v){
     Math::Vector2D newPos = owner->getTransform()->getPos();
     Math::Vector2D size = owner->getTransform()->getSize();
     int screenWidth = Runner::getWidth();
@@ -26,6 +26,11 @@ void BoxCollider::collideCheck(Math::Vector2D& v){
         v.x = 0;
         newPos.x = 0;
     }
-    
     owner->getTransform()->getPos() = newPos;
+}
+
+void BoxCollider::collisionEntityCheck(Entity* e){
+    if(!e){
+        return;
+    }
 }
