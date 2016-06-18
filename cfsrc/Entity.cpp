@@ -49,6 +49,12 @@ void Entity::update(){
     }
 }
 
+void Entity::moveEntity(const Math::Vector2D &v){
+    transform->moveTransform(v);
+    if(collider){
+        collider->getBounds()->moveShape(v);
+    }
+}
 
 Scene* Entity::getScene(){
     return scene;

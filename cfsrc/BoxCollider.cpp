@@ -15,23 +15,29 @@ void BoxCollider::worldCollideCheck(Math::Vector2D& v){
     float yOffset = position.y - owner->getTransform()->getPos().y;
     int screenWidth = Runner::getWidth();
     int screenHeight = Runner::getHeight();
+    //if it goes out of the screen downwards
     if(position.y+size.y+v.y >= screenHeight){
         v.y = 0;
         position.y = screenHeight-size.y;
     }
+    //if it goes out of the screen upwards
     if(position.y+v.y < 0){
         v.y = 0;
         position.y = 0;
     }
+    //if it goes out of the screen rightways
     if(position.x+size.x+v.x >= screenWidth){
         v.x = 0;
         position.x = screenWidth-size.x;
     }
+    //if it goes out of the screen leftways
     if(position.x+v.x < 0){
         v.x = 0;
         position.x = 0;
     }
+    //set the players position to the corrected (NEEDS OFFSETS FOR COLLIDERS)
     owner->getTransform()->getPos() = position;
+    //Moves the collider to the corrected (NEEDS OFFSETS TOO)
     this->bounds->set(position.x, position.y, size.x, size.y);
 }
 
@@ -40,5 +46,4 @@ void BoxCollider::collisionEntityCheck(Entity* e){
         return;
     }
     Shape* otherBounds = e->getCollider()->getBounds();
-    
 }

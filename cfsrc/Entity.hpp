@@ -36,6 +36,8 @@ public:
     //update and draws
     virtual void update();
     virtual void draw();
+    //moves the transform and any colliders attached by a certain amount
+    void moveEntity(const Math::Vector2D &v);
     //set and get scene
     void setScene(Scene*);
     Scene* getScene();

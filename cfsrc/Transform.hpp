@@ -25,6 +25,8 @@ public:
     */
     Transform(const Math::Vector2D& pos, const Math::Vector2D& size, Entity* owner);
     Transform(float x, float y, float w, float h, Entity* owner);
+
+    void moveTransform(const Math::Vector2D &v);
     /*!
     * Returns the position
     * @return the position of the Entity

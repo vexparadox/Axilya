@@ -16,6 +16,10 @@ Transform::Transform(float x, float y, float w, float h, Entity* owner) : Compon
     
 }
 
+void Transform::moveTransform(const Math::Vector2D &v){
+    this->position+v;
+}
+
 Math::Vector2D& Transform::getPos(){
     return position;
 }

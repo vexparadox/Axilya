@@ -21,7 +21,7 @@ void RigidBody::update(){
     if(this->owner->getCollider()){
         this->owner->getCollider()->worldCollideCheck(velocity);
     }
-    this->owner->getTransform()->getPos()+this->velocity;
+    this->owner->moveEntity(velocity);
     // std::cout << "X: " << velocity.x << " Y: " << velocity.y << std::endl;
 }
 
