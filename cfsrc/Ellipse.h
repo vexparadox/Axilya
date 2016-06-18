@@ -33,15 +33,15 @@ namespace Graphics{
         {
         }
         
-        void set(const Math::Vector2D &cp, float xR, float yR)
-        {
-            this->set(cp.x, cp.y, xR, yR);
-        }
+        // void set(const Math::Vector2D &cp, float xR, float yR)
+        // {
+        //     this->set(cp.x, cp.y, xR, yR);
+        // }
         
-        void set(const Math::Vector2D &cp, float r)
-        {
-            this->set(cp.x, cp.y, r, r);
-        }
+        // void set(const Math::Vector2D &cp, float r)
+        // {
+        //     this->set(cp.x, cp.y, r, r);
+        // }
         
         void set(float x, float y, float xR, float yR)
         {
@@ -51,10 +51,10 @@ namespace Graphics{
             this->size.y = yR;
         }
 
-        void set(float x, float y, float r)
-        {
-            this->set(x, y, r, r);
-        }
+        // void set(float x, float y, float r)
+        // {
+        //     this->set(x, y, r, r);
+        // }
 
         //Getters
         Math::Vector2D getVec() const { return  position;};
