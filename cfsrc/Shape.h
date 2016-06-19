@@ -1,7 +1,6 @@
 #ifndef Shape_H
 #define Shape_H
 #include "Vector2D.h"
-#include <iostream>
 class Shape{
 protected:
     Math::Vector2D position, size;
@@ -20,7 +19,7 @@ public:
     virtual const float getHeight() const = 0;
     virtual void set(float x, float y, float w, float h) = 0;
     virtual void set(const Math::Vector2D &v, const Math::Vector2D &s) = 0;
-    virtual void set(const Math::Vector2D &v, float r);
+    virtual void set(const Math::Vector2D &v, float r) = 0;
     virtual void moveShape(const Math::Vector2D& v){
         this->position+v;
     }
