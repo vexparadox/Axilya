@@ -16,6 +16,15 @@ Transform::Transform(float x, float y, float w, float h, Entity* owner) : Compon
     
 }
 
+void Transform::set(const Math::Vector2D &v, const Math::Vector2D &s){
+    this->position = v;
+    this->size = s;
+}
+
+void Transform::set(const Math::Vector2D &v){
+    this->position = v;
+}
+
 void Transform::moveTransform(const Math::Vector2D &v){
     this->position+v;
 }

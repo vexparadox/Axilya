@@ -25,7 +25,17 @@ public:
     */
     Transform(const Math::Vector2D& pos, const Math::Vector2D& size, Entity* owner);
     Transform(float x, float y, float w, float h, Entity* owner);
-
+    /*!
+    * Sets the transforms parameters
+    */
+    void set(const Math::Vector2D &v, const Math::Vector2D &s);
+    /*!
+    * Sets the transforms position only
+    */
+    void set(const Math::Vector2D &v);
+    /*!
+    * Moves the transform
+    */
     void moveTransform(const Math::Vector2D &v);
     /*!
     * Returns the position
