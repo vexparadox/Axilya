@@ -33,6 +33,7 @@ void Scene::update(){
                 break;
             }else{
                 std::cout << "Collider detected on " << i << " and " << j << std::endl;
+                entities[i]->getCollider()->collisionColliderCheck(entities[j]->getCollider);
             }
         }
     }

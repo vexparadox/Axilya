@@ -19,10 +19,11 @@ void RigidBody::update(){
     this->terminalVelocity();
 
     if(this->owner->getCollider()){
+        //check and correct collisions
         this->owner->getCollider()->worldCollideCheck(velocity);
     }
+    //move the entity (this will move the colliders too)
     this->owner->moveEntity(velocity);
-    // std::cout << "X: " << velocity.x << " Y: " << velocity.y << std::endl;
 }
 
 void RigidBody::applyGravity(){

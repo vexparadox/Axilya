@@ -41,9 +41,9 @@ void BoxCollider::worldCollideCheck(Math::Vector2D& v){
     this->bounds->set(position.x, position.y, size.x, size.y);
 }
 
-void BoxCollider::collisionEntityCheck(Entity* e){
-    if(!e){
+void BoxCollider::collisionColliderCheck(Collider* c){
+    if(!c){
         return;
     }
-    Shape* otherBounds = e->getCollider()->getBounds();
+    Shape* otherBounds = c->getBounds()
 }

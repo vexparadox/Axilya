@@ -9,8 +9,8 @@ public:
     BoxCollider(Entity* owner);
     //checks and corrects against the world boundries
     virtual void worldCollideCheck(Math::Vector2D& v);
-    //checks and corrects against collision with this Collider's owner and an enitity  
-    virtual void collisionEntityCheck(Entity* e);
+    //checks and corrects against collision with this Collider's owner and another collider  
+    virtual void collisionColliderCheck(Collider* e);
 };
 
 #endif
