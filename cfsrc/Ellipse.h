@@ -27,21 +27,19 @@ namespace Graphics{
         Ellipse(float x, float y, float xR, float yR) : Shape(Math::Vector2D(x, y), Math::Vector2D(xR, yR))
         {
         }
-        
-        //Circle
         Ellipse(float x, float y, float r) : Shape(Math::Vector2D(x, y), Math::Vector2D(r, r))
         {
         }
         
-        // void set(const Math::Vector2D &cp, float xR, float yR)
-        // {
-        //     this->set(cp.x, cp.y, xR, yR);
-        // }
+        void set(const Math::Vector2D &v, const Math::Vector2D &s)
+        {
+            this->set(v.x, v.y, s.x, s.y);
+        }
         
-        // void set(const Math::Vector2D &cp, float r)
-        // {
-        //     this->set(cp.x, cp.y, r, r);
-        // }
+        void set(const Math::Vector2D &v, float r)
+        {
+            this->set(v.x, v.y, r, r);
+        }
         
         void set(float x, float y, float xR, float yR)
         {

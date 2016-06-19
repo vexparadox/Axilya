@@ -19,6 +19,8 @@ public:
     virtual const float getWidth() const = 0;
     virtual const float getHeight() const = 0;
     virtual void set(float x, float y, float w, float h) = 0;
+    virtual void set(const Math::Vector2D &v, const Math::Vector2D &s) = 0;
+    virtual void set(const Math::Vector2D &v, float r);
     virtual void moveShape(const Math::Vector2D& v){
         this->position+v;
     }

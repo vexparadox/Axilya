@@ -30,9 +30,13 @@ namespace Graphics{
         Rect(float x, float y, float w, float h) : Shape(Math::Vector2D(x, y), Math::Vector2D(w, h)){
         }
         
-        // void set(const Math::Vector2D &v, const Math::Vector2D &size){
-        //     this->set(v.x, v.y, size.x, size.y);
-        // }
+        void set(const Math::Vector2D &v, const Math::Vector2D &size){
+            this->set(v.x, v.y, size.x, size.y);
+        }
+
+        void set(const Math::Vector2D &v, float r){
+            this->set(v.x, v.y, r, r);
+        }
        /*!
        * A method to set the Rect's parameters
        * @param x a float to set the x value to

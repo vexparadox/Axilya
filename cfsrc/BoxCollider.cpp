@@ -36,7 +36,7 @@ void BoxCollider::worldCollideCheck(Math::Vector2D& v){
         position.x = 0;
     }
     //set the players position to the corrected (NEEDS OFFSETS FOR COLLIDERS)
-    owner->getTransform()->getPos() = position;
+    owner->getTransform()->set(position);
     //Moves the collider to the corrected (NEEDS OFFSETS TOO)
     this->bounds->set(position.x, position.y, size.x, size.y);
 }
