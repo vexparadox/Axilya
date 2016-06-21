@@ -13,7 +13,7 @@ public:
     Collider(Entity*);
     Shape* getBounds();
     virtual void worldCollideCheck(Math::Vector2D&) = 0;
-    virtual void collisionEntityCheck(Entity* e) = 0;
+    virtual void collisionColliderCheck(Collider* c) = 0;
 };
 
 #endif

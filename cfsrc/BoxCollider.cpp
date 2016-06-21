@@ -45,5 +45,31 @@ void BoxCollider::collisionColliderCheck(Collider* c){
     if(!c){
         return;
     }
-    Shape* otherBounds = c->getBounds()
+    Shape* otherBounds = c->getBounds();
+    //collide on top left 
+    if(otherBounds->getPosition().x > bounds->getPosition().x && otherBounds->getPosition().x < bounds->getPosition().x+bounds->getSize().x){
+        if(otherBounds->getPosition().y > bounds->getPosition().y && otherBounds->getPosition().y < bounds->getPosition().y+bounds->getSize().y){
+            std::cout << "Top left" << std::endl;
+        }
+    }
+    //collide on top right
+    if(otherBounds->getPosition().x+otherBounds->getSize().x > bounds->getPosition().x && otherBounds->getPosition().x+otherBounds->getSize().x < bounds->getPosition().x+bounds->getSize().x){
+        if(otherBounds->getPosition().y > bounds->getPosition().y && otherBounds->getPosition().y < bounds->getPosition().y+bounds->getSize().y){
+            std::cout << "top right" << std::endl;
+        }
+    }
+    //collide on bottom left
+    if(otherBounds->getPosition().x > bounds->getPosition().x && otherBounds->getPosition().x < bounds->getPosition().x+bounds->getSize().x){
+        if(otherBounds->getPosition().y+otherBounds->getSize().y > bounds->getPosition().y && otherBounds->getPosition().y+otherBounds->getSize().y < bounds->getPosition().y+bounds->getSize().y){
+            std::cout << "Bottom left" << std::endl;
+        }
+    }
+    //collide on bottom right
+    if(otherBounds->getPosition().x+otherBounds->getSize().x > bounds->getPosition().x && otherBounds->getPosition().x+otherBounds->getSize().x < bounds->getPosition().x+bounds->getSize().x){
+        if(otherBounds->getPosition().y+otherBounds->getSize().y > bounds->getPosition().y && otherBounds->getPosition().y+otherBounds->getSize().y < bounds->getPosition().y+bounds->getSize().y){
+            std::cout << "Bottom right" << std::endl;
+        }
+    }
+    
+
 }
