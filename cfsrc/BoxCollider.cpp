@@ -46,30 +46,32 @@ void BoxCollider::collisionColliderCheck(Collider* c){
         return;
     }
     Shape* otherBounds = c->getBounds();
-    //collide on top left 
-    if(otherBounds->getPosition().x > bounds->getPosition().x && otherBounds->getPosition().x < bounds->getPosition().x+bounds->getSize().x){
-        if(otherBounds->getPosition().y > bounds->getPosition().y && otherBounds->getPosition().y < bounds->getPosition().y+bounds->getSize().y){
+
+    //bounds for THIS colliders Shape
+    Math::Vector2D bottomRightBound = Math::Vector2D(bounds->getPosition().x + bounds->getSize().x, bounds->getPosition().y + bounds->getSize().y);
+    Math::Vector2D topLeftBound = bounds->getPosition();
+
+    //collide on the top left
+    Math::Vector2D topLeft = Math::Vector2D(otherBounds->getPosition().x, otherBounds->getPosition().y);
+    if(Math::isInsideQuad(topLeft, topLeftBound, bottomRightBound)){
             std::cout << "Top left" << std::endl;
-        }
-    }
-    //collide on top right
-    if(otherBounds->getPosition().x+otherBounds->getSize().x > bounds->getPosition().x && otherBounds->getPosition().x+otherBounds->getSize().x < bounds->getPosition().x+bounds->getSize().x){
-        if(otherBounds->getPosition().y > bounds->getPosition().y && otherBounds->getPosition().y < bounds->getPosition().y+bounds->getSize().y){
-            std::cout << "top right" << std::endl;
-        }
-    }
-    //collide on bottom left
-    if(otherBounds->getPosition().x > bounds->getPosition().x && otherBounds->getPosition().x < bounds->getPosition().x+bounds->getSize().x){
-        if(otherBounds->getPosition().y+otherBounds->getSize().y > bounds->getPosition().y && otherBounds->getPosition().y+otherBounds->getSize().y < bounds->getPosition().y+bounds->getSize().y){
-            std::cout << "Bottom left" << std::endl;
-        }
-    }
-    //collide on bottom right
-    if(otherBounds->getPosition().x+otherBounds->getSize().x > bounds->getPosition().x && otherBounds->getPosition().x+otherBounds->getSize().x < bounds->getPosition().x+bounds->getSize().x){
-        if(otherBounds->getPosition().y+otherBounds->getSize().y > bounds->getPosition().y && otherBounds->getPosition().y+otherBounds->getSize().y < bounds->getPosition().y+bounds->getSize().y){
-            std::cout << "Bottom right" << std::endl;
-        }
     }
     
+    //collide on the top right
+    Math::Vector2D topRight = Math::Vector2D(otherBounds->getPosition().x+otherBounds->getSize().x, otherBounds->getPosition().y);
+    if(Math::isInsideQuad(topRight, topLeftBound, bottomRightBound)){
+            std::cout << "Top right" << std::endl;
+    }
 
+    //collide on the bottom left
+    Math::Vector2D bottomLeft = Math::Vector2D(otherBounds->getPosition().x, otherBounds->getPosition().y+otherBounds->getSize().y);
+    if(Math::isInsideQuad(bottomLeft, topLeftBound, bottomRightBound)){
+        std::cout << "Bottom left" << std::endl;
+    }
+
+    //collide on bottom right
+    Math::Vector2D bottomRight = Math::Vector2D(otherBounds->getPosition().x+otherBounds->getSize().x, otherBounds->getPosition().y+otherBounds->getSize().y);
+    if(Math::isInsideQuad(bottomRight, topLeftBound, bottomRightBound)){
+        std::cout << "Bottom right" << std::endl;
+    }    
 }
