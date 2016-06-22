@@ -25,6 +25,8 @@ public:
     void setOwner(Entity*);
     //a virutal update method that Component's can use
     virtual void update(){};
+
+    virtual void onCollision(Entity* e){};
     
 };
 

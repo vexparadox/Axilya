@@ -56,6 +56,13 @@ void Entity::moveEntity(const Math::Vector2D &v){
     }
 }
 
+void Entity::onCollision(Entity* e){
+    //when a collision happens
+    for(auto c : components){
+        c->onCollision(Entity* e);
+    }
+}
+
 Scene* Entity::getScene(){
     return scene;
 }

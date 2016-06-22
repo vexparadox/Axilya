@@ -51,6 +51,8 @@ public:
     void addTexture(Graphics::Image*);
     //get the texture
     Graphics::Image* getTexture();
+    //collision has happened
+    void onCollision(Entity* e);
     //add a collider
     void addCollider(Collider*);
     //get the collider
