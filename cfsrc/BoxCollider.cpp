@@ -85,6 +85,8 @@ void BoxCollider::collisionColliderCheck(Collider* c){
     }   
     //if there has been some collide, tell the entity 
     if(collision){
-
+        //call collisions on the entities
+        c->getOwner()->onCollision(owner);
+        owner->onCollision(c->getOwner());
     }
 }
