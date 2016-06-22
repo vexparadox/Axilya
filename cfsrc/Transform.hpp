@@ -34,6 +34,10 @@ public:
     */
     void set(const Math::Vector2D &v);
     /*!
+    * Sets the transforms position only
+    */
+    void set(float x, float y);
+    /*!
     * Moves the transform
     */
     void moveTransform(const Math::Vector2D &v);

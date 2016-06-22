@@ -55,6 +55,11 @@ void BoxCollider::collisionColliderCheck(Collider* c){
     Math::Vector2D topLeft = Math::Vector2D(otherBounds->getPosition().x, otherBounds->getPosition().y);
     if(Math::isInsideQuad(topLeft, topLeftBound, bottomRightBound)){
         std::cout << "Top left" << std::endl;
+        float xDiff = bounds->getPosition().x -(bounds->getPosition().x-otherBounds->getPosition().x);
+        float yDiff = bounds->getPosition().y -(bounds->getPosition().y-otherBounds->getPosition().y);
+        owner->getTransform()->set(xDiff, yDiff);
+        owner->getRigidBody()->setForce(0, 0);
+        c->getOwner()->getRigidBody()->setForce(0, 0);
         collision = true;
     }
     
@@ -80,6 +85,6 @@ void BoxCollider::collisionColliderCheck(Collider* c){
     }   
     //if there has been some collide, tell the entity 
     if(collision){
-        
+
     }
 }

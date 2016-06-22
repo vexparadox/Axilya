@@ -25,6 +25,11 @@ void Transform::set(const Math::Vector2D &v){
     this->position = v;
 }
 
+void Transform::set(float x, float y){
+    this->position.x = x;
+    this->position.y = y;
+}
+
 void Transform::moveTransform(const Math::Vector2D &v){
     this->position+v;
 }

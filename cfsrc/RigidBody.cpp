@@ -70,3 +70,15 @@ void RigidBody::addForce(float x, float y){
 void RigidBody::addForce(const Math::Vector2D& f){
     velocity += f;
 }
+
+const Math::Vector2D& RigidBody::getForce(){
+    return velocity;
+}
+void RigidBody::setForce(float x, float y){
+    this->velocity.x = x;
+    this->velocity.y = y;
+}
+
+void RigidBody::setForce(const Math::Vector2D& force){
+    this->setForce(force.x, force.y);
+}

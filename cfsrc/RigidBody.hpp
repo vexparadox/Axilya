@@ -35,6 +35,9 @@ public:
     */
     void addForce(float x, float y);
     void addForce(const Math::Vector2D& force);
+    const Math::Vector2D& getForce();
+    void setForce(const Math::Vector2D& force);
+    void setForce(float x, float y);
     /*!
     * Called every game loop
     * Called from the Entity which owns this component
