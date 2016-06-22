@@ -19,15 +19,10 @@ void Scene::draw(){
 }
 
 void Scene::update(){
-    //do a double loop, but only do comparisons that haven't happened yet
-    /* a b c d
-    a is compared against b, c, d
-    b is compared against c, d
-    c is compared against d
-    */
+    //loop entities and compare
+    //pretty ineffcient
     for(int i = 0; i < entities.size(); i++){
-        int j = i+1;
-        for(;j < entities.size(); j++){
+        for(int j = 0; j < entities.size(); j++){
             //check they both have colliders
             if(!entities[i]->getCollider() || !entities[j]->getCollider()){
                 break;
