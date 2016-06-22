@@ -42,7 +42,6 @@ namespace Math {
     }
     
     bool isInsideQuad(const float &x1, const float &y1, const float &x2, const float &y2, const float &x3, const float &y3){
-        std::cout << x1 << " " << y1 << std::endl;
         if((x1 > x2 && x1 < x3) && (y1 > y2 && y1 < y3)){
             return true;
         }

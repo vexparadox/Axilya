@@ -46,32 +46,40 @@ void BoxCollider::collisionColliderCheck(Collider* c){
         return;
     }
     Shape* otherBounds = c->getBounds();
-
+    bool collision = false;
     //bounds for THIS colliders Shape
-    Math::Vector2D bottomRightBound = Math::Vector2D(bounds->getPosition().x + bounds->getSize().x, bounds->getPosition().y + bounds->getSize().y);
+    Math::Vector2D bottomRightBound = Math::Vector2D(bounds->getPosition().x+bounds->getSize().x, bounds->getPosition().y + bounds->getSize().y);
     Math::Vector2D topLeftBound = bounds->getPosition();
 
     //collide on the top left
     Math::Vector2D topLeft = Math::Vector2D(otherBounds->getPosition().x, otherBounds->getPosition().y);
     if(Math::isInsideQuad(topLeft, topLeftBound, bottomRightBound)){
-            std::cout << "Top left" << std::endl;
+        std::cout << "Top left" << std::endl;
+        collision = true;
     }
     
     //collide on the top right
     Math::Vector2D topRight = Math::Vector2D(otherBounds->getPosition().x+otherBounds->getSize().x, otherBounds->getPosition().y);
     if(Math::isInsideQuad(topRight, topLeftBound, bottomRightBound)){
-            std::cout << "Top right" << std::endl;
+        std::cout << "Top right" << std::endl;
+        collision = true;
     }
 
     //collide on the bottom left
     Math::Vector2D bottomLeft = Math::Vector2D(otherBounds->getPosition().x, otherBounds->getPosition().y+otherBounds->getSize().y);
     if(Math::isInsideQuad(bottomLeft, topLeftBound, bottomRightBound)){
         std::cout << "Bottom left" << std::endl;
+        collision = true;
     }
 
     //collide on bottom right
     Math::Vector2D bottomRight = Math::Vector2D(otherBounds->getPosition().x+otherBounds->getSize().x, otherBounds->getPosition().y+otherBounds->getSize().y);
     if(Math::isInsideQuad(bottomRight, topLeftBound, bottomRightBound)){
         std::cout << "Bottom right" << std::endl;
-    }    
+        collision = true;
+    }   
+    //if there has been some collide, tell the entity 
+    if(collision){
+        
+    }
 }
