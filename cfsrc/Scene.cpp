@@ -19,6 +19,9 @@ void Scene::draw(){
 }
 
 void Scene::update(){
+    for(auto e : entities){
+        e->update();
+    }
     //loop entities and compare
     //pretty ineffcient
     for(int i = 0; i < entities.size(); i++){
@@ -30,9 +33,6 @@ void Scene::update(){
                 entities[i]->getCollider()->collisionColliderCheck(entities[j]->getCollider());
             }
         }
-    }
-    for(auto e : entities){
-        e->update();
     }
 }
 
