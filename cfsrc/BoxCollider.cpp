@@ -18,7 +18,6 @@ void BoxCollider::worldCollideCheck(Math::Vector2D& v){
     //if it goes out of the screen downwards
     if(position.y+size.y+v.y >= screenHeight){
         v.y = 0;
-        position.y = screenHeight-size.y;
     }
     //if it goes out of the screen upwards
     if(position.y+v.y < 0){
@@ -47,6 +46,7 @@ void BoxCollider::collisionColliderCheck(Collider* c){
     }
     Shape* otherBounds = c->getBounds();
     bool collision = false;
+    bool isMoving = owner->getRigidBody()->isMoving();
     //bounds for THIS colliders Shape
     Math::Vector2D bottomRightBound = Math::Vector2D(bounds->getPosition().x+bounds->getSize().x, bounds->getPosition().y + bounds->getSize().y);
     Math::Vector2D topLeftBound = bounds->getPosition();
@@ -55,11 +55,7 @@ void BoxCollider::collisionColliderCheck(Collider* c){
     Math::Vector2D topLeft = Math::Vector2D(otherBounds->getPosition().x, otherBounds->getPosition().y);
     if(Math::isInsideQuad(topLeft, topLeftBound, bottomRightBound)){
         std::cout << "Top left" << std::endl;
-        float xDiff = bounds->getPosition().x -(bounds->getPosition().x-otherBounds->getPosition().x);
-        float yDiff = bounds->getPosition().y -(bounds->getPosition().y-otherBounds->getPosition().y);
-        owner->getTransform()->set(xDiff, yDiff);
-        owner->getRigidBody()->setForce(0, 0);
-        c->getOwner()->getRigidBody()->setForce(0, 0);
+        correctColliderCollision(c, topLeft, isMoving);
         collision = true;
     }
     
@@ -67,6 +63,7 @@ void BoxCollider::collisionColliderCheck(Collider* c){
     Math::Vector2D topRight = Math::Vector2D(otherBounds->getPosition().x+otherBounds->getSize().x, otherBounds->getPosition().y);
     if(Math::isInsideQuad(topRight, topLeftBound, bottomRightBound)){
         std::cout << "Top right" << std::endl;
+        correctColliderCollision(c, topRight, isMoving);
         collision = true;
     }
 
@@ -74,6 +71,7 @@ void BoxCollider::collisionColliderCheck(Collider* c){
     Math::Vector2D bottomLeft = Math::Vector2D(otherBounds->getPosition().x, otherBounds->getPosition().y+otherBounds->getSize().y);
     if(Math::isInsideQuad(bottomLeft, topLeftBound, bottomRightBound)){
         std::cout << "Bottom left" << std::endl;
+        correctColliderCollision(c, bottomLeft, isMoving);
         collision = true;
     }
 
@@ -81,6 +79,7 @@ void BoxCollider::collisionColliderCheck(Collider* c){
     Math::Vector2D bottomRight = Math::Vector2D(otherBounds->getPosition().x+otherBounds->getSize().x, otherBounds->getPosition().y+otherBounds->getSize().y);
     if(Math::isInsideQuad(bottomRight, topLeftBound, bottomRightBound)){
         std::cout << "Bottom right" << std::endl;
+        correctColliderCollision(c, bottomRight, isMoving);
         collision = true;
     }   
     //if there has been some collide, tell the entity 
@@ -88,5 +87,15 @@ void BoxCollider::collisionColliderCheck(Collider* c){
         //call collisions on the entities
         c->getOwner()->onCollision(owner);
         owner->onCollision(c->getOwner());
+    }
+}
+
+void BoxCollider::correctColliderCollision(Collider *c, const Math::Vector2D& v, bool isMoving){
+    if(isMoving){
+        owner->getTransform()->set(v.x, v.y);
+        owner->getRigidBody()->setForce(0, 0);
+    }else{
+        c->getOwner()->getTransform()->set(v.x, v.y);
+        c->getOwner()->getRigidBody()->setForce(0, 0);
     }
 }

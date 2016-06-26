@@ -18,6 +18,14 @@ void Core::setup(){
 	//this will in turn update components
 	scene1 = new Scene();
 
+
+	character = new Entity(200, 60, 20, 20); // Create a new entity with x, y, w, h
+	character->addRigidBody(false); // makes the object solid and react to physics
+	// character->addTexture(""); //add a texture if you like
+	character->addCollider(new BoxCollider(character)); // Adds a simple box collider 
+	// character->addComponent(new exampleComponent(character)); // This is a custom component!
+	scene1->addEntity(character); //add your entity to the scene
+
 	//Start a new Entity
 	character = new Entity(300, 60, 50, 50); // Create a new entity with x, y, w, h
 	character->addRigidBody(true); // makes the object solid and react to physics
@@ -26,17 +34,12 @@ void Core::setup(){
 	character->addComponent(new exampleComponent(character)); // This is a custom component!
 	scene1->addEntity(character); //add your entity to the scene
 	
-	character = new Entity(200, 60, 20, 20); // Create a new entity with x, y, w, h
-	character->addRigidBody(false); // makes the object solid and react to physics
-	// character->addTexture(""); //add a texture if you like
-	character->addCollider(new BoxCollider(character)); // Adds a simple box collider 
-	// character->addComponent(new exampleComponent(character)); // This is a custom component!
-	scene1->addEntity(character); //add your entity to the scene
 
 }
 
 void Core::update(){
 	scene1->update();
+	std::cout << character->getRigidBody()->isMoving() << std::endl;
 }
 
 void Core::draw(){

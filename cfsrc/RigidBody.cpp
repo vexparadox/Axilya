@@ -58,6 +58,14 @@ void RigidBody::applyDrag(){
     }
 }
 
+bool RigidBody::isMoving(){
+    if(velocity.x != 0 || velocity.y != 0){
+        return true;
+    }else{
+        return false;
+    }
+}
+
 void RigidBody::setGravity(bool g){
     this->gravity = g;
 }

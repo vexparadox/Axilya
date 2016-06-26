@@ -11,6 +11,8 @@ public:
     void worldCollideCheck(Math::Vector2D& v);
     //checks and corrects against collision with this Collider's owner and another collider  
     void collisionColliderCheck(Collider* c);
+    //the methods that corrects
+    void correctColliderCollision(Collider* c, const Math::Vector2D &v, bool isMoving);
 };
 
 #endif

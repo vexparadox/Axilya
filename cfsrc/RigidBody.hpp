@@ -36,8 +36,15 @@ public:
     void addForce(float x, float y);
     void addForce(const Math::Vector2D& force);
     const Math::Vector2D& getForce();
+    /*!
+    * Sets the force on an object
+    */
     void setForce(const Math::Vector2D& force);
     void setForce(float x, float y);
+    /*!
+    * returns if this rigidbody is moving
+    */
+    bool isMoving();
     /*!
     * Called every game loop
     * Called from the Entity which owns this component
