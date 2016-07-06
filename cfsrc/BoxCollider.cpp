@@ -46,10 +46,6 @@ bool BoxCollider::overlap(Collider* c)
         || other->getPosition().x+other->getSize().x < bounds->getPosition().x
         || other->getPosition().y > bounds->getPosition().y+bounds->getSize().y
         || other->getPosition().y+other->getSize().y < bounds->getPosition().y);
-
-
-    // return (Math::absolute(bounds->getPosition().x - other->getPosition().x) * 2 < (bounds->getSize().x + other->getSize().x)) &&
-        //  (Math::absolute(bounds->getPosition().y - other->getPosition().y) * 2 < (bounds->getSize().y + other->getSize().y));
 }
 
 void BoxCollider::collisionColliderCheck(Collider* c){
@@ -60,7 +56,6 @@ void BoxCollider::collisionColliderCheck(Collider* c){
     bool isMoving = owner->getRigidBody()->isMoving();
     if(isMoving){
         if(overlap(c)){
-            std::cout << c->getBounds()->getPosition().x << c->getBounds()->getPosition().y << std::endl;
             collision = true;
             std::cout << "Collision" << std::endl;
             owner->getRigidBody()->setForce(0,0);
