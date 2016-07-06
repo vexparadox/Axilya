@@ -16,7 +16,8 @@ public:
     void update();
     void setup();
     Scene* scene1 = 0;
-    Entity* character1 = 0, character2 = 0;
+    Entity* character1 = 0;
+    Entity* character2 = 0;
 };
 
 #endif /* Core_hpp */

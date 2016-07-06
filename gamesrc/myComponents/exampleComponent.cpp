@@ -6,6 +6,7 @@ exampleComponent::exampleComponent(Entity* owner) : Component(owner){
 void exampleComponent::update(){
     // This is the custom update, here you can access the entity it's attached to using "owner"
     //Input is a static class that allows you to get the user input
+    std::cout << x;
     if(Input::keyUp()){
         //this line gets a pointer to the rigidBody attached to the owner
         //it then adds an upwards force to it, the rigidBody handles the rest 
