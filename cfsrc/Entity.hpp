@@ -10,6 +10,7 @@
 #define Entity_hpp
 
 #include <stdio.h>
+
 #include "Math.h"
 #include "Graphics.hpp"
 //components
@@ -28,6 +29,7 @@ class Entity{
     std::vector<Component*> components;
     //the texture/image the Entity owns
     Graphics::Image* texture = 0;
+    void handle_eptr(std::exception_ptr);
 public:
     //constructors
     Entity(const Math::Vector2D& pos, const Math::Vector2D& size);

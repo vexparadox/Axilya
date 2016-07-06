@@ -8,6 +8,11 @@
 
 #include "Entity.hpp"
 #include "Scene.hpp"
+namespace std { class type_info; }
+#include <typeinfo>
+#include <exception>
+
+
 Entity::Entity(float x, float y, float w, float h){
     transform = new Transform(x, y, w, h);
     transform->setOwner(this);
@@ -47,9 +52,31 @@ void Entity::update(){
         rigidBody->update();
     }
     for(auto c : components){
-        c->update();
+        //handles exceptions in user made components to a certain degree
+        std::exception_ptr eptr;
+        //attempt to update the components
+        try {  
+            c->update();
+        }catch(...) {
+            //catch an exception if it's thrown
+            eptr = std::current_exception();
+        }
+        //handle the exception if there is one
+        handle_eptr(eptr);
     }
 }
+
+void Entity::handle_eptr(std::exception_ptr eptr){
+    try {
+        if (eptr) {
+            std::rethrow_exception(eptr);
+        }
+    } catch(const std::exception& e) {
+        std::cout << "Caught exception \"" << e.what() << "\"\n";
+    }
+}
+
+
 void Entity::moveEntity(const Math::Vector2D &v){
     transform->moveTransform(v);
     if(collider){
