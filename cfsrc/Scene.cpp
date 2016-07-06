@@ -24,18 +24,24 @@ void Scene::update(){
     }
     //loop entities and compare
     //pretty ineffcient
+}
+
+void Scene::collideCheck(Entity* e, Math::Vector2D& proposedMovement){
+    bool collide = false;
+    proposedMovement += e->getTransform()->getPos();
+    //check this entity against the rest with the proposedMovement
     for(int i = 0; i < entities.size(); i++){
-        for(int j = 0; j < entities.size(); j++){
-            //check they both have colliders
-            if(!entities[i]->getCollider() || !entities[j]->getCollider()){
+        if(!entities[i]->getCollider()){
+            break;
+        }else{
+            //don't compare against the proposed
+            if(entities[i] == e){
                 break;
-            }else{
-                //don't compare against yourself
-                if(entities[i] == entities[j]){
-                    break;
-                }
-                entities[i]->getCollider()->collisionColliderCheck(entities[j]->getCollider());
             }
+            //if there is a collision then allow it to correct and loop again
+            // if(entities[i]->getCollider()->checkMovement(e, proposedMovement)){
+                // collide = true;
+            // }
         }
     }
 }

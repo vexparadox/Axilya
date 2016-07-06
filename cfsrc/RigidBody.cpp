@@ -1,4 +1,4 @@
-//
+
 //  RigidBody.cpp
 //  closedFrameworks
 //
@@ -15,24 +15,33 @@ RigidBody::RigidBody(bool gravity): velocity(0, 0), drag(0.5, 0.5), gravity(grav
 
 void RigidBody::update(){
     //get the last frame
-    previousVelocity = velocity;
-    wasGrounded = isGrounded;
+    // previousVelocity = velocity;
+    // wasGrounded = isGrounded;
+    std::cout << velocity.x << std::endl;
     this->applyDrag();
+        std::cout << velocity.x << std::endl;
+
     this->applyGravity();
+        std::cout << velocity.x << std::endl;
+
     this->terminalVelocity();
+        std::cout << velocity.x << std::endl;
+
 
     if(this->owner->getCollider()){
         //check and correct collisions
         this->owner->getCollider()->worldCollideCheck(velocity);
     }
     // move the entity (this will move the colliders too)
+    // std::cout << "v0 " << previousVelocity.x << " " << previousVelocity.y << std::endl;
     this->owner->moveEntity(velocity);
+    
     //see if the entity is touching the ground
-    if(owner->getTransform()->getPos().y+owner->getTransform()->getSize().y == Runner::getHeight()){
-        isGrounded = true;
-    }else{
-        isGrounded = false;
-    }
+    // if(owner->getTransform()->getPos().y+owner->getTransform()->getSize().y == Runner::getHeight()){
+    //     isGrounded = true;
+    // }else{
+    //     isGrounded = false;
+    // }
 }
 
 void RigidBody::applyGravity(){
@@ -82,6 +91,7 @@ void RigidBody::setGravity(bool g){
 void RigidBody::addForce(float x, float y){
     this->velocity.x += x;
     this->velocity.y += y;
+    std::cout << "force";
 }
 
 void RigidBody::addForce(const Math::Vector2D& f){

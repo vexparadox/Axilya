@@ -38,15 +38,20 @@ namespace Math {
             v1 = v1+v2;
             return;
         }
+
+        inline friend void operator-= (Vector2D& v1, const Vector2D& v2){
+            v1 = v1-v2;
+            return;
+        }
         
-        inline Vector2D operator+ (const Vector2D& v){
+        inline Vector2D operator+ (const Vector2D& v) const{
             Vector2D result;
             result.x = this->x+v.x;
             result.y = this->y+v.y;
             return result;
         }
         
-        inline Vector2D operator+ (const float& f){
+        inline Vector2D operator+ (const float& f) const{
             Vector2D result;
             result.x = this->x+f;
             result.y = this->y+f;
@@ -59,14 +64,14 @@ namespace Math {
             return *this;
         }
         
-        inline Vector2D operator* (const Vector2D& v){
+        inline Vector2D operator* (const Vector2D& v) const{
             Vector2D result;
             result.x = this->x*v.x;
             result.y = this->y*v.y;
             return result;
         }
         
-        inline Vector2D operator*(const float& n){
+        inline Vector2D operator*(const float& n) const{
             Vector2D result;
             result.x = this->x*n;
             result.y = this->y*n;
@@ -78,28 +83,28 @@ namespace Math {
             return;
         }
         
-        inline Vector2D operator- (const Vector2D& v) {
+        inline Vector2D operator- (const Vector2D& v) const {
             Vector2D result;
             result.x = this->x-v.x;
             result.y = this->y-v.y;
             return result;
         }
         
-        inline Vector2D operator- (const float& f){
+        inline Vector2D operator- (const float& f) const {
             Vector2D result;
             result.x = this->x-f;
             result.y = this->y-f;
             return result;
         }
         
-        inline Vector2D operator/ (const Vector2D& v) {
+        inline Vector2D operator/ (const Vector2D& v) const{
             Vector2D result;
             result.x = this->x/v.x;
             result.y = this->y/v.y;
             return result;
         }
         
-        inline Vector2D& operator/ (float n){
+        inline Vector2D& operator/ (float n) const{
             Vector2D result;
             result.x = this->x/n;
             result.y = this->y/n;

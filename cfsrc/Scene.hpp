@@ -26,6 +26,8 @@ public:
     * @param e the new Entity being added
     */
     void addEntity(Entity* e);
+
+    void collideCheck(Entity* e, Math::Vector2D& proposedMovement);
     /*!
     * Returns the number of Entities in this Scene
     * @return number of Entities in the Scene vector

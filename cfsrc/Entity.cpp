@@ -8,10 +8,6 @@
 
 #include "Entity.hpp"
 #include "Scene.hpp"
-namespace std { class type_info; }
-#include <typeinfo>
-#include <exception>
-
 
 Entity::Entity(float x, float y, float w, float h){
     transform = new Transform(x, y, w, h);
@@ -77,11 +73,15 @@ void Entity::handle_eptr(std::exception_ptr eptr){
 }
 
 
-void Entity::moveEntity(const Math::Vector2D &v){
-    transform->moveTransform(v);
+void Entity::moveEntity(Math::Vector2D v){
     if(collider){
-        collider->getBounds()->moveShape(v);
+        std::cout << "v1 " << v.x << " " << v.y << std::endl;
+        scene->collideCheck(this, v);
+        std::cout << "v2 " << v.x << " " << v.y << std::endl;
+        collider->getBounds()->set(v, collider->getBounds()->getSize());
+        transform->set(v);
     }
+    // transform->moveTransform(v);
 }
 
 void Entity::onCollision(Entity* e){
