@@ -52,13 +52,25 @@ void BoxCollider::collisionColliderCheck(Collider* c){
     if(!c){
         return;
     }
+    Shape* oBounds = c->getBounds();
     bool collision = false;
     bool isMoving = owner->getRigidBody()->isMoving();
     if(isMoving){
         if(overlap(c)){
             collision = true;
-            std::cout << "Collision" << std::endl;
-            owner->getRigidBody()->setForce(0,0);
+            float x = bounds->getPosition().x, y = bounds->getPosition().y;
+            if(bounds->getPosition().x+bounds->getSize().x > oBounds->getPosition().x){
+                x = oBounds->getPosition().x-bounds->getSize().x;
+            } else if(bounds->getPosition().x < oBounds->getPosition().x+oBounds->getSize().x){
+                x = oBounds->getPosition().x;
+            }
+            if(bounds->getPosition().y+bounds->getSize().y > oBounds->getPosition().y){
+                y = oBounds->getPosition().y-oBounds->getSize().y;
+            } else if(bounds->getPosition().y < oBounds->getPosition().y+oBounds->getSize().y){
+                y = oBounds->getPosition().y+oBounds->getSize().y;
+            }
+            owner->getTransform()->set(x, y);
+            // owner->getRigidBody()->setForce(0,0);
         }
     }
     // //bounds for THIS colliders Shape
