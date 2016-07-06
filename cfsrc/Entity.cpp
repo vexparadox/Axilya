@@ -92,11 +92,7 @@ RigidBody* Entity::getRigidBody(){
 }
 
 Transform* Entity::getTransform(){
-    std::cout << transform;
-    if(transform){
-        return transform;
-    }
-    return 0;
+    return transform;
 }
 
 void Entity::addTexture(std::string s){

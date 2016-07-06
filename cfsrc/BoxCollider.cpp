@@ -2,7 +2,6 @@
 #include "Entity.hpp"
 
 BoxCollider::BoxCollider(){
-    //create a bounds with the position and size of the entity
 }
 
 void BoxCollider::worldCollideCheck(Math::Vector2D& v){
