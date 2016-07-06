@@ -84,6 +84,7 @@ void Entity::addRigidBody(RigidBody* r){
 
 void Entity::addRigidBody(bool gravity){
     this->rigidBody = new RigidBody(gravity);
+    this->rigidBody->setOwner(this);
 }
 
 RigidBody* Entity::getRigidBody(){
@@ -91,9 +92,11 @@ RigidBody* Entity::getRigidBody(){
 }
 
 Transform* Entity::getTransform(){
+    std::cout << transform;
     if(transform){
         return transform;
     }
+    return 0;
 }
 
 void Entity::addTexture(std::string s){
@@ -105,8 +108,13 @@ void Entity::addTexture(Graphics::Image* i){
 }
 
 void Entity::addCollider(Collider* c){
-    c->setOwner(this);
-    this->collider = c;
+    if(c){
+        c->setOwner(this);
+        //this is temporary, it was causing a seg fault if set in the BoxCollider constructor 
+        //because owner was not set until after the creation of the collider
+        c->bounds = new Graphics::Rect(transform->getPos(), transform->getSize());
+        this->collider = c;
+    }
 }
 
 Graphics::Image* Entity::getTexture(){
@@ -114,5 +122,5 @@ Graphics::Image* Entity::getTexture(){
 }
 
 Collider* Entity::getCollider(){
-    return this->collider;
+    return collider;
 }

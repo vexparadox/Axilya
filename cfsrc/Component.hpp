@@ -15,7 +15,7 @@
 class Entity;
 class Component{
 protected:
-    Entity* owner;
+    Entity* owner = 0;
     Component();
 public:  
     virtual ~Component();

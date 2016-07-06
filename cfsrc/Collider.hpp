@@ -6,7 +6,8 @@
 #include "Types.h"
 
 class Collider : public Component{
-protected:
+    //temporary fix
+public:
     Shape* bounds = 0; 
 public:
     //take the owner and bounds of the collider 

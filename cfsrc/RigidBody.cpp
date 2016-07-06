@@ -22,7 +22,7 @@ void RigidBody::update(){
         //check and correct collisions
         this->owner->getCollider()->worldCollideCheck(velocity);
     }
-    //move the entity (this will move the colliders too)
+    // move the entity (this will move the colliders too)
     this->owner->moveEntity(velocity);
 }
 
