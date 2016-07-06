@@ -39,9 +39,9 @@ void Scene::collideCheck(Entity* e, Math::Vector2D& proposedMovement){
                 break;
             }
             //if there is a collision then allow it to correct and loop again
-            // if(entities[i]->getCollider()->checkMovement(e, proposedMovement)){
-                // collide = true;
-            // }
+            if(entities[i]->getCollider()->checkMovement(e, proposedMovement)){
+                collide = true;
+            }
         }
     }
 }

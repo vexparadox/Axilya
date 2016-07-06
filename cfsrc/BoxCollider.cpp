@@ -50,7 +50,7 @@ bool BoxCollider::overlap(Collider* c)
 
 bool BoxCollider::checkMovement(Entity* e, Math::Vector2D proposedMovement){
     Shape* other = e->getCollider()->getBounds();
-    Math::Vector2D tempPosition = proposedMovement;
+    Math::Vector2D tempPosition = proposedMovement + e->getTransform()->getPos();
     bool oP = !(tempPosition.x > bounds->getPosition().x+bounds->getSize().x
         || tempPosition.x+other->getSize().x < bounds->getPosition().x
         || tempPosition.y > bounds->getPosition().y+bounds->getSize().y
