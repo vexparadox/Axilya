@@ -39,16 +39,18 @@ namespace Math {
             return;
         }
         
-        inline Vector2D& operator+ (const Vector2D& v){
-            this->x += v.x;
-            this->y += v.y;
-            return *this;
+        inline Vector2D operator+ (const Vector2D& v){
+            Vector2D result;
+            result.x = this->x+v.x;
+            result.y = this->y+v.y;
+            return result;
         }
         
-        inline Vector2D& operator+ (const float& f){
-            this->x += f;
-            this->y += f;
-            return *this;
+        inline Vector2D operator+ (const float& f){
+            Vector2D result;
+            result.x = this->x+f;
+            result.y = this->y+f;
+            return result;
         }
         
         inline Vector2D& operator= (const Vector2D& v){
@@ -57,16 +59,18 @@ namespace Math {
             return *this;
         }
         
-        inline Vector2D& operator* (const Vector2D& v){
-            this->x *= v.x;
-            this->y *= v.y;
-            return *this;
+        inline Vector2D operator* (const Vector2D& v){
+            Vector2D result;
+            result.x = this->x*v.x;
+            result.y = this->y*v.y;
+            return result;
         }
         
-        inline Vector2D& operator*(const float& n){
-            this->x *= n;
-            this->y *= n;
-            return *this;
+        inline Vector2D operator*(const float& n){
+            Vector2D result;
+            result.x = this->x*n;
+            result.y = this->y*n;
+            return result;
         }
         
         friend inline void operator*= (Vector2D& v1, const Vector2D& v2){
@@ -74,28 +78,32 @@ namespace Math {
             return;
         }
         
-        inline Vector2D& operator- (const Vector2D& v) {
-            this->x -= v.x;
-            this->y -= v.y;
-            return *this;
+        inline Vector2D operator- (const Vector2D& v) {
+            Vector2D result;
+            result.x = this->x-v.x;
+            result.y = this->y-v.y;
+            return result;
         }
         
-        inline Vector2D& operator- (const float& f){
-            this->x -= f;
-            this->y -= f;
-            return *this;
+        inline Vector2D operator- (const float& f){
+            Vector2D result;
+            result.x = this->x-f;
+            result.y = this->y-f;
+            return result;
         }
         
-        inline Vector2D& operator/ (const Vector2D& v) {
-            this->x /= v.x;
-            this->y /= v.y;
-            return *this;
+        inline Vector2D operator/ (const Vector2D& v) {
+            Vector2D result;
+            result.x = this->x/v.x;
+            result.y = this->y/v.y;
+            return result;
         }
         
         inline Vector2D& operator/ (float n){
-            this->x /= n;
-            this->y /= n;
-            return *this;
+            Vector2D result;
+            result.x = this->x/n;
+            result.y = this->y/n;
+            return result;
         }
         
         friend inline void operator/= (Vector2D& v1, const Vector2D& v2){

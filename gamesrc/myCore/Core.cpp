@@ -19,7 +19,7 @@ void Core::setup(){
 	scene1 = new Scene();
 
 	character1 = new Entity(200, 60, 20, 20); // Create a new entity with x, y, w, h
-	character1->addRigidBody(false); // makes the object solid and react to physics
+	character1->addRigidBody(true); // makes the object solid and react to physics
 	character1->addCollider(new BoxCollider()); // Adds a simple box collider 
 	scene1->addEntity(character1); //add your entity to the scene
 

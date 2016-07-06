@@ -21,7 +21,7 @@ public:
     virtual void set(const Math::Vector2D &v, const Math::Vector2D &s) = 0;
     virtual void set(const Math::Vector2D &v, float r) = 0;
     virtual void moveShape(const Math::Vector2D& v){
-        this->position+v;
+        this->position += v;
     }
     virtual const Math::Vector2D& getPosition() const = 0;
     virtual const Math::Vector2D& getSize() const = 0; 

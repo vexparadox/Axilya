@@ -8,7 +8,8 @@
 class Collider : public Component{
     //temporary fix
 public:
-    Shape* bounds = 0; 
+    Math::Vector2D center, halfSize;
+    Shape* bounds;
 public:
     //take the owner and bounds of the collider 
     Collider();

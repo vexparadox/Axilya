@@ -31,7 +31,7 @@ void Transform::set(float x, float y){
 }
 
 void Transform::moveTransform(const Math::Vector2D &v){
-    this->position+v;
+    this->position += v;
 }
 
 Math::Vector2D& Transform::getPos(){
