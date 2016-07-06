@@ -15,7 +15,7 @@ public:
     Collider();
     Shape* getBounds();
     virtual void worldCollideCheck(Math::Vector2D&) = 0;
-    virtual bool checkMovement(Entity*, Math::Vector2D) = 0;
+    virtual bool checkMovement(Entity*, Math::Vector2D&) = 0;
 };
 
 #endif
