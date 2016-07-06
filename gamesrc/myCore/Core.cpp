@@ -18,28 +18,24 @@ void Core::setup(){
 	//this will in turn update components
 	scene1 = new Scene();
 
-
-	character = new Entity(200, 60, 20, 20); // Create a new entity with x, y, w, h
-	character->addRigidBody(false); // makes the object solid and react to physics
-	// character->addTexture(""); //add a texture if you like
-	character->addCollider(new BoxCollider(character)); // Adds a simple box collider 
-	// character->addComponent(new exampleComponent(character)); // This is a custom component!
-	scene1->addEntity(character); //add your entity to the scene
+	character1 = new Entity(200, 60, 20, 20); // Create a new entity with x, y, w, h
+	character1->addRigidBody(false); // makes the object solid and react to physics
+	character1->addCollider(new BoxCollider(character1)); // Adds a simple box collider 
+	scene1->addEntity(e); //add your entity to the scene
 
 	//Start a new Entity
-	character = new Entity(300, 60, 50, 50); // Create a new entity with x, y, w, h
-	character->addRigidBody(true); // makes the object solid and react to physics
+	character2 = new Entity(300, 60, 50, 50); // Create a new entity with x, y, w, h
+	character2->addRigidBody(true); // makes the object solid and react to physics
 	// character->addTexture(""); //add a texture if you like
-	character->addCollider(new BoxCollider(character)); // Adds a simple box collider 
-	character->addComponent(new exampleComponent(character)); // This is a custom component!
-	scene1->addEntity(character); //add your entity to the scene
-	
+	character2->addCollider(new BoxCollider(character2)); // Adds a simple box collider 
+	character2->addComponent(new exampleComponent(character2)); // This is a custom component!
+	scene1->addEntity(character2); //add your entity to the scene
 
+	character2->getComponent<exampleComponent>()->setOwner(character1); // an example of changing owner
 }
 
 void Core::update(){
 	scene1->update();
-	std::cout << character->getRigidBody()->isMoving() << std::endl;
 }
 
 void Core::draw(){

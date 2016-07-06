@@ -36,6 +36,16 @@ public:
     //update and draws
     virtual void update();
     virtual void draw();
+    //gets a component
+    template<typename T>
+    T* getComponent(){
+        for(auto c : components){
+            T* t;
+            if((t = dynamic_cast<T*>(c))){
+                return t;
+            }
+        }
+    }
     //moves the transform and any colliders attached by a certain amount
     void moveEntity(const Math::Vector2D &v);
     //set and get scene
