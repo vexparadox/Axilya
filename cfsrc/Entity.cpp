@@ -136,9 +136,8 @@ void Entity::addCollider(Collider* c){
         //this is temporary, it was causing a seg fault if set in the BoxCollider constructor 
         //because owner was not set until after the creation of the collider
         c->bounds = new Graphics::Rect(transform->getPos(), transform->getSize());
-        // c->center = Math::Vector2D(transform->getPos()+(transform->getSize()/2));
-        transform->getSize()/2;
-        // c->halfSize = transform->getSize()/2;
+        c->center = Math::Vector2D(transform->getPos()+(transform->getSize()/2));
+        c->halfSize = transform->getSize()/2;
         this->collider = c;
     }
 }

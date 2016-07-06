@@ -13,7 +13,7 @@
 #include "Component.hpp"
 class Entity;
 class Transform : public Component{
-    Math::Vector2D position, size;
+    Math::Vector2D position, size, lastPosition;
 public:
     /*!
     * Constructor of the Transform

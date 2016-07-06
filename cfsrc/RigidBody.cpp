@@ -14,6 +14,9 @@ RigidBody::RigidBody(bool gravity): velocity(0, 0), drag(0.5, 0.5), gravity(grav
 }
 
 void RigidBody::update(){
+    //get the last frame
+    previousVelocity = velocity;
+    wasGrounded = isGrounded;
     this->applyDrag();
     this->applyGravity();
     this->terminalVelocity();
@@ -24,6 +27,12 @@ void RigidBody::update(){
     }
     // move the entity (this will move the colliders too)
     this->owner->moveEntity(velocity);
+    //see if the entity is touching the ground
+    if(owner->getTransform()->getPos().y+owner->getTransform()->getSize().y == Runner::getHeight()){
+        isGrounded = true;
+    }else{
+        isGrounded = false;
+    }
 }
 
 void RigidBody::applyGravity(){
@@ -82,6 +91,11 @@ void RigidBody::addForce(const Math::Vector2D& f){
 const Math::Vector2D& RigidBody::getForce(){
     return velocity;
 }
+
+bool RigidBody::isOnGround(){
+    return isGrounded;
+}
+
 void RigidBody::setForce(float x, float y){
     this->velocity.x = x;
     this->velocity.y = y;

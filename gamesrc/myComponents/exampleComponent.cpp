@@ -9,7 +9,7 @@ void exampleComponent::update(){
     if(Input::keyUp()){
         //this line gets a pointer to the rigidBody attached to the owner
         //it then adds an upwards force to it, the rigidBody handles the rest 
-		owner->getRigidBody()->addForce(0, -4);
+		owner->getRigidBody()->addForce(0, -10);
 	}
     if(Input::keyRight()){
 		owner->getRigidBody()->addForce(2, 0);

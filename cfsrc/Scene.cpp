@@ -30,6 +30,10 @@ void Scene::update(){
             if(!entities[i]->getCollider() || !entities[j]->getCollider()){
                 break;
             }else{
+                //don't compare against yourself
+                if(entities[i] == entities[j]){
+                    break;
+                }
                 entities[i]->getCollider()->collisionColliderCheck(entities[j]->getCollider());
             }
         }
