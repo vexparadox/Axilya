@@ -1,7 +1,7 @@
 #include "BoxCollider.hpp"
 #include "Entity.hpp"
 
-BoxCollider::BoxCollider(Entity* owner) : Collider(owner){
+BoxCollider::BoxCollider(){
     //create a bounds with the position and size of the entity
     bounds = new Graphics::Rect(owner->getTransform()->getPos(), owner->getTransform()->getSize());
 }

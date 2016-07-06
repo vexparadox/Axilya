@@ -8,7 +8,7 @@
 
 #include "Component.hpp"
 
-Component::Component(Entity* owner) : owner(owner){
+Component::Component(){
     
 }
 

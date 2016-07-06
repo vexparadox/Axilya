@@ -9,11 +9,13 @@
 #include "Entity.hpp"
 #include "Scene.hpp"
 Entity::Entity(float x, float y, float w, float h){
-    transform = new Transform(x, y, w, h, this);
+    transform = new Transform(x, y, w, h);
+    transform->setOwner(this);
 }
 
 Entity::Entity(const Math::Vector2D& pos, const Math::Vector2D& size){
-    transform = new Transform(pos, size, this);
+    transform = new Transform(pos, size);
+    transform->setOwner(this);
 }
 
 Entity::~Entity(){
@@ -71,6 +73,7 @@ void Entity::setScene(Scene* s){
 }
 
 void Entity::addComponent(Component* c){
+    c->setOwner(this);
     components.push_back(c);
 }
 
@@ -80,7 +83,7 @@ void Entity::addRigidBody(RigidBody* r){
 }
 
 void Entity::addRigidBody(bool gravity){
-    this->rigidBody = new RigidBody(this, gravity);
+    this->rigidBody = new RigidBody(gravity);
 }
 
 RigidBody* Entity::getRigidBody(){
@@ -88,7 +91,9 @@ RigidBody* Entity::getRigidBody(){
 }
 
 Transform* Entity::getTransform(){
-    return transform;
+    if(transform){
+        return transform;
+    }
 }
 
 void Entity::addTexture(std::string s){
@@ -100,6 +105,7 @@ void Entity::addTexture(Graphics::Image* i){
 }
 
 void Entity::addCollider(Collider* c){
+    c->setOwner(this);
     this->collider = c;
 }
 

@@ -10,7 +10,7 @@ protected:
     Shape* bounds = 0; 
 public:
     //take the owner and bounds of the collider 
-    Collider(Entity*);
+    Collider();
     Shape* getBounds();
     virtual void worldCollideCheck(Math::Vector2D&) = 0;
     virtual void collisionColliderCheck(Collider* c) = 0;

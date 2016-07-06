@@ -9,7 +9,7 @@
 #include "RigidBody.hpp"
 #include "Entity.hpp"
 
-RigidBody::RigidBody(Entity* owner, bool gravity) : Component(owner), velocity(0, 0), drag(0.5, 0.5), gravity(gravity){
+RigidBody::RigidBody(bool gravity): velocity(0, 0), drag(0.5, 0.5), gravity(gravity){
     
 }
 

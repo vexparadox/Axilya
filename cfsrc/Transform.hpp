@@ -23,8 +23,8 @@ public:
     * @param owner The Entity this Component belongs too
     * @see Entity constructor
     */
-    Transform(const Math::Vector2D& pos, const Math::Vector2D& size, Entity* owner);
-    Transform(float x, float y, float w, float h, Entity* owner);
+    Transform(const Math::Vector2D& pos, const Math::Vector2D& size);
+    Transform(float x, float y, float w, float h);
     /*!
     * Sets the transforms parameters
     */

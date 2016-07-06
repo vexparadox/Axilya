@@ -26,7 +26,7 @@ public:
     * @param owner the Entity which this component belongs too
     * @param gravity wheather this RigidBody has gravity
     */
-    RigidBody(Entity* owner, bool gravity);
+    RigidBody(bool gravity);
     /*!
     * Adds a force to the rigid body 
     * @param x directional force

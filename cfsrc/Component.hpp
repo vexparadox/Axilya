@@ -16,7 +16,7 @@ class Entity;
 class Component{
 protected:
     Entity* owner;
-    Component(Entity* owner);
+    Component();
 public:  
     virtual ~Component();
     //change what entity owns this component

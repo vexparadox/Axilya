@@ -5,7 +5,7 @@
 class exampleComponent : public Component{
     public:
     int x = 5;
-    exampleComponent(Entity* owner);
+    exampleComponent();
     virtual void update();
 };
 #endif
