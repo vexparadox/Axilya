@@ -14,6 +14,7 @@ public:
     //take the owner and bounds of the collider 
     Collider();
     Shape* getBounds();
+    virtual void mouseCheck() = 0;
     virtual void worldCollideCheck(Math::Vector2D&) = 0;
     virtual bool checkMovement(Entity*, Math::Vector2D&) = 0;
 };

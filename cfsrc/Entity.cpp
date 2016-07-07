@@ -60,6 +60,17 @@ void Entity::update(){
         //handle the exception if there is one
         handle_eptr(eptr);
     }
+    if(collider){
+        //call a mouse check
+        //has to be caught because using user codes
+        std::exception_ptr eptr;
+        try {  
+            collider->mouseCheck();
+        }catch(...) {
+            eptr = std::current_exception();
+        }
+        handle_eptr(eptr);
+    }
 }
 
 void Entity::handle_eptr(std::exception_ptr eptr){
@@ -88,6 +99,18 @@ void Entity::onCollision(Entity* e){
     //when a collision happens
     for(auto c : components){
         c->onCollision(e);
+    }
+}
+
+void Entity::onClick(int mouseButton){
+    for(auto c : components){
+        c->onClick(mouseButton);
+    }
+}
+
+void Entity::onHover(){
+    for(auto c : components){
+        c->onHover();
     }
 }
 

@@ -42,10 +42,6 @@ void BoxCollider::worldCollideCheck(Math::Vector2D& v){
 bool BoxCollider::overlap(Collider* c)
 {
     return false;
-//     return !(other->getPosition().x > bounds->getPosition().x+bounds->getSize().x
-//         || other->getPosition().x+other->getSize().x < bounds->getPosition().x
-//         || other->getPosition().y > bounds->getPosition().y+bounds->getSize().y
-//         || other->getPosition().y+other->getSize().y < bounds->getPosition().y);
 }
 
 bool BoxCollider::checkMovement(Entity* e, Math::Vector2D& proposedMovement){
@@ -78,106 +74,6 @@ bool BoxCollider::checkMovement(Entity* e, Math::Vector2D& proposedMovement){
     return false;
 }
 
-// void BoxCollider::collisionColliderCheck(Collider* c){
-//     if(!c){
-//         return;
-//     }
-//     Shape* oBounds = c->getBounds();
-//     bool collision = false;
-//     bool isMoving = owner->getRigidBody()->isMoving();
-//     if(isMoving){
-//         if(overlap(c)){
-//             collision = true;
-//             float x, y;
-//             if(owner->getRigidBody()->getForce().x < 0){
-//                 x = 1; 
-//             }else{
-//                 x = -1;
-//             }
-//             if(owner->getRigidBody()->getForce().y < 0){
-//                 y = -1; 
-//             }else{
-//                 y = 1;
-//             }
-//             owner->getRigidBody()->setForce(x, 0);
-//         }
-//     }
-//     // //bounds for THIS colliders Shape
-//     // Math::Vector2D bottomRightBound = Math::Vector2D(bounds->getPosition().x+bounds->getSize().x, bounds->getPosition().y + bounds->getSize().y);
-//     // Math::Vector2D topLeftBound = bounds->getPosition();
-//     // Math::Vector2D bottomLeftBound = Math::Vector2D(bounds->getPosition().x, bounds->getPosition().y + bounds->getSize().y);
-//     // Math::Vector2D topRightBound = Math::Vector2D(bounds->getPosition().x+bounds->getSize().x, bounds->getPosition().y);
-
-//     // //collide on the top left
-//     // Math::Vector2D topLeft = Math::Vector2D(otherBounds->getPosition().x, otherBounds->getPosition().y);
-//     // if(Math::isInsideQuad(topLeft, topLeftBound, bottomRightBound)){
-//     //     float xOffset = bounds->getPosition().x - bottomRightBound.x;
-//     //     float yOffset = bounds->getPosition().y - bottomRightBound.y;
-//     //     if(xOffset > yOffset){
-//     //         owner->getTransform()->set(bottomRightBound.x, bounds->getPosition().y);
-//     //     }else if(yOffset < xOffset){
-//     //         owner->getTransform()->set(bounds->getPosition().y, bottomRightBound.y);
-//     //     }else{
-//     //         owner->getTransform()->set(bottomRightBound.x, bottomRightBound.y);
-//     //     }
-//     //     owner->getRigidBody()->setForce(0, 0);
-//     // }
-    
-//     // //collide on the top right
-//     // Math::Vector2D topRight = Math::Vector2D(otherBounds->getPosition().x+otherBounds->getSize().x, otherBounds->getPosition().y);
-//     // if(Math::isInsideQuad(topRight, topLeftBound, bottomRightBound)){
-//     //     std::cout << "top right" << std::endl;
-//     //     float xOffset = bounds->getPosition().x - bottomLeftBound.x;
-//     //     float yOffset = bounds->getPosition().y - bottomLeftBound.y;
-//     //     if(xOffset > yOffset){
-//     //         owner->getTransform()->set(bottomLeftBound.x, bounds->getPosition().y);
-//     //     }else if(yOffset < xOffset){
-//     //         owner->getTransform()->set(bounds->getPosition().y, bottomLeftBound.y);
-//     //     }else{
-//     //         owner->getTransform()->set(bottomLeftBound.x, bottomLeftBound.y);
-//     //     }
-//     //     owner->getRigidBody()->setForce(0, 0);
-//     // }
-
-//     // //collide on the bottom left
-//     // Math::Vector2D bottomLeft = Math::Vector2D(otherBounds->getPosition().x, otherBounds->getPosition().y+otherBounds->getSize().y);
-//     // if(Math::isInsideQuad(bottomLeft, topLeftBound, bottomRightBound)){
-//     //     std::cout << "Bottom left" << std::endl;
-//     //     float xOffset = bounds->getPosition().x - topRightBound.x;
-//     //     float yOffset = bounds->getPosition().y - topRightBound.y;
-//     //     if(xOffset > yOffset){
-//     //         owner->getTransform()->set(topRightBound.x, bounds->getPosition().y);
-//     //     }else if(yOffset < xOffset){
-//     //         owner->getTransform()->set(bounds->getPosition().y, topRightBound.y);
-//     //     }else{
-//     //         owner->getTransform()->set(topRightBound.x, topRightBound.y);
-//     //     }
-//     //     owner->getRigidBody()->setForce(0, 0);
-//     // }
-
-//     // //collide on bottom right
-//     // Math::Vector2D bottomRight = Math::Vector2D(otherBounds->getPosition().x+otherBounds->getSize().x, otherBounds->getPosition().y+otherBounds->getSize().y);
-//     // if(Math::isInsideQuad(bottomRight, topLeftBound, bottomRightBound)){
-//     //     std::cout << "Bottom right" << std::endl;
-//     //     float xOffset = bounds->getPosition().x - topLeftBound.x;
-//     //     float yOffset = bounds->getPosition().y - topLeftBound.y;
-//     //     if(xOffset > yOffset){
-//     //         owner->getTransform()->set(topLeftBound.x, bounds->getPosition().y);
-//     //     }else if(yOffset < xOffset){
-//     //         owner->getTransform()->set(bounds->getPosition().y, topLeftBound.y);
-//     //     }else{
-//     //         owner->getTransform()->set(topLeftBound.x, topLeftBound.y);
-//     //     }
-//     //     owner->getRigidBody()->setForce(0, 0);
-//     // }   
-//     // //if there has been some collide, tell the entity 
-//     if(collision){
-//         //call collisions on the entities
-//         c->getOwner()->onCollision(owner);
-//         owner->onCollision(c->getOwner());
-//     }
-// }
-
 void BoxCollider::correctColliderCollision(Collider *c, const Math::Vector2D& v, bool isMoving){
     if(isMoving){
         owner->getTransform()->set(v.x, v.y);
@@ -185,5 +81,14 @@ void BoxCollider::correctColliderCollision(Collider *c, const Math::Vector2D& v,
     }else{
         c->getOwner()->getTransform()->set(v.x, v.y);
         c->getOwner()->getRigidBody()->setForce(0, 0);
+    }
+}
+
+void BoxCollider::mouseCheck(){
+    if(Math::isInsideQuad(Input::mouseX, Input::mouseY, bounds->getPosition().x, bounds->getPosition().y, bounds->getPosition().x+bounds->getSize().x, bounds->getPosition().y+bounds->getSize().y)){
+        owner->onHover();
+        if(Input::mouseIsPressed){
+            owner->onClick(Input::mouseButton);
+        }
     }
 }

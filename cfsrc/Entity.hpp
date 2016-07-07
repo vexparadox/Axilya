@@ -61,6 +61,10 @@ public:
     Graphics::Image* getTexture();
     //when a collision happens
     void onCollision(Entity* e);
+    //when a click happens
+    void onClick(int mouseButton);
+    //when it's being hovered
+    void onHover();
     //add a collider
     void addCollider(Collider*);
     //get the collider
