@@ -25,20 +25,11 @@ protected:
     BaseCore(BaseCore const&){};
     //Needs assignemnet made private
 public:
-    int mouseX = 0, mouseY = 0;
     int windowWidth= 0, windowHeight = 0;
-    bool keyIsPressed = false;
-    bool mouseIsPressed = false;
-    int mouseButton = -1;
-    int keyCode = 0;
     virtual ~BaseCore(){};
     virtual void draw(){};
     virtual void setup(){};
     virtual void update(){};
-    virtual void keyPressed(int key){};
-    virtual void keyReleased(int key){};
-    virtual void mousePressed(int button){};
-    virtual void mouseReleased(int button){};
     virtual void exitCalled(){std::exit(0);};
     GLFWwindow*& getWindow();
 };

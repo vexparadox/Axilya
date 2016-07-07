@@ -118,25 +118,25 @@ void Runner::errorCallback(int error, const char* description){
 }
 
 void Runner::cursorCallback(GLFWwindow* window, double xpos, double ypos){
-    Runner::c->mouseX = xpos;
-    Runner::c->mouseY = ypos;
+    Input::mouseX = xpos;
+    Input::mouseY = ypos;
 }
 
 void Runner::mouseCallback(GLFWwindow *window, int button, int action, int mods){
     if(action == GLFW_PRESS){
         mbsPressed++;
-        Runner::c->mousePressed(button);
-        Runner::c->mouseIsPressed = true;
-        Runner::c->mouseButton = button;
+        Input::mousePressed(button);
+        Input::mouseIsPressed = true;
+        Input::mouseButton = button;
         return;
     }
     if(action == GLFW_RELEASE){
         mbsPressed--;
         if(mbsPressed < 1){
-            Runner::c->mouseIsPressed = false;
-            Runner::c->mouseButton = -1;
+            Input::mouseIsPressed = false;
+            Input::mouseButton = -1;
         }
-        Runner::c->mouseReleased(button);
+        Input::mouseReleased(button);
         return;
     }
 }
@@ -147,9 +147,8 @@ void Runner::keyCallback(GLFWwindow* window, int key, int scancode, int action, 
         return;
     }
     if(action == GLFW_PRESS){
-        Runner::c->keyIsPressed = true;
-        Runner::c->keyCode = key;
-        // Runner::c->keyPressed(key);
+        Input::keyIsPressed = true;
+        Input::keyCode = key;
         keysPressed++;
         Input::setKeyDown(key);        
         return;
@@ -157,11 +156,10 @@ void Runner::keyCallback(GLFWwindow* window, int key, int scancode, int action, 
     if(action == GLFW_RELEASE){
         keysPressed--;
         if(keysPressed <1){
-            Runner::c->keyCode = 0;
-            Runner::c->keyIsPressed = false;
+            Input::keyCode = 0;
+            Input::keyIsPressed = false;
         }
         Input::setKeyUp(key);
-        // Runner::c->keyReleased(key);
         return;
     }
 }

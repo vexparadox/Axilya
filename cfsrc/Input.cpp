@@ -5,8 +5,23 @@ bool Input::Down = false;
 bool Input::Up = false;
 bool Input::Right = false;
 bool Input::Left = false;
+bool Input::keyIsPressed = false;
+bool Input::mouseIsPressed = false;
+int Input::keyCode = 0;
+int Input::mouseButton = -1;
+int Input::mouseX = 0;
+int Input::mouseY = 0;
 std::vector<int> Input::miscKeysPressed;
 
+
+void Input::mousePressed(int button){
+
+}
+
+void Input::mouseReleased(int button){
+
+    
+}
 
 void Input::setKeyDown(int key){
     switch(key){
