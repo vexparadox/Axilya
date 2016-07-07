@@ -24,6 +24,14 @@ namespace Graphics{
             b = 0;
             a = 0;
         }
+
+        void set(float r, float g, float b, float a){
+            colourAssign(this->r, r);
+            colourAssign(this->g, g);
+            colourAssign(this->b, b);
+            colourAssign(this->a, a);
+        }
+
         float getR() const{
             return r;
         }

@@ -29,6 +29,8 @@ class Entity{
     std::vector<Component*> components;
     //the texture/image the Entity owns
     Graphics::Image* texture = 0;
+    //set a colour
+    Graphics::Colour colour = Graphics::Colour(0, 0, 0, 255);
     void handle_eptr(std::exception_ptr);
 public:
     //constructors
@@ -40,6 +42,10 @@ public:
     virtual void draw();
     //moves the transform and any colliders attached by a certain amount
     void moveEntity(Math::Vector2D v);
+    //set and get the colour
+    void setColour(float r, float g, float b, float a);
+    void setColour(const Graphics::Colour &c);
+    const Graphics::Colour& getColour();
     //set and get scene
     void setScene(Scene*);
     Scene* getScene();

@@ -39,7 +39,7 @@ void Entity::draw(){
         std::cout << "Drawing texture" << std::endl;
         texture->draw(transform->getPos(), transform->getSize().x, transform->getSize().y);
     }else{
-        Graphics::fill(0, 0, 0, 255);
+        Graphics::fill(colour);
         Graphics::drawRect(transform->getPos(), transform->getSize().x, transform->getSize().y);
     }
 }
@@ -89,6 +89,18 @@ void Entity::onCollision(Entity* e){
     for(auto c : components){
         c->onCollision(e);
     }
+}
+
+void Entity::setColour(float r, float g, float b, float a){
+    this->colour.set(r, g, b, a);
+}
+
+void Entity::setColour(const Graphics::Colour& c){
+    this->colour.set(c.getR(), c.getG(), c.getB(), c.getA());
+}
+
+const Graphics::Colour& Entity::getColour(){
+    return colour;
 }
 
 Scene* Entity::getScene(){

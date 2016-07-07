@@ -23,7 +23,6 @@ protected:
     GLFWwindow* window;
     BaseCore(){};
     BaseCore(BaseCore const&){};
-    //Needs assignemnet made private
 public:
     int windowWidth= 0, windowHeight = 0;
     virtual ~BaseCore(){};
