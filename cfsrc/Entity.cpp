@@ -38,7 +38,7 @@ Entity::~Entity(){
 }
 
 void Entity::draw(){
-    if(texture){
+    if(texture != 0){
         Graphics::fill(255, 255, 255, 255);
         texture->draw(transform->getPos(), transform->getSize().x, transform->getSize().y);
     }else{

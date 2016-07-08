@@ -3,3 +3,5 @@ TOIMPROVE
 Active checks on entities - possibly have two lists in Scene
 
 Find methods that exist in Components and store in lists in Entity
+
+fix issue when adding a texture it not drawing normal shapes
