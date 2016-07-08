@@ -25,11 +25,6 @@ void exampleComponent::update(){
 	}
 }
 
-void exampleComponent::onClick(int mouseButton){
-    //this is an overriden method that's called when an entity with a collider is clicked on
-    owner->getRigidBody()->addForce(0, -10);
-}
-
 void exampleComponent::onHover(){
     //this is an overriden method that's called when an entity with a collider is hovered over with the mouse
     owner->setColour(255, 0, 0, 255);

@@ -52,7 +52,12 @@ void Scene::addEntity(Entity* e){
 }
 
 void Scene::removeEntity(Entity* e){
-    // entities.erase(std::remove_if(entities.begin(), entities.end(), [e](Entity* e2){return (e==e2);}), entities.end());
+    for(auto it = entities.begin(); it != entities.end(); it++){
+        if(*it == e){
+            entities.erase(it);
+            break;
+        }
+    }
 }
 
 int Scene::numEntities(){

@@ -7,7 +7,6 @@ class exampleComponent : public Component{
     int x = 5;
     exampleComponent();
     virtual void update();
-    virtual void onClick(int mouseButton);
     virtual void onHover();
 };
 #endif

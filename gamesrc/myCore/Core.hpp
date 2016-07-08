@@ -9,6 +9,7 @@
 #define Core_hpp
 #include <CoreMain.h>
 #include <exampleComponent.hpp>
+#include <Destroyable.hpp>
 
 class Core : public BaseCore{
 public:
