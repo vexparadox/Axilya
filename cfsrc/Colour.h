@@ -10,6 +10,7 @@
 #define Colour_h
 namespace Graphics{
     class Colour{
+        //#todo add static presets
         float r, g, b, a;
     public:
         Colour(float r, float g, float b, float a) {

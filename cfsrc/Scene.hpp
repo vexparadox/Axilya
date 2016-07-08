@@ -1,6 +1,7 @@
 #ifndef Scene_hpp
 #define Scene_hpp
 #include <vector>
+#include <algorithm>
 
 class Entity;
 class Scene{
@@ -26,6 +27,8 @@ public:
     * @param e the new Entity being added
     */
     void addEntity(Entity* e);
+
+    void removeEntity(Entity* e);
 
     void collideCheck(Entity* e, Math::Vector2D& proposedMovement);
     /*!

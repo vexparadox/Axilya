@@ -51,6 +51,10 @@ void Scene::addEntity(Entity* e){
     this->entities.push_back(e);
 }
 
+void Scene::removeEntity(Entity* e){
+    // entities.erase(std::remove_if(entities.begin(), entities.end(), [e](Entity* e2){return (e==e2);}), entities.end());
+}
+
 int Scene::numEntities(){
     return this->entities.size();
 }

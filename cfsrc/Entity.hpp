@@ -40,6 +40,10 @@ public:
     //update and draws
     virtual void update();
     virtual void draw();
+
+    //this method deletes all the data to do with this entity
+    void destroy();
+    
     //moves the transform and any colliders attached by a certain amount
     void moveEntity(Math::Vector2D v);
     //set and get the colour

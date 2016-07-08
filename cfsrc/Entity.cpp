@@ -1,6 +1,6 @@
 //
-//  Entity.cpp
 //  closedFrameworks
+//  Entity.cpp
 //
 //  Created by William Meaton on 12/05/2016.
 //  Copyright © 2016 WillMeaton.uk. All rights reserved.
@@ -20,6 +20,10 @@ Entity::Entity(const Math::Vector2D& pos, const Math::Vector2D& size){
 }
 
 Entity::~Entity(){
+    //remove yourself from the scene
+    if(scene){
+        scene->removeEntity(this);
+    }
     //remove all the components
     delete transform;
     transform = 0;
@@ -93,6 +97,10 @@ void Entity::moveEntity(Math::Vector2D v){
         transform->set(v);
     }
     // transform->moveTransform(v);
+}
+
+void Entity::destroy(){
+    delete this;
 }
 
 void Entity::onCollision(Entity* e){
