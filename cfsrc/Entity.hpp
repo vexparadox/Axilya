@@ -19,6 +19,8 @@
 #endif /* Entity_hpp */
 class Scene;
 class Entity{
+    //if the entity is active
+    bool active = true;
     //the scene this entity belongs to
     Scene* scene = 0;
     //a list of standard components, these are presets
@@ -53,6 +55,9 @@ public:
     //set and get scene
     void setScene(Scene*);
     Scene* getScene();
+
+    void setActive(bool a);
+    bool isActive();
     //add RigidBody
     void addRigidBody(RigidBody*);
     void addRigidBody(bool);

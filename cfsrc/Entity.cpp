@@ -90,9 +90,7 @@ void Entity::handle_eptr(std::exception_ptr eptr){
 
 void Entity::moveEntity(Math::Vector2D v){
     if(collider){
-        std::cout << "v1 " << v.x << " " << v.y << std::endl;
         scene->collideCheck(this, v);
-        std::cout << "v2 " << v.x << " " << v.y << std::endl;
         collider->getBounds()->set(v, collider->getBounds()->getSize());
         transform->set(v);
     }
@@ -140,6 +138,14 @@ Scene* Entity::getScene(){
 
 void Entity::setScene(Scene* s){
     this->scene = s;
+}
+
+void Entity::setActive(bool a){
+    this->active = a;
+}
+
+bool Entity::isActive(){
+    return this->active;
 }
 
 void Entity::addComponent(Component* c){

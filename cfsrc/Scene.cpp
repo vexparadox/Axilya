@@ -14,13 +14,17 @@ Scene::~Scene(){
 
 void Scene::draw(){
     for(auto e : entities){
-        e->draw();
+        if(e->isActive()){
+            e->draw();
+        }
     }
 }
 
 void Scene::update(){
     for(auto e : entities){
-        e->update();
+        if(e->isActive()){
+            e->update();
+        }
     }
     //loop entities and compare
     //pretty ineffcient
