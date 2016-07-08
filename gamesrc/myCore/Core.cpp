@@ -31,7 +31,7 @@ void Core::setup(){
 	character2->addComponent(new exampleComponent()); // This is a custom component that controls movement and colour changes
 	scene1->addEntity(character2); //add your entity to the scene
 	
-	character2->getComponent<exampleComponent>()->x = 123; // an example of getting a component on an entity
+	// character2->getComponent<exampleComponent>()->x = 123; // an example of getting a component on an entity
 }
 
 void Core::update(){

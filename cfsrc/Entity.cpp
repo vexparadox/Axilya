@@ -149,7 +149,6 @@ bool Entity::isActive(){
 
 void Entity::addComponent(Component* c){
     c->setOwner(this);
-    c->start();
     components.push_back(c);
 }
 

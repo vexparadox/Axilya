@@ -9,7 +9,7 @@
 #include "Component.hpp"
 
 Component::Component(){
-    
+    this->start();
 }
 
 Component::~Component(){
