@@ -5,7 +5,6 @@
 class exampleComponent : public Component{
     public:
     int x = 5;
-    exampleComponent();
     virtual void update();
     virtual void onHover();
 };

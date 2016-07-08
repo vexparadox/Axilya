@@ -39,8 +39,7 @@ Entity::~Entity(){
 
 void Entity::draw(){
     if(texture){
-        // Graphics::fill(255, 255, 255, 255);
-        std::cout << "Drawing texture" << std::endl;
+        Graphics::fill(255, 255, 255, 255);
         texture->draw(transform->getPos(), transform->getSize().x, transform->getSize().y);
     }else{
         Graphics::fill(colour);
@@ -150,6 +149,7 @@ bool Entity::isActive(){
 
 void Entity::addComponent(Component* c){
     c->setOwner(this);
+    c->start();
     components.push_back(c);
 }
 

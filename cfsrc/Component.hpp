@@ -23,6 +23,8 @@ public:
     Entity* getOwner();
     //returns what entity owns this component
     void setOwner(Entity*);
+    //called at the begining of the program
+    virtual void start(){};
     //a virutal update method that Component's can use
     virtual void update(){};
     virtual void onCollision(Entity* e){};

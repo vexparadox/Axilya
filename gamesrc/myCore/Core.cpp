@@ -23,15 +23,14 @@ void Core::setup(){
 	character1->addCollider(new BoxCollider()); // Adds a simple box collider
 	character1->addComponent(new Destroyable()); // this is a custom component that allows this entity to be destroyed when clicked on 
 	scene1->addEntity(character1); //add your entity to the scene
-
 	//Start a new Entity
 	character2 = new Entity(100, 60, 50, 50); // Create a new entity with x, y, w, h
 	character2->addRigidBody(new RigidBody(true)); // makes the object solid and react to physics
-	// character->addTexture(""); //add a texture if you like
+	character2->addTexture("img.png"); //add a texture if you like
 	character2->addCollider(new BoxCollider()); // Adds a simple box collider 
 	character2->addComponent(new exampleComponent()); // This is a custom component that controls movement and colour changes
 	scene1->addEntity(character2); //add your entity to the scene
-
+	
 	character2->getComponent<exampleComponent>()->x = 123; // an example of getting a component on an entity
 }
 

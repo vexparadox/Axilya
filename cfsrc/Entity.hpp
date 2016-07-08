@@ -95,5 +95,4 @@ public:
         //will return null if there's no component found
         return 0;
     }
-
 };

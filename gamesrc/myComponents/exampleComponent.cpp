@@ -1,7 +1,5 @@
 #include "exampleComponent.hpp"
 
-exampleComponent::exampleComponent(){
-}
 
 void exampleComponent::update(){
     // This is the custom update, here you can access the entity it's attached to using "owner"

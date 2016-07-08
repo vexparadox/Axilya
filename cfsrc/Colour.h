@@ -86,7 +86,6 @@ namespace Graphics{
             c1 = c1+c2;
             return;
         }
-        
     };
 }
 
