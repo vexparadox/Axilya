@@ -21,6 +21,11 @@ void Core::setup(){
 	//scenes will update entities and worlds appropriately
 	//this will in turn update components
 	scene1 = new Scene();
+
+	//Create a new entity
+	//everything on screen is an entity
+	//entites hold components like, colliders, rigidbodies, transforms and user made ones!
+	//You can see below that Destroyable is a user made component, you can see what it does by looking in : myComponents/Destroyable.cpp
 	character1 = new Entity(200, 60, 20, 20); // Create a new entity with x, y, w, h
 	character1->addRigidBody(true); // makes the object solid and react to physics
 	character1->addCollider(new BoxCollider()); // Adds a simple box collider
