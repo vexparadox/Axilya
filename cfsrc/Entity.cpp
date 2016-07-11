@@ -40,11 +40,9 @@ Entity::~Entity(){
 void Entity::draw(){
     if(texture){
         Graphics::fill(255, 255, 255, 255);
-        std::cout << "Texture" << std::endl;
         texture->getImage()->draw(transform->getPos(), transform->getSize().x, transform->getSize().y);
     }else{
         Graphics::fill(colour);
-        std::cout << "Shape" << std::endl;
         Graphics::drawRect(transform->getPos(), transform->getSize().x, transform->getSize().y);
     }
 }

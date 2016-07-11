@@ -12,12 +12,14 @@ using namespace Graphics;
 
 void Core::setup(){
     setBackground(255, 255, 255, 255);
+	//load in new textures!
+	int image1ID = ResourceManager->addTexture("img.png");
+
 	//Create a new scene
 	//scenes contain entities and worlds
 	//scenes will update entities and worlds appropriately
 	//this will in turn update components
 	scene1 = new Scene();
-	int image1 = ResourceManager->addTexture("img.png");
 	character1 = new Entity(200, 60, 20, 20); // Create a new entity with x, y, w, h
 	character1->addRigidBody(true); // makes the object solid and react to physics
 	character1->addCollider(new BoxCollider()); // Adds a simple box collider
@@ -26,13 +28,12 @@ void Core::setup(){
 	//Start a new Entity
 	character2 = new Entity(100, 60, 50, 50); // Create a new entity with x, y, w, h
 	character2->addRigidBody(new RigidBody(true)); // makes the object solid and react to physics
-	character2->addTexture(image1); //add a texture if you like
+	character2->addTexture(image1ID); //add a texture that's been loaded into the ResourceManager
 	character2->addCollider(new BoxCollider()); // Adds a simple box collider 
 	character2->addComponent(new exampleComponent()); // This is a custom component that controls movement and colour changes
 	scene1->addEntity(character2); //add your entity to the scene
 
-
-	// character2->getComponent<exampleComponent>()->x = 123; // an example of getting a component on an entity
+	character2->getComponent<exampleComponent>()->x = 123; // an example of getting a component on an entity
 }
 
 void Core::update(){

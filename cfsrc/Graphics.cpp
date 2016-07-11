@@ -22,6 +22,7 @@ namespace Graphics{
     }
 
     void drawTriangle(float x1, float y1, float x2, float y2, float x3, float y3){
+        glDisable(GL_TEXTURE_2D);
         glBegin(GL_TRIANGLES);
         glVertex3f(x1, y1, 0.f);
         glVertex3f(x2, y2, 0.f);
@@ -31,6 +32,7 @@ namespace Graphics{
 
     //RECTANGLES
     void drawRect(float x, float y, float w, float h){
+        glDisable(GL_TEXTURE_2D);
         glBegin(GL_QUADS);
         glVertex3f(x, y, 0.0f);
         //top left
@@ -53,6 +55,7 @@ namespace Graphics{
     }
     
     void drawPoly(const std::vector<Math::Vector2D>& v){
+        glDisable(GL_TEXTURE_2D);
         glBegin(GL_POLYGON);
         for(auto points : v){
             glVertex3f(points.x, points.y, 0.0f);
@@ -78,6 +81,7 @@ namespace Graphics{
     }
     
     void drawEllipse(float x, float y, float xR, float yR){
+        glDisable(GL_TEXTURE_2D);
         glBegin(GL_TRIANGLE_FAN);
     
         float degToRad = M_PI/180.0;
