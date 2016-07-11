@@ -14,6 +14,7 @@ void Core::setup(){
     setBackground(255, 255, 255, 255);
 	//load in new textures!
 	int image1ID = ResourceManager->addTexture("img.png");
+	int image2ID = ResourceManager->addTexture("img2.png");
 
 	//Create a new scene
 	//scenes contain entities and worlds
@@ -32,7 +33,7 @@ void Core::setup(){
 	character2->addRigidBody(new RigidBody(true)); // makes the object solid and react to physics
 	character2->addCollider(new BoxCollider()); // Adds a simple box collider 
 	character2->addComponent(new exampleComponent()); // This is a custom component that controls movement and colour changes
-	character2->addTexture(image1ID); //This is the same texture used for character1, but it's only been loaded once
+	character2->addTexture(image2ID); //This is the same texture used for character1, but it's only been loaded once
 	scene1->addEntity(character2); //add your entity to the scene
 }
 
