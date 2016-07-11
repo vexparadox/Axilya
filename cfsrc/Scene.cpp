@@ -32,7 +32,6 @@ void Scene::update(){
 
 void Scene::collideCheck(Entity* e, Math::Vector2D& proposedMovement){
     bool collide = false;
-    proposedMovement += e->getTransform()->getPos();
     //check this entity against the rest with the proposedMovement
     for(int i = 0; i < entities.size(); i++){
         if(!entities[i]->getCollider()){

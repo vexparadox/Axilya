@@ -9,12 +9,15 @@
 #ifndef Component_hpp
 #define Component_hpp
 
+#include "ResourceManager.hpp"
 #include <stdio.h>
 #include "Math.h"
 
 class Entity;
 class Component{
 protected:
+    //get an instance of the resourcemanager
+    ResourceManager* ResourceManager = ResourceManager::getInstance();
     Entity* owner = 0;
     Component();
 public:  

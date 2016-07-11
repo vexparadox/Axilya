@@ -38,11 +38,13 @@ Entity::~Entity(){
 }
 
 void Entity::draw(){
-    if(texture != 0){
+    if(texture){
         Graphics::fill(255, 255, 255, 255);
-        texture->draw(transform->getPos(), transform->getSize().x, transform->getSize().y);
+        std::cout << "Texture" << std::endl;
+        texture->getImage()->draw(transform->getPos(), transform->getSize().x, transform->getSize().y);
     }else{
         Graphics::fill(colour);
+        std::cout << "Shape" << std::endl;
         Graphics::drawRect(transform->getPos(), transform->getSize().x, transform->getSize().y);
     }
 }
@@ -88,12 +90,12 @@ void Entity::handle_eptr(std::exception_ptr eptr){
 
 
 void Entity::moveEntity(Math::Vector2D v){
+    v += getTransform()->getPos();
     if(collider){
         scene->collideCheck(this, v);
         collider->getBounds()->set(v, collider->getBounds()->getSize());
-        transform->set(v);
     }
-    // transform->moveTransform(v);
+    transform->set(v);
 }
 
 void Entity::destroy(){
@@ -170,12 +172,16 @@ Transform* Entity::getTransform(){
     return transform;
 }
 
-void Entity::addTexture(std::string s){
-    this->texture = new Graphics::Image(s);
+void Entity::addTexture(Texture* t){
+    if(t){
+        this->texture = t;
+    }
 }
 
-void Entity::addTexture(Graphics::Image* i){
-    this->texture = i;
+void Entity::addTexture(int textureID){
+    if(ResourceManager->getTexture(textureID)){
+        this->texture = ResourceManager->getTexture(textureID);
+    }
 }
 
 void Entity::addCollider(Collider* c){
@@ -190,7 +196,7 @@ void Entity::addCollider(Collider* c){
     }
 }
 
-Graphics::Image* Entity::getTexture(){
+Texture* Entity::getTexture(){
     return this->texture;
 }
 

@@ -13,12 +13,15 @@
 
 #include "Math.h"
 #include "Graphics.hpp"
+#include "ResourceManager.hpp"
 //components
 #include "Components.h"
 
 #endif /* Entity_hpp */
 class Scene;
 class Entity{
+    //get an instance of the resourcemanager
+    ResourceManager* ResourceManager = ResourceManager::getInstance();
     //if the entity is active
     bool active = true;
     //the scene this entity belongs to
@@ -30,7 +33,7 @@ class Entity{
     //a list of custom components
     std::vector<Component*> components;
     //the texture/image the Entity owns
-    Graphics::Image* texture = 0;
+    Texture* texture = 0;
     //set a colour
     Graphics::Colour colour = Graphics::Colour(0, 0, 0, 255);
     void handle_eptr(std::exception_ptr);
@@ -55,7 +58,6 @@ public:
     //set and get scene
     void setScene(Scene*);
     Scene* getScene();
-
     void setActive(bool a);
     bool isActive();
     //add RigidBody
@@ -64,10 +66,10 @@ public:
     //get the rigidBody
     RigidBody* getRigidBody();    
     //add a new texture
-    void addTexture(std::string);
-    void addTexture(Graphics::Image*);
+    void addTexture(Texture*);
+    void addTexture(int textureID);
     //get the texture
-    Graphics::Image* getTexture();
+    Texture* getTexture();
     //when a collision happens
     void onCollision(Entity* e);
     //when a click happens

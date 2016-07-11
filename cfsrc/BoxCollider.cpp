@@ -68,7 +68,7 @@ bool BoxCollider::checkMovement(Entity* e, Math::Vector2D& proposedMovement){
             tempPosition.x = x;
             tempPosition.y = y;
             proposedMovement = tempPosition;
-            std::cout << "Proposed " << tempPosition.x  << " "<< tempPosition.y << std::endl;
+            std::cout << "Proposed " << proposedMovement.x  << " "<< proposedMovement.y << std::endl;
         return true;
     }
     return false;
