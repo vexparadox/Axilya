@@ -24,6 +24,7 @@ Entity::~Entity(){
     if(scene){
         scene->removeEntity(this);
     }
+    //Do not delete the texture, it's not handled by this object
     //remove all the components
     delete transform;
     transform = 0;
