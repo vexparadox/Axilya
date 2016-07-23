@@ -55,8 +55,23 @@ bool BoxCollider::checkMovement(Entity* e, Math::Vector2D& proposedMovement){
     if(oP){
             Shape* oBounds = e->getCollider()->getBounds();
             float x = tempPosition.x, y = tempPosition.y;
+	    //if x > bounds, if x < bounds
+	    //if x > bounds, if y < bounds
+	    if(tempPosition.x+other->getSize().x > bounds->getPosition().x){
+		x = bounds->getPosition().x-other->getSize().x;
+	    }
+	    else if(tempPosition.x < bounds->getPosition().x+bounds->getSize().x){
+		x = bounds->getPosition().x+bounds->getSize().x;
+	    }
+	    if(tempPosition.y+other->getSize().y > bounds->getPosition().y){
+		y = bounds->getPosition().y-other->getSize().y;
+	    }else if(tempPosition.y < bounds->getPosition().y+bounds->getSize().y){
+		y = bounds->getPosition().x+bounds->getSize().y;
+	    }
+	   /* 
             if(bounds->getPosition().x+bounds->getSize().x < tempPosition.x){
                 x = tempPosition.x-bounds->getSize().x;
+
             } else if(bounds->getPosition().x > tempPosition.x+oBounds->getSize().x){
                 x = tempPosition.x;
             }
@@ -65,6 +80,7 @@ bool BoxCollider::checkMovement(Entity* e, Math::Vector2D& proposedMovement){
             } else if(bounds->getPosition().y > tempPosition.y+oBounds->getSize().y){
                 y = tempPosition.y+oBounds->getSize().y;
             }
+	    */
             tempPosition.x = x;
             tempPosition.y = y;
             proposedMovement = tempPosition;

@@ -115,7 +115,11 @@ namespace Math {
             v1 = v1/v2;
             return;
         }
-            
+	//Zeros the vector
+	inline void zero(){
+	    this->x = 0;
+	    this->y = 0;
+	}		
         //normalise
         inline Vector2D& normalise(){
             float length = this->length();

@@ -31,7 +31,6 @@ void Scene::update(){
 }
 
 void Scene::collideCheck(Entity* e, Math::Vector2D& proposedMovement){
-    bool collide = false;
     //check this entity against the rest with the proposedMovement
     for(int i = 0; i < entities.size(); i++){
         if(!entities[i]->getCollider()){
@@ -43,7 +42,9 @@ void Scene::collideCheck(Entity* e, Math::Vector2D& proposedMovement){
             }
             //if there is a collision then allow it to correct and loop again
             if(entities[i]->getCollider()->checkMovement(e, proposedMovement)){
-                collide = true;
+		//    std::cout << "Collision occured" << std::endl;
+		proposedMovement = e->getTransform()->getPos();
+		break;
             }
         }
     }
