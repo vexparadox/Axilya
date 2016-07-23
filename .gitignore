@@ -4,3 +4,4 @@ closedFrameworks
 .browse.*
 *.png
 libcf.a
+*.swp
