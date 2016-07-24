@@ -17,6 +17,7 @@
 #include "../cfsrc/Scene.hpp"
 #include "../cfsrc/Input.hpp"
 #include "../cfsrc/ResourceManager.hpp"
+#include "../cfsrc/Client.hpp"
 #include "myCore/Core.hpp"
 
 #endif /* CoreMain_h */

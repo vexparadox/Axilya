@@ -11,11 +11,15 @@
 using namespace Graphics;
 
 void Core::setup(){
+    //setup the client
+    Client::getInstance()->setup("127.0.0.1", 1234, 2, 0, 0);
+    //connect it and only wait for 500ms
+    Client::getInstance()->connect(500);
+
     setBackground(255, 255, 255, 255);
 	//load in new textures!
 	int image1ID = ResourceManager->addTexture("img.png");
 	int image2ID = ResourceManager->addTexture("img2.png");
-
 	//Create a new scene
 	//scenes contain entities and worlds
 	//scenes will update entities and worlds appropriately

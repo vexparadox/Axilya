@@ -21,7 +21,7 @@ all: $(program_NAME) run
 lib: $(lib_NAME)
 
 run:
-	./closedFrameworks
+	./$(program_NAME)
 	
 $(lib_NAME): $(program_OBJS)
 	ar rsc $(lib_NAME).a $(program_OBJS)
