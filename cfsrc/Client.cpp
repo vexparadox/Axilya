@@ -20,13 +20,13 @@ void Client::setup(std::string address, int port, int numChannels, int incBandwi
 
 bool Client::connect(int timeout){
     ENetEvent event;
-    std::cout << "Attempting to connect." << std::endl;
+    std::cout << "Attempting to connect with a " << timeout << "ms timeout." << std::endl;
     peer = enet_host_connect (client, & clientAddress, numChannels, 0);    
     if (!peer){ std::cout << "No available peers for initiating an ENet connection." << std::endl; }
     if (enet_host_service (client, &event, timeout) > 0 &&
         event.type == ENET_EVENT_TYPE_CONNECT)
     {
-        std::cout << "Connection to 127.0.0.1:1234 succeeded.";
+        std::cout << "Connection to 127.0.0.1:1234 succeeded." std::endl;
         isConnected = true;
         return true;
     }else{
