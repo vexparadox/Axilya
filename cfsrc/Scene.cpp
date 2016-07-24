@@ -1,8 +1,13 @@
 #include "Entity.hpp"
 #include "Runner.hpp"
 #include "Scene.hpp"
+#include "enet/enet.h"
 
 Scene::Scene(){
+    if (enet_initialize () != 0)
+    {
+        fprintf (stderr, "An error occurred while initializing ENet.\n");
+    }
 }
 
 Scene::~Scene(){

@@ -7,7 +7,7 @@ program_OBJS := ${program_CXX_SRCS:.cpp=.o}
 program_INCLUDE_DIRS := $(shell echo ./gamesrc/**/)
 program_HEADERS := $(foreach directory, $(program_INCLUDE_DIRS), -I$(directory))
 program_LIBRARY_DIRS := ./lib/
-program_LIBRARIES := drawtext-noft GLEW glfw3 SOIL
+program_LIBRARIES := drawtext-noft GLEW glfw3 SOIL enet
 
 
 CPPFLAGS += $(program_HEADERS) -Wno-c++11-extensions -Wno-c++11-compat-deprecated-writable-strings -Wno-return-stack-address
