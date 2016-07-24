@@ -26,7 +26,7 @@ bool Client::connect(int timeout){
     if (enet_host_service (client, &event, timeout) > 0 &&
         event.type == ENET_EVENT_TYPE_CONNECT)
     {
-        std::cout << "Connection to 127.0.0.1:1234 succeeded." std::endl;
+        std::cout << "Connection to 127.0.0.1:1234 succeeded." << std::endl;
         isConnected = true;
         return true;
     }else{
