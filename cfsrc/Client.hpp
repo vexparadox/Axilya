@@ -22,7 +22,7 @@ class Client{
     int incBandwidth = 0;
     int outBandwidth = 0;
     int numChannels = 2;
-    bool isConnected = false;
+    bool connected = false;
     public:
     void setup(std::string address, int port, int numChannels, int incBandwidth, int outBandwidth);
     bool connect(int timeout);

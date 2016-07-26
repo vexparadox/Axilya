@@ -12,7 +12,7 @@ using namespace Graphics;
 
 void Core::setup(){
     //setup the client
-    Client::getInstance()->setup("178.62.6.47", 1234, 2, 0, 0);
+    Client::getInstance()->setup("127.0.0.1", 1234, 2, 0, 0);
     //connect it and only wait for 500ms
     Client::getInstance()->connect(500);
 	if(Client::getInstance()->isConnected()){

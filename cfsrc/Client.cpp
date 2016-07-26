@@ -28,12 +28,12 @@ bool Client::connect(int timeout){
     if (enet_host_service (client, &event, timeout) > 0 &&
         event.type == ENET_EVENT_TYPE_CONNECT)
     {
-        isConnected = true;
+        connected = true;
         return true;
     }else{
         enet_peer_reset (peer);
         std::cout << "Connection to " << address << ":" << port << " failed" << std::endl;
-        isConnected = false;
+        connected = false;
         return false;
     }
 }
@@ -46,7 +46,7 @@ Client* Client::getInstance(){
 }
 
 bool Client::isConnected(){
-    return isConnected;
+    return connected;
 }
 
 Client::~Client(){
