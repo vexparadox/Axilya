@@ -7,6 +7,8 @@ Client::Client(){
 }
 
 void Client::setup(std::string address, int port, int numChannels, int incBandwidth, int outBandwidth){
+    this->address = address;
+    this->port = port;
     this->numChannels = numChannels;
     this->incBandwidth = incBandwidth;
     this->outBandwidth = outBandwidth;
@@ -26,12 +28,11 @@ bool Client::connect(int timeout){
     if (enet_host_service (client, &event, timeout) > 0 &&
         event.type == ENET_EVENT_TYPE_CONNECT)
     {
-        std::cout << "Connection to 127.0.0.1:1234 succeeded." << std::endl;
         isConnected = true;
         return true;
     }else{
         enet_peer_reset (peer);
-        std::cout << "Connection to 127.0.0.1:1234 failed" << std::endl;
+        std::cout << "Connection to " << address << ":" << port << " failed" << std::endl;
         isConnected = false;
         return false;
     }
@@ -42,6 +43,10 @@ Client* Client::getInstance(){
         instance = new Client();
     }
     return instance;
+}
+
+bool Client::isConnected(){
+    return isConnected;
 }
 
 Client::~Client(){

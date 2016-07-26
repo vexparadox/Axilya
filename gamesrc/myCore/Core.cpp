@@ -12,9 +12,12 @@ using namespace Graphics;
 
 void Core::setup(){
     //setup the client
-    Client::getInstance()->setup("127.0.0.1", 1234, 2, 0, 0);
+    Client::getInstance()->setup("178.62.6.47", 1234, 2, 0, 0);
     //connect it and only wait for 500ms
     Client::getInstance()->connect(500);
+	if(Client::getInstance()->isConnected()){
+		std::cout << "Connected succeded!" << std::endl;
+	}
 
     setBackground(255, 255, 255, 255);
 	//load in new textures!
@@ -33,7 +36,7 @@ void Core::setup(){
 	character1 = new Entity(200, 60, 20, 20); // Create a new entity with x, y, w, h
 	character1->addRigidBody(true); // makes the object solid and react to physics
 	character1->addCollider(new BoxCollider()); // Adds a simple box collider
-	character1->addTexture(image1ID); //add a texture that's been loaded into the ResourceManager
+	// character1->addTexture(image1ID); //add a texture that's been loaded into the ResourceManager
 	character1->addComponent(new Destroyable()); // this is a custom component that allows this entity to be destroyed when clicked on
 	scene1->addEntity(character1); //add your entity to the scene
 
@@ -42,7 +45,7 @@ void Core::setup(){
 	character2->addRigidBody(new RigidBody(true)); // makes the object solid and react to physics
 	character2->addCollider(new BoxCollider()); // Adds a simple box collider 
 	character2->addComponent(new exampleComponent()); // This is a custom component that controls movement and colour changes
-	character2->addTexture(image2ID); //This is the same texture used for character1, but it's only been loaded once
+	// character2->addTexture(image2ID); //This is the same texture used for character1, but it's only been loaded once
 	scene1->addEntity(character2); //add your entity to the scene
 }
 

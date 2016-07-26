@@ -17,6 +17,8 @@ class Client{
     ENetHost* client;
     ENetPeer *peer;
     ENetAddress clientAddress;
+    std::string address;
+    int port;
     int incBandwidth = 0;
     int outBandwidth = 0;
     int numChannels = 2;
@@ -24,6 +26,7 @@ class Client{
     public:
     void setup(std::string address, int port, int numChannels, int incBandwidth, int outBandwidth);
     bool connect(int timeout);
+    bool isConnected();
     static Client* getInstance();
 };
 #endif
