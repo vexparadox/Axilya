@@ -26,7 +26,9 @@ class Client{
     public:
     void setup(std::string address, int port, int numChannels, int incBandwidth, int outBandwidth);
     bool connect(int timeout);
+    void disconnect();
     bool isConnected();
+    void sendPacket();
     static Client* getInstance();
 };
 #endif

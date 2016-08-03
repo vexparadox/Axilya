@@ -12,6 +12,9 @@ void exampleComponent::update(){
 		owner->getRigidBody()->addForce(0, -10);
         //set the colour of the entity
         owner->setColour(0, 255, 255, 255);
+        if(Client::getInstance()->isConnected()){
+            Client::getInstance()->sendPacket();
+        }
 	}
     if(Input::keyRight()){
         owner->setColour(255, 0, 255, 255);

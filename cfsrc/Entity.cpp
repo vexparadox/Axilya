@@ -91,10 +91,9 @@ void Entity::handle_eptr(std::exception_ptr eptr){
 void Entity::moveEntity(Math::Vector2D v){
     v += transform->getPos();
     if(collider){
-	    std::cout << "Before " << v.x << " " << v.y << std::endl;
+	    // std::cout << "Before " << v.x << " " << v.y << std::endl;
         scene->collideCheck(this, v);
-	
-	    std::cout << "After" << v.x << " " << v.y << std::endl;
+	    // std::cout << "After" << v.x << " " << v.y << std::endl;
         collider->getBounds()->set(v, collider->getBounds()->getSize());
     }
     transform->set(v);

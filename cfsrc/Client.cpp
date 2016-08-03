@@ -23,7 +23,8 @@ void Client::setup(std::string address, int port, int numChannels, int incBandwi
 bool Client::connect(int timeout){
     ENetEvent event;
     std::cout << "Attempting to connect with a " << timeout << "ms timeout." << std::endl;
-    peer = enet_host_connect (client, & clientAddress, numChannels, 0);    
+    peer = enet_host_connect (client, & clientAddress, numChannels, 0);
+    enet_host_flush (client);    
     if (!peer){ std::cout << "No available peers for initiating an ENet connection." << std::endl; }
     if (enet_host_service (client, &event, timeout) > 0 &&
         event.type == ENET_EVENT_TYPE_CONNECT)
@@ -36,6 +37,34 @@ bool Client::connect(int timeout){
         connected = false;
         return false;
     }
+}
+
+void Client::disconnect(){
+    ENetEvent event;
+    enet_peer_disconnect (peer, 0);
+    /* Allow up to 3 seconds for the disconnect to succeed
+    * and drop any packets received packets.
+    */
+    while (enet_host_service (client, & event, 3000) > 0)
+    {
+        switch (event.type)
+        {
+        case ENET_EVENT_TYPE_RECEIVE:
+            enet_packet_destroy (event.packet);
+        break;
+        case ENET_EVENT_TYPE_DISCONNECT:
+            std::cout << "Disconnection succeeded." << std::endl;
+        return;
+        }
+    }
+    //reset if we reach here, this is a forcefull disconnect
+    enet_peer_reset (peer);
+}
+
+void Client::sendPacket(){
+    ENetPacket* packet = enet_packet_create ("10", strlen ("10") + 1, ENET_PACKET_FLAG_RELIABLE);
+    enet_host_broadcast (client, 0, packet);         
+    enet_host_flush (client);
 }
 
 Client* Client::getInstance(){
