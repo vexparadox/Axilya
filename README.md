@@ -1,4 +1,4 @@
-# closedFrameworks v0.495
+# closedFrameworks v0.6
 
 A basic 2D game framework written in C++, runnable with Make. To see the initial production of this project see: https://github.com/vexparadox/closedFrameworks
 
@@ -6,12 +6,24 @@ This framework is going to be the base of the yet-to-be-named 2D engine I am mak
 
 Please see the WIKI on how to use this framework. It's not very scary once you get started.
 
+See https://github.com/vexparadox/CFServer for the server module of closedFrameworks. This is still in early development.
+
 ## Coming Soon
 
-- Inter-Entity collisions
+- Good inter-Entity collisions
+- Better Client-Server intergration (setting Entities to sync etc)
 - Better physics on RigidBodies
-- MouseInput in the Input class
 - Handling random key presses in the Input class
+
+## v0.6 Changelog
+
+- Lots of back end stablising
+- Changed the way scenes work to allow proper collisions
+- Added new inter-entity-componet retrival (getComponent<>())
+- Added new Component calls (onHover, onClick)
+- Added mouse input into the Input class
+- New ResourceManager class for safely and effciently reusing assets
+- Added networked Client and Server intergration (using ENet)
 
 ## v0.495 Changelog
 
