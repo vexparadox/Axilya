@@ -5,6 +5,7 @@ program_CXX_SRCS := $(wildcard cfsrc/*.cpp)
 program_CXX_SRCS += $(shell find gamesrc/ -type f -name '*.cpp')
 program_OBJS := ${program_CXX_SRCS:.cpp=.o}
 program_INCLUDE_DIRS := $(shell echo ./gamesrc/**/)
+program_INCLUDE_DIRS += ./gamesrc/
 program_HEADERS := $(foreach directory, $(program_INCLUDE_DIRS), -I$(directory))
 program_LIBRARY_DIRS := ./lib/
 program_LIBRARIES := drawtext-noft GLEW glfw3 SOIL enet
