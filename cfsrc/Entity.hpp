@@ -22,6 +22,8 @@ class Scene;
 class Entity{
     //get an instance of the resourcemanager
     ResourceManager* ResourceManager = ResourceManager::getInstance();
+    //if the entity is listed to be removed
+    bool dead = false;
     //if the entity is active
     bool active = true;
     //the scene this entity belongs to
@@ -58,8 +60,11 @@ public:
     //set and get scene
     void setScene(Scene*);
     Scene* getScene();
+    //get and set the active state of the entity
     void setActive(bool a);
     bool isActive();
+    //check if the enitity should die
+    bool isDead();
     //add RigidBody
     void addRigidBody(RigidBody*);
     void addRigidBody(bool);

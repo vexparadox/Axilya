@@ -45,48 +45,24 @@ bool BoxCollider::overlap(Collider* c)
 }
 
 bool BoxCollider::checkMovement(Entity* e, Math::Vector2D& proposedMovement){
-    Shape* other = e->getCollider()->getBounds();
-    Math::Vector2D tempPosition = proposedMovement;
-    bool oP = !(tempPosition.x > bounds->getPosition().x+bounds->getSize().x
-        || tempPosition.x+other->getSize().x < bounds->getPosition().x
-        || tempPosition.y > bounds->getPosition().y+bounds->getSize().y
-        || tempPosition.y+other->getSize().y < bounds->getPosition().y);
+    //e is the moving entity
+    //get the moving entities bounds
+    // Shape* otherBounds = e->getCollider()->getBounds();
 
-    if(oP){
-            Shape* oBounds = e->getCollider()->getBounds();
-            float x = tempPosition.x, y = tempPosition.y;
-	    //if x > bounds, if x < bounds
-	    //if x > bounds, if y < bounds
-	    if(tempPosition.x+other->getSize().x > bounds->getPosition().x){
-		x = bounds->getPosition().x-other->getSize().x;
-	    }
-	    else if(tempPosition.x < bounds->getPosition().x+bounds->getSize().x){
-		x = bounds->getPosition().x+bounds->getSize().x;
-	    }
-	    if(tempPosition.y+other->getSize().y > bounds->getPosition().y){
-		y = bounds->getPosition().y-other->getSize().y;
-	    }else if(tempPosition.y < bounds->getPosition().y+bounds->getSize().y){
-		y = bounds->getPosition().x+bounds->getSize().y;
-	    }
-	   /* 
-            if(bounds->getPosition().x+bounds->getSize().x < tempPosition.x){
-                x = tempPosition.x-bounds->getSize().x;
-
-            } else if(bounds->getPosition().x > tempPosition.x+oBounds->getSize().x){
-                x = tempPosition.x;
-            }
-            if(bounds->getPosition().y+bounds->getSize().y < tempPosition.y){
-                y = tempPosition.y-oBounds->getSize().y;
-            } else if(bounds->getPosition().y > tempPosition.y+oBounds->getSize().y){
-                y = tempPosition.y+oBounds->getSize().y;
-            }
-	    */
-            tempPosition.x = x;
-            tempPosition.y = y;
-            proposedMovement = tempPosition;
-            std::cout << "Proposed " << proposedMovement.x  << " "<< proposedMovement.y << std::endl;
-        return true;
-    }
+    // //if moving right
+    // if(proposedMovement.x > 0){
+    //     Math::Vector2D topRight = Math::Vector2D(otherBounds->getPosition().x+otherBounds->getSize().x+proposedMovement.x, otherBounds->getPosition().y+otherBounds->getSize().y);
+    //     if(Math::isInsideQuad(topRight, bounds->getPosition(), bounds->getPosition()+bounds->getSize())){
+    //         proposedMovement.x = 0;
+    //         return true;
+    //     }
+    // }else if(proposedMovement.x < 0){
+    //     Math::Vector2D topLeft = Math::Vector2D(otherBounds->getPosition().x-proposedMovement.x, otherBounds->getPosition().y);
+    //     if(Math::isInsideQuad(topLeft, bounds->getPosition(), bounds->getPosition()+bounds->getSize())){
+    //         proposedMovement.x = 0;
+    //         return true;
+    //     }
+    // }
     return false;
 }
 

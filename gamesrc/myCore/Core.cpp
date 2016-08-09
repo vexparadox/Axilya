@@ -34,10 +34,10 @@ void Core::setup(){
 	//entites hold components like, colliders, rigidbodies, transforms and user made ones!
 	//You can see below that Destroyable is a user made component, you can see what it does by looking in : myComponents/Destroyable.cpp
 	character1 = new Entity(200, 60, 20, 20); // Create a new entity with x, y, w, h
+	character1->addComponent(new Destroyable()); // this is a custom component that allows this entity to be destroyed when clicked on
 	character1->addRigidBody(true); // makes the object solid and react to physics
 	character1->addCollider(new BoxCollider()); // Adds a simple box collider
 	// character1->addTexture(image1ID); //add a texture that's been loaded into the ResourceManager
-	character1->addComponent(new Destroyable()); // this is a custom component that allows this entity to be destroyed when clicked on
 	scene1->addEntity(character1); //add your entity to the scene
 
 	//Start a new Entity
@@ -47,6 +47,8 @@ void Core::setup(){
 	character2->addComponent(new exampleComponent()); // This is a custom component that controls movement and colour changes
 	// character2->addTexture(image2ID); //This is the same texture used for character1, but it's only been loaded once
 	scene1->addEntity(character2); //add your entity to the scene
+	//access custom components attached to the entity
+	character2->getComponent<exampleComponent>()->x = 50;
 }
 
 void Core::update(){

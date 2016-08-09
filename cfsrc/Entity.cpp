@@ -89,18 +89,22 @@ void Entity::handle_eptr(std::exception_ptr eptr){
 
 
 void Entity::moveEntity(Math::Vector2D v){
-    v += transform->getPos();
     if(collider){
 	    // std::cout << "Before " << v.x << " " << v.y << std::endl;
         scene->collideCheck(this, v);
+        v += transform->getPos();
 	    // std::cout << "After" << v.x << " " << v.y << std::endl;
         collider->getBounds()->set(v, collider->getBounds()->getSize());
+        transform->set(v);
+    }else{
+        v += transform->getPos();
+        transform->set(v);
     }
-    transform->set(v);
 }
 
 void Entity::destroy(){
-    delete this;
+    this->dead = true;
+    std::cout << "Delete " << std::endl;
 }
 
 void Entity::onCollision(Entity* e){
@@ -203,4 +207,8 @@ Texture* Entity::getTexture(){
 
 Collider* Entity::getCollider(){
     return collider;
+}
+
+bool Entity::isDead(){
+    return dead;
 }

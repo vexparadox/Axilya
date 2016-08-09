@@ -25,9 +25,17 @@ void Scene::update(){
         if(e->isActive()){
             e->update();
         }
+    } 
+    //loop through and delete dead ones
+    for(auto it = entities.begin(); it != entities.end();){
+        if((*it)->isDead()){
+            entities.erase(it);
+            delete *it;
+            *it = 0;
+        }else{
+            it++;
+        }
     }
-    //loop entities and compare
-    //pretty ineffcient
 }
 
 void Scene::collideCheck(Entity* e, Math::Vector2D& proposedMovement){
@@ -42,8 +50,8 @@ void Scene::collideCheck(Entity* e, Math::Vector2D& proposedMovement){
             }
             //if there is a collision then allow it to correct and loop again
             if(entities[i]->getCollider()->checkMovement(e, proposedMovement)){
-		//    std::cout << "Collision occured" << std::endl;
-		proposedMovement = e->getTransform()->getPos();
+		       std::cout << "Collision occured" << std::endl;
+		    // proposedMovement = e->getTransform()->getPos();m
 		break;
             }
         }

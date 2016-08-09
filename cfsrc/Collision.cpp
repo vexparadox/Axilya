@@ -42,10 +42,7 @@ namespace Math {
     }
     
     bool isInsideQuad(const float &x1, const float &y1, const float &x2, const float &y2, const float &x3, const float &y3){
-        if((x1 > x2 && x1 < x3) && (y1 > y2 && y1 < y3)){
-            return true;
-        }
-        return false;
+        return (x1 > x2 && x1 < x3) && (y1 > y2 && y1 < y3);
     }
     
     float signVector(float x1, float y1, float x2, float y2, float x3, float y3){
