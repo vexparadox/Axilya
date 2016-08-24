@@ -1,12 +1,12 @@
 #include "World.hpp"
-void World::addTile(char key, Tile* tile){
-    tilePairs.insert(std::pair<char, Tile*>(key, tile));
+void World::addTileType(char key, Tile* tile){
+    tileTypes.insert(std::pair<char, Tile*>(key, tile));
 }
 
-Tile* World::getTile(char key){
+Tile* World::getTileType(char key){
     Tile* temp = 0;
-    auto it = tilePairs.find(key);
-    if(it != tilePairs.end()){
+    auto it = tileTypes.find(key);
+    if(it != tileTypes.end()){
         temp = it->second;
     }
     return temp;

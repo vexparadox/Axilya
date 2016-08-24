@@ -3,9 +3,9 @@
 #include "Tile.hpp"
 #include <map>
 class World{
-    std::map<char, Tile*> tilePairs;
-    void addTile(char key, Tile* tile);
-    Tile* getTile(char key);
+    std::map<char, Tile*> tileTypes;
+    void addTileType(char key, Tile* tile);
+    Tile* getTileType(char key);
 };
 
 #endif
