@@ -5,7 +5,7 @@
 class World{
     std::map<char, Tile*> tilePairs;
     void addTile(char key, Tile* tile);
-
+    Tile* getTile(char key);
 };
 
 #endif
