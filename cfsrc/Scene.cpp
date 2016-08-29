@@ -30,6 +30,7 @@ void Scene::update(){
     for(auto it = entities.begin(); it != entities.end();){
         if((*it)->isDead()){
             entities.erase(it);
+            uMap.erase((*it)->getName());
             delete *it;
             *it = 0;
         }else{
@@ -59,16 +60,35 @@ void Scene::collideCheck(Entity* e, Math::Vector2D& proposedMovement){
 }
 
 void Scene::addEntity(Entity* e){
-    e->setScene(this);
-    this->entities.push_back(e);
+    if(e) {
+        if(uMap.find(e->getName()) == uMap.end()) {
+            e->setScene(this);
+            this->entities.push_back(e);
+            this->uMap[e->getName()] = e;
+            return;
+        }else{
+            std::cout << "Entity with the name: " << e->getName() << " already in this scene." << std::endl;
+            return;
+        }
+    }
 }
 
 void Scene::removeEntity(Entity* e){
     for(auto it = entities.begin(); it != entities.end(); it++){
         if(*it == e){
             entities.erase(it);
+            uMap.erase(e->getName());
             break;
         }
+    }
+}
+
+Entity* Scene::findEntity(const std::string &name) {
+    if(uMap.find(name) == uMap.end()){
+        std::cout << "Entity not found with name: " << name << ". Returning null" << std::endl;
+        return 0;
+    }else{
+        return uMap.at(name);
     }
 }
 

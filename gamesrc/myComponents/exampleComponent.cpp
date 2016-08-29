@@ -8,7 +8,7 @@ void exampleComponent::update(){
     //Input is a static class that allows you to get the user input
     if(Input::keyUp()){
         //this line gets a pointer to the rigidBody attached to the owner
-        //it then adds an upwards force to it, the rigidBody handles the rest 
+        //it then adds an upwards force to it, the rigidBody handles the rest core
 		owner->getRigidBody()->addForce(0, -10);
         //set the colour of the entity
         owner->setColour(0, 255, 255, 255);

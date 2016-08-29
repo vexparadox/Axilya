@@ -234,3 +234,7 @@ Collider* Entity::getCollider(){
 bool Entity::isDead(){
     return dead;
 }
+
+std::string& Entity::getName(){
+    return this->name;
+}

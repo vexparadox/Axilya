@@ -91,6 +91,8 @@ public:
     void addComponent(Component*);
     //return the transform
     Transform* getTransform();
+    //get the name of the entity
+    std::string& getName();
 
     //gets a component from this entity
     template<typename T>

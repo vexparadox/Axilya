@@ -1,12 +1,14 @@
 #ifndef Scene_hpp
 #define Scene_hpp
 #include <vector>
+#include <unordered_map>
 // #include <algorithm>
 
 class Entity;
 class Scene{
     //the vector of entities
     std::vector<Entity*> entities;
+    std::unordered_map<std::string, Entity*> uMap;
 public:
     Scene();
     ~Scene();
@@ -29,6 +31,8 @@ public:
     void addEntity(Entity* e);
 
     void removeEntity(Entity* e);
+
+    Entity* findEntity(const std::string& name);
 
     void collideCheck(Entity* e, Math::Vector2D& proposedMovement);
     /*!
