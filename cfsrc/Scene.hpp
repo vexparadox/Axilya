@@ -2,7 +2,7 @@
 #define Scene_hpp
 #include <vector>
 #include <unordered_map>
-// #include <algorithm>
+ #include <algorithm>
 
 class Entity;
 class Scene{

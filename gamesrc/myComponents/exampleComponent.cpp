@@ -24,6 +24,8 @@ void exampleComponent::update(){
         owner->setColour(0, 255, 0, 255);
 		owner->getRigidBody()->addForce(-2, 0);
 	}
+    //you can get other entities in the same scene using their name
+    Entity* otherEntity = getScene()->findEntity("small_box");
 }
 
 void exampleComponent::onHover(){

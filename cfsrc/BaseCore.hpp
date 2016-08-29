@@ -17,7 +17,7 @@ protected:
     GLFWwindow* window;
     BaseCore(){};
     BaseCore(BaseCore const&){};
-    ResourceManager* ResourceManager = ResourceManager::getInstance();
+    ResourceManager* resourceManager = ResourceManager::getInstance();
 public:
     int windowWidth= 0, windowHeight = 0;
     virtual ~BaseCore();

@@ -22,10 +22,6 @@ Entity::Entity(const std::string& name, const Math::Vector2D& pos, const Math::V
 }
 
 Entity::~Entity(){
-    //remove yourself from the scene
-    if(scene){
-        scene->removeEntity(this);
-    }
     //Do not delete the texture, it's not handled by this object
     //remove all the components
     delete transform;
@@ -106,7 +102,6 @@ void Entity::moveEntity(Math::Vector2D v){
 
 void Entity::destroy(){
     this->dead = true;
-    std::cout << "Delete " << std::endl;
 }
 
 void Entity::onCollision(Entity* e){
