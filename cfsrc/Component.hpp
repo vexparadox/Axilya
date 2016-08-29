@@ -14,6 +14,7 @@
 #include "Math.h"
 
 class Entity;
+class Scene;
 class Component{
     //get an instance of the resourcemanager
     ResourceManager* resourceManager = ResourceManager::getInstance();
@@ -24,6 +25,8 @@ public:
     virtual ~Component();
     //change what entity owns this component
     Entity* getOwner();
+    //returns the owner's scene
+    Scene* getScene();
     //returns what entity owns this component
     void setOwner(Entity*);
     //called at the begining of the program

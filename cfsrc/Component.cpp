@@ -7,6 +7,7 @@
 //
 
 #include "Component.hpp"
+#include "Entity.hpp"
 
 Component::Component(){
     this->start();
@@ -17,6 +18,10 @@ Component::~Component(){
 
 Entity* Component::getOwner(){
     return owner;
+}
+
+Scene* Component::getScene() {
+    return owner->getScene();
 }
 
 void Component::setOwner(Entity* o){
