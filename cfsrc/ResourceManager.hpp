@@ -1,5 +1,5 @@
 //
-//  ResourceManager.hpp
+//  resourceManager.hpp
 //  closedFrameworks
 //
 //  Created by William Meaton on 12/05/2016.

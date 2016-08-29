@@ -9,14 +9,16 @@
 #include "Entity.hpp"
 #include "Scene.hpp"
 
-Entity::Entity(float x, float y, float w, float h){
+Entity::Entity(const std::string& name, float x, float y, float w, float h){
     transform = new Transform(x, y, w, h);
     transform->setOwner(this);
+    this->name = name;
 }
 
-Entity::Entity(const Math::Vector2D& pos, const Math::Vector2D& size){
+Entity::Entity(const std::string& name, const Math::Vector2D& pos, const Math::Vector2D& size){
     transform = new Transform(pos, size);
     transform->setOwner(this);
+    this->name = name;
 }
 
 Entity::~Entity(){
@@ -200,8 +202,8 @@ void Entity::addTexture(Texture* t){
 }
 
 void Entity::addTexture(int textureID){
-    if(ResourceManager->getTexture(textureID)){
-        this->texture = ResourceManager->getTexture(textureID);
+    if(resourceManager->getTexture(textureID)){
+        this->texture = resourceManager->getTexture(textureID);
     }
 }
 

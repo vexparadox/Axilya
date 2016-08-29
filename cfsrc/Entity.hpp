@@ -21,7 +21,9 @@
 class Scene;
 class Entity{
     //get an instance of the resourcemanager
-    ResourceManager* ResourceManager = ResourceManager::getInstance();
+    ResourceManager* resourceManager = ResourceManager::getInstance();
+    //save the name of the entity
+    std::string name;
     //if the entity is listed to be removed
     bool dead = false;
     //if the entity is active
@@ -41,8 +43,8 @@ class Entity{
     void handle_eptr(std::exception_ptr);
 public:
     //constructors
-    Entity(const Math::Vector2D& pos, const Math::Vector2D& size);
-    Entity(float x, float y, float w, float h);
+    Entity(const std::string& name, const Math::Vector2D& pos, const Math::Vector2D& size);
+    Entity(const std::string& name, float x, float y, float w, float h);
     virtual ~Entity();
     //update and draws
     virtual void update();
