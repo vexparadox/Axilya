@@ -155,16 +155,28 @@ bool Entity::isActive(){
 }
 
 void Entity::addComponent(Component* c){
-    c->setOwner(this);
-    components.push_back(c);
+    if(c) {
+        c->setOwner(this);
+        components.push_back(c);
+    }
 }
 
-void Entity::addRigidBody(RigidBody* r){
-    r->setOwner(this);
-    this->rigidBody = r;
+void Entity::addRigidBody(RigidBody* r) {
+    if (r) {
+        if(rigidBody){
+            delete rigidBody;
+            rigidBody = 0;
+        }
+        r->setOwner(this);
+        this->rigidBody = r;
+    }
 }
 
 void Entity::addRigidBody(bool gravity){
+    if(rigidBody){
+        delete rigidBody;
+        rigidBody = 0;
+    }
     this->rigidBody = new RigidBody(gravity);
     this->rigidBody->setOwner(this);
 }
@@ -179,6 +191,10 @@ Transform* Entity::getTransform(){
 
 void Entity::addTexture(Texture* t){
     if(t){
+        if(texture){
+            delete texture;
+            texture = 0;
+        }
         this->texture = t;
     }
 }
@@ -191,6 +207,10 @@ void Entity::addTexture(int textureID){
 
 void Entity::addCollider(Collider* c){
     if(c){
+        if(collider){
+            delete collider;
+            collider = 0;
+        }
         c->setOwner(this);
         //this is temporary, it was causing a seg fault if set in the BoxCollider constructor 
         //because owner was not set until after the creation of the collider

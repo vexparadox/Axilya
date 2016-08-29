@@ -15,9 +15,9 @@
 
 class Entity;
 class Component{
-protected:
     //get an instance of the resourcemanager
-    ResourceManager* ResourceManager = ResourceManager::getInstance();
+    ResourceManager* resourceManager = ResourceManager::getInstance();
+protected:
     Entity* owner = 0;
     Component();
 public:  
