@@ -7,9 +7,10 @@
 //
 #ifndef Core_hpp
 #define Core_hpp
-#include <CoreMain.h>
-#include <exampleComponent.hpp>
-#include <Destroyable.hpp>
+
+#include "../CoreMain.h"
+#include "../myComponents/exampleComponent.hpp"
+#include "../myComponents/Destroyable.hpp"
 
 class Core : public BaseCore{
 public:
