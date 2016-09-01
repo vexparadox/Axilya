@@ -52,10 +52,10 @@
       <sourceFolder url="file://$MODULE_DIR$/gamesrc/main.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gamesrc/myCore/core.hpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gamesrc/myCore/core.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/gamesrc/myComponents/Destroyable.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/gamesrc/myComponents/exampleComponent.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/gamesrc/myComponents/Destroyable.hpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/gamesrc/myComponents/exampleComponent.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gamesrc/myComponents/Entities/Destroyable.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gamesrc/myComponents/Entities/exampleComponent.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gamesrc/myComponents/Entities/Destroyable.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gamesrc/myComponents/Entities/exampleComponent.hpp" isTestSource="false" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library">

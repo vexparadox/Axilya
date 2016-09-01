@@ -1,7 +1,7 @@
 #ifndef exampleComponent_hpp
 #define exampleComponent_hpp
 
-#include "../CoreMain.h"
+#include "gamesrc/CoreMain.h"
 class exampleComponent : public Component{
     public:
     int x = 5;

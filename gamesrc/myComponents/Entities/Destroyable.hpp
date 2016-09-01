@@ -1,7 +1,7 @@
 #ifndef Destroyable_hpp
 #define Destroyable_hpp
 
-#include "../CoreMain.h"
+#include "gamesrc/CoreMain.h"
 class Destroyable : public Component{
     public:
     int x = 0;

@@ -9,8 +9,8 @@
 #define Core_hpp
 
 #include "../CoreMain.h"
-#include "../myComponents/exampleComponent.hpp"
-#include "../myComponents/Destroyable.hpp"
+#include "gamesrc/myComponents/Entities/exampleComponent.hpp"
+#include "gamesrc/myComponents/Entities/Destroyable.hpp"
 
 class Core : public BaseCore{
 public:
