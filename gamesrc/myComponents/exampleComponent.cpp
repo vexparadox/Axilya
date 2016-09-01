@@ -6,7 +6,7 @@ void exampleComponent::update(){
     //reset the colour here so onHover is temporary!
     owner->setColour(0, 0, 0, 255);
     //Input is a static class that allows you to get the user input
-    if(Input::keyUp()){
+    if(Input::keyUp()|| Input::getKey("W")){
         //this line gets a pointer to the rigidBody attached to the owner
         //it then adds an upwards force to it, the rigidBody handles the rest core
 		owner->getRigidBody()->addForce(0, -10);
@@ -16,11 +16,11 @@ void exampleComponent::update(){
             Client::getInstance()->sendPacket();
         }
 	}
-    if(Input::keyRight()){
+    if(Input::keyRight()|| Input::getKey("D")){
         owner->setColour(255, 0, 255, 255);
 		owner->getRigidBody()->addForce(2, 0);
 	}
-    if(Input::keyLeft()){
+    if(Input::keyLeft() || Input::getKey("A")){
         owner->setColour(0, 255, 0, 255);
 		owner->getRigidBody()->addForce(-2, 0);
 	}
