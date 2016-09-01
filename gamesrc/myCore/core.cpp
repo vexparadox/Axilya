@@ -19,18 +19,19 @@ void Core::setup(){
 		std::cout << "Connected succeded!" << std::endl;
 	}
 
-    setBackground(255, 255, 255, 255);
-	//load in new textures!
+	//set the background color
+	setBackground(255, 255, 255, 255);
+
+	//Load the texture into the resourceManager
 	int image1ID = resourceManager->addTexture("img.png");
-	int image2ID = resourceManager->addTexture("img2.png");
+
 	//Create a new scene
 	//scenes contain entities and worlds
-	//scenes will update entities and worlds appropriately
-	//this will in turn update components
+	//scenes will update/draw entities and worlds appropriately
 	scene1 = new Scene();
 
-
 	//create and load a tiled world
+	//tiled worlds have tiles which have components, like entities (collision, value holding etc)
 	tileWorld = new TiledWorld();
 	tileWorld->addTileType('1', new Tile());
 	scene1->addWorld(tileWorld);
@@ -43,7 +44,7 @@ void Core::setup(){
 	character1->addComponent(new Destroyable()); // this is a custom component that allows this entity to be destroyed when clicked on
 	character1->addRigidBody(true); // makes the object solid and react to physics
 	character1->addCollider(new BoxCollider()); // Adds a simple box collider
-	// character1->addTexture(image1ID); //add a texture that's been loaded into the resourceManager
+	character1->addTexture(image1ID); //add a texture that's been loaded into the resourceManager
 	scene1->addEntity(character1); //add your entity to the scene
 
 	//Start a new Entity
@@ -52,10 +53,7 @@ void Core::setup(){
 	character2->addRigidBody(new RigidBody(true)); // makes the object solid and react to physics
 	character2->addCollider(new BoxCollider()); // Adds a simple box collider 
 	character2->addComponent(new exampleComponent()); // This is a custom component that controls movement and colour changes
-//	 character2->addTexture(image2ID); //This is the same texture used for character1, but it's only been loaded once
 	scene1->addEntity(character2); //add your entity to the scene
-	//access custom components attached to the entity
-	character2->getComponent<exampleComponent>()->x = 50;
 }
 
 void Core::update(){

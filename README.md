@@ -17,7 +17,7 @@ See https://github.com/vexparadox/CFServer for the server module of closedFramew
 
 ## v0.6.1 Changelog
 - Optimised Input, see the exampleComponent
-- New World functionality
+- New World types: Static and Tiled
 
 ## v0.6
 

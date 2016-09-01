@@ -12,10 +12,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a0e263f0-461d-4358-83f1-c480e14d6b0e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cfsrc/StaticWorld.cpp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cfsrc/StaticWorld.hpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/closedFrameworks.iml" afterPath="$PROJECT_DIR$/.idea/closedFrameworks.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gamesrc/myCore/core.cpp" afterPath="$PROJECT_DIR$/gamesrc/myCore/core.cpp" />
     </list>
     <ignored path="closedFrameworks.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -48,8 +47,38 @@
       <file leaf-file-name="ResourceManager.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cfsrc/ResourceManager.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="545">
-              <caret line="40" column="17" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
+            <state relative-caret-position="125">
+              <caret line="12" column="10" selection-start-line="12" selection-start-column="10" selection-end-line="12" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="core.cpp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/gamesrc/myCore/core.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="380">
+              <caret line="36" column="32" selection-start-line="36" selection-start-column="32" selection-end-line="36" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Graphics.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cfsrc/Graphics.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="281">
+              <caret line="107" column="15" selection-start-line="107" selection-start-column="15" selection-end-line="107" selection-end-column="15" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="core.hpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gamesrc/myCore/core.hpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="20" column="30" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -67,7 +96,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StaticWorld.cpp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="StaticWorld.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cfsrc/StaticWorld.cpp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="225">
@@ -120,19 +149,19 @@
         <option value="$PROJECT_DIR$/cfsrc/World.cpp" />
         <option value="$PROJECT_DIR$/cfsrc/TiledWorld.cpp" />
         <option value="$PROJECT_DIR$/gamesrc/CoreMain.h" />
-        <option value="$PROJECT_DIR$/gamesrc/myCore/core.hpp" />
         <option value="$PROJECT_DIR$/cfsrc/World.hpp" />
         <option value="$PROJECT_DIR$/cfsrc/TiledWorld.hpp" />
         <option value="$PROJECT_DIR$/cfsrc/Key.h" />
         <option value="$PROJECT_DIR$/cfsrc/Input.cpp" />
-        <option value="$PROJECT_DIR$/gamesrc/myCore/core.cpp" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/cfsrc/Scene.cpp" />
         <option value="$PROJECT_DIR$/StaticWorld.cpp" />
         <option value="$PROJECT_DIR$/StaticWorld.hpp" />
         <option value="$PROJECT_DIR$/cfsrc/ResourceManager.cpp" />
         <option value="$PROJECT_DIR$/cfsrc/StaticWorld.hpp" />
         <option value="$PROJECT_DIR$/cfsrc/StaticWorld.cpp" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/gamesrc/myCore/core.hpp" />
+        <option value="$PROJECT_DIR$/gamesrc/myCore/core.cpp" />
       </list>
     </option>
   </component>
@@ -465,7 +494,7 @@
       <workItem from="1472473798363" duration="6456000" />
       <workItem from="1472585721460" duration="891000" />
       <workItem from="1472638164769" duration="216000" />
-      <workItem from="1472759214829" duration="8041000" />
+      <workItem from="1472759214829" duration="8511000" />
     </task>
     <task id="LOCAL-00001" summary="Added name field to entity">
       <created>1472474262101</created>
@@ -537,11 +566,18 @@
       <option name="project" value="LOCAL" />
       <updated>1472767097215</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Added StaticWorld, single image background">
+      <created>1472767863460</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1472767863460</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19247000" />
+    <option name="totallyTimeSpent" value="19717000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="873" extended-state="6" />
@@ -590,7 +626,8 @@
     <MESSAGE value="Optimised a little and removed debug print" />
     <MESSAGE value="Added new TiledWorld type, extends World, added to Scene&#10;&#10;Also fixed input, deleted the wrong line lol" />
     <MESSAGE value="Added update and draw calls to World in Scene" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added update and draw calls to World in Scene" />
+    <MESSAGE value="Added StaticWorld, single image background" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added StaticWorld, single image background" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -603,7 +640,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/update" />
     <entry file="file://$PROJECT_DIR$/BoxCollider.cpp" />
     <entry file="file://$PROJECT_DIR$/cfsrc/BaseCore.cpp">
       <provider selected="true" editor-type-id="text-editor">
@@ -782,16 +818,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gamesrc/myCore/core.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="12" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
-          <folding>
-            <element signature="e#169#193#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cfsrc/Tile.hpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -874,17 +900,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="270">
-            <caret line="18" column="41" selection-start-line="18" selection-start-column="41" selection-end-line="18" selection-end-column="41" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cfsrc/Runner.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="305">
@@ -913,14 +928,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gamesrc/myCore/core.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="22" column="27" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
           <folding />
         </state>
       </provider>
@@ -965,14 +972,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cfsrc/ResourceManager.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="545">
-          <caret line="40" column="17" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cfsrc/ResourceManager.hpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
@@ -1000,6 +999,49 @@
           <folding>
             <element signature="e#51#77#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="285">
+            <caret line="19" column="18" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cfsrc/ResourceManager.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="12" column="10" selection-start-line="12" selection-start-column="10" selection-end-line="12" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gamesrc/myCore/core.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="20" column="30" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cfsrc/Graphics.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="107" column="15" selection-start-line="107" selection-start-column="15" selection-end-line="107" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gamesrc/myCore/core.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="36" column="32" selection-start-line="36" selection-start-column="32" selection-end-line="36" selection-end-column="32" />
+          <folding />
         </state>
       </provider>
     </entry>
