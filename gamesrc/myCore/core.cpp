@@ -71,8 +71,11 @@ void Core::draw(){
 } 
 
 void Core::loadTiles() {
-
+    //create a new tile
+    Tile* exampleTile = new Tile();
+    //add a component to this tile
+    exampleTile->addComponent(new exampleTileComponent());
 	//When you load a tile you give it an identifier char
 	//when this char is read in your world CSV, the corresponding tile will be placed in that spot of the world
-
+    tileWorld->addTileType('1', exampleTile); // add the tile to the world
 }

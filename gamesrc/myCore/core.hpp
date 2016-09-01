@@ -11,6 +11,8 @@
 #include "../CoreMain.h"
 #include "gamesrc/myComponents/Entities/exampleComponent.hpp"
 #include "gamesrc/myComponents/Entities/Destroyable.hpp"
+#include "gamesrc/myComponents/Tiles/exampleTileComponent.hpp"
+
 
 class Core : public BaseCore{
 public:

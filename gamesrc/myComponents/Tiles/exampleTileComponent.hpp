@@ -6,7 +6,8 @@
 #define exampleTileComponent_hpp
 
 #include "gamesrc/CoreMain.h"
-class exampleTileComponent : TileComponent{
+class exampleTileComponent : public TileComponent{
+public:
     void update();
 };
 

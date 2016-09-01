@@ -10,6 +10,7 @@
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/Scene.hpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/ResourceManager.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/Input.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/cfsrc/Image.hpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/Collider.hpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/Client.hpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/world/StaticWorld.hpp" isTestSource="false" />
@@ -22,7 +23,6 @@
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/world/Tile.hpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/world/TiledWorld.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/world/World.hpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/cfsrc/RigidBody.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/Graphics.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/Text.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/Component.cpp" isTestSource="false" />
@@ -46,7 +46,7 @@
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/Entity.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/Scene.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/Utils.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/cfsrc/Image.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/cfsrc/RigidBody.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/Utils.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gamesrc/main.cpp" isTestSource="false" />
@@ -56,6 +56,8 @@
       <sourceFolder url="file://$MODULE_DIR$/gamesrc/myComponents/Entities/exampleComponent.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gamesrc/myComponents/Entities/Destroyable.hpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gamesrc/myComponents/Entities/exampleComponent.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gamesrc/myComponents/Tiles/exampleTileComponent.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gamesrc/myComponents/Tiles/exampleTileComponent.cpp" isTestSource="false" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library">
