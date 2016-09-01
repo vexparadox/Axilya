@@ -2,10 +2,6 @@
 #include <iostream>
 #include "Input.hpp"
 
-bool Input::Down = false;
-bool Input::Up = false;
-bool Input::Right = false;
-bool Input::Left = false;
 bool Input::keyIsPressed = false;
 bool Input::mouseIsPressed = false;
 int Input::keyCode = 0;
@@ -13,6 +9,7 @@ int Input::mouseButton = -1;
 int Input::mouseX = 0;
 int Input::mouseY = 0;
 int Input::keysPressed = 0;
+int Input::mouseButtonsPressed = 0;
 std::vector<Key*> Input::keys;
 std::unordered_map<int, Key*> Input::keyCodes;
 std::unordered_map<std::string, Key*> Input::keyNames;
@@ -62,11 +59,17 @@ void Input::init() {
 
 
 void Input::mousePressed(int button){
-
+    mouseButton = button;
+    mouseIsPressed = true;
+    mouseButtonsPressed++;
 }
 
 void Input::mouseReleased(int button){
-
+    mouseButtonsPressed--;
+    if(mouseButtonsPressed < 1){
+        mouseIsPressed = false;
+        mouseButton = -1;
+    }
 }
 
 void Input::setKeyDown(int key){

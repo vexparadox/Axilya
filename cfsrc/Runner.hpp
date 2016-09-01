@@ -18,8 +18,6 @@ class Runner{
     double currentTime, lastTime;
     static Scene* activeScene;
     bool fps(int framerate);
-    static int keysPressed;
-    static int mbsPressed;
 public:
     //the RGBA of the next screen flush IE the background
     static float r, g, b, a;

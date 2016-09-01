@@ -8,11 +8,10 @@
 class Input{
     Input(){};
     ~Input(){};
-    static bool Down, Up, Right, Left;
     static std::unordered_map<int, Key*> keyCodes;
     static std::unordered_map<std::string, Key*> keyNames;
     static std::vector<Key*> keys;
-    static int keysPressed;
+    static int keysPressed, mouseButtonsPressed;
     public:
     static bool keyIsPressed, mouseIsPressed;
     static int keyCode, mouseButton;
