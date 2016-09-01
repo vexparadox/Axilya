@@ -50,6 +50,8 @@ Runner::Runner(float windowWidth, float windowHeight, int frameRate, const char*
     glfwSwapInterval(1);
     //set a base colour of black, makes it easier for beginners
     glColor4f(1, 1, 1, 1);
+    //initialise the Input class
+    Input::init();
     //call setup for first time run
     c->setup();
     //the game loop
@@ -147,18 +149,10 @@ void Runner::keyCallback(GLFWwindow* window, int key, int scancode, int action, 
         return;
     }
     if(action == GLFW_PRESS){
-        Input::keyIsPressed = true;
-        Input::keyCode = key;
-        keysPressed++;
-        Input::setKeyDown(key);        
+        Input::setKeyDown(key);
         return;
     }
     if(action == GLFW_RELEASE){
-        keysPressed--;
-        if(keysPressed <1){
-            Input::keyCode = 0;
-            Input::keyIsPressed = false;
-        }
         Input::setKeyUp(key);
         return;
     }
