@@ -14,10 +14,8 @@ std::vector<Key*> Input::keys;
 std::unordered_map<int, Key*> Input::keyCodes;
 std::unordered_map<std::string, Key*> Input::keyNames;
 
-
-
-
 void Input::init() {
+    keys.reserve(31);
     keys.push_back(new Key("SPACE", 32));
     keys.push_back(new Key("A", 65));
     keys.push_back(new Key("B", 66));

@@ -2,9 +2,8 @@
 // Created by William Meaton on 01/09/2016.
 //
 
-#ifndef CLOSEDFRAMEWORKS_KEY_H
-#define CLOSEDFRAMEWORKS_KEY_H
-
+#ifndef Key_h
+#define Key_h
 
 #include <string>
 #include <iostream>
@@ -17,7 +16,6 @@ public:
     Key(const std::string& identifier, int keyCode){
         this->identifier = identifier;
         std::cout << identifier << std::endl;
-        this->keyCode = keyCode;
         pressed = false;
     }
     void setPressed(bool p){
