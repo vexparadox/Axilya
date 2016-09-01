@@ -5,7 +5,7 @@
 #ifndef StaticWorld_hpp
 #define StaticWorld_hpp
 
-#include "ResourceManager.hpp"
+#include "cfsrc/ResourceManager.hpp"
 #include "World.hpp"
 
 class StaticWorld : public World {

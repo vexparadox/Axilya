@@ -3,7 +3,7 @@
 //
 
 #include "StaticWorld.hpp"
-#include "Runner.hpp"
+#include "cfsrc/Runner.hpp"
 
 StaticWorld::StaticWorld() {
 
@@ -12,8 +12,6 @@ StaticWorld::StaticWorld() {
 void StaticWorld::loadTexture(int textureID) {
     if(resourceManager->getTexture(textureID)){
         texture = resourceManager->getTexture(textureID);
-    }else{
-        std::cout << "TextureID not found.";
     }
 }
 
@@ -24,7 +22,9 @@ void StaticWorld::loadTexture(Texture *t) {
 }
 
 void StaticWorld::draw() {
-    texture->getImage()->draw(0, 0, Runner::getWidth(), Runner::getHeight());
+    if(texture) {
+        texture->getImage()->draw(0, 0, Runner::getWidth(), Runner::getHeight());
+    }
 }
 
 void StaticWorld::update() {

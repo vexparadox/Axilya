@@ -13,7 +13,9 @@ Scene::~Scene(){
 }
 
 void Scene::draw(){
-    this->world->draw();
+    if(world) {
+        this->world->draw();
+    }
     for(auto e : entities){
         if(e->isActive()){
             e->draw();
@@ -21,8 +23,10 @@ void Scene::draw(){
     }
 }
 
-void Scene::update(){
-    this->world->update();
+void Scene::update() {
+    if (world) {
+        this->world->update();
+    }
     for(auto e : entities){
         if(e->isActive()){
             e->update();

@@ -3,52 +3,52 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/Input.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/cfsrc/BoxCollider.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/cfsrc/Client.hpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/cfsrc/Entity.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/cfsrc/BaseCore.hpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/Client.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/cfsrc/Entity.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/cfsrc/Image.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/Scene.hpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/ResourceManager.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/cfsrc/StaticWorld.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/cfsrc/Image.hpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/cfsrc/Image.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/cfsrc/Input.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/cfsrc/Collider.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/cfsrc/Client.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/cfsrc/world/StaticWorld.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/cfsrc/world/TileComponent.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/cfsrc/world/Tile.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/cfsrc/world/TiledWorld.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/cfsrc/world/TileComponent.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/cfsrc/world/World.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/cfsrc/world/StaticWorld.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/cfsrc/world/Tile.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/cfsrc/world/TiledWorld.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/cfsrc/world/World.hpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/RigidBody.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/cfsrc/TiledWorld.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/cfsrc/BoxCollider.hpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/cfsrc/World.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/cfsrc/Graphics.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/Text.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/Component.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/RigidBody.hpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/cfsrc/Transform.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/cfsrc/Tile.hpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/cfsrc/Timer.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/cfsrc/Collision.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/Graphics.hpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/Timer.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/Text.hpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/Runner.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/Component.hpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/cfsrc/Utils.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/cfsrc/Transform.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/Transform.hpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/cfsrc/Tile.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/cfsrc/TiledWorld.hpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/cfsrc/StaticWorld.hpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/cfsrc/Graphics.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/cfsrc/BoxCollider.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/cfsrc/Timer.hpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/ResourceManager.hpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/Runner.hpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/Collider.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/Collision.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/cfsrc/World.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/cfsrc/BoxCollider.hpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/BaseCore.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/cfsrc/Input.hpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/Entity.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/Scene.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/Utils.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/cfsrc/Collider.hpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/cfsrc/Collision.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/cfsrc/BaseCore.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/cfsrc/Image.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/cfsrc/Utils.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/gamesrc/myTiles/CustomTile.hpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/gamesrc/myTiles/CustomTile.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gamesrc/main.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gamesrc/myCore/core.hpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gamesrc/myCore/core.cpp" isTestSource="false" />

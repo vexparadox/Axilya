@@ -13,6 +13,7 @@ void TiledWorld::loadWorld(const std::string &path, int tileSize) {
 }
 
 void TiledWorld::addTileType(char key, Tile* tile){
+    tile->setScene(this->getScene());
     tileTypes.insert(std::pair<char, Tile*>(key, tile));
 }
 
@@ -26,9 +27,13 @@ Tile* TiledWorld::getTileType(char key){
 }
 
 void TiledWorld::draw(){
-
+    for(auto t : worldMatrix){
+//        t->draw()
+    }
 }
 
 void TiledWorld::update(){
-
+    for(auto t : worldMatrix){
+        t->update();
+    }
 }

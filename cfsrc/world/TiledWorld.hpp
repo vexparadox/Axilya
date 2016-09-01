@@ -12,6 +12,7 @@
 class TiledWorld : public World {
     //tile types loaded into the world
     std::map<char, Tile*> tileTypes;
+    std::vector<Tile*> worldMatrix;
     bool isLoaded;
 public:
     TiledWorld();

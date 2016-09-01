@@ -37,7 +37,7 @@ Texture* ResourceManager::getTexture(int i){
     if(i >= 0 && i < textures.size()){
         return textures[i];
     }else{
-        std::cout << "No texture with this id." << std::endl;
+        std::cout << "No texture with this id. Has it been loaded?" << std::endl;
         return 0;
     }
 }
