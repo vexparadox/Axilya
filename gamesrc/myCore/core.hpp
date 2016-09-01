@@ -17,6 +17,7 @@ public:
     void draw();
     void update();
     void setup();
+    void loadTiles();
     Scene* scene1 = 0;
     TiledWorld* tileWorld = 0;
     StaticWorld* staticWorld = 0;

@@ -32,7 +32,8 @@ void Core::setup(){
 	//tiled worlds have tiles which have components, like entities (collision, value holding etc)
 	//you must load a CSV world file
 	tileWorld = new TiledWorld();
-	tileWorld->addTileType('1', new Tile());
+	loadTiles();
+	tileWorld->loadWorld("world1.csv", 64); // This line loads in the CSV file with a tilesize of 64 pixels
 
 
 	//create and load a static world
@@ -40,7 +41,6 @@ void Core::setup(){
 	//they contain no logic
 	staticWorld = new StaticWorld();
 	staticWorld->loadTexture(backgroundID);
-
 
 	//Create a new entity
 	//everything on screen is an entity
@@ -69,3 +69,10 @@ void Core::update(){
 void Core::draw(){
 	scene1->draw();
 } 
+
+void Core::loadTiles() {
+
+	//When you load a tile you give it an identifier char
+	//when this char is read in your world CSV, the corresponding tile will be placed in that spot of the world
+
+}

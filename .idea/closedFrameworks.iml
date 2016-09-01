@@ -9,12 +9,13 @@
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/Client.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/Scene.hpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/ResourceManager.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/cfsrc/World.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/cfsrc/StaticWorld.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/Image.hpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/Image.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/RigidBody.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/TiledWorld.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/BoxCollider.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/cfsrc/World.hpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/Text.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/Component.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/RigidBody.hpp" isTestSource="false" />
@@ -25,9 +26,8 @@
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/Timer.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/Text.hpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/Runner.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/cfsrc/StaticWorld.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/cfsrc/Utils.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/Component.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/cfsrc/Utils.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/Transform.hpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/Tile.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/TiledWorld.hpp" isTestSource="false" />
@@ -47,6 +47,8 @@
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/Collision.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/BaseCore.hpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gamesrc/myTiles/CustomTile.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gamesrc/myTiles/CustomTile.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gamesrc/main.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gamesrc/myCore/core.hpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/gamesrc/myCore/core.cpp" isTestSource="false" />
