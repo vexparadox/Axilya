@@ -6,13 +6,14 @@ Scene::Scene(){
 }
 
 Scene::~Scene(){
-    for(auto e : entities){
-        delete e;
-        e = 0;
-    }
+//    for(auto e : entities){
+//        delete e;
+//        e = 0;
+//    }
 }
 
 void Scene::draw(){
+    this->world->draw();
     for(auto e : entities){
         if(e->isActive()){
             e->draw();
@@ -21,6 +22,7 @@ void Scene::draw(){
 }
 
 void Scene::update(){
+    this->world->update();
     for(auto e : entities){
         if(e->isActive()){
             e->update();
