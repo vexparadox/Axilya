@@ -12,6 +12,7 @@ class Texture{
     int id = -1;
     public:
     Texture(int id, Graphics::Image* img) : id(id), img(img){}
+    ~Texture(){ delete img; img = 0;}
     int getID(){ return id; }
     Graphics::Image* getImage(){ if(img) {return img;} else {return 0;} }
 };

@@ -2,11 +2,21 @@
 
 ResourceManager* ResourceManager::instance = new ResourceManager();
 
+
+
 ResourceManager* ResourceManager::getInstance(){
     if(!instance){
         instance = new ResourceManager();
     }
     return instance;
+}
+
+ResourceManager::~ResourceManager() {
+    for(auto t : textures){
+        delete t;
+        t = 0;
+    }
+    textures.clear();
 }
 
 int ResourceManager::addTexture(Graphics::Image* i){

@@ -16,6 +16,7 @@ class Texture;
 class ResourceManager{
     ResourceManager(){}
     std::vector<Texture*> textures;
+    ~ResourceManager();
     public:
     static ResourceManager* instance;
     static ResourceManager* getInstance();
