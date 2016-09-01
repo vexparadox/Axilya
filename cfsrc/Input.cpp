@@ -49,10 +49,12 @@ void Input::init() {
     keys.push_back(new Key("UP", 265));
     keyCodes.reserve(keys.size());
     keyNames.reserve(keys.size());
+    //loop through and add the keys to the maps
     for(auto it = keys.begin(); it != keys.end(); it++){
         keyCodes.insert(std::pair<int, Key*>((*it)->getKeyCode(), (*it)));
         keyNames.insert(std::pair<std::string, Key*>((*it)->getIdentifier(), (*it)));
     }
+    keys.clear();
 }
 
 

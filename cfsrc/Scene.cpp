@@ -80,6 +80,13 @@ void Scene::addEntity(Entity* e){
     }
 }
 
+
+void Scene::addWorld(World *w) {
+    if(w){
+        world = w;
+    }
+}
+
 void Scene::removeEntity(Entity* e){
     for(auto it = entities.begin(); it != entities.end(); it++){
         if(*it == e){

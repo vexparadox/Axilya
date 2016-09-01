@@ -15,6 +15,7 @@
 #include "../cfsrc/Components.h"
 #include "../cfsrc/Entity.hpp"
 #include "../cfsrc/Scene.hpp"
+#include "../cfsrc/TiledWorld.hpp"
 #include "../cfsrc/Input.hpp"
 #include "../cfsrc/ResourceManager.hpp"
 #include "../cfsrc/Client.hpp"

@@ -15,7 +15,10 @@ See https://github.com/vexparadox/CFServer for the server module of closedFramew
 - Better physics on RigidBodies
 - Handling random key presses in the Input class
 
-## v0.6 Changelog
+## v0.6.1 Changelog
+- Optimised Input, see the exampleComponent
+
+## v0.6
 
 - Lots of back end stablising
 - Changed the way scenes work to allow proper collisions
@@ -25,7 +28,7 @@ See https://github.com/vexparadox/CFServer for the server module of closedFramew
 - New ResourceManager class for safely and effciently reusing assets
 - Added networked Client and Server intergration (using ENet)
 
-## v0.495 Changelog
+## v0.495
 
 - New wiki updates!
 
@@ -39,7 +42,7 @@ See https://github.com/vexparadox/CFServer for the server module of closedFramew
 
 - Now uses Make not xCode
 
-## v0.4 Changelog
+## v0.4
 
 - Push pop Matrixes
 
@@ -55,7 +58,7 @@ See https://github.com/vexparadox/CFServer for the server module of closedFramew
 
 - Increased perforamce other collisions
 
-## v0.3 Changelog
+## v0.3
 
 - Optimised shape drawing
  
@@ -75,7 +78,7 @@ See https://github.com/vexparadox/CFServer for the server module of closedFramew
 
 - Added GLEW for text rendering
 
-## v0.2 Changelog
+## v0.2
 
 - Finalised the CSV Reader
 

@@ -29,6 +29,12 @@ void Core::setup(){
 	//this will in turn update components
 	scene1 = new Scene();
 
+
+	//create and load a tiled world
+	tileWorld = new TiledWorld();
+	tileWorld->addTileType('1', new Tile());
+	scene1->addWorld(tileWorld);
+
 	//Create a new entity
 	//everything on screen is an entity
 	//entites hold components like, colliders, rigidbodies, transforms and user made ones!

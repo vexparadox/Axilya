@@ -3,11 +3,13 @@
 #include <vector>
 #include <unordered_map>
  #include <algorithm>
+#include "World.hpp"
 
 class Entity;
 class Scene{
     //the vector of entities
     std::vector<Entity*> entities;
+    World* world = 0;
     std::unordered_map<std::string, Entity*> uMap;
 public:
     Scene();
@@ -29,6 +31,8 @@ public:
     * @param e the new Entity being added
     */
     void addEntity(Entity* e);
+
+    void addWorld(World* w);
 
     void removeEntity(Entity* e);
 

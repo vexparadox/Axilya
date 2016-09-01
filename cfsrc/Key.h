@@ -15,7 +15,7 @@ class Key {
 public:
     Key(const std::string& identifier, int keyCode){
         this->identifier = identifier;
-        std::cout << identifier << std::endl;
+        this->keyCode = keyCode;
         pressed = false;
     }
     void setPressed(bool p){

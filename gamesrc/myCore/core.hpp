@@ -18,6 +18,7 @@ public:
     void update();
     void setup();
     Scene* scene1 = 0;
+    TiledWorld* tileWorld = 0;
     Entity* character1 = 0;
     Entity* character2 = 0;
 };
