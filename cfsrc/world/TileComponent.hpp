@@ -9,6 +9,8 @@ class Tile;
 class Scene;
 class TileComponent {
     Tile* owner;
+protected:
+    virtual ~TileComponent(){};
 public:
     //set the owner of the component
     void setOwner(Tile* owner);

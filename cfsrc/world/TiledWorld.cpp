@@ -7,6 +7,18 @@ TiledWorld::TiledWorld(){
     isLoaded = false;
 }
 
+TiledWorld::~TiledWorld() {
+    for(auto t : worldMatrix){
+        delete t;
+        t = 0;
+    }
+    worldMatrix.clear();
+    for(auto t : tileTypes){
+        delete t.second;
+        t.second = 0;
+    }
+    tileTypes.clear();
+}
 
 void TiledWorld::loadWorld(const std::string &path, int tileSize) {
 

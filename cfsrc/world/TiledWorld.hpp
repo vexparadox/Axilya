@@ -7,14 +7,16 @@
 
 #include "World.hpp"
 #include "Tile.hpp"
-#include <map>
+#include <unordered_map>
 
 class TiledWorld : public World {
     //tile types loaded into the world
-    std::map<char, Tile*> tileTypes;
+    std::unordered_map<char, Tile*> tileTypes;
     std::vector<Tile*> worldMatrix;
     bool isLoaded;
+
 public:
+    ~TiledWorld();
     TiledWorld();
     //allows the user to add a new tile type
     void addTileType(char key, Tile* tile);
