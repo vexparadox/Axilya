@@ -1,0 +1,7 @@
+.DS_STORE
+*.o
+closedFrameworks
+.browse.*
+*.png
+libcf.a
+*.swp
