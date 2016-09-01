@@ -12,18 +12,16 @@ using namespace Graphics;
 
 void Core::setup(){
     //setup the client
-    Client::getInstance()->setup("178.62.6.47", 1234, 2, 0, 0);
-    //connect it and only wait for 500ms
-    Client::getInstance()->connect(200);
-	if(Client::getInstance()->isConnected()){
-		std::cout << "Connected succeded!" << std::endl;
-	}
+    Client::getInstance()->setup("127.0.0.1", 1234, 2, 0, 0);
+    Client::getInstance()->connect(200); //connect it and only wait for 200ms
+	if(Client::getInstance()->isConnected()){ std::cout << "Connected succeded!" << std::endl; }
 
-	//set the background color
-	setBackground(255, 255, 255, 255);
+	//set the background color, transparent
+	setBackground(255, 255, 255, 0);
 
 	//Load the texture into the resourceManager
 	int image1ID = resourceManager->addTexture("img.png");
+	int backgroundID = resourceManager->addTexture("background.png");
 
 	//Create a new scene
 	//scenes contain entities and worlds
@@ -32,9 +30,17 @@ void Core::setup(){
 
 	//create and load a tiled world
 	//tiled worlds have tiles which have components, like entities (collision, value holding etc)
+	//you must load a CSV world file
 	tileWorld = new TiledWorld();
 	tileWorld->addTileType('1', new Tile());
-	scene1->addWorld(tileWorld);
+
+
+	//create and load a static world
+	//static worlds are just background images drawn at the size of the window
+	//they contain no logic
+	staticWorld = new StaticWorld();
+	staticWorld->loadTexture(backgroundID);
+
 
 	//Create a new entity
 	//everything on screen is an entity
