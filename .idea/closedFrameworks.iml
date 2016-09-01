@@ -19,17 +19,19 @@
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/Component.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/RigidBody.hpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/Transform.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/cfsrc/Utils.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/Tile.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/cfsrc/Timer.hpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/Graphics.hpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/Timer.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/Text.hpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/Runner.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/cfsrc/Component.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/cfsrc/StaticWorld.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/Utils.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/cfsrc/Component.hpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/Transform.hpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/Tile.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/cfsrc/Timer.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/cfsrc/TiledWorld.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/cfsrc/StaticWorld.hpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/Graphics.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/ResourceManager.hpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/Runner.hpp" isTestSource="false" />
@@ -40,7 +42,7 @@
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/Input.hpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/Entity.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/Scene.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/cfsrc/TiledWorld.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/cfsrc/Utils.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/Collider.hpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/Collision.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cfsrc/BaseCore.hpp" isTestSource="false" />
