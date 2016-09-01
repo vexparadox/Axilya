@@ -9,9 +9,9 @@
 #define Core_hpp
 
 #include "../CoreMain.h"
-#include "gamesrc/myComponents/Entities/exampleComponent.hpp"
-#include "gamesrc/myComponents/Entities/Destroyable.hpp"
-#include "gamesrc/myComponents/Tiles/exampleTileComponent.hpp"
+#include "../myComponents/Entities/exampleComponent.hpp"
+#include "../myComponents/Entities/Destroyable.hpp"
+#include "../myComponents/Tiles/exampleTileComponent.hpp"
 
 
 class Core : public BaseCore{
@@ -25,6 +25,7 @@ public:
     StaticWorld* staticWorld = 0;
     Entity* character1 = 0;
     Entity* character2 = 0;
+    int tile1ID, backgroundID, image1ID;
 };
 
 #endif /* Core_hpp */

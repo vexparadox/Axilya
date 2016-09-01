@@ -20,8 +20,9 @@ void Core::setup(){
 	setBackground(255, 255, 255, 0);
 
 	//Load the texture into the resourceManager
-	int image1ID = resourceManager->addTexture("img.png");
-	int backgroundID = resourceManager->addTexture("background.png");
+	image1ID = resourceManager->addTexture("img.png");
+	tile1ID = resourceManager->addTexture("tile1.png");
+	backgroundID = resourceManager->addTexture("background.png");
 
 	//Create a new scene
 	//scenes contain entities and worlds
@@ -72,7 +73,7 @@ void Core::draw(){
 
 void Core::loadTiles() {
     //create a new tile
-    Tile* exampleTile = new Tile();
+    Tile* exampleTile = new Tile(tile1ID);
     //add a component to this tile
     exampleTile->addComponent(new exampleTileComponent());
 	//When you load a tile you give it an identifier char

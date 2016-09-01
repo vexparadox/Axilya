@@ -1,7 +1,7 @@
 #ifndef Tile_hpp
 #define Tile_hpp
 
-#include "cfsrc/ResourceManager.hpp"
+#include "../ResourceManager.hpp"
 #include "TileComponent.hpp"
 class Tile{
     ResourceManager* resourceManager = ResourceManager::getInstance();

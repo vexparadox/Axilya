@@ -3,7 +3,7 @@
 #include <vector>
 #include <unordered_map>
  #include <algorithm>
-#include "cfsrc/world/World.hpp"
+#include "world/World.hpp"
 
 class Entity;
 class Scene{
