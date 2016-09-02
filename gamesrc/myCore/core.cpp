@@ -72,7 +72,7 @@ void Core::draw(){
 } 
 
 void Core::loadTiles() {
-    //create a new tile
+    //create a new tile, pass it a textureID
     Tile* exampleTile = new Tile(tile1ID);
     //add a component to this tile
     exampleTile->addComponent(new exampleTileComponent());

@@ -4,6 +4,12 @@ Tile::Tile(int textureID) {
     texture = resourceManager->getTexture(textureID);
 }
 
+Tile::Tile(Texture* texture){
+    if(texture){
+        this->texture = texture;
+    }
+}
+
 void Tile::update() {
     for(auto c : components){
         c->update();

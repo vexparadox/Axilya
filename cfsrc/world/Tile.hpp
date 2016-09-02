@@ -3,6 +3,7 @@
 
 #include "../ResourceManager.hpp"
 #include "TileComponent.hpp"
+class Texture;
 class Tile{
     ResourceManager* resourceManager = ResourceManager::getInstance();
     Texture* texture = 0;
@@ -10,6 +11,7 @@ class Tile{
     std::vector<TileComponent*> components;
 public:
     Tile(int textureID);
+    Tile(Texture* texture);
     void draw(float x, float y);
     void update();
     void setScene(Scene* scene);

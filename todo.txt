@@ -1,0 +1,12 @@
+## Worlds
+addFocus(Entity) on the worlds - allow worlds to follow players (side scrollers etc)
+setCenter on worlds - pin the world to a position
+add world rendering (smart)
+add example code of getting entities in tile components
+add predefined components for tiles (TileCollider)
+
+## General
+finish entity box collider
+implement TiledWorld collisions (see TileCollider)
+Possibly add a Prefab manager? allows instantiating copies of entities
+Instantiate method - in the Scene - takes existing entity - prefab manager
