@@ -12,10 +12,10 @@
 #include <stdio.h>
 
 #include "Math.h"
-#include "Graphics.hpp"
 #include "ResourceManager.hpp"
 //components
 #include "Components.h"
+#include "Animator.hpp"
 
 #endif /* Entity_hpp */
 class Scene;
@@ -36,10 +36,8 @@ class Entity{
     RigidBody* rigidBody = 0;
     //a list of custom components
     std::vector<Component*> components;
-    //the texture/image the Entity owns
-    Texture* texture = 0;
-    //set a colour
-    Graphics::Colour colour = Graphics::Colour(0, 0, 0, 255);
+    //Animator holds all of the drawing capabilities of the Entitity
+    Animator* animator = 0;
     void handle_eptr(std::exception_ptr);
 public:
     //constructors
@@ -71,12 +69,9 @@ public:
     void addRigidBody(RigidBody*);
     void addRigidBody(bool);
     //get the rigidBody
-    RigidBody* getRigidBody();    
-    //add a new texture
-    void addTexture(Texture*);
-    void addTexture(int textureID);
-    //get the texture
-    Texture* getTexture();
+    RigidBody* getRigidBody();
+    //set the sprite
+    void addSprite(Sprite*);
     //when a collision happens
     void onCollision(Entity* e);
     //when a click happens

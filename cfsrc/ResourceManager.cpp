@@ -2,8 +2,6 @@
 
 ResourceManager* ResourceManager::instance = new ResourceManager();
 
-
-
 ResourceManager* ResourceManager::getInstance(){
     if(!instance){
         instance = new ResourceManager();

@@ -16,9 +16,9 @@ class Texture;
 class ResourceManager{
     ResourceManager(){}
     std::vector<Texture*> textures;
+    static ResourceManager* instance;
     ~ResourceManager();
     public:
-    static ResourceManager* instance;
     static ResourceManager* getInstance();
     //add a new texture, will return -1 or new id
     int addTexture(const std::string&);

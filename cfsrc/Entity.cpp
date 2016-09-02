@@ -12,12 +12,16 @@
 Entity::Entity(const std::string& name, float x, float y, float w, float h){
     transform = new Transform(x, y, w, h);
     transform->setOwner(this);
+    animator = new Animator();
+    animator->setOwner(this);
     this->name = name;
 }
 
 Entity::Entity(const std::string& name, const Math::Vector2D& pos, const Math::Vector2D& size){
     transform = new Transform(pos, size);
     transform->setOwner(this);
+    animator = new Animator();
+    animator->setOwner(this);
     this->name = name;
 }
 
@@ -37,13 +41,7 @@ Entity::~Entity(){
 }
 
 void Entity::draw(){
-    if(texture){
-        Graphics::fill(255, 255, 255, 255);
-        texture->getImage()->draw(transform->getPos(), transform->getSize().x, transform->getSize().y);
-    }else{
-        Graphics::fill(colour);
-        Graphics::drawRect(transform->getPos(), transform->getSize().x, transform->getSize().y);
-    }
+    animator->draw();
 }
 void Entity::update(){
     if(rigidBody){
@@ -124,15 +122,15 @@ void Entity::onHover(){
 }
 
 void Entity::setColour(float r, float g, float b, float a){
-    this->colour.set(r, g, b, a);
+    animator->getColour().set(r, g, b, a);
 }
 
 void Entity::setColour(const Graphics::Colour& c){
-    this->colour.set(c.getR(), c.getG(), c.getB(), c.getA());
+    animator->getColour().set(c.getR(), c.getG(), c.getB(), c.getA());
 }
 
 const Graphics::Colour& Entity::getColour(){
-    return colour;
+    return animator->getColour();
 }
 
 Scene* Entity::getScene(){
@@ -186,20 +184,8 @@ Transform* Entity::getTransform(){
     return transform;
 }
 
-void Entity::addTexture(Texture* t){
-    if(t){
-        if(texture){
-            delete texture;
-            texture = 0;
-        }
-        this->texture = t;
-    }
-}
+void Entity::addSprite(Sprite* t){
 
-void Entity::addTexture(int textureID){
-    if(resourceManager->getTexture(textureID)){
-        this->texture = resourceManager->getTexture(textureID);
-    }
 }
 
 void Entity::addCollider(Collider* c){
@@ -216,10 +202,6 @@ void Entity::addCollider(Collider* c){
         c->halfSize = transform->getSize()/2;
         this->collider = c;
     }
-}
-
-Texture* Entity::getTexture(){
-    return this->texture;
 }
 
 Collider* Entity::getCollider(){
