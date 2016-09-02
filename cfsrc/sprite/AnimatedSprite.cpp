@@ -3,3 +3,11 @@
 //
 
 #include "AnimatedSprite.hpp"
+
+AnimatedSprite::AnimatedSprite(const std::string &name, int framesPerSecond) : Sprite(name), framesPerSecond(framesPerSecond){
+
+}
+
+void AnimatedSprite::draw(float x, float y){
+    
+}

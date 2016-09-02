@@ -7,7 +7,11 @@
 
 #include "Sprite.hpp"
 class StaticSprite : public Sprite{
-
+    Texture* texture = 0;
+public:
+    StaticSprite(const std::string& name);
+    void draw(float x, float y);
+    void setTexture(int textureID);
 };
 
 

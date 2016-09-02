@@ -7,11 +7,12 @@
 
 #include "../ResourceManager.hpp"
 class Sprite {
-    ResourceManager* resourceManager = ResourceManager::getInstance();
     std::string name;
+protected:
+    ResourceManager* resourceManager = ResourceManager::getInstance();
 public:
     Sprite(const std::string& name);
-    virtual void draw() = 0;
+    virtual void draw(float x, float y) = 0;
     std::string getName();
 };
 

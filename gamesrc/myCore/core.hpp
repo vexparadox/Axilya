@@ -25,7 +25,7 @@ public:
     StaticWorld* staticWorld = 0;
     Entity* character1 = 0;
     Entity* character2 = 0;
-    int tile1ID, backgroundID, image1ID;
+    int tile1ID, backgroundID, sprite1ID;
 };
 
 #endif /* Core_hpp */

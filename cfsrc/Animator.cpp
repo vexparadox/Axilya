@@ -25,7 +25,7 @@ void Animator::setSprite(Sprite *s) {
 
 void Animator::draw() {
     if(currentSprite){
-        currentSprite->draw();
+        currentSprite->draw(owner->getTransform()->getPos().x, owner->getTransform()->getPos().y);
     }else{
         Graphics::fill(colour);
         Graphics::drawRect(owner->getTransform()->getPos(), owner->getTransform()->getSize().x, owner->getTransform()->getSize().y);

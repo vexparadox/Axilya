@@ -20,7 +20,7 @@ void Core::setup(){
 	setBackground(255, 255, 255, 0);
 
 	//Load the texture into the resourceManager
-	image1ID = resourceManager->addTexture("img.png");
+	sprite1ID = resourceManager->addTexture("img.png");
 	tile1ID = resourceManager->addTexture("tile1.png");
 	backgroundID = resourceManager->addTexture("background.png");
 
@@ -51,7 +51,6 @@ void Core::setup(){
 	character1->addComponent(new Destroyable()); // this is a custom component that allows this entity to be destroyed when clicked on
 	character1->addRigidBody(true); // makes the object solid and react to physics
 	character1->addCollider(new BoxCollider()); // Adds a simple box collider
-	character1->addTexture(image1ID); //add a texture that's been loaded into the resourceManager
 	scene1->addEntity(character1); //add your entity to the scene
 
 	//Start a new Entity
@@ -69,7 +68,7 @@ void Core::update(){
 
 void Core::draw(){
 	scene1->draw();
-} 
+}
 
 void Core::loadTiles() {
     //create a new tile, pass it a textureID

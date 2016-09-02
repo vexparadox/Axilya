@@ -7,7 +7,10 @@
 
 #include "Sprite.hpp"
 class AnimatedSprite : Sprite {
-
+    int framesPerSecond;
+public:
+    AnimatedSprite(const std::string& name, int framesPerSecond);
+    void draw(float x, float y);
 };
 
 
