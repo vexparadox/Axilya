@@ -7,9 +7,13 @@
 StaticSprite::StaticSprite(const std::string& name) : Sprite(name){
 }
 
-void StaticSprite::draw(float x, float y) {
+StaticSprite::StaticSprite(const std::string &name, const std::string &filename) : Sprite(name){
+    this->setTexture(resourceManager->addTexture(filename));
+}
+
+void StaticSprite::draw(float x, float y, float w, float h) {
     if(texture){
-        texture->getImage()->draw(x, y);
+        texture->getImage()->draw(x, y, w, h);
     }
 
 }

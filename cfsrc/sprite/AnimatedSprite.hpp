@@ -10,7 +10,7 @@ class AnimatedSprite : Sprite {
     int framesPerSecond;
 public:
     AnimatedSprite(const std::string& name, int framesPerSecond);
-    void draw(float x, float y);
+    void draw(float x, float y, float w, float h);
 };
 
 

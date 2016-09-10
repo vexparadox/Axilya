@@ -17,6 +17,8 @@
 #include "../cfsrc/Scene.hpp"
 #include "../cfsrc/world/TiledWorld.hpp"
 #include "../cfsrc/world/StaticWorld.hpp"
+#include "../cfsrc/sprite/StaticSprite.hpp"
+#include "../cfsrc/sprite/AnimatedSprite.hpp"
 #include "../cfsrc/world/Tile.hpp"
 #include "../cfsrc/Input.hpp"
 #include "../cfsrc/ResourceManager.hpp"

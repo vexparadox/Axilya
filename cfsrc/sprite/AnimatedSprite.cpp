@@ -8,6 +8,6 @@ AnimatedSprite::AnimatedSprite(const std::string &name, int framesPerSecond) : S
 
 }
 
-void AnimatedSprite::draw(float x, float y){
+void AnimatedSprite::draw(float x, float y, float w, float h){
     
 }

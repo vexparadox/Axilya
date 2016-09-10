@@ -184,8 +184,9 @@ Transform* Entity::getTransform(){
     return transform;
 }
 
-void Entity::addSprite(Sprite* t){
-
+void Entity::addSprite(Sprite* s){
+    animator->addSprite(s);
+    animator->setSprite(s);
 }
 
 void Entity::addCollider(Collider* c){

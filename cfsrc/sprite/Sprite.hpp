@@ -12,7 +12,7 @@ protected:
     ResourceManager* resourceManager = ResourceManager::getInstance();
 public:
     Sprite(const std::string& name);
-    virtual void draw(float x, float y) = 0;
+    virtual void draw(float x, float y, float w, float h) = 0;
     std::string getName();
 };
 

@@ -10,7 +10,8 @@ class StaticSprite : public Sprite{
     Texture* texture = 0;
 public:
     StaticSprite(const std::string& name);
-    void draw(float x, float y);
+    StaticSprite(const std::string& name, const std::string& filename);
+    void draw(float x, float y, float w, float h);
     void setTexture(int textureID);
 };
 
