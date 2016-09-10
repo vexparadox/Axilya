@@ -4,10 +4,31 @@
 
 #include "AnimatedSprite.hpp"
 
-AnimatedSprite::AnimatedSprite(const std::string &name, int framesPerSecond) : Sprite(name), framesPerSecond(framesPerSecond){
+AnimatedSprite::AnimatedSprite(const std::string &name, int frameLength) : Sprite(name), frameLength(frameLength){
 
 }
 
 void AnimatedSprite::draw(float x, float y, float w, float h){
-    
+    textures.at(texturePosition)->getImage()->draw(x, y, w, h);
+    frameCount++;
+    if(frameCount > frameLength){
+        frameCount = 0;
+        if(texturePosition+1 < textures.size()){
+            texturePosition++;
+        }else{
+            texturePosition = 0;
+        }
+    }
+}
+
+void AnimatedSprite::addTexture(const std::string &filename) {
+    int id = resourceManager->addTexture(filename);
+    if(id >= 0){
+        textures.push_back(resourceManager->getTexture(id));
+    }
+}
+
+
+void AnimatedSprite::addTexture(int textureID) {
+    textures.push_back(resourceManager->getTexture(textureID));
 }
