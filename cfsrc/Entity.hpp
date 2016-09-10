@@ -86,6 +86,8 @@ public:
     void addComponent(Component*);
     //return the transform
     Transform* getTransform();
+    //get the animator
+    Animator* getAnimator();
     //get the name of the entity
     std::string& getName();
 

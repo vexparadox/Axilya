@@ -21,11 +21,12 @@ void AnimatedSprite::draw(float x, float y, float w, float h){
     }
 }
 
-void AnimatedSprite::addTexture(const std::string &filename) {
+int AnimatedSprite::addTexture(const std::string &filename) {
     int id = resourceManager->addTexture(filename);
     if(id >= 0){
         textures.push_back(resourceManager->getTexture(id));
     }
+    return id;
 }
 
 

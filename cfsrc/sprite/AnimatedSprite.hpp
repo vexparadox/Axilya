@@ -18,7 +18,7 @@ public:
     AnimatedSprite(const std::string& name, int framesPerSecond);
     void draw(float x, float y, float w, float h);
     void addTexture(int textureID);
-    void addTexture(const std::string& filename);
+    int addTexture(const std::string& filename);
 };
 
 

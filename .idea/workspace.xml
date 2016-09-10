@@ -13,6 +13,8 @@
   <component name="ChangeListManager">
     <list default="true" id="a0e263f0-461d-4358-83f1-c480e14d6b0e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cfsrc/Entity.cpp" afterPath="$PROJECT_DIR$/cfsrc/Entity.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cfsrc/Entity.hpp" afterPath="$PROJECT_DIR$/cfsrc/Entity.hpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cfsrc/sprite/AnimatedSprite.cpp" afterPath="$PROJECT_DIR$/cfsrc/sprite/AnimatedSprite.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cfsrc/sprite/AnimatedSprite.hpp" afterPath="$PROJECT_DIR$/cfsrc/sprite/AnimatedSprite.hpp" />
     </list>
@@ -56,6 +58,38 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="Entity.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cfsrc/Entity.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="560">
+              <caret line="219" column="4" selection-start-line="219" selection-start-column="4" selection-end-line="219" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Animator.hpp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/cfsrc/Animator.hpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="23" column="16" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Entity.hpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cfsrc/Entity.hpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="450">
+              <caret line="89" column="28" selection-start-line="89" selection-start-column="28" selection-end-line="89" selection-end-column="28" />
+              <folding>
+                <element signature="e#2727#2739#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="Animator.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cfsrc/Animator.cpp">
           <provider selected="true" editor-type-id="text-editor">
@@ -68,11 +102,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AnimatedSprite.cpp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AnimatedSprite.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cfsrc/sprite/AnimatedSprite.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="5" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
+            <state relative-caret-position="480">
+              <caret line="32" column="21" selection-start-line="32" selection-start-column="21" selection-end-line="32" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -81,8 +115,8 @@
       <file leaf-file-name="AnimatedSprite.hpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cfsrc/sprite/AnimatedSprite.hpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="45" selection-start-line="18" selection-start-column="45" selection-end-line="18" selection-end-column="45" />
+            <state relative-caret-position="285">
+              <caret line="19" column="12" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -152,14 +186,12 @@
         <option value="$PROJECT_DIR$/cfsrc/ResourceManager.hpp" />
         <option value="$PROJECT_DIR$/cfsrc/ResourceManager.cpp" />
         <option value="$PROJECT_DIR$/cfsrc/sprite/Sprite.cpp" />
-        <option value="$PROJECT_DIR$/cfsrc/Entity.hpp" />
         <option value="$PROJECT_DIR$/cfsrc/Animator.hpp" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/cfsrc/Component.cpp" />
         <option value="$PROJECT_DIR$/gamesrc/myComponents/Entities/exampleComponent.cpp" />
         <option value="$PROJECT_DIR$/gamesrc/CoreMain.h" />
         <option value="$PROJECT_DIR$/gamesrc/myCore/core.hpp" />
-        <option value="$PROJECT_DIR$/cfsrc/Entity.cpp" />
         <option value="$PROJECT_DIR$/gamesrc/myCore/core.cpp" />
         <option value="$PROJECT_DIR$/cfsrc/sprite/Sprite.hpp" />
         <option value="$PROJECT_DIR$/cfsrc/sprite/StaticSprite.cpp" />
@@ -167,6 +199,8 @@
         <option value="$PROJECT_DIR$/cfsrc/Animator.cpp" />
         <option value="$PROJECT_DIR$/cfsrc/sprite/AnimatedSprite.cpp" />
         <option value="$PROJECT_DIR$/cfsrc/sprite/AnimatedSprite.hpp" />
+        <option value="$PROJECT_DIR$/cfsrc/Entity.hpp" />
+        <option value="$PROJECT_DIR$/cfsrc/Entity.cpp" />
       </list>
     </option>
   </component>
@@ -447,7 +481,7 @@
       <workItem from="1472638164769" duration="216000" />
       <workItem from="1472759214829" duration="14298000" />
       <workItem from="1472833112563" duration="4359000" />
-      <workItem from="1473504153908" duration="1446000" />
+      <workItem from="1473504153908" duration="2183000" />
     </task>
     <task id="LOCAL-00001" summary="Added name field to entity">
       <created>1472474262101</created>
@@ -617,11 +651,18 @@
       <option name="project" value="LOCAL" />
       <updated>1473504928973</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Added animation code to AnimatedSprite">
+      <created>1473505615698</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1473505615698</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31309000" />
+    <option name="totallyTimeSpent" value="32046000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="873" extended-state="6" />
@@ -705,7 +746,8 @@
     <MESSAGE value="Moved all drawing to Animator, added Sprites&#10;&#10;Static sprites are for single objects, AnimatedSprites allow for multiple frames to be looped through" />
     <MESSAGE value="Started to fill out static and animated sprites" />
     <MESSAGE value="Added staticsprite example, and added w,h to drawing" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added staticsprite example, and added w,h to drawing" />
+    <MESSAGE value="Added animation code to AnimatedSprite" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added animation code to AnimatedSprite" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -937,16 +979,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cfsrc/Animator.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding>
-            <element signature="e#94#118#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cfsrc/ResourceManager.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -1003,14 +1035,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cfsrc/Entity.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1320">
-          <caret line="92" column="24" selection-start-line="92" selection-start-column="24" selection-end-line="92" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cfsrc/world/Tile.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -1041,14 +1065,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cfsrc/Entity.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="86">
-          <caret line="177" column="0" selection-start-line="177" selection-start-column="0" selection-end-line="177" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1097,16 +1113,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/cfsrc/sprite/AnimatedSprite.hpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="45" selection-start-line="18" selection-start-column="45" selection-end-line="18" selection-end-column="45" />
+        <state relative-caret-position="285">
+          <caret line="19" column="12" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cfsrc/sprite/AnimatedSprite.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="5" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
+        <state relative-caret-position="480">
+          <caret line="32" column="21" selection-start-line="32" selection-start-column="21" selection-end-line="32" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cfsrc/Entity.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="89" column="28" selection-start-line="89" selection-start-column="28" selection-end-line="89" selection-end-column="28" />
+          <folding>
+            <element signature="e#2727#2739#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cfsrc/Entity.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="560">
+          <caret line="219" column="4" selection-start-line="219" selection-start-column="4" selection-end-line="219" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cfsrc/Animator.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="23" column="16" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
           <folding />
         </state>
       </provider>

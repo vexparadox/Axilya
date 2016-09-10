@@ -216,3 +216,7 @@ bool Entity::isDead(){
 std::string& Entity::getName(){
     return this->name;
 }
+
+Animator* Entity::getAnimator() {
+    return animator;
+}
