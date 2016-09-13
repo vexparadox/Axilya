@@ -70,8 +70,6 @@ public:
     void addRigidBody(bool);
     //get the rigidBody
     RigidBody* getRigidBody();
-    //set the sprite
-    void addSprite(Sprite*);
     //when a collision happens
     void onCollision(Entity* e);
     //when a click happens

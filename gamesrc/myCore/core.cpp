@@ -50,7 +50,7 @@ void Core::setup(){
 	character1->addComponent(new Destroyable()); // this is a custom component that allows this entity to be destroyed when clicked on
 	character1->addRigidBody(true); // makes the object solid and react to physics
 	character1->addCollider(new BoxCollider()); // Adds a simple box collider
-    character1->addSprite(new StaticSprite("standing_box", "img2.png"));
+    character1->getAnimator()->addSprite(new StaticSprite("standing_box", "img2.png"));
 	scene1->addEntity(character1); //add your entity to the scene
 
 	//Start a new Entity
