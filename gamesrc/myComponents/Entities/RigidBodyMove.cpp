@@ -1,7 +1,7 @@
-#include "exampleComponent.hpp"
+#include "RigidBodyMove.hpp"
 
 
-void exampleComponent::update(){
+void RigidBodyMove::update(){
     // This is the custom update, here you can access the entity it's attached to using "owner"
     //reset the colour here so onHover is temporary!
     owner->setColour(0, 0, 0, 255);
@@ -28,7 +28,7 @@ void exampleComponent::update(){
     Entity* otherEntity = getScene()->findEntity("small_box");
 }
 
-void exampleComponent::onHover(){
+void RigidBodyMove::onHover(){
     //this is an overriden method that's called when an entity with a collider is hovered over with the mouse
     owner->setColour(255, 0, 0, 255);
 }

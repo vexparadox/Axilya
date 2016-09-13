@@ -57,8 +57,8 @@ void Core::setup(){
 	//Entity names must be unique to the scene
 	character2 = new Entity("big_box", 100, 60, 50, 50); // Create a new entity with name, x, y, w, h
 	character2->addRigidBody(new RigidBody(true)); // makes the object solid and react to physics
-	character2->addCollider(new BoxCollider()); // Adds a simple box collider 
-	character2->addComponent(new exampleComponent()); // This is a custom component that controls movement and colour changes
+	character2->addCollider(new BoxCollider()); // Adds a simple box collider
+	character2->addComponent(new RigidBodyMove()); // This is a custom component that controls movement and colour changes
 	scene1->addEntity(character2); //add your entity to the scene
 }
 

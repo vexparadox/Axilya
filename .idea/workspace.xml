@@ -12,8 +12,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a0e263f0-461d-4358-83f1-c480e14d6b0e" name="Default" comment="">
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gamesrc/myComponents/Entities/exampleComponent.cpp" afterPath="$PROJECT_DIR$/gamesrc/myComponents/Entities/RigidBodyMove.cpp" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gamesrc/myComponents/Entities/exampleComponent.hpp" afterPath="$PROJECT_DIR$/gamesrc/myComponents/Entities/RigidBodyMove.hpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/closedFrameworks.iml" afterPath="$PROJECT_DIR$/.idea/closedFrameworks.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cfsrc/Animator.cpp" afterPath="$PROJECT_DIR$/cfsrc/Animator.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gamesrc/myCore/core.cpp" afterPath="$PROJECT_DIR$/gamesrc/myCore/core.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gamesrc/myCore/core.hpp" afterPath="$PROJECT_DIR$/gamesrc/myCore/core.hpp" />
     </list>
     <ignored path="closedFrameworks.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -33,11 +38,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="core.cpp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="core.hpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gamesrc/myCore/core.hpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" column="40" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="core.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/gamesrc/myCore/core.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="45" column="39" selection-start-line="45" selection-start-column="39" selection-end-line="45" selection-end-column="39" />
+            <state relative-caret-position="371">
+              <caret line="59" column="42" selection-start-line="59" selection-start-column="42" selection-end-line="59" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -63,16 +78,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Animator.hpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cfsrc/Animator.hpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Entity.hpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cfsrc/Entity.hpp">
           <provider selected="true" editor-type-id="text-editor">
@@ -80,16 +85,18 @@
               <caret line="85" column="30" selection-start-line="85" selection-start-column="30" selection-end-line="85" selection-end-column="30" />
               <folding>
                 <element signature="e#2677#2689#0" expanded="true" />
+                <marker date="1473764650000" expanded="true" signature="367:2940" ph="{...}" />
+                <marker date="1473764650000" expanded="true" signature="2711:2938" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Animator.cpp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Animator.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cfsrc/Animator.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="10" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="10" />
+            <state relative-caret-position="420">
+              <caret line="28" column="28" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
               <folding>
                 <element signature="e#51#74#0" expanded="true" />
               </folding>
@@ -100,29 +107,31 @@
       <file leaf-file-name="AnimatedSprite.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cfsrc/sprite/AnimatedSprite.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="32" column="21" selection-start-line="32" selection-start-column="21" selection-end-line="32" selection-end-column="21" />
+            <state relative-caret-position="225">
+              <caret line="15" column="40" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AnimatedSprite.hpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cfsrc/sprite/AnimatedSprite.hpp">
+      <file leaf-file-name="RigidBodyMove.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gamesrc/myComponents/Entities/RigidBodyMove.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" column="12" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
+            <state relative-caret-position="150">
+              <caret line="10" column="82" selection-start-line="10" selection-start-column="82" selection-end-line="10" selection-end-column="82" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StaticSprite.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cfsrc/sprite/StaticSprite.cpp">
+      <file leaf-file-name="RigidBodyMove.hpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gamesrc/myComponents/Entities/RigidBodyMove.hpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="19" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
-              <folding />
+            <state relative-caret-position="60">
+              <caret line="4" column="19" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="19" />
+              <folding>
+                <marker date="1473765142000" expanded="true" signature="125:210" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -145,8 +154,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/cfsrc/Key.h" />
-        <option value="$PROJECT_DIR$/cfsrc/Input.cpp" />
         <option value="$PROJECT_DIR$/StaticWorld.cpp" />
         <option value="$PROJECT_DIR$/StaticWorld.hpp" />
         <option value="$PROJECT_DIR$/cfsrc/StaticWorld.hpp" />
@@ -194,8 +201,10 @@
         <option value="$PROJECT_DIR$/cfsrc/sprite/AnimatedSprite.hpp" />
         <option value="$PROJECT_DIR$/cfsrc/Entity.cpp" />
         <option value="$PROJECT_DIR$/cfsrc/Entity.hpp" />
-        <option value="$PROJECT_DIR$/gamesrc/myCore/core.cpp" />
         <option value="$PROJECT_DIR$/cfsrc/Animator.cpp" />
+        <option value="$PROJECT_DIR$/gamesrc/myComponents/Entities/RigidBodyMove.hpp" />
+        <option value="$PROJECT_DIR$/gamesrc/myComponents/Entities/RigidBodyMove.cpp" />
+        <option value="$PROJECT_DIR$/gamesrc/myCore/core.cpp" />
       </list>
     </option>
   </component>
@@ -250,6 +259,60 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="closedFrameworks" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="closedFrameworks" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="closedFrameworks" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gamesrc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="closedFrameworks" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="closedFrameworks" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gamesrc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myComponents" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="closedFrameworks" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="closedFrameworks" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gamesrc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myComponents" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Entities" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -478,7 +541,7 @@
       <workItem from="1472833112563" duration="4359000" />
       <workItem from="1473504153908" duration="2299000" />
       <workItem from="1473763613648" duration="68000" />
-      <workItem from="1473764149537" duration="473000" />
+      <workItem from="1473764149537" duration="751000" />
     </task>
     <task id="LOCAL-00001" summary="Added name field to entity">
       <created>1472474262101</created>
@@ -669,11 +732,18 @@
       <option name="project" value="LOCAL" />
       <updated>1473764747288</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="when you add sprites they're set to current">
+      <created>1473764897743</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1473764897743</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32703000" />
+    <option name="totallyTimeSpent" value="32981000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="873" extended-state="6" />
@@ -733,7 +803,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added getScene method to component" />
     <MESSAGE value="Removed entity removal, it needs reworking" />
     <MESSAGE value="Changed the way Inputs work to a o(1) mapping and using strings" />
     <MESSAGE value="Removed MB code from Runner and moved to Input" />
@@ -758,7 +827,8 @@
     <MESSAGE value="Added animation code to AnimatedSprite" />
     <MESSAGE value="Added animator getter" />
     <MESSAGE value="Removed addSprite in Entity" />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed addSprite in Entity" />
+    <MESSAGE value="when you add sprites they're set to current" />
+    <option name="LAST_COMMIT_MESSAGE" value="when you add sprites they're set to current" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -872,13 +942,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="14" column="24" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gamesrc/myComponents/Entities/exampleComponent.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="27" selection-start-line="3" selection-start-column="27" selection-end-line="3" selection-end-column="27" />
         </state>
       </provider>
     </entry>
@@ -1001,13 +1064,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/cmake_install.cmake" />
     <entry file="file://$PROJECT_DIR$/CMakeCache.txt" />
-    <entry file="file://$PROJECT_DIR$/gamesrc/myComponents/Entities/exampleComponent.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="45" selection-start-line="18" selection-start-column="45" selection-end-line="18" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cfsrc/world/Tile.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -1036,28 +1092,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gamesrc/myCore/core.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="29" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
-          <folding>
-            <element signature="e#169#193#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cfsrc/Animator.hpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
           <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cfsrc/sprite/AnimatedSprite.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" column="21" selection-start-line="32" selection-start-column="21" selection-end-line="32" selection-end-column="21" />
           <folding />
         </state>
       </provider>
@@ -1086,14 +1124,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gamesrc/myCore/core.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="45" column="39" selection-start-line="45" selection-start-column="39" selection-end-line="45" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cfsrc/enet/enet.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1116,17 +1146,61 @@
           <caret line="85" column="30" selection-start-line="85" selection-start-column="30" selection-end-line="85" selection-end-column="30" />
           <folding>
             <element signature="e#2677#2689#0" expanded="true" />
+            <marker date="1473764650000" expanded="true" signature="367:2940" ph="{...}" />
+            <marker date="1473764650000" expanded="true" signature="2711:2938" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cfsrc/Animator.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="10" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="10" />
+        <state relative-caret-position="420">
+          <caret line="28" column="28" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
           <folding>
             <element signature="e#51#74#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cfsrc/sprite/AnimatedSprite.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="40" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gamesrc/myComponents/Entities/RigidBodyMove.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="19" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="19" />
+          <folding>
+            <marker date="1473765142000" expanded="true" signature="125:210" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gamesrc/myComponents/Entities/RigidBodyMove.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="82" selection-start-line="10" selection-start-column="82" selection-end-line="10" selection-end-column="82" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gamesrc/myCore/core.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="40" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gamesrc/myCore/core.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="371">
+          <caret line="59" column="42" selection-start-line="59" selection-start-column="42" selection-end-line="59" selection-end-column="42" />
+          <folding />
         </state>
       </provider>
     </entry>

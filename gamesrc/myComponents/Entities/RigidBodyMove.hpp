@@ -2,7 +2,7 @@
 #define exampleComponent_hpp
 
 #include "../../CoreMain.h"
-class exampleComponent : public Component{
+class RigidBodyMove : public Component{
     public:
     int x = 5;
     virtual void update();
