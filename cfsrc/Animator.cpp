@@ -8,6 +8,7 @@
 void Animator::addSprite(Sprite *s) {
     if(s) {
         sprites.insert(std::pair<std::string, Sprite *>(s->getName(), s));
+        currentSprite = s;
     }
 }
 
