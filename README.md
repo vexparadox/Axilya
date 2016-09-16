@@ -1,4 +1,4 @@
-# closedFrameworks v0.6
+# closedFrameworks v0.6.2
 
 A basic 2D game framework written in C++, runnable with Make. To see the initial production of this project see: https://github.com/vexparadox/closedFrameworks
 
