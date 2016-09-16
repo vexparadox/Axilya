@@ -20,8 +20,8 @@ void Core::setup(){
 	setBackground(255, 255, 255, 0);
 
 	//Load the texture into the resourceManager
-	tile1ID = resourceManager->addTexture("tile1.png");
-	backgroundID = resourceManager->addTexture("background.png");
+	tile1ID = resourceManager->addTexture("img.png");
+	backgroundID = resourceManager->addTexture("img.png");
 
 	//Create a new scene
 	//scenes contain entities and worlds
@@ -60,15 +60,9 @@ void Core::setup(){
 	character2->addCollider(new BoxCollider()); // Adds a simple box collider
 	character2->addComponent(new RigidBodyMove()); // This is a custom component that controls movement and colour changes
 	scene1->addEntity(character2); //add your entity to the scene
+    Runner::setCurrentScene(scene1);
 }
 
-void Core::update(){
-	scene1->update();
-}
-
-void Core::draw(){
-	scene1->draw();
-}
 
 void Core::loadTiles() {
     //create a new tile, pass it a textureID

@@ -12,11 +12,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a0e263f0-461d-4358-83f1-c480e14d6b0e" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/gamesrc/myComponents/Entities/exampleComponent.cpp" afterPath="$PROJECT_DIR$/gamesrc/myComponents/Entities/RigidBodyMove.cpp" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/gamesrc/myComponents/Entities/exampleComponent.hpp" afterPath="$PROJECT_DIR$/gamesrc/myComponents/Entities/RigidBodyMove.hpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gamesrc/myComponents/Entities/TransformMove.cpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gamesrc/myComponents/Entities/TransformMove.hpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/closedFrameworks.iml" afterPath="$PROJECT_DIR$/.idea/closedFrameworks.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cfsrc/Animator.cpp" afterPath="$PROJECT_DIR$/cfsrc/Animator.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cfsrc/Image.cpp" afterPath="$PROJECT_DIR$/cfsrc/Image.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cfsrc/ResourceManager.cpp" afterPath="$PROJECT_DIR$/cfsrc/ResourceManager.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cfsrc/ResourceManager.hpp" afterPath="$PROJECT_DIR$/cfsrc/ResourceManager.hpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cfsrc/Runner.cpp" afterPath="$PROJECT_DIR$/cfsrc/Runner.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cfsrc/Runner.hpp" afterPath="$PROJECT_DIR$/cfsrc/Runner.hpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gamesrc/myCore/core.cpp" afterPath="$PROJECT_DIR$/gamesrc/myCore/core.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gamesrc/myCore/core.hpp" afterPath="$PROJECT_DIR$/gamesrc/myCore/core.hpp" />
     </list>
@@ -41,25 +45,17 @@
       <file leaf-file-name="core.hpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gamesrc/myCore/core.hpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="40" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
-              <folding />
+            <state relative-caret-position="135">
+              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+              <folding>
+                <element signature="e#169#193#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="core.cpp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/gamesrc/myCore/core.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="371">
-              <caret line="59" column="42" selection-start-line="59" selection-start-column="42" selection-end-line="59" selection-end-column="42" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="enet.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cfsrc/enet/enet.h">
+      <file leaf-file-name="BaseCore.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cfsrc/BaseCore.cpp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -68,79 +64,81 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Entity.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cfsrc/Entity.cpp">
+      <file leaf-file-name="BaseCore.hpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cfsrc/BaseCore.hpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="431">
-              <caret line="186" column="0" selection-start-line="186" selection-start-column="0" selection-end-line="186" selection-end-column="0" />
+            <state relative-caret-position="270">
+              <caret line="25" column="28" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Entity.hpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cfsrc/Entity.hpp">
+      <file leaf-file-name="core.cpp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/gamesrc/myCore/core.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="249">
-              <caret line="85" column="30" selection-start-line="85" selection-start-column="30" selection-end-line="85" selection-end-column="30" />
-              <folding>
-                <element signature="e#2677#2689#0" expanded="true" />
-                <marker date="1473764650000" expanded="true" signature="367:2940" ph="{...}" />
-                <marker date="1473764650000" expanded="true" signature="2711:2938" ph="{...}" />
-              </folding>
+            <state relative-caret-position="395">
+              <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Animator.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cfsrc/Animator.cpp">
+      <file leaf-file-name="Runner.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cfsrc/Runner.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="28" column="28" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
-              <folding>
-                <element signature="e#51#74#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="360">
+              <caret line="96" column="24" selection-start-line="96" selection-start-column="24" selection-end-line="96" selection-end-column="24" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AnimatedSprite.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cfsrc/sprite/AnimatedSprite.cpp">
+      <file leaf-file-name="Runner.hpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cfsrc/Runner.hpp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="225">
-              <caret line="15" column="40" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
+              <caret line="18" column="11" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="11" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RigidBodyMove.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gamesrc/myComponents/Entities/RigidBodyMove.cpp">
+      <file leaf-file-name="ResourceManager.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cfsrc/ResourceManager.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="82" selection-start-line="10" selection-start-column="82" selection-end-line="10" selection-end-column="82" />
+            <state relative-caret-position="251">
+              <caret line="38" column="5" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RigidBodyMove.hpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gamesrc/myComponents/Entities/RigidBodyMove.hpp">
+      <file leaf-file-name="Texture.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cfsrc/Texture.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="19" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="19" />
-              <folding>
-                <marker date="1473765142000" expanded="true" signature="125:210" ph="{...}" />
-              </folding>
+            <state relative-caret-position="195">
+              <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StaticSprite.hpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cfsrc/sprite/StaticSprite.hpp">
+      <file leaf-file-name="Image.hpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cfsrc/Image.hpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="11" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
+            <state relative-caret-position="345">
+              <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Image.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cfsrc/Image.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="371">
+              <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -154,11 +152,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/StaticWorld.cpp" />
-        <option value="$PROJECT_DIR$/StaticWorld.hpp" />
-        <option value="$PROJECT_DIR$/cfsrc/StaticWorld.hpp" />
-        <option value="$PROJECT_DIR$/cfsrc/StaticWorld.cpp" />
-        <option value="$PROJECT_DIR$/gamesrc/myTiles/CustomTile.hpp" />
         <option value="$PROJECT_DIR$/gamesrc/myTiles/CustomTile.cpp" />
         <option value="$PROJECT_DIR$/cfsrc/TileComponent.hpp" />
         <option value="$PROJECT_DIR$/cfsrc/TileComponent.cpp" />
@@ -185,15 +178,12 @@
         <option value="$PROJECT_DIR$/gamesrc/myComponents/Entities/Destroyable.cpp" />
         <option value="$PROJECT_DIR$/cfsrc/world/Tile.hpp" />
         <option value="$PROJECT_DIR$/cfsrc/world/Tile.cpp" />
-        <option value="$PROJECT_DIR$/cfsrc/ResourceManager.hpp" />
-        <option value="$PROJECT_DIR$/cfsrc/ResourceManager.cpp" />
         <option value="$PROJECT_DIR$/cfsrc/sprite/Sprite.cpp" />
         <option value="$PROJECT_DIR$/cfsrc/Animator.hpp" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/cfsrc/Component.cpp" />
         <option value="$PROJECT_DIR$/gamesrc/myComponents/Entities/exampleComponent.cpp" />
         <option value="$PROJECT_DIR$/gamesrc/CoreMain.h" />
-        <option value="$PROJECT_DIR$/gamesrc/myCore/core.hpp" />
         <option value="$PROJECT_DIR$/cfsrc/sprite/Sprite.hpp" />
         <option value="$PROJECT_DIR$/cfsrc/sprite/StaticSprite.cpp" />
         <option value="$PROJECT_DIR$/cfsrc/sprite/StaticSprite.hpp" />
@@ -204,7 +194,15 @@
         <option value="$PROJECT_DIR$/cfsrc/Animator.cpp" />
         <option value="$PROJECT_DIR$/gamesrc/myComponents/Entities/RigidBodyMove.hpp" />
         <option value="$PROJECT_DIR$/gamesrc/myComponents/Entities/RigidBodyMove.cpp" />
+        <option value="$PROJECT_DIR$/gamesrc/myComponents/Entities/TransformMove.hpp" />
+        <option value="$PROJECT_DIR$/gamesrc/myComponents/Entities/TransformMove.cpp" />
+        <option value="$PROJECT_DIR$/cfsrc/ResourceManager.hpp" />
+        <option value="$PROJECT_DIR$/cfsrc/Image.cpp" />
+        <option value="$PROJECT_DIR$/cfsrc/ResourceManager.cpp" />
+        <option value="$PROJECT_DIR$/cfsrc/Runner.hpp" />
+        <option value="$PROJECT_DIR$/gamesrc/myCore/core.hpp" />
         <option value="$PROJECT_DIR$/gamesrc/myCore/core.cpp" />
+        <option value="$PROJECT_DIR$/cfsrc/Runner.cpp" />
       </list>
     </option>
   </component>
@@ -313,6 +311,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Entities" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="closedFrameworks" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="closedFrameworks" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -541,7 +553,8 @@
       <workItem from="1472833112563" duration="4359000" />
       <workItem from="1473504153908" duration="2299000" />
       <workItem from="1473763613648" duration="68000" />
-      <workItem from="1473764149537" duration="751000" />
+      <workItem from="1473764149537" duration="1392000" />
+      <workItem from="1474021225692" duration="1783000" />
     </task>
     <task id="LOCAL-00001" summary="Added name field to entity">
       <created>1472474262101</created>
@@ -739,11 +752,18 @@
       <option name="project" value="LOCAL" />
       <updated>1473764897743</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Changed exampleComponent to RigidBodyMove&#10;">
+      <created>1473765222398</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1473765222398</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32981000" />
+    <option name="totallyTimeSpent" value="35405000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="873" extended-state="6" />
@@ -803,7 +823,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Removed entity removal, it needs reworking" />
     <MESSAGE value="Changed the way Inputs work to a o(1) mapping and using strings" />
     <MESSAGE value="Removed MB code from Runner and moved to Input" />
     <MESSAGE value="Added new Inputs to example" />
@@ -828,11 +847,12 @@
     <MESSAGE value="Added animator getter" />
     <MESSAGE value="Removed addSprite in Entity" />
     <MESSAGE value="when you add sprites they're set to current" />
-    <option name="LAST_COMMIT_MESSAGE" value="when you add sprites they're set to current" />
+    <MESSAGE value="Changed exampleComponent to RigidBodyMove&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed exampleComponent to RigidBodyMove&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="20" />
+      <option name="time" value="22" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="CMakeRunConfiguration">
@@ -841,103 +861,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/cfsrc/Input.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gamesrc/main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="21" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cfsrc/Client.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cfsrc/Client.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="27" column="9" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gamesrc/myTiles/CustomTile.hpp" />
-    <entry file="file://$PROJECT_DIR$/gamesrc/myTiles/CustomTile.cpp" />
-    <entry file="file://$PROJECT_DIR$/cfsrc/Runner.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="326">
-          <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cfsrc/Texture.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="2" selection-start-line="17" selection-start-column="2" selection-end-line="17" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cfsrc/world/TileComponent.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding>
-            <element signature="e#51#79#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gamesrc/myComponents/Tiles/exampleTileComponent.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cfsrc/world/TileComponent.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="7" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cfsrc/world/TiledWorld.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="32" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cfsrc/world/World.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="21" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cfsrc/world/World.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cfsrc/world/TiledWorld.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -973,13 +896,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cfsrc/Scene.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="30" column="26" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/todo.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
@@ -1008,13 +924,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cfsrc/ResourceManager.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="22" column="36" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cfsrc/Graphics.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="191">
@@ -1032,33 +941,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cfsrc/ResourceManager.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cfsrc/world/Tile.hpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="16" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cfsrc/Component.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cfsrc/Component.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="4" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1096,7 +982,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
           <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1120,7 +1005,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="14" column="11" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1128,15 +1012,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cfsrc/Entity.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="431">
-          <caret line="186" column="0" selection-start-line="186" selection-start-column="0" selection-end-line="186" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1145,7 +1020,7 @@
         <state relative-caret-position="249">
           <caret line="85" column="30" selection-start-line="85" selection-start-column="30" selection-end-line="85" selection-end-column="30" />
           <folding>
-            <element signature="e#2677#2689#0" expanded="true" />
+            <element signature="e#2677#2689#0" expanded="false" />
             <marker date="1473764650000" expanded="true" signature="367:2940" ph="{...}" />
             <marker date="1473764650000" expanded="true" signature="2711:2938" ph="{...}" />
           </folding>
@@ -1156,9 +1031,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
           <caret line="28" column="28" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
-          <folding>
-            <element signature="e#51#74#0" expanded="true" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gamesrc/myComponents/Entities/TransformMove.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gamesrc/myComponents/Entities/TransformMove.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cfsrc/Entity.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2910">
+          <caret line="194" column="38" selection-start-line="194" selection-start-column="38" selection-end-line="194" selection-end-column="38" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1170,36 +1066,181 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gamesrc/myComponents/Entities/RigidBodyMove.hpp">
+    <entry file="file:///usr/include/mach-o/compact_unwind_encoding.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="19" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="19" />
-          <folding>
-            <marker date="1473765142000" expanded="true" signature="125:210" ph="{...}" />
-          </folding>
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gamesrc/myComponents/Entities/RigidBodyMove.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="82" selection-start-line="10" selection-start-column="82" selection-end-line="10" selection-end-column="82" />
+        <state relative-caret-position="105">
+          <caret line="7" column="67" selection-start-line="7" selection-start-column="67" selection-end-line="7" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cfsrc/Component.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cfsrc/Component.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="37" column="29" selection-start-line="37" selection-start-column="29" selection-end-line="37" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gamesrc/myComponents/Entities/RigidBodyMove.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cfsrc/ResourceManager.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="27" column="45" selection-start-line="27" selection-start-column="45" selection-end-line="27" selection-end-column="45" />
+          <folding>
+            <element signature="e#210#230#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cfsrc/SOIL/image_DXT.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cfsrc/Scene.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="76" column="34" selection-start-line="76" selection-start-column="34" selection-end-line="76" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cfsrc/Image.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/string">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="3971" column="0" selection-start-line="3971" selection-start-column="0" selection-end-line="3971" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cfsrc/Image.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="371">
+          <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/locale">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1486" column="0" selection-start-line="1486" selection-start-column="0" selection-end-line="1486" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/ostream">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="893" column="0" selection-start-line="893" selection-start-column="0" selection-end-line="893" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cfsrc/Texture.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/unordered_map">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="962" column="0" selection-start-line="962" selection-start-column="0" selection-end-line="962" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cfsrc/ResourceManager.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="38" column="5" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cfsrc/Runner.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="18" column="11" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cfsrc/Runner.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="96" column="24" selection-start-line="96" selection-start-column="24" selection-end-line="96" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cfsrc/BaseCore.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="25" column="28" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cfsrc/BaseCore.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gamesrc/myCore/core.hpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="40" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
-          <folding />
+        <state relative-caret-position="135">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding>
+            <element signature="e#169#193#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gamesrc/myCore/core.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="59" column="42" selection-start-line="59" selection-start-column="42" selection-end-line="59" selection-end-column="42" />
+        <state relative-caret-position="395">
+          <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
           <folding />
         </state>
       </provider>

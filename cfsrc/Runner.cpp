@@ -12,6 +12,7 @@ float Runner::g = 1;
 float Runner::b = 1;
 float Runner::a = 1;
 BaseCore* Runner::c = 0;
+Scene* Runner::activeScene = 0;
 Runner::Runner(float windowWidth, float windowHeight, int frameRate, const char* title, BaseCore* c){
     //assign the core to the pointer
     Runner::c = c;
@@ -85,12 +86,18 @@ Runner::Runner(float windowWidth, float windowHeight, int frameRate, const char*
         if(!iconified && focused){
             //draw
             c->draw();
+            if(activeScene) {
+                activeScene->draw();
+            }
         }
         //swap the buffers
         glfwSwapBuffers(window);
         if(!iconified && focused){
             //update
             c->update();
+            if(activeScene) {
+                activeScene->update();
+            }
         }
         glfwPollEvents();
     }
@@ -145,6 +152,12 @@ void Runner::keyCallback(GLFWwindow* window, int key, int scancode, int action, 
     if(action == GLFW_RELEASE){
         Input::setKeyUp(key);
         return;
+    }
+}
+
+void Runner::setCurrentScene(Scene *s) {
+    if(s) {
+        activeScene = s;
     }
 }
 

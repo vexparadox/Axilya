@@ -26,8 +26,8 @@ namespace Graphics{
             std::cout << "Image: already loaded" << std::endl;
             return false;
         }
+        path = nameInput;
         std::string temp = "data/" + nameInput;
-        this->path = temp;
         const char* name = temp.c_str();
         if(!fileExists(temp)){
             return false;

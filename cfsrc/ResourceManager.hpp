@@ -11,11 +11,13 @@
 
 #include "Texture.h"
 #include <vector>
+#include <unordered_map>
 
 class Texture;
 class ResourceManager{
     ResourceManager(){}
     std::vector<Texture*> textures;
+    std::unordered_map<std::string, Texture*> textureMap;
     static ResourceManager* instance;
     ~ResourceManager();
     public:
@@ -23,6 +25,7 @@ class ResourceManager{
     //add a new texture, will return -1 or new id
     int addTexture(const std::string&);
     int addTexture(Graphics::Image*);
+    bool isTextureLoaded(const std::string&);
     //gets a texture based on an id, allows 1 step access
     Texture* getTexture(int i);
 };

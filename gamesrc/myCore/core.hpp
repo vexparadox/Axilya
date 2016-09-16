@@ -16,8 +16,6 @@
 
 class Core : public BaseCore{
 public:
-    void draw();
-    void update();
     void setup();
     void loadTiles();
     Scene* scene1 = 0;

@@ -66,6 +66,8 @@ public:
     * @see Input class 
     */
     static void cursorCallback(GLFWwindow* window, double xpos, double ypos);
+
+    static void setCurrentScene(Scene* s);
 };
 
 #endif /* Runner_hpp */
