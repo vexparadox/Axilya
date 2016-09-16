@@ -1,4 +1,3 @@
-#include "../cfsrc/Input.hpp"
 #ifndef BaseCore_hpp
 #define BaseCore_hpp
 

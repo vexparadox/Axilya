@@ -21,7 +21,7 @@ void Core::setup(){
 
 	//Load the texture into the resourceManager
 	tile1ID = resourceManager->addTexture("img.png");
-	backgroundID = resourceManager->addTexture("img.png");
+	backgroundID = resourceManager->addTexture("img.png"); // this will simply return the value given to tile1ID
 
 	//Create a new scene
 	//scenes contain entities and worlds
@@ -33,6 +33,7 @@ void Core::setup(){
 	//you must load a CSV world file
 	tileWorld = new TiledWorld();
 	loadTiles();
+    //NFI
 	tileWorld->loadWorld("world1.csv", 64); // This line loads in the CSV file with a tilesize of 64 pixels
 
 

@@ -8,6 +8,8 @@ Please see the WIKI on how to use this framework. It's not very scary once you g
 
 See https://github.com/vexparadox/CFServer for the server module of closedFrameworks. This is still in early development.
 
+`NFI` = Not fully implemented/Not fully working
+
 ## Coming Soon
 
 - Good inter-Entity collisions
@@ -15,10 +17,15 @@ See https://github.com/vexparadox/CFServer for the server module of closedFramew
 - Better physics on RigidBodies
 - Handling random key presses in the Input class
 
-## v0.6.1 Changelog
-- Optimised Input, see the exampleComponent
-- New World types: Static and Tiled
+## v0.6.2 Changelog
+- Optimised Input, see the RigidBodyMove + TransformMove Class
 - New Sprites: Static and Animated - allows for easy animations
+- Updates to the ResourceManager
+- Added `activeScene` to Runner
+- New wiki entries!
+- New World class: Allows for CSV worlds to be loaded - `NFI`
+- New World types: Static and Tiled - `NFI`
+
 
 ## v0.6
 

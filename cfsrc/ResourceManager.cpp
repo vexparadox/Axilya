@@ -65,3 +65,12 @@ Texture* ResourceManager::getTexture(int i){
         return 0;
     }
 }
+
+Texture* ResourceManager::getTexture(const std::string &s) {
+    if(isTextureLoaded(s)){
+        return textureMap.at(s);
+    }else{
+        std::cout << "No texture with this path. Has it been loaded?" << std::endl;
+        return 0;
+    }
+}
