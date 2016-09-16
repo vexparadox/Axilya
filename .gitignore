@@ -5,3 +5,4 @@ closedFrameworks
 *.png
 libcf.a
 *.swp
+.idea
