@@ -14,4 +14,4 @@ file(GLOB_RECURSE cfSRC
         )
 LINK_DIRECTORIES(libs/)
 add_executable(closedFrameworks ${cfSRC})
-TARGET_LINK_LIBRARIES(closedFrameworks ${FRAMEWORKS} drawtext-noft enet GLEW glfw3 SOIL)
+TARGET_LINK_LIBRARIES(closedFrameworks ${FRAMEWORKS} pugixml drawtext-noft enet GLEW glfw3 SOIL)

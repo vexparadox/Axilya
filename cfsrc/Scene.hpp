@@ -2,8 +2,9 @@
 #define Scene_hpp
 #include <vector>
 #include <unordered_map>
- #include <algorithm>
+#include <algorithm>
 #include "world/World.hpp"
+#include "PUGIXML/pugixml.hpp"
 
 class Entity;
 class Scene{
@@ -39,6 +40,8 @@ public:
     Entity* findEntity(const std::string& name);
 
     void collideCheck(Entity* e, Math::Vector2D& proposedMovement);
+
+    void parseSceneFile(const std::string& path);
     /*!
     * Returns the number of Entities in this Scene
     * @return number of Entities in the Scene vector

@@ -86,6 +86,20 @@ void Scene::addEntity(Entity* e){
     }
 }
 
+void Scene::parseSceneFile(const std::string &path) {
+    std::string source = "data/"+path;
+    pugi::xml_document doc;
+    pugi::xml_parse_result result = doc.load_file(source.c_str());
+    if(result) {
+
+        for (pugi::xml_node entity = doc.child("Scene").child("Entity"); entity; entity = entity.next_sibling("Entity"))
+        {
+//            std::cout << ""
+        }
+    }
+
+}
+
 
 void Scene::addWorld(World *w) {
     if(w){
