@@ -94,9 +94,15 @@ void Scene::parseSceneFile(const std::string &path) {
 
         for (pugi::xml_node entity = doc.child("Scene").child("Entity"); entity; entity = entity.next_sibling("Entity"))
         {
-            std::cout << entity.attribute("name").value() << std::endl;
+            Entity* tempEntity;
+            std::string name = entity.attribute("name").value();
             pugi::xml_node transform = entity.child("Transform");
-            std::cout << transform.child("Position").attribute("x").value() << " , " << transform.child("Position").attribute("y").value() << std::endl;
+            int xPos = atoi(transform.child("Position").attribute("x").value());
+            int yPos = atoi(transform.child("Position").attribute("y").value());
+            int xSize = atoi(transform.child("Size").attribute("x").value());
+            int ySize = atoi(transform.child("Size").attribute("y").value());
+            tempEntity = new Entity(name, xPos, yPos, xSize, ySize);
+            this->addEntity(tempEntity);
         }
     }
 
