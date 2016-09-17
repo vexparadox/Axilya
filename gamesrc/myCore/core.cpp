@@ -27,7 +27,8 @@ void Core::setup(){
 	//scenes contain entities and worlds
 	//scenes will update/draw entities and worlds appropriately
 	scene1 = new Scene();
-	scene1->parseSceneFile("test.xml");
+	//example of loading a SceneFile
+	scene1->parseSceneFile("SceneFile.xml");
 	//create and load a tiled world
 	//tiled worlds have tiles which have components, like entities (collision, value holding etc)
 	//you must load a CSV world file
