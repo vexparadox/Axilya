@@ -94,7 +94,9 @@ void Scene::parseSceneFile(const std::string &path) {
 
         for (pugi::xml_node entity = doc.child("Scene").child("Entity"); entity; entity = entity.next_sibling("Entity"))
         {
-//            std::cout << ""
+            std::cout << entity.attribute("name").value() << std::endl;
+            pugi::xml_node transform = entity.child("Transform");
+            std::cout << transform.child("Position").attribute("x").value() << " , " << transform.child("Position").attribute("y").value() << std::endl;
         }
     }
 
