@@ -1,8 +1,10 @@
 <Scene>
-    <Entity name="My Entity">
-        <Transform>
-            <Position x="20" y="20" />
-            <Size x="50" y="50" />
-        </Transform>
+    <Entity name="Entity1">
+        <Components>
+            <Transform>
+                <Position x="200" y="200" />
+                <Size x="10" y="10" />
+            </Transform>
+        </Components>
     </Entity>
 </Scene>

@@ -96,13 +96,17 @@ void Scene::parseSceneFile(const std::string &path) {
         {
             Entity* tempEntity;
             std::string name = entity.attribute("name").value();
-            pugi::xml_node transform = entity.child("Transform");
-            int xPos = atoi(transform.child("Position").attribute("x").value());
-            int yPos = atoi(transform.child("Position").attribute("y").value());
-            int xSize = atoi(transform.child("Size").attribute("x").value());
-            int ySize = atoi(transform.child("Size").attribute("y").value());
-            tempEntity = new Entity(name, xPos, yPos, xSize, ySize);
-            this->addEntity(tempEntity);
+            pugi::xml_node transform = entity.child("Components").child("Transform");
+            if(transform) {
+                int xPos = atoi(transform.child("Position").attribute("x").value());
+                int yPos = atoi(transform.child("Position").attribute("y").value());
+                int xSize = atoi(transform.child("Size").attribute("x").value());
+                int ySize = atoi(transform.child("Size").attribute("y").value());
+                tempEntity = new Entity(name, xPos, yPos, xSize, ySize);
+            }
+            if(tempEntity) {
+                this->addEntity(tempEntity);
+            }
         }
     }
 
