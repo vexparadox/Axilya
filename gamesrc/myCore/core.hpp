@@ -9,7 +9,7 @@
 #define Core_hpp
 
 #include "../CoreMain.h"
-#include "gamesrc/myComponents/Entities/RigidBodyMove.hpp"
+#include "../myComponents/Entities/RigidBodyMove.hpp"
 #include "../myComponents/Entities/Destroyable.hpp"
 #include "../myComponents/Tiles/exampleTileComponent.hpp"
 
