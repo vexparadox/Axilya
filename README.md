@@ -1,4 +1,4 @@
-# closedFrameworks v0.6.3
+# closedFrameworks v0.6.4
 
 A basic 2D game framework written in C++, runnable with Make. To see the initial production of this project see: https://github.com/vexparadox/closedFrameworks
 
@@ -19,7 +19,11 @@ Versions jump around because I haven't been able to consistently work on feature
 - Better physics on RigidBodies
 - Handling random key presses in the Input class
 
-## v0.6.3 Changelog
+## v0.6.4 Changelog
+
+- Seperate engine and framework example Cores
+
+## v0.6.3
 
 - SceneFiles - Load your Scenes without hard coding! - `NFI`
 - SceneFiles currently only allow for basic Entity creation.

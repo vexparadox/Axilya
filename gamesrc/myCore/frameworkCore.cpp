@@ -18,5 +18,7 @@ void frameworkCore::update(){
 }
 
 void frameworkCore::draw(){
-
+	//here is where we can draw things
+	fill(255, 0, 0);
+	drawRect(20, 20, 20, 20);
 }
