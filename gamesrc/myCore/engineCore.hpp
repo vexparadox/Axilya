@@ -1,6 +1,5 @@
 //
-//  Core.hpp
-//  GLFW3
+//  engineCore.hpp
 //
 //  Created by William Meaton on 08/12/2015.
 //  Copyright © 2015 WillMeaton.uk. All rights reserved.
@@ -14,7 +13,7 @@
 #include "../myComponents/Tiles/exampleTileComponent.hpp"
 
 
-class Core : public BaseCore{
+class engineCore : public BaseCore{
 public:
     void setup();
     void loadTiles();

@@ -23,6 +23,7 @@
 #include "../cfsrc/Input.hpp"
 #include "../cfsrc/ResourceManager.hpp"
 #include "../cfsrc/Client.hpp"
-#include "myCore/Core.hpp"
+#include "myCore/frameworkCore.hpp"
+#include "myCore/engineCore.hpp"
 
 #endif /* CoreMain_h */

@@ -6,11 +6,11 @@
 //  Copyright © 2015 WillMeaton.uk. All rights reserved.
 //
 
-#include "Core.hpp"
+#include "engineCore.hpp"
 //for graphics
 using namespace Graphics;
 
-void Core::setup(){
+void engineCore::setup(){
     //setup the client
     Client::getInstance()->setup("127.0.0.1", 1234, 2, 0, 0);
     Client::getInstance()->connect(200); //connect it and only wait for 200ms
@@ -66,7 +66,7 @@ void Core::setup(){
 }
 
 
-void Core::loadTiles() {
+void engineCore::loadTiles() {
     //create a new tile, pass it a textureID
     Tile* exampleTile = new Tile(tile1ID);
     //add a component to this tile
