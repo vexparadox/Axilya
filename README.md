@@ -6,7 +6,7 @@ This framework is going to be the base of the yet-to-be-named 2D engine I am mak
 
 Please see the WIKI on how to use this framework. It's not very scary once you get started.
 
-See https://github.com/vexparadox/CFServer for the server module of Axilya. This is still in early development.
+See https://github.com/vexparadox/AXServer for the server module of Axilya. This is still in early development.
 
 `NFI` = Not fully implemented
 
