@@ -4,8 +4,8 @@
 //  Created by William Meaton on 08/12/2015.
 //  Copyright © 2015 WillMeaton.uk. All rights reserved.
 //
-#ifndef Core_hpp
-#define Core_hpp
+#ifndef engineCore_hpp
+#define engineCore_hpp
 
 #include "../CoreMain.h"
 #include "../myComponents/Entities/RigidBodyMove.hpp"
@@ -25,4 +25,4 @@ public:
     int tile1ID, backgroundID;
 };
 
-#endif /* Core_hpp */
+#endif /* engineCore_hpp */

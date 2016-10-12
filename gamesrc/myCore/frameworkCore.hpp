@@ -5,8 +5,8 @@
 //  Created by William Meaton on 08/12/2015.
 //  Copyright © 2015 WillMeaton.uk. All rights reserved.
 //
-#ifndef Core_hpp
-#define Core_hpp
+#ifndef frameworkCore_hpp
+#define frameworkCore_hpp
 
 #include "../CoreMain.h"
 
@@ -17,4 +17,4 @@ public:
     void update();
 };
 
-#endif /* Core_hpp */
+#endif /* frameworkCore_hpp */
