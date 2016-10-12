@@ -1,4 +1,4 @@
-# closedFrameworks v0.6.4
+# Axilya v0.6.4
 
 A basic 2D game framework written in C++, runnable with Make. To see the initial production of this project see: https://github.com/vexparadox/closedFrameworks
 
@@ -6,7 +6,7 @@ This framework is going to be the base of the yet-to-be-named 2D engine I am mak
 
 Please see the WIKI on how to use this framework. It's not very scary once you get started.
 
-See https://github.com/vexparadox/CFServer for the server module of closedFrameworks. This is still in early development.
+See https://github.com/vexparadox/CFServer for the server module of Axilya. This is still in early development.
 
 `NFI` = Not fully implemented
 
