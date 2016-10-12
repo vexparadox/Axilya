@@ -47,22 +47,28 @@ bool BoxCollider::overlap(Collider* c)
 bool BoxCollider::checkMovement(Entity* e, Math::Vector2D& proposedMovement){
     //e is the moving entity
     //get the moving entities bounds
-    // Shape* otherBounds = e->getCollider()->getBounds();
-
-    // //if moving right
-    // if(proposedMovement.x > 0){
-    //     Math::Vector2D topRight = Math::Vector2D(otherBounds->getPosition().x+otherBounds->getSize().x+proposedMovement.x, otherBounds->getPosition().y+otherBounds->getSize().y);
-    //     if(Math::isInsideQuad(topRight, bounds->getPosition(), bounds->getPosition()+bounds->getSize())){
-    //         proposedMovement.x = 0;
-    //         return true;
-    //     }
-    // }else if(proposedMovement.x < 0){
-    //     Math::Vector2D topLeft = Math::Vector2D(otherBounds->getPosition().x-proposedMovement.x, otherBounds->getPosition().y);
-    //     if(Math::isInsideQuad(topLeft, bounds->getPosition(), bounds->getPosition()+bounds->getSize())){
-    //         proposedMovement.x = 0;
-    //         return true;
-    //     }
-    // }
+    Shape* otherBounds = e->getCollider()->getBounds();
+    //if moving right
+    if(proposedMovement.x > 0){
+        //if e's top right will be inside of this
+        Math::Vector2D topRight = Math::Vector2D(otherBounds->getPosition().x+otherBounds->getSize().x+proposedMovement.x, otherBounds->getPosition().y+otherBounds->getSize().y);
+        if(Math::isInsideQuad(topRight, bounds->getPosition(), bounds->getPosition()+bounds->getSize())){
+            proposedMovement.x = 0;
+            return true;
+        }
+        //if this will be inside of e
+        Math::Vector2D topLeftThis = Math::Vector2D(bounds->getPosition().x-proposedMovement.x, bounds->getPosition().y);
+        if(Math::isInsideQuad(topLeftThis, otherBounds->getPosition(), otherBounds->getPosition()+otherBounds->getSize())){
+            proposedMovement.x = 0;
+            return true;
+        }
+    }else if(proposedMovement.x < 0){
+        Math::Vector2D topLeft = Math::Vector2D(otherBounds->getPosition().x-proposedMovement.x, otherBounds->getPosition().y);
+        if(Math::isInsideQuad(topLeft, bounds->getPosition(), bounds->getPosition()+bounds->getSize())){
+            proposedMovement.x = 0;
+            return true;
+        }
+    }
     return false;
 }
 

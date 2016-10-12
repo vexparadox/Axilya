@@ -48,7 +48,7 @@ void engineCore::setup(){
 	//everything on screen is an entity
 	//entites hold components like, colliders, rigidbodies, transforms and user made ones!
 	//You can see below that Destroyable is a user made component, you can see what it does by looking in : myComponents/Destroyable.cpp
-	character1 = new Entity("small_box", 200, 60, 20, 20); // Create a new entity with name, x, y, w, h
+	character1 = new Entity("small_box", 200, 60, 50, 50); // Create a new entity with name, x, y, w, h
 	character1->addComponent(new Destroyable()); // this is a custom component that allows this entity to be destroyed when clicked on
 	character1->addRigidBody(true); // makes the object solid and react to physics
 	character1->addCollider(new BoxCollider()); // Adds a simple box collider
