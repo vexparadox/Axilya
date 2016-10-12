@@ -23,6 +23,9 @@ namespace Graphics{
     void drawRect(const Rect &r);
     void drawRect(const Math::Vector2D &v1, float w, float h);
     void drawRect(float x, float y, float w, float h);
+
+    void drawRectCenter(float x, float y, float w, float h);
+
     //Polygons
     void drawPoly(const Polygon &p);
     void drawPoly(const std::vector<Math::Vector2D>& v);
@@ -32,6 +35,7 @@ namespace Graphics{
     void drawEllipse(const Math::Vector2D &cp, float r);
     void drawEllipse(float x, float y, float xR, float yR);
     void drawEllipse(float x, float y, float r);
+    void drawEllipseCenter(float x, float y, float xR, float yR);
     
     //gets the pixel data between two points, (x,y) and (w,h)
     std::vector<unsigned char> getScreenData(int x, int y, int w, int h);
@@ -50,7 +54,7 @@ namespace Graphics{
     void translate(float &x, float &y);
     void translate(const Math::Vector2D& v);
     void translate(const Math::Vector3D& v);
-    
+
     //colours
     void fill(const Graphics::Colour &c);
     void fill(const float &rgb);

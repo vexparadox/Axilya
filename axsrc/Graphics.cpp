@@ -45,6 +45,10 @@ namespace Graphics{
         glEnd();
     }
 
+    void drawRectCenter(float x, float y, float w, float h){
+        drawRect(x-w/2, y-h/2, w, h);
+    }
+
     void drawRect(const Math::Vector2D &v, float w, float h){
         drawRect(v.x, v.y, w, h);
     }
@@ -93,6 +97,11 @@ namespace Graphics{
         }
         glEnd();
     }
+
+    void drawEllipseCenter(float x, float y, float xR, float yR){
+        drawEllipse(x-xR/2, y-yR/2, xR, yR);
+    }
+
     
     std::vector<unsigned char> getScreenData(int x, int y, int w, int h){
         std::vector<unsigned char> data(4*w*h);
