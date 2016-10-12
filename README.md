@@ -2,8 +2,6 @@
 
 A basic 2D game framework written in C++, runnable with Make. To see the initial production of this project see: https://github.com/vexparadox/axInitial
 
-This framework is going to be the base of the yet-to-be-named 2D engine I am making for my third year at University, this is the reason for going towards a Unity styled ECS.
-
 Please see the WIKI on how to use this framework. It's not very scary once you get started.
 
 See https://github.com/vexparadox/AXServer for the server module of Axilya. This is still in early development.
