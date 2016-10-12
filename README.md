@@ -1,6 +1,6 @@
 # Axilya v0.6.4
 
-A basic 2D game framework written in C++, runnable with Make. To see the initial production of this project see: https://github.com/vexparadox/closedFrameworks
+A basic 2D game framework written in C++, runnable with Make. To see the initial production of this project see: https://github.com/vexparadox/axInitial
 
 This framework is going to be the base of the yet-to-be-named 2D engine I am making for my third year at University, this is the reason for going towards a Unity styled ECS.
 
