@@ -55,6 +55,7 @@ public:
     void moveEntity(Math::Vector2D v);
     //set and get the colour
     void setColour(float r, float g, float b, float a);
+    void setColour(float r, float g, float b);
     void setColour(const Graphics::Colour &c);
     const Graphics::Colour& getColour();
     //set and get scene

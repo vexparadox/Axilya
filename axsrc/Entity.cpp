@@ -125,6 +125,10 @@ void Entity::setColour(float r, float g, float b, float a){
     animator->getColour().set(r, g, b, a);
 }
 
+void Entity::setColour(float r, float g, float b){
+    animator->getColour().set(r, g, b, 255);
+}
+
 void Entity::setColour(const Graphics::Colour& c){
     animator->getColour().set(c.getR(), c.getG(), c.getB(), c.getA());
 }
