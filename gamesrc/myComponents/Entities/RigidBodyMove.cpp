@@ -29,3 +29,8 @@ void RigidBodyMove::onHover(){
     //this is an overriden method that's called when an entity with a collider is hovered over with the mouse
     owner->setColour(255, 0, 0, 255);
 }
+
+void RigidBodyMove::onCollision(Entity* e){
+    //You can use this code to access what other Entities you collide with
+    // std::cout << "I collided with " << e->getName() << std::endl;
+}

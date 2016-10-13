@@ -7,5 +7,6 @@ class RigidBodyMove : public Component{
     int x = 5;
     virtual void update();
     virtual void onHover();
+    virtual void onCollision(Entity* e);
 };
 #endif
