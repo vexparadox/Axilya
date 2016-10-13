@@ -132,14 +132,14 @@ bool BoxCollider::checkMovement(Entity* e, Math::Vector2D& proposedMovement){
             std::cout << "Bottom Left" << std::endl;
             return true;
         }
-        Math::Vector2D topRightThis = Math::Vector2D(bounds->getPosition().x-proposedMovement.x, bounds->getPosition().y);
+        Math::Vector2D topRightThis = Math::Vector2D(bounds->getPosition().x+bounds->getSize().x, bounds->getPosition().y);
         if(Math::isInsideQuad(topRightThis, otherBounds->getPosition(), otherBounds->getPosition()+otherBounds->getSize())){
             proposedMovement.x = 0;
             e->getTransform()->set(bounds->getPosition().x+bounds->getSize().x, e->getTransform()->getPos().y);
             std::cout << "Top Left" << std::endl;
             return true;
         }
-        Math::Vector2D bottomRightThis = Math::Vector2D(bounds->getPosition().x-proposedMovement.x, bounds->getPosition().y+bounds->getSize().y);
+        Math::Vector2D bottomRightThis = Math::Vector2D(bounds->getPosition().x, bounds->getPosition().y+bounds->getSize().y);
         if(Math::isInsideQuad(bottomRightThis, otherBounds->getPosition(), otherBounds->getPosition()+otherBounds->getSize())){
             proposedMovement.x = 0;
             e->getTransform()->set(bounds->getPosition().x+bounds->getSize().x, e->getTransform()->getPos().y);
