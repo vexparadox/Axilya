@@ -24,16 +24,18 @@ void RigidBody::update(){
     if(this->owner->getCollider()){
         //check and correct collisions
         this->owner->getCollider()->worldCollideCheck(velocity);
+    }else{
+        if(owner->getTransform()->getPos().y+owner->getTransform()->getSize().y >= Runner::getHeight()){
+            isGrounded = true;
+        }else{
+            isGrounded = false;
+        }
+    }
+    if(isGrounded){
+        velocity.y = 0;
     }
     // move the entity (this will move the colliders too)
     this->owner->moveEntity(velocity);
-    
-    // see if the entity is touching the ground
-    if(owner->getTransform()->getPos().y+owner->getTransform()->getSize().y == Runner::getHeight()){
-        isGrounded = true;
-    }else{
-        isGrounded = false;
-    }
 }
 
 void RigidBody::applyGravity(){

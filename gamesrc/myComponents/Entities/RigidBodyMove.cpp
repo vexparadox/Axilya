@@ -11,17 +11,14 @@ void RigidBodyMove::update(){
         //it then adds an upwards force to it, the rigidBody handles the rest core
 		owner->getRigidBody()->addForce(0, -10);
         //set the colour of the entity
-        owner->setColour(0, 255, 255, 255);
         if(Client::getInstance()->isConnected()){
             Client::getInstance()->sendPacket();
         }
 	}
     if(Input::keyRight()|| Input::getKey("D")){
-        owner->setColour(255, 0, 255, 255);
 		owner->getRigidBody()->addForce(2, 0);
 	}
     if(Input::keyLeft() || Input::getKey("A")){
-        owner->setColour(0, 255, 0, 255);
 		owner->getRigidBody()->addForce(-2, 0);
 	}
     //you can get other entities in the same scene using their name

@@ -52,12 +52,13 @@ void engineCore::setup(){
 	character1->addComponent(new Destroyable()); // this is a custom component that allows this entity to be destroyed when clicked on
 	character1->addRigidBody(true); // makes the object solid and react to physics
 	character1->addCollider(new BoxCollider()); // Adds a simple box collider
-    character1->getAnimator()->addSprite(new StaticSprite("standing_box", "img2.png"));
+	character1->setColour(255, 0, 0, 255);
+    // character1->getAnimator()->addSprite(new StaticSprite("standing_box", "img2.png"));
 	scene1->addEntity(character1); //add your entity to the scene
 
 	//Start a new Entity
 	//Entity names must be unique to the scene
-	character2 = new Entity("big_box", 100, 60, 50, 50); // Create a new entity with name, x, y, w, h
+	character2 = new Entity("big_box", 100, 60, 50, 20); // Create a new entity with name, x, y, w, h
 	character2->addRigidBody(new RigidBody(true)); // makes the object solid and react to physics
 	character2->addCollider(new BoxCollider()); // Adds a simple box collider
 	character2->addComponent(new RigidBodyMove()); // This is a custom component that controls movement and colour changes
