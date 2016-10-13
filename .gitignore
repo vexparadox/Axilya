@@ -1,6 +1,6 @@
 .DS_STORE
 *.o
-closedFrameworks
+axilya
 .browse.*
 *.png
 libcf.a
