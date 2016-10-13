@@ -60,7 +60,8 @@ void Scene::collideCheck(Entity* e, Math::Vector2D& proposedMovement){
             if(entities[i] != e){
                 //if there is a collision then allow it to correct and loop again
                 while(entities[i]->getCollider()->checkMovement(e, proposedMovement)){
-                    std::cout << "Collision occured" << std::endl;
+                    entities[i]->onCollision(e);
+                    e->onCollision(entities[i]);
                 }
             }
         }
