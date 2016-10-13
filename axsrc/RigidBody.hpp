@@ -17,7 +17,7 @@ class RigidBody : public Component{
     bool gravity;
     Math::Vector2D velocity, drag, previousVelocity;
     bool wasGrounded = false, isGrounded = false;
-    float maxVelocityY = 6, maxVelocityX = 6;
+    float maxVelocityY = 8, maxVelocityX = 7;
     void applyDrag();
     void applyGravity();
     void terminalVelocity();
