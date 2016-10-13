@@ -1,4 +1,4 @@
-# Axilya v0.6.4
+# Axilya v0.6.5
 
 A basic 2D game framework written in C++, runnable with Make. To see the initial production of this project see: https://github.com/vexparadox/axInitial
 
@@ -12,12 +12,15 @@ Versions jump around because I haven't been able to consistently work on feature
 
 ## Coming Soon
 
-- Good inter-Entity collisions
 - Better Client-Server intergration (setting Entities to sync etc)
 - Better physics on RigidBodies
 - Handling random key presses in the Input class
 
-## v0.6.4 Changelog
+## v0.6.5
+
+- Entity-Entity collisions with BoxCollider!
+
+## v0.6.4
 
 - Seperate engine and framework example Cores
 
