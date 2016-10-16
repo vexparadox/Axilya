@@ -5,8 +5,8 @@
 #ifndef TransformMove_hpp
 #define TransformMove_hpp
 
-#include "../../CoreMain.h"
-class TransformMove : public Component {
+#include <CoreMain.h>
+class TransformMove : public CustomComponent<TransformMove>{
 public:
     void update();
 };

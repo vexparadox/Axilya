@@ -13,4 +13,5 @@
 #include "Transform.hpp"
 #include "Collider.hpp"
 #include "BoxCollider.hpp"
+#include "CustomComponent.hpp"
 #endif /* Math_h */
