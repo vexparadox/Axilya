@@ -32,24 +32,6 @@ void Scene::update() {
             e->update();
         }
     } 
-    //loop through and delete dead ones
-//    auto it = std::remove_if(entities.begin(), entities.end(), [this](Entity* e){return e->isDead();});
-//    uMap.erase((*it)->getName());
-//    entities.erase(it);
-//    for(auto it = entities.begin(); it != entities.end();){
-//        if(*it) {
-//            if ((*it)->isDead()) {
-//                entities.erase(it);
-//                uMap.erase((*it)->getName());
-//                delete *it;
-//                *it = 0;
-//            } else {
-//                it++;
-//            }
-//        }else{
-//            it++;
-//        }
-//    }
 }
 
 void Scene::collideCheck(Entity* e, Math::Vector2D& proposedMovement){

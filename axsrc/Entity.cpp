@@ -137,21 +137,6 @@ const Graphics::Colour& Entity::getColour(){
     return animator->getColour();
 }
 
-Scene* Entity::getScene(){
-    return scene;
-}
-
-void Entity::setScene(Scene* s){
-    this->scene = s;
-}
-
-void Entity::setActive(bool a){
-    this->active = a;
-}
-
-bool Entity::isActive(){
-    return this->active;
-}
 
 void Entity::addComponent(Component* c){
     if(c) {
@@ -202,6 +187,22 @@ void Entity::addCollider(Collider* c){
         c->halfSize = transform->getSize()/2;
         this->collider = c;
     }
+}
+
+Scene* Entity::getScene(){
+    return scene;
+}
+
+void Entity::setScene(Scene* s){
+    this->scene = s;
+}
+
+void Entity::setActive(bool a){
+    this->active = a;
+}
+
+bool Entity::isActive(){
+    return this->active;
 }
 
 Collider* Entity::getCollider(){
