@@ -23,7 +23,5 @@
 #include "../axsrc/Input.hpp"
 #include "../axsrc/ResourceManager.hpp"
 #include "../axsrc/Client.hpp"
-#include "myCore/frameworkCore.hpp"
-#include "myCore/engineCore.hpp"
 
 #endif /* CoreMain_h */

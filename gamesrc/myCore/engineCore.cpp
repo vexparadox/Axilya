@@ -66,7 +66,6 @@ void engineCore::setup(){
     Runner::setCurrentScene(scene1);
 }
 
-
 void engineCore::loadTiles() {
     //create a new tile, pass it a textureID
     Tile* exampleTile = new Tile(tile1ID);

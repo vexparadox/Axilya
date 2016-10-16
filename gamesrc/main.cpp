@@ -6,6 +6,8 @@
 //  Copyright © 2015 WillMeaton.uk. All rights reserved.
 //
 #include "CoreMain.h"
+#include "myCore/frameworkCore.hpp"
+#include "myCore/engineCore.hpp"
 
 int main(int argc, char *argv[])
 {
