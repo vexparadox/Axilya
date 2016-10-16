@@ -2,10 +2,9 @@
 #define Collider_hpp
 
 #include <stdio.h>
-#include "Component.hpp"
 #include "Types.h"
 
-class Collider : public Component{
+class Collider{
     //temporary fix
 public:
     Math::Vector2D center, halfSize;
@@ -17,6 +16,7 @@ public:
     virtual void mouseCheck() = 0;
     virtual void worldCollideCheck(Math::Vector2D&) = 0;
     virtual bool checkMovement(Entity*, Math::Vector2D&) = 0;
-};
+    virtual Collider* clone() = 0;
+};	
 
 #endif

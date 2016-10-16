@@ -51,5 +51,7 @@ public:
     * @return the size of the Entity
     */
     Math::Vector2D& getSize();
+
+    Component* clone();
 };
 #endif /* Transform_hpp */

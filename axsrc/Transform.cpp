@@ -42,3 +42,7 @@ Math::Vector2D& Transform::getPos(){
 Math::Vector2D& Transform::getSize(){
     return size;
 }
+
+Component* Transform::clone(){
+	return new Transform(position, size);
+}

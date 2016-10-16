@@ -199,3 +199,11 @@ void BoxCollider::mouseCheck(){
         }
     }
 }
+
+Collider* clone(){
+    BoxCollider* bc = new BoxCollider();
+    bc->bounds = bounds->clone();
+    bc->center = this->center;
+    bc->halfSize = this->halfSize;
+    return bc;
+}

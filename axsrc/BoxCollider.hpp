@@ -17,6 +17,7 @@ public:
     void correctColliderCollision(Collider* c, const Math::Vector2D &v, bool isMoving);
     //checks if it's being clicked or hovered
     void mouseCheck();
+    Collider* clone();
 };
 
 #endif

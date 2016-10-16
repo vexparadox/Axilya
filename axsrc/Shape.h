@@ -25,5 +25,6 @@ public:
     }
     virtual const Math::Vector2D& getPosition() const = 0;
     virtual const Math::Vector2D& getSize() const = 0; 
+    virtual Shape* clone() = 0;
 };
 #endif

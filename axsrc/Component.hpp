@@ -29,6 +29,8 @@ public:
     Scene* getScene();
     //returns what entity owns this component
     void setOwner(Entity*);
+    //lets the components be cloned
+    virtual Component* clone() = 0;
     //called at the begining of the program
     virtual void start(){};
     //a virutal update method that Component's can use

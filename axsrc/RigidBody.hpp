@@ -57,6 +57,8 @@ public:
     * A method to set the gravity value
     */
     void setGravity(bool);
+
+    Component* clone();
 };
 
 
