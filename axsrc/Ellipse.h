@@ -62,7 +62,16 @@ namespace Graphics{
         }
         const Math::Vector2D& getSize() const {
             return size;
-        } 
+        }
+        const float getWidth() const{
+            return size.x;
+        }
+        const float getHeight() const{
+            return size.y;
+        }
+        Shape* clone(){
+            return new Ellipse(this->position, this->size.x, this->size.y);
+        }
     };
 }
 

@@ -46,7 +46,6 @@ namespace Graphics{
         const Math::Vector2D& getV3() const{
             return v3;
         }
-        
     };
 }
 

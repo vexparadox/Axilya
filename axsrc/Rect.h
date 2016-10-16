@@ -87,6 +87,9 @@ namespace Graphics{
         const float getHeight() const{
             return size.y;
         }
+        virtual Shape* clone(){
+          return new Rect(this->position, this->size);
+        }
     };
 }
 

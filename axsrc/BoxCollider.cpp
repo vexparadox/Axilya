@@ -200,7 +200,7 @@ void BoxCollider::mouseCheck(){
     }
 }
 
-Collider* clone(){
+Collider* BoxCollider::clone(){
     BoxCollider* bc = new BoxCollider();
     bc->bounds = bounds->clone();
     bc->center = this->center;
