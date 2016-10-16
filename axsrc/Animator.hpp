@@ -22,6 +22,7 @@ public:
     void setSprite(const std::string& name);
     Graphics::Colour& getColour();
     void draw();
+    Animator* clone();
 };
 
 

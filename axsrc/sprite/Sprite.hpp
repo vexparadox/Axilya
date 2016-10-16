@@ -14,6 +14,7 @@ public:
     Sprite(const std::string& name);
     virtual void draw(float x, float y, float w, float h) = 0;
     std::string getName();
+    virtual Sprite* clone() = 0;
 };
 
 #endif

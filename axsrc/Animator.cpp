@@ -44,3 +44,7 @@ void Animator::setOwner(Entity *owner) {
 Graphics::Colour& Animator::getColour() {
     return colour;
 }
+
+Animator* Animator::clone(){
+    
+}

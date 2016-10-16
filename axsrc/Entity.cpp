@@ -109,6 +109,7 @@ Entity* Entity::clone(){
     for(auto c : components){
         e->addComponent(c->clone());
     }
+    e->animator = this->animator->clone();
     return e;
 }
 

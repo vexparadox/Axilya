@@ -21,3 +21,9 @@ void StaticSprite::draw(float x, float y, float w, float h) {
 void StaticSprite::setTexture(int textureID) {
     texture = resourceManager->getTexture(textureID);
 }
+
+Sprite* StaticSprite::clone(){
+	StaticSprite* ss = new StaticSprite(this->getName());
+	ss->texture = this->texture;
+	return ss;
+}

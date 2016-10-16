@@ -33,3 +33,11 @@ int AnimatedSprite::addTexture(const std::string &filename) {
 void AnimatedSprite::addTexture(int textureID) {
     textures.push_back(resourceManager->getTexture(textureID));
 }
+
+Sprite* AnimatedSprite::clone(){
+    AnimatedSprite* as = new AnimatedSprite(this->getName(), this->frameLength);
+    for(auto t : textures){
+        as->addTexture(t->getID());
+    }
+    return as;
+}

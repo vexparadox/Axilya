@@ -12,4 +12,4 @@ Instantiate method - in the Scene - takes existing entity - prefab manager
 
 REMEMBER
 
-CustomComponent clone doesn't copy values
+CustomComponent clone doesn't copy variables
