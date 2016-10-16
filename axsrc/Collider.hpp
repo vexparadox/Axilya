@@ -12,6 +12,7 @@ public:
     Entity* owner = 0;
     //take the owner and bounds of the collider 
     Collider();
+    virtual ~Collider();
     Shape* getBounds();
     void setOwner(Entity* e);
     Entity* getOwner();

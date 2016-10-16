@@ -90,6 +90,8 @@ public:
     //get the name of the entity
     std::string& getName();
 
+    Entity* clone();
+
     //gets a component from this entity
     template<typename T>
     T* getComponent(){

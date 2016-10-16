@@ -6,7 +6,10 @@ add example code of getting entities in tile components
 add predefined components for tiles (TileCollider)
 
 ## General
-finish entity box collider
 implement TiledWorld collisions (see TileCollider)
 Possibly add a Prefab manager? allows instantiating copies of entities
 Instantiate method - in the Scene - takes existing entity - prefab manager
+
+REMEMBER
+
+CustomComponent clone doesn't copy values

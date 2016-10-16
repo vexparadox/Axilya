@@ -98,6 +98,20 @@ void Entity::moveEntity(Math::Vector2D v){
     }
 }
 
+Entity* Entity::clone(){
+    Entity* e = new Entity(this->name, transform->getPos(), transform->getSize());
+    if(collider){
+       e->addCollider(collider->clone());
+    }
+    if(rigidBody){
+        e->addRigidBody(rigidBody->clone());
+    }
+    for(auto c : components){
+        e->addComponent(c->clone());
+    }
+    return e;
+}
+
 void Entity::destroy(){
     this->dead = true;
 }
@@ -120,23 +134,6 @@ void Entity::onHover(){
         c->onHover();
     }
 }
-
-void Entity::setColour(float r, float g, float b, float a){
-    animator->getColour().set(r, g, b, a);
-}
-
-void Entity::setColour(float r, float g, float b){
-    animator->getColour().set(r, g, b, 255);
-}
-
-void Entity::setColour(const Graphics::Colour& c){
-    animator->getColour().set(c.getR(), c.getG(), c.getB(), c.getA());
-}
-
-const Graphics::Colour& Entity::getColour(){
-    return animator->getColour();
-}
-
 
 void Entity::addComponent(Component* c){
     if(c) {
@@ -219,4 +216,19 @@ std::string& Entity::getName(){
 
 Animator* Entity::getAnimator() {
     return animator;
+}
+void Entity::setColour(float r, float g, float b, float a){
+    animator->getColour().set(r, g, b, a);
+}
+
+void Entity::setColour(float r, float g, float b){
+    animator->getColour().set(r, g, b, 255);
+}
+
+void Entity::setColour(const Graphics::Colour& c){
+    animator->getColour().set(c.getR(), c.getG(), c.getB(), c.getA());
+}
+
+const Graphics::Colour& Entity::getColour(){
+    return animator->getColour();
 }
