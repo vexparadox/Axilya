@@ -186,6 +186,10 @@ void Entity::addCollider(Collider* c){
     }
 }
 
+void Entity::setName(const std::string& name){
+    this->name = name;
+}
+
 Scene* Entity::getScene(){
     return scene;
 }

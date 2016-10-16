@@ -89,6 +89,7 @@ public:
     Animator* getAnimator();
     //get the name of the entity
     std::string& getName();
+    void setName(const std::string& name);
 
     Entity* clone();
 
