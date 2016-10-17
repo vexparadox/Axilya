@@ -1,4 +1,4 @@
-# Axilya v0.6.6
+# Axilya v0.6.7
 
 A basic 2D game framework written in C++, runnable with Make. To see the initial production of this project see: https://github.com/vexparadox/axInitial
 
