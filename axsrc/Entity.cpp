@@ -110,6 +110,7 @@ Entity* Entity::clone(){
         e->addComponent(c->clone());
     }
     e->animator = this->animator->clone();
+    e->animator->setOwner(e);
     return e;
 }
 

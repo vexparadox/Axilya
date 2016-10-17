@@ -46,5 +46,11 @@ Graphics::Colour& Animator::getColour() {
 }
 
 Animator* Animator::clone(){
-    
+    Animator* a = new Animator();
+    for(auto it = sprites.begin(); it != sprites.end(); it++){
+        a->addSprite(it->second->clone());
+    }
+    a->currentSprite = this->currentSprite;
+    a->colour = this->colour;
+    return a;
 }
