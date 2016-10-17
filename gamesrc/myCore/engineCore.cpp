@@ -63,6 +63,8 @@ void engineCore::setup(){
 	character2->addCollider(new BoxCollider()); // Adds a simple box collider
 	character2->addComponent(new RigidBodyMove()); // This is a custom component that controls movement and colour changes
 	scene1->addEntity(character2); //add your entity to the scene
+	Entity* e = scene1->instantiate("big_box_clone", character2, new Transform(1, 1, 20, 20));
+	character2->setActive(false);
     Runner::setCurrentScene(scene1);
 }
 

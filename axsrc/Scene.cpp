@@ -37,7 +37,7 @@ void Scene::update() {
 void Scene::collideCheck(Entity* e, Math::Vector2D& proposedMovement){
     //check this entity against the rest with the proposedMovement
     for(int i = 0; i < entities.size(); i++){
-        if(entities[i]->getCollider()){
+        if(entities[i]->getCollider() && entities[i]->isActive()){
             //don't compare against the proposed
             if(entities[i] != e){
                 //if there is a collision then allow it to correct and loop again
@@ -96,6 +96,9 @@ Entity* Scene::instantiate(const std::string& name, Entity* e, Transform* t){
     if(e && t && name != ""){
         Entity* temp = e->clone();
         temp->getTransform()->set(t->getPos(), t->getSize());
+        if(temp->getCollider()){
+            temp->getCollider()->getBounds()->set(t->getPos(), t->getSize());
+        }
         temp->setName(name);
         if(this->addEntity(temp)){
             return temp;

@@ -111,6 +111,8 @@ Entity* Entity::clone(){
     }
     e->animator = this->animator->clone();
     e->animator->setOwner(e);
+    e->active = this->active;
+    e->dead = this->dead;
     return e;
 }
 
