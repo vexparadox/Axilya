@@ -8,7 +8,7 @@ class BoxCollider : public Collider{
 public:
     BoxCollider();
     //checks and corrects against the world boundries
-    void worldCollideCheck(Math::Vector2D& v);
+    bool worldCollideCheck(Math::Vector2D& v);
     //checks and corrects against collision with this Collider's owner and another collider
     //called from the scene  
     bool checkMovement(Entity*, Math::Vector2D&);

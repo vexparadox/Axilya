@@ -20,7 +20,9 @@ void RigidBody::update(){
 
     if(this->owner->getCollider()){
         //check and correct collisions
-        this->owner->getCollider()->worldCollideCheck(velocity);
+        if(this->owner->getCollider()->worldCollideCheck(velocity)){
+            this->owner->onWorldCollision();
+        }
     }else{
         if(owner->getTransform()->getPos().y+owner->getTransform()->getSize().y >= Runner::getHeight()){
             isGrounded = true;
@@ -90,6 +92,15 @@ void RigidBody::addForce(const Math::Vector2D& f){
 
 const Math::Vector2D& RigidBody::getForce(){
     return velocity;
+}
+
+void RigidBody::setDrag(float x, float y){
+    this->drag.x = x;
+    this->drag.y = y;
+}
+
+void RigidBody::setDrag(const Math::Vector2D& drag){
+    this->drag = drag;
 }
 
 bool RigidBody::isOnGround(){

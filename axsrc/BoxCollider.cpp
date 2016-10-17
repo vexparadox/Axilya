@@ -4,7 +4,8 @@
 BoxCollider::BoxCollider(){
 }
 
-void BoxCollider::worldCollideCheck(Math::Vector2D& v){
+bool BoxCollider::worldCollideCheck(Math::Vector2D& v){
+    bool hasCollided = false;
     //get the bounds
     Math::Vector2D position = bounds->getPosition();
     Math::Vector2D size = bounds->getSize();
@@ -17,26 +18,31 @@ void BoxCollider::worldCollideCheck(Math::Vector2D& v){
     if(position.y+size.y+v.y >= screenHeight){
         v.y = 0;
         position.y = screenHeight - size.y;
+        hasCollided = true;
     }
     //if it goes out of the screen upwards
     if(position.y+v.y < 0){
         v.y = 0;
         position.y = 0;
+        hasCollided = true;
     }
     //if it goes out of the screen rightways
     if(position.x+size.x+v.x >= screenWidth){
         v.x = 0;
         position.x = screenWidth-size.x;
+        hasCollided = true;
     }
     //if it goes out of the screen leftways
     if(position.x+v.x < 0){
         v.x = 0;
         position.x = 0;
+        hasCollided = true;
     }
     //set the players position to the corrected (NEEDS OFFSETS FOR COLLIDERS)
     owner->getTransform()->set(position);
     //Moves the collider to the corrected (NEEDS OFFSETS TOO)
     this->bounds->set(position.x, position.y, size.x, size.y);
+    return hasCollided;
 }
 
 bool BoxCollider::overlap(Collider* c)

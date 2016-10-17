@@ -78,6 +78,8 @@ public:
     RigidBody* getRigidBody();
     //when a collision happens
     void onCollision(Entity* e);
+
+    void onWorldCollision();
     //when a click happens
     void onClick(int mouseButton);
     //when it's being hovered

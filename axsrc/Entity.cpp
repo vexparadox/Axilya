@@ -122,6 +122,14 @@ void Entity::destroy(){
     this->dead = true;
 }
 
+void Entity::onWorldCollision(){
+    //When a collision with the world happens
+    for(auto c : components){
+        c->onWorldCollision();
+    }
+
+}
+
 void Entity::onCollision(Entity* e){
     //when a collision happens
     for(auto c : components){
