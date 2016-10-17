@@ -22,6 +22,7 @@ Versions jump around because I haven't been able to consistently work on feature
 - Entity Deletion is back and working!
 - More methods for RigidBodies
 - onWorldCollision for components - called when collides with edges
+- Set whether your RigidBodies are screenBound or not
 
 ## v0.6.7
 
