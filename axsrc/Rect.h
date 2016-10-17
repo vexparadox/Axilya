@@ -16,9 +16,10 @@ namespace Graphics{
     public:
         Rect(const Math::Vector2D &v1, float w, float h): Shape(v1, Math::Vector2D(w, h)){
         }
-        
         Rect(const Math::Vector2D &v1, const Math::Vector2D& size): Shape(v1, size){
         }
+
+        ~Rect(){};
         /*!
        * The constructor of a Rect
        * @param x a float to set the x position

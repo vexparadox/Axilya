@@ -14,6 +14,7 @@ public:
         this->position = v;
         this->size = size;
     }
+    virtual ~Shape(){};
     virtual const float getWidth() const = 0;
     virtual const float getHeight() const = 0;
     virtual void set(float x, float y, float w, float h) = 0;

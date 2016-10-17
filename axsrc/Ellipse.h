@@ -30,6 +30,7 @@ namespace Graphics{
         Ellipse(float x, float y, float r) : Shape(Math::Vector2D(x, y), Math::Vector2D(r, r))
         {
         }
+        ~Ellipse(){};
         
         void set(const Math::Vector2D &v, const Math::Vector2D &s)
         {

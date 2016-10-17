@@ -50,17 +50,19 @@ void Scene::collideCheck(Entity* e, Math::Vector2D& proposedMovement){
     }
 }
 
-void Scene::addEntity(Entity* e){
+bool Scene::addEntity(Entity* e){
     if(e) {
         if(uMap.find(e->getName()) == uMap.end()) {
             e->setScene(this);
             this->entities.push_back(e);
             this->uMap[e->getName()] = e;
-            return;
+            return true;
         }else{
             std::cout << "Entity with the name: " << e->getName() << " already in this scene." << std::endl;
-            return;
+            return false;
         }
+    }else{
+        return false;
     }
 }
 
@@ -90,6 +92,24 @@ void Scene::parseSceneFile(const std::string &path) {
 
 }
 
+Entity* Scene::instantiate(const std::string& name, Entity* e, Transform* t){
+    if(e && t && name != ""){
+        Entity* temp = e->clone();
+        temp->getTransform()->set(t->getPos(), t->getSize());
+        temp->setName(name);
+        if(this->addEntity(temp)){
+            return temp;
+        }else{
+            return 0;
+        }
+    }else{
+        return 0;
+    }
+}
+
+Entity* Scene::instantiate(const std::string& name, Entity* e){
+    return this->instantiate(name, e, e->getTransform());
+}
 
 void Scene::addWorld(World *w) {
     if(w){

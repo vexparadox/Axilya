@@ -30,12 +30,16 @@ public:
     /*!
     * Adds a new Entity to this Scene
     * @param e the new Entity being added
+    * @return wheather it was succesful or not
     */
-    void addEntity(Entity* e);
+    bool addEntity(Entity* e);
 
     void addWorld(World* w);
 
     void removeEntity(Entity* e);
+
+    Entity* instantiate(const std::string& name, Entity* e, Transform* t);
+    Entity* instantiate(const std::string& name, Entity* e);
 
     Entity* findEntity(const std::string& name);
 
