@@ -11,7 +11,7 @@ class PrefabManager{
     std::unordered_map<std::string, Entity*> entityMap;
 public:
 	static PrefabManager* getInstance();
-	bool addPrefab(const std::string& name, Entity* e);
+	bool addPrefab(Entity* e);
 	Entity* getPrefab(const std::string& name);
 	bool doesPrefabExist(const std::string& name);
 };

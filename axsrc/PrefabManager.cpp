@@ -10,9 +10,9 @@ PrefabManager* PrefabManager::getInstance(){
 	return instance;
 }
 
-bool PrefabManager::addPrefab(const std::string& name, Entity* e){
-    if (entityMap.find(name) == entityMap.end() && e){
-	    entityMap.insert(std::pair<std::string, Entity*>(name, e));
+bool PrefabManager::addPrefab(Entity* e){
+    if (entityMap.find(e->getName()) == entityMap.end() && e){
+	    entityMap.insert(std::pair<std::string, Entity*>(e->getName(), e));
     	return true;
     }
     return false;
