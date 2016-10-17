@@ -13,15 +13,15 @@
 
 #include "Math.h"
 #include "ResourceManager.hpp"
+#include "PrefabManager.hpp"
 //components
 #include "Components.h"
 #include "Animator.hpp"
-
-#endif /* Entity_hpp */
 class Scene;
 class Entity{
     //get an instance of the resourcemanager
     ResourceManager* resourceManager = ResourceManager::getInstance();
+    PrefabManager* prefabManager = PrefabManager::getInstance();
     //save the name of the entity
     std::string name;
     //if the entity is listed to be removed
@@ -106,3 +106,5 @@ public:
         return 0;
     }
 };
+
+#endif

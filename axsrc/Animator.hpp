@@ -25,5 +25,4 @@ public:
     Animator* clone();
 };
 
-
 #endif

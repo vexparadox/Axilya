@@ -22,6 +22,7 @@
 #include "../axsrc/world/Tile.hpp"
 #include "../axsrc/Input.hpp"
 #include "../axsrc/ResourceManager.hpp"
+#include "../axsrc/PrefabManager.hpp"
 #include "../axsrc/Client.hpp"
 
 #endif /* CoreMain_h */

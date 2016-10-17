@@ -10,6 +10,7 @@
 #define Component_hpp
 
 #include "ResourceManager.hpp"
+#include "PrefabManager.hpp"
 #include <stdio.h>
 #include "Math.h"
 
@@ -18,6 +19,7 @@ class Scene;
 class Component{
     //get an instance of the resourcemanager
     ResourceManager* resourceManager = ResourceManager::getInstance();
+    PrefabManager* prefabManager = PrefabManager::getInstance();
 protected:
     Entity* owner = 0;
     Component();

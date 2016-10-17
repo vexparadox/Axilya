@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include "ResourceManager.hpp"
+#include "PrefabManager.hpp"
 #include "SOIL/SOIL.h"
 #include "GLFW/glfw3.h"
 #include <iostream>
@@ -17,6 +18,7 @@ protected:
     BaseCore(){};
     BaseCore(BaseCore const&){};
     ResourceManager* resourceManager = ResourceManager::getInstance();
+    PrefabManager* prefabManager = PrefabManager::getInstance();
 public:
     int windowWidth= 0, windowHeight = 0;
     virtual ~BaseCore();

@@ -12,7 +12,6 @@
 #include <stdio.h>
 #include "Component.hpp"
 
-
 class RigidBody : public Component{
     bool gravity;
     Math::Vector2D velocity, drag, previousVelocity;

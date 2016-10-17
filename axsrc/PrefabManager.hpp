@@ -1,7 +1,9 @@
 #ifndef PrefabManager_hpp
 #define PrefabManager_hpp
-#include "Entity.hpp"
 
+#include <unordered_map>
+#include <iostream>
+class Entity;
 class PrefabManager{
     PrefabManager(){};
     static PrefabManager* instance;

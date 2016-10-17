@@ -1,6 +1,8 @@
 #include "PrefabManager.hpp"
+#include "Entity.hpp"
 
 PrefabManager* PrefabManager::instance = new PrefabManager();
+
 PrefabManager* PrefabManager::getInstance(){
 	if(!instance){
 		instance = new PrefabManager();
