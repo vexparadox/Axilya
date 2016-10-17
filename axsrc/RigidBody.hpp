@@ -16,6 +16,7 @@ class RigidBody : public Component{
     bool gravity;
     Math::Vector2D velocity, drag, previousVelocity;
     bool wasGrounded = false, isGrounded = false;
+    bool screenBound = true;
     float maxVelocityY = 8, maxVelocityX = 8;
     void applyDrag();
     void applyGravity();
@@ -41,7 +42,7 @@ public:
     */
     void setForce(const Math::Vector2D& force);
     void setForce(float x, float y);
-    
+
     void setDrag(const Math::Vector2D& drag);
     void setDrag(float x, float y);
     /*!
@@ -60,6 +61,8 @@ public:
     */
     void setGravity(bool);
 
+    bool isScreenBound();
+    void setSceenBound(bool);
     Component* clone();
 };
 

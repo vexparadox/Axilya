@@ -18,8 +18,8 @@ void RigidBody::update(){
     this->applyGravity();
     this->terminalVelocity();
 
-    if(this->owner->getCollider()){
-        //check and correct collisions
+    if(this->owner->getCollider() && screenBound){
+        //check and correct screen
         if(this->owner->getCollider()->worldCollideCheck(velocity)){
             this->owner->onWorldCollision();
         }
@@ -116,6 +116,13 @@ void RigidBody::setForce(const Math::Vector2D& force){
     this->setForce(force.x, force.y);
 }
 
+void RigidBody::setSceenBound(bool b){
+    this->screenBound = b;
+}
+
+bool RigidBody::isScreenBound(){
+    return screenBound;
+}
 Component* RigidBody::clone(){
     return new RigidBody(this->gravity);
 }
