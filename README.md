@@ -19,7 +19,7 @@ Versions jump around because I haven't been able to consistently work on feature
 ## v0.6.8 ChangeLog
 
 - Entity Draw Modes: Rectangles and Ellipses
-
+- Entity Deletion!
 
 ## v0.6.7
 
