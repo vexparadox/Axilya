@@ -16,6 +16,7 @@
 #include <sys/stat.h>
 #include <unistd.h>
 
+class Runner;
 namespace Graphics{
 class Image{
 private:

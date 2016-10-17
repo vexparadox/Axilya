@@ -19,6 +19,7 @@ class Runner{
     static Scene* activeScene;
     bool fps(int framerate);
 public:
+    static std::string runPath;
     //the RGBA of the next screen flush IE the background
     static float r, g, b, a;
     //the creation of the runner

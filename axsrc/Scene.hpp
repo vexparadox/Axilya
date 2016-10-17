@@ -7,6 +7,7 @@
 #include "PUGIXML/pugixml.hpp"
 
 class Entity;
+class Transform;
 class Scene{
     //the vector of entities
     std::vector<Entity*> entities;

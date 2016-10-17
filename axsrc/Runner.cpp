@@ -13,6 +13,7 @@ float Runner::b = 1;
 float Runner::a = 1;
 BaseCore* Runner::c = 0;
 Scene* Runner::activeScene = 0;
+std::string Runner::runPath = "";
 Runner::Runner(float windowWidth, float windowHeight, int frameRate, const char* title, BaseCore* c){
     //assign the core to the pointer
     Runner::c = c;

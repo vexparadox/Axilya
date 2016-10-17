@@ -7,6 +7,7 @@
 //
 
 #include "Image.hpp"
+#include "Runner.hpp"
 namespace Graphics{
     Image::~Image(){
         //remove the textures from the GL buffer
