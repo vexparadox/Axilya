@@ -87,9 +87,9 @@ namespace Graphics{
     void drawEllipse(float x, float y, float xR, float yR){
         glDisable(GL_TEXTURE_2D);
         glBegin(GL_TRIANGLE_FAN);
-    
+        // xR /= 2;
+        // yR /= 2;
         float degToRad = M_PI/180.0;
-        
         for(int i = 0; i < 360; i++)
         {
             float rad = i*degToRad;

@@ -36,7 +36,9 @@ void Animator::draw() {
             Graphics::drawRect(owner->getTransform()->getPos(), owner->getTransform()->getSize().x, owner->getTransform()->getSize().y);
         }else{
             Graphics::fill(colour);
-            Graphics::drawEllipse(owner->getTransform()->getPos(), owner->getTransform()->getSize().x, owner->getTransform()->getSize().y);
+            Graphics::drawEllipse(owner->getTransform()->getPos().x+owner->getTransform()->getSize().x/2, 
+                owner->getTransform()->getPos().y+owner->getTransform()->getSize().y/2
+                , owner->getTransform()->getSize().x/2, owner->getTransform()->getSize().y/2);
         }
     }
 }
