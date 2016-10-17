@@ -27,6 +27,7 @@ class ResourceManager{
     int addTexture(Graphics::Image*);
     bool isTextureLoaded(const std::string&);
     //gets a texture based on an id, allows 1 step access
+
     Texture* getTexture(int i);
     Texture* getTexture(const std::string& s);
 };

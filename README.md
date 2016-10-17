@@ -16,7 +16,12 @@ Versions jump around because I haven't been able to consistently work on feature
 - Better physics on RigidBodies
 - Handling random key presses in the Input class
 
-## v0.6.6 ChangeLog
+## v0.6.7 ChangeLog
+
+- Added PrefabManager!
+- Load and save your Entities
+
+## v0.6.6
 
 - Instantiate new Entities from the Scene!
 - Clone Entities and Components!
