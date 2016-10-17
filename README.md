@@ -16,6 +16,13 @@ Versions jump around because I haven't been able to consistently work on feature
 - Better physics on RigidBodies
 - Handling random key presses in the Input class
 
+## v0.6.6 ChangeLog
+
+- Instantiate new Entities from the Scene!
+- Clone Entities and Components!
+- isActive checks on Colliders
+- New way of creating CustomComponents
+
 ## v0.6.5
 
 - Entity-Entity collisions with BoxCollider!
