@@ -65,6 +65,7 @@ void engineCore::setup(){
 	scene1->addEntity(character2); //add your entity to the scene
 	//create a copy of the "big_box" with a different transform
 	Entity* e = scene1->instantiate("big_box_clone", character2, new Transform(1, 1, 20, 20));
+	e->setDrawType(EntityDrawType::ELLIPSE);
 	//set the "big_box" to false
 	character2->setActive(false);
     Runner::setCurrentScene(scene1);

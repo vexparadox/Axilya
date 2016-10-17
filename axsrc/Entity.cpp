@@ -190,6 +190,14 @@ void Entity::addCollider(Collider* c){
     }
 }
 
+void Entity::setDrawType(EntityDrawType type){
+    this->drawType = type;
+}
+
+EntityDrawType Entity::getDrawType(){
+    return this->drawType;
+}
+
 void Entity::setName(const std::string& name){
     this->name = name;
 }

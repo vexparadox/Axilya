@@ -106,5 +106,5 @@ void RigidBody::setForce(const Math::Vector2D& force){
 }
 
 Component* RigidBody::clone(){
-    return new RigidBody(gravity);
+    return new RigidBody(this->gravity);
 }

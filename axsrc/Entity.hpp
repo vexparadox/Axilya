@@ -17,6 +17,7 @@
 //components
 #include "Components.h"
 #include "Animator.hpp"
+#include "EntityDrawTypes.hpp"
 class Scene;
 class Entity{
     //get an instance of the resourcemanager
@@ -39,6 +40,8 @@ class Entity{
     //Animator holds all of the drawing capabilities of the Entitity
     Animator* animator = 0;
     void handle_eptr(std::exception_ptr);
+    //default to drawing rect
+    EntityDrawType drawType = EntityDrawType::RECT;
 public:
     //constructors
     Entity(const std::string& name, const Math::Vector2D& pos, const Math::Vector2D& size);
@@ -51,6 +54,8 @@ public:
     //this method deletes all the data to do with this entity
     void destroy();
     
+    void setDrawType(EntityDrawType type);
+    EntityDrawType getDrawType();
     //moves the transform and any colliders attached by a certain amount
     void moveEntity(Math::Vector2D v);
     //set and get the colour

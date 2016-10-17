@@ -25,13 +25,19 @@ void Animator::setSprite(Sprite *s) {
 }
 
 void Animator::draw() {
+
     if(currentSprite){
         //make sure the colour is transparent
         Graphics::fill(255,255,255,255);
         currentSprite->draw(owner->getTransform()->getPos().x, owner->getTransform()->getPos().y, owner->getTransform()->getSize().x, owner->getTransform()->getSize().y);
     }else{
-        Graphics::fill(colour);
-        Graphics::drawRect(owner->getTransform()->getPos(), owner->getTransform()->getSize().x, owner->getTransform()->getSize().y);
+        if(owner->getDrawType() == EntityDrawType::RECT){
+            Graphics::fill(colour);
+            Graphics::drawRect(owner->getTransform()->getPos(), owner->getTransform()->getSize().x, owner->getTransform()->getSize().y);
+        }else{
+            Graphics::fill(colour);
+            Graphics::drawEllipse(owner->getTransform()->getPos(), owner->getTransform()->getSize().x, owner->getTransform()->getSize().y);
+        }
     }
 }
 

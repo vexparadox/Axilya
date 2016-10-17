@@ -17,10 +17,10 @@
 class Entity;
 class Scene;
 class Component{
+protected:
     //get an instance of the resourcemanager
     ResourceManager* resourceManager = ResourceManager::getInstance();
     PrefabManager* prefabManager = PrefabManager::getInstance();
-protected:
     Entity* owner = 0;
     Component();
 public:  

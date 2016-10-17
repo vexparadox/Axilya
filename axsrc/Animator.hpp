@@ -8,6 +8,7 @@
 #include <unordered_map>
 #include "sprite/Sprite.hpp"
 #include "Graphics.hpp"
+#include "EntityDrawTypes.hpp"
 class Entity;
 class Animator {
     std::unordered_map<std::string, Sprite*> sprites;
