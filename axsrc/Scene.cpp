@@ -18,7 +18,7 @@ void Scene::draw(){
         this->world->draw();
     }
     for(auto e : entities){
-        if(e->isActive()){
+        if(e->isActive() && !e->isDead()){
             e->draw();
         }
     }
@@ -29,10 +29,17 @@ void Scene::update() {
         this->world->update();
     }
     for(auto e : entities){
-        if(e->isActive()){
+        if(e->isActive() && !e->isDead()){
             e->update();
         }
-    } 
+    }
+    for(auto it = entities.begin(); it != entities.end(); it++){
+        if((*it)->isDead()){
+            delete *it;
+            entities.erase(it);
+            break;
+        }
+    }
 }
 
 void Scene::collideCheck(Entity* e, Math::Vector2D& proposedMovement){

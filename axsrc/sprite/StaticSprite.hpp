@@ -11,6 +11,7 @@ class StaticSprite : public Sprite{
 public:
     StaticSprite(const std::string& name);
     StaticSprite(const std::string& name, const std::string& filename);
+    ~StaticSprite();
     void draw(float x, float y, float w, float h);
     void setTexture(int textureID);
     Sprite* clone();

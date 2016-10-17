@@ -5,6 +5,12 @@
 #include "Animator.hpp"
 #include "Entity.hpp"
 
+Animator::~Animator(){
+    for(auto it = sprites.begin(); it != sprites.end(); it++){
+       delete it->second;
+    }
+}
+
 void Animator::addSprite(Sprite *s) {
     if(s) {
         sprites.insert(std::pair<std::string, Sprite *>(s->getName(), s));

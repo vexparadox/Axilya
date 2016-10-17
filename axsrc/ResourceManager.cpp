@@ -15,6 +15,7 @@ ResourceManager::~ResourceManager() {
         t = 0;
     }
     textures.clear();
+    textureMap.clear();
 }
 
 int ResourceManager::addTexture(Graphics::Image* i){

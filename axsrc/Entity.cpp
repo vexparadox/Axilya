@@ -34,6 +34,8 @@ Entity::~Entity(){
     collider = 0;
     delete rigidBody;
     rigidBody = 0;
+    delete animator;
+    animator = 0;
     for(auto c : components){
         delete c;
         c = 0;

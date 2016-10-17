@@ -4,6 +4,12 @@
 
 #include "StaticSprite.hpp"
 
+
+
+StaticSprite::~StaticSprite(){
+	
+}
+
 StaticSprite::StaticSprite(const std::string& name) : Sprite(name){
 }
 

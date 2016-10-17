@@ -17,6 +17,7 @@ class Animator {
     //set a colour to be used in place of a sprite
     Graphics::Colour colour = Graphics::Colour(0, 0, 0, 255);
 public:
+    ~Animator();
     void setOwner(Entity* owner);
     void addSprite(Sprite* s);
     void setSprite(Sprite* s);

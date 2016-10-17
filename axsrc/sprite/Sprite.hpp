@@ -11,6 +11,7 @@ class Sprite {
 protected:
     ResourceManager* resourceManager = ResourceManager::getInstance();
 public:
+	virtual ~Sprite(){};
     Sprite(const std::string& name);
     virtual void draw(float x, float y, float w, float h) = 0;
     std::string getName();

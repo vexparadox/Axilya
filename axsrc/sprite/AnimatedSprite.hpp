@@ -15,6 +15,7 @@ class AnimatedSprite : Sprite {
     //the current texture being drawn
     int texturePosition =0;
 public:
+    ~AnimatedSprite();
     AnimatedSprite(const std::string& name, int frameLength);
     void draw(float x, float y, float w, float h);
     void addTexture(int textureID);
