@@ -3,6 +3,13 @@
 
 PrefabManager* PrefabManager::instance = new PrefabManager();
 
+PrefabManager::~PrefabManager(){
+    for(auto it = entityMap.begin(); it != entityMap.end(); it++){
+        delete it->second;
+        it->second = 0;
+    }
+}
+
 PrefabManager* PrefabManager::getInstance(){
 	if(!instance){
 		instance = new PrefabManager();
