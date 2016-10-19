@@ -17,7 +17,7 @@ void Scene::draw(){
     if(world) {
         this->world->draw();
     }
-    for(auto e : entities){
+    for(auto& e : entities){
         if(e->isActive() && !e->isDead()){
             e->draw();
         }
@@ -28,13 +28,14 @@ void Scene::update() {
     if (world) {
         this->world->update();
     }
-    for(auto e : entities){
+    for(auto& e : entities){
         if(e->isActive() && !e->isDead()){
             e->update();
         }
     }
     for(auto it = entities.begin(); it != entities.end(); it++){
         if((*it)->isDead()){
+            uMap.erase((*it)->getName());
             delete *it;
             entities.erase(it);
             break;

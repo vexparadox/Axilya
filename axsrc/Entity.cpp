@@ -49,7 +49,7 @@ void Entity::update(){
     if(rigidBody){
         rigidBody->update();
     }
-    for(auto c : components){
+    for(auto& c : components){
         //handles exceptions in user made components to a certain degree
         std::exception_ptr eptr;
         //attempt to update the components
@@ -108,7 +108,7 @@ Entity* Entity::clone(){
     if(rigidBody){
         e->addRigidBody(rigidBody->clone());
     }
-    for(auto c : components){
+    for(auto& c : components){
         e->addComponent(c->clone());
     }
     e->animator = this->animator->clone();
@@ -124,7 +124,7 @@ void Entity::destroy(){
 
 void Entity::onWorldCollision(){
     //When a collision with the world happens
-    for(auto c : components){
+    for(auto& c : components){
         c->onWorldCollision();
     }
 
@@ -132,19 +132,19 @@ void Entity::onWorldCollision(){
 
 void Entity::onCollision(Entity* e){
     //when a collision happens
-    for(auto c : components){
+    for(auto& c : components){
         c->onCollision(e);
     }
 }
 
 void Entity::onClick(int mouseButton){
-    for(auto c : components){
+    for(auto& c : components){
         c->onClick(mouseButton);
     }
 }
 
 void Entity::onHover(){
-    for(auto c : components){
+    for(auto& c : components){
         c->onHover();
     }
 }

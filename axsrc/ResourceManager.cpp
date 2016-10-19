@@ -10,7 +10,7 @@ ResourceManager* ResourceManager::getInstance(){
 }
 
 ResourceManager::~ResourceManager() {
-    for(auto t : textures){
+    for(auto& t : textures){
         delete t;
         t = 0;
     }

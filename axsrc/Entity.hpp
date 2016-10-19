@@ -103,7 +103,7 @@ public:
     //gets a component from this entity
     template<typename T>
     T* getComponent(){
-        for(auto c : components){
+        for(auto& c : components){
             T* t;
             if((t = dynamic_cast<T*>(c))){
                 return t;

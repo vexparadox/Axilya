@@ -8,12 +8,12 @@ TiledWorld::TiledWorld(){
 }
 
 TiledWorld::~TiledWorld() {
-    for(auto t : worldMatrix){
+    for(auto& t : worldMatrix){
         delete t;
         t = 0;
     }
     worldMatrix.clear();
-    for(auto t : tileTypes){
+    for(auto& t : tileTypes){
         delete t.second;
         t.second = 0;
     }
@@ -39,13 +39,13 @@ Tile* TiledWorld::getTileType(char key){
 }
 
 void TiledWorld::draw(){
-    for(auto t : worldMatrix){
+    for(auto& t : worldMatrix){
 //        t->draw()
     }
 }
 
 void TiledWorld::update(){
-    for(auto t : worldMatrix){
+    for(auto& t : worldMatrix){
         t->update();
     }
 }

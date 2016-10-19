@@ -40,7 +40,7 @@ void AnimatedSprite::addTexture(int textureID) {
 
 Sprite* AnimatedSprite::clone(){
     AnimatedSprite* as = new AnimatedSprite(this->getName(), this->frameLength);
-    for(auto t : textures){
+    for(auto& t : textures){
         as->addTexture(t->getID());
     }
     return as;

@@ -61,7 +61,7 @@ namespace Graphics{
     void drawPoly(const std::vector<Math::Vector2D>& v){
         glDisable(GL_TEXTURE_2D);
         glBegin(GL_POLYGON);
-        for(auto points : v){
+        for(auto& points : v){
             glVertex3f(points.x, points.y, 0.0f);
         }
         glEnd();
