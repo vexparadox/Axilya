@@ -7,5 +7,5 @@
 void TransformMove::update() {
 	//this is how you move the transform only.
 	//this will not move Collider bounds
-	owner->getTransform()->getPos()->moveTransform(1, 1);
+	owner->getTransform()->moveTransform(Math::Vector2D(1, 1));
 }
