@@ -52,8 +52,8 @@ void engineCore::setup(){
 	character1->addComponent(new Destroyable()); // this is a custom component that allows this entity to be destroyed when clicked on
 	character1->addRigidBody(true); // makes the object solid and react to physics
 	character1->addCollider(new BoxCollider()); // Adds a simple box collider
-	character1->setColour(255, 0, 0, 255);
-    character1->getAnimator()->addSprite(new StaticSprite("standing_box", "img2.png"));
+	character1->setColour(255, 0, 0); // setting a colour doesn't affect sprites
+    character1->getAnimator()->addSprite(new StaticSprite("standing_box", "img2.png")); // this adds a new static sprite with the image of "img2.png" in the data folder
 	scene1->addEntity(character1); //add your entity to the scene
 
 	//Start a new Entity
@@ -65,7 +65,7 @@ void engineCore::setup(){
 	scene1->addEntity(character2); //add your entity to the scene
 	//create a copy of the "big_box" with a different transform
 	Entity* e = scene1->instantiate("big_box_clone", character2, new Transform(1, 1, 20, 20));
-	e->setDrawType(EntityDrawType::NONE); // make e an Ellipse, defaults too a Rect
+	e->setDrawType(EntityDrawType::ELLIPSE); // make e an Ellipse, defaults too a Rect
 	//set the "big_box" to false
 	character2->setActive(false);
     Runner::setCurrentScene(scene1);

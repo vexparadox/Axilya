@@ -31,7 +31,6 @@ void Animator::setSprite(Sprite *s) {
 }
 
 void Animator::draw() {
-
     if(currentSprite){
         //make sure the colour is transparent
         Graphics::fill(255,255,255,255);
