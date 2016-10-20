@@ -40,7 +40,7 @@ void Animator::draw() {
         if(owner->getDrawType() == EntityDrawType::RECT){
             Graphics::fill(colour);
             Graphics::drawRect(owner->getTransform()->getPos(), owner->getTransform()->getSize().x, owner->getTransform()->getSize().y);
-        }else{
+        }else if(owner->getDrawType() == EntityDrawType::ELLIPSE){
             Graphics::fill(colour);
             Graphics::drawEllipse(owner->getTransform()->getPos().x+owner->getTransform()->getSize().x/2, 
                 owner->getTransform()->getPos().y+owner->getTransform()->getSize().y/2
