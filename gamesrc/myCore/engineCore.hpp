@@ -23,6 +23,7 @@ public:
     StaticWorld* staticWorld = 0;
     Entity* character1 = 0;
     Entity* character2 = 0;
+    Entity* gameMaster = 0;
     int tile1ID, backgroundID;
 };
 

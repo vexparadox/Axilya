@@ -59,6 +59,19 @@ void Scene::collideCheck(Entity* e, Math::Vector2D& proposedMovement){
     }
 }
 
+bool Scene::addGameMaster(Entity* e){
+    if(e){
+        this->gameMaster = e;
+        return true;
+    }else{
+        return false;
+    }
+}
+
+Entity* Scene::getGameMaster(){
+    return this->gameMaster;
+}
+
 bool Scene::addEntity(Entity* e){
     if(e) {
         if(uMap.find(e->getName()) == uMap.end()) {

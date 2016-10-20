@@ -12,6 +12,7 @@ class Scene{
     //the vector of entities
     std::vector<Entity*> entities;
     World* world = 0;
+    Entity* gameMaster = 0;
     std::unordered_map<std::string, Entity*> uMap;
 public:
     Scene();
@@ -34,6 +35,10 @@ public:
     * @return wheather it was succesful or not
     */
     bool addEntity(Entity* e);
+
+    bool addGameMaster(Entity* e);
+
+    Entity* getGameMaster();
 
     void addWorld(World* w);
 
