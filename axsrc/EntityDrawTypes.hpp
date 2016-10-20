@@ -3,6 +3,7 @@
 enum EntityDrawType
 {
 	RECT = 0,
-	ELLIPSE = 1
+	ELLIPSE = 1,
+	NONE = 2
 };
 #endif
