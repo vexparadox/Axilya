@@ -7,10 +7,11 @@
 #ifndef engineCore_hpp
 #define engineCore_hpp
 
-#include "../CoreMain.h"
-#include "../myComponents/Entities/RigidBodyMove.hpp"
-#include "../myComponents/Entities/Destroyable.hpp"
-#include "../myComponents/Tiles/exampleTileComponent.hpp"
+#include <CoreMain.h>
+#include <RigidBodyMove.hpp>
+#include <TransformMove.hpp>
+#include <Destroyable.hpp>
+#include <exampleTileComponent.hpp>
 
 
 class engineCore : public BaseCore{

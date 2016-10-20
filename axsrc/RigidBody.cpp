@@ -18,7 +18,8 @@ void RigidBody::update(){
     this->applyGravity();
     this->terminalVelocity();
 
-    if(this->owner->getCollider() && screenBound){
+    //only check if there's a collider, it's screen bound and has a velocity. Stops uneeded checks
+    if(this->owner->getCollider() && screenBound && velocity > 0){
         //check and correct screen
         if(this->owner->getCollider()->worldCollideCheck(velocity)){
             this->owner->onWorldCollision();

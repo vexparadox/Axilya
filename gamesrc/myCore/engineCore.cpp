@@ -53,7 +53,7 @@ void engineCore::setup(){
 	character1->addRigidBody(true); // makes the object solid and react to physics
 	character1->addCollider(new BoxCollider()); // Adds a simple box collider
 	character1->setColour(255, 0, 0); // setting a colour doesn't affect sprites
-    character1->getAnimator()->addSprite(new StaticSprite("standing_box", "img2.png")); // this adds a new static sprite with the image of "img2.png" in the data folder
+    // character1->getAnimator()->addSprite(new StaticSprite("standing_box", "img2.png")); // this adds a new static sprite with the image of "img2.png" in the data folder
 	scene1->addEntity(character1); //add your entity to the scene
 
 	//Start a new Entity
@@ -61,7 +61,7 @@ void engineCore::setup(){
 	character2 = new Entity("big_box", 100, 60, 80, 80); // Create a new entity with name, x, y, w, h
 	character2->addRigidBody(new RigidBody(true)); // makes the object solid and react to physics
 	character2->addCollider(new BoxCollider()); // Adds a simple box collider
-	character2->addComponent(new RigidBodyMove()); // This is a custom component that controls movement and colour changes
+	character2->addComponent(new TransformMove()); // This is a custom component that controls movement and colour changes
 	scene1->addEntity(character2); //add your entity to the scene
 	//create a copy of the "big_box" with a different transform
 	Entity* e = scene1->instantiate("big_box_clone", character2, new Transform(1, 1, 20, 20));

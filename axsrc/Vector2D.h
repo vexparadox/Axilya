@@ -33,6 +33,39 @@ namespace Math {
         inline friend bool operator!= (const Vector2D& v1, const Vector2D& v2){
             return !(v1 == v2);
         }
+
+        inline friend bool operator> (const Vector2D& v1, const Vector2D& v2){
+            return (v1.x > v2.x && v1.y > v2.y);
+        }
+
+        inline friend bool operator> (const Vector2D& v1, float i){
+            return (v1.x > i && v1.y > i);
+        }
+
+        inline friend bool operator< (const Vector2D& v1, const Vector2D& v2){
+            return (v1.x < v2.x && v1.y < v2.y);
+        }
+
+        inline friend bool operator< (const Vector2D& v1, float i){
+            return (v1.x < i && v1.y < i);
+        }
+
+
+        inline friend bool operator<= (const Vector2D& v1, const Vector2D& v2){
+            return (v1.x <= v2.x && v1.y <= v2.y);
+        }
+ 
+        inline friend bool operator<= (const Vector2D& v1, float i){
+            return (v1.x <= i && v1.y <= i);
+        }
+
+        inline friend bool operator>= (const Vector2D& v1, const Vector2D& v2){
+            return (v1.x >= v2.x && v1.y >= v2.y);
+        }
+
+        inline friend bool operator>= (const Vector2D& v1, float i){
+            return (v1.x >= i && v1.y >= i);
+        }
         
         inline friend void operator+= (Vector2D& v1, const Vector2D& v2){
             v1 = v1+v2;
