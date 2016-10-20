@@ -62,7 +62,7 @@ public:
     void setGravity(bool);
 
     bool isScreenBound();
-    void setSceenBound(bool);
+    void setScreenBound(bool);
     Component* clone();
 };
 

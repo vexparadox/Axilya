@@ -17,9 +17,8 @@ void RigidBody::update(){
     this->applyDrag();
     this->applyGravity();
     this->terminalVelocity();
-
     //only check if there's a collider, it's screen bound and has a velocity. Stops uneeded checks
-    if(this->owner->getCollider() && screenBound && velocity > 0){
+    if(this->owner->getCollider() && screenBound){
         //check and correct screen
         if(this->owner->getCollider()->worldCollideCheck(velocity)){
             this->owner->onWorldCollision();
@@ -117,7 +116,7 @@ void RigidBody::setForce(const Math::Vector2D& force){
     this->setForce(force.x, force.y);
 }
 
-void RigidBody::setSceenBound(bool b){
+void RigidBody::setScreenBound(bool b){
     this->screenBound = b;
 }
 

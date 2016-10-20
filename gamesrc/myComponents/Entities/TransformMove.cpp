@@ -4,6 +4,12 @@
 
 #include "TransformMove.hpp"
 
+void TransformMove::start(){
+	if(owner->getRigidBody()){
+		owner->getRigidBody()->setScreenBound(false);
+	}
+}
+
 void TransformMove::update() {
 	//this is how you move the transform only.
 	//this will not move Collider bounds

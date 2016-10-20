@@ -8,7 +8,7 @@
 #ifndef frameworkCore_hpp
 #define frameworkCore_hpp
 
-#include "../CoreMain.h"
+#include <CoreMain.h>
 
 class frameworkCore : public BaseCore{
 public:

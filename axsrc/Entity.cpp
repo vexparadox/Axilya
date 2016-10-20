@@ -153,6 +153,7 @@ void Entity::addComponent(Component* c){
     if(c) {
         c->setOwner(this);
         components.push_back(c);
+        c->start();
     }
 }
 

@@ -10,7 +10,6 @@
 #include "Entity.hpp"
 
 Component::Component(){
-    this->start();
 }
 
 Component::~Component(){

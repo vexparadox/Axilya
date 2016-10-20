@@ -8,6 +8,7 @@
 #include <CoreMain.h>
 class TransformMove : public CustomComponent<TransformMove>{
 public:
+	void start();
     void update();
 };
 

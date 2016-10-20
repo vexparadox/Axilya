@@ -5,7 +5,7 @@
 #ifndef exampleTileComponent_hpp
 #define exampleTileComponent_hpp
 
-#include "../../CoreMain.h"
+#include <CoreMain.h>
 class exampleTileComponent : public TileComponent{
 public:
     void update();
