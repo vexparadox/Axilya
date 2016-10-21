@@ -23,6 +23,9 @@ public:
     void setSprite(Sprite* s);
     void setSprite(const std::string& name);
     Graphics::Colour& getColour();
+    void setColour(float r, float g, float b, float a);
+    void setColour(float r, float g, float b);
+    void setColour(const Graphics::Colour &c);
     void draw();
     Animator* clone();
 };

@@ -21,9 +21,9 @@ public:
     Scene* scene1 = 0;
     TiledWorld* tileWorld = 0;
     StaticWorld* staticWorld = 0;
-    Entity* character1 = 0;
+    Entity* barrier = 0;
     Entity* character2 = 0;
-    Entity* gameMaster = 0;
+    Entity* gameManager = 0;
     int tile1ID, backgroundID;
 };
 

@@ -60,6 +60,7 @@ public:
     * A method to set the gravity value
     */
     void setGravity(bool);
+    bool getGravity();
 
     bool isScreenBound();
     void setScreenBound(bool);

@@ -58,6 +58,18 @@ Graphics::Colour& Animator::getColour() {
     return colour;
 }
 
+void Animator::setColour(float r, float g, float b, float a){
+    this->colour.set(r, g, b, a);
+}
+
+void Animator::setColour(float r, float g, float b){
+    this->colour.set(r, g, b, 255);
+}
+
+void Animator::setColour(const Graphics::Colour& c){
+    this->colour.set(c.getR(), c.getG(), c.getB(), c.getA());
+}
+
 Animator* Animator::clone(){
     Animator* a = new Animator();
     for(auto it = sprites.begin(); it != sprites.end(); it++){

@@ -27,8 +27,7 @@ void engineCore::setup(){
 	//scenes contain entities and worlds
 	//scenes will update/draw entities and worlds appropriately
 	scene1 = new Scene();
-	//example of loading a SceneFile
-	scene1->parseSceneFile("SceneFile.xml");
+
 	//create and load a tiled world
 	//tiled worlds have tiles which have components, like entities (collision, value holding etc)
 	//you must load a CSV world file
@@ -48,14 +47,19 @@ void engineCore::setup(){
 	//everything on screen is an entity
 	//entites hold components like, colliders, rigidbodies, transforms and user made ones!
 	//You can see below that Destroyable is a user made component, you can see what it does by looking in : myComponents/Destroyable.cpp
-	character1 = new Entity("small_box", 200, 200, 50, 50); // Create a new entity with name, x, y, w, h
-	character1->addComponent(new Destroyable()); // this is a custom component that allows this entity to be destroyed when clicked on
-	character1->addRigidBody(true); // makes the object solid and react to physics
-	character1->addCollider(new BoxCollider()); // Adds a simple box collider
-	character1->setColour(255, 0, 0); // setting a colour doesn't affect sprites
-    character1->getAnimator()->addSprite(new StaticSprite("standing_box", "img2.png")); // this adds a new static sprite with the image of "img2.png" in the data folder
+	barrier = new Entity("barrier", 200, 200, 50, 50); // Create a new entity with name, x, y, w, h
+	barrier->addComponent(new Destroyable()); // this is a custom component that allows this entity to be destroyed when clicked on
+	barrier->addRigidBody(false); // makes the object solid and react to physics
+	barrier->addCollider(new BoxCollider()); // Adds a simple box collider
+	barrier->setColour(255, 0, 0); // setting a colour doesn't affect sprites
+    // barrier->getAnimator()->addSprite(new StaticSprite("standing_box", "img2.png")); // this adds a new static sprite with the image of "img2.png" in the data folder
     //add your entity to the scene
-	scene1->addEntity(character1); 
+	prefabManager->addPrefab(barrier);
+
+	//lets make 5 barriers
+	for(int i = 0; i < 12; i++){
+		scene1->instantiate("barrier_clone"+i, prefabManager->getPrefab("barrier"), new Transform(i*50, Runner::getHeight()/2, 20, 10));
+	}
 
 	//Start a new Entity
 	//Entity names must be unique to the scene
@@ -67,16 +71,22 @@ void engineCore::setup(){
 
 	//add character2 to the prefab manager
 	prefabManager->addPrefab(character2);
-
-
+	
 	//create a copy of the "big_box" from the prefab manager
 	Entity* e = scene1->instantiate("big_box_clone", prefabManager->getPrefab("big_box"), new Transform(1, 1, 20, 20));
 	//lets check if it was made
 	if(e){
-		//any changes we make to e are seperate to the original copy of character2
+		// any changes we make to e are seperate to the original copy of character2
 		e->setDrawType(EntityDrawType::ELLIPSE); // make e an Ellipse, defaults too a Rect
 	}
 
+
+	//Setup our gameManager
+	//A gameManager is no different to another Entity, it's just stored in a special place
+	//we can get the gameManager from the Scene, this means from any component
+	//We use the gameManager to "manage" the game state in the scene
+	//gameManagers are never drawn
+	gameManager = new Entity("game_manager", 0, 0, 0, 0);
 
     Runner::setCurrentScene(scene1);
 }

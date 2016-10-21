@@ -107,11 +107,13 @@ Entity* Entity::clone(){
     }
     if(rigidBody){
         e->addRigidBody(rigidBody->clone());
+        e->getRigidBody()->setGravity(rigidBody->getGravity());
     }
     for(auto& c : components){
         e->addComponent(c->clone());
     }
     e->animator = this->animator->clone();
+    e->animator->setColour(this->animator->getColour());
     e->animator->setOwner(e);
     e->active = this->active;
     e->dead = this->dead;
@@ -245,15 +247,15 @@ Animator* Entity::getAnimator() {
     return animator;
 }
 void Entity::setColour(float r, float g, float b, float a){
-    animator->getColour().set(r, g, b, a);
+    animator->setColour(r, g, b, a);
 }
 
 void Entity::setColour(float r, float g, float b){
-    animator->getColour().set(r, g, b, 255);
+    animator->setColour(r, g, b, 255);
 }
 
 void Entity::setColour(const Graphics::Colour& c){
-    animator->getColour().set(c.getR(), c.getG(), c.getB(), c.getA());
+    animator->setColour(c.getR(), c.getG(), c.getB(), c.getA());
 }
 
 const Graphics::Colour& Entity::getColour(){

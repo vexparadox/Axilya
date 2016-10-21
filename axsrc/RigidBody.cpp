@@ -81,6 +81,10 @@ void RigidBody::setGravity(bool g){
     this->gravity = g;
 }
 
+bool RigidBody::getGravity(){
+    return this->gravity;
+}
+
 void RigidBody::addForce(float x, float y){
     this->velocity.x += x;
     this->velocity.y += y;
