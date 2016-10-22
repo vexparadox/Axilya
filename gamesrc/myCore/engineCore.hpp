@@ -12,6 +12,7 @@
 #include <TransformMove.hpp>
 #include <Destroyable.hpp>
 #include <exampleTileComponent.hpp>
+#include <GameMaster.hpp>
 
 
 class engineCore : public BaseCore{
@@ -23,7 +24,7 @@ public:
     StaticWorld* staticWorld = 0;
     Entity* barrier = 0;
     Entity* character2 = 0;
-    Entity* gameManager = 0;
+    Entity* gameMaster = 0;
     int tile1ID, backgroundID;
 };
 

@@ -69,6 +69,7 @@ public:
     static void cursorCallback(GLFWwindow* window, double xpos, double ypos);
 
     static void setCurrentScene(Scene* s);
+    static void shutdown();
 };
 
 #endif /* Runner_hpp */

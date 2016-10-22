@@ -1,6 +1,10 @@
 #include "RigidBodyMove.hpp"
 
 
+void RigidBodyMove::start(){
+    this->gm = getScene()->getGameMaster()->getComponent<GameMaster>();
+}
+
 void RigidBodyMove::update(){
     // This is the custom update, here you can access the entity it's attached to using "owner"
     //reset the colour here so onHover is temporary!
@@ -9,17 +13,17 @@ void RigidBodyMove::update(){
     if(Input::keyUp()|| Input::getKey("W")){
         //this line gets a pointer to the rigidBody attached to the owner
         //it then adds an upwards force to it, the rigidBody handles the rest core
-		owner->getRigidBody()->addForce(0, -10);
+		owner->getRigidBody()->addForce(0, -5);
         //set the colour of the entity
         if(Client::getInstance()->isConnected()){
             Client::getInstance()->sendPacket();
         }
 	}
     if(Input::keyRight()|| Input::getKey("D")){
-		owner->getRigidBody()->addForce(2, 0);
+		owner->getRigidBody()->addForce(1.5, 0);
 	}
     if(Input::keyLeft() || Input::getKey("A")){
-		owner->getRigidBody()->addForce(-2, 0);
+		owner->getRigidBody()->addForce(-1.5, 0);
 	}
 }
 
@@ -29,6 +33,10 @@ void RigidBodyMove::onHover(){
 }
 
 void RigidBodyMove::onCollision(Entity* e){
-    //You can use this code to access what other Entities you collide with
-    // std::cout << "I collided with " << e->getName() << std::endl;
+    //access the GameMaster component we saved in start
+    gm->increaseScore();
+    if(gm->getScore() > 4000){
+        std::cout << "You win!" << std::endl;
+        gm->gameOver();
+    }
 }

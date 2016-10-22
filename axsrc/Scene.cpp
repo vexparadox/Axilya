@@ -7,10 +7,23 @@ Scene::Scene(){
 }
 
 Scene::~Scene(){
-//    for(auto e : entities){
-//        delete e;
-//        e = 0;
-//    }
+   for(auto e : entities){
+       delete e;
+       e = 0;
+   }
+   entities.clear();
+}
+
+void Scene::start(){
+    if(gameMaster){
+        gameMaster->start();
+    }
+    if(world){
+        // this->world->start();
+    }
+    for(auto& e : entities){
+        e->start();
+    }
 }
 
 void Scene::draw(){
@@ -25,6 +38,9 @@ void Scene::draw(){
 }
 
 void Scene::update() {
+    if(gameMaster){
+        gameMaster->update();
+    }
     if (world) {
         this->world->update();
     }
@@ -59,7 +75,7 @@ void Scene::collideCheck(Entity* e, Math::Vector2D& proposedMovement){
     }
 }
 
-bool Scene::addGameMaster(Entity* e){
+bool Scene::setGameMaster(Entity* e){
     if(e){
         this->gameMaster = e;
         return true;
@@ -159,6 +175,10 @@ Entity* Scene::findEntity(const std::string &name) {
     }else{
         return uMap.at(name);
     }
+}
+
+std::vector<Entity*>& Scene::getEntities(){
+    return this->entities;
 }
 
 int Scene::numEntities(){

@@ -9,20 +9,26 @@
 #include "Entity.hpp"
 #include "Scene.hpp"
 
-Entity::Entity(const std::string& name, float x, float y, float w, float h){
+Entity::Entity(const std::string& name, float x, float y, float w, float h) : name(name){
     transform = new Transform(x, y, w, h);
     transform->setOwner(this);
     animator = new Animator();
     animator->setOwner(this);
-    this->name = name;
 }
 
-Entity::Entity(const std::string& name, const Math::Vector2D& pos, const Math::Vector2D& size){
+Entity::Entity(const std::string& name, const Math::Vector2D& pos, const Math::Vector2D& size) : name(name){
     transform = new Transform(pos, size);
     transform->setOwner(this);
     animator = new Animator();
     animator->setOwner(this);
-    this->name = name;
+}
+
+Entity::Entity(const std::string& name): name(name){
+    transform = new Transform(0, 0, 0, 0);
+    transform->setOwner(this);
+    animator = new Animator();
+    animator->setOwner(this);
+    setDrawType(EntityDrawType::NONE);
 }
 
 Entity::~Entity(){
@@ -39,6 +45,12 @@ Entity::~Entity(){
     for(auto c : components){
         delete c;
         c = 0;
+    }
+}
+
+void Entity::start(){
+    for(auto& c : components){
+        c->start();
     }
 }
 
@@ -155,7 +167,6 @@ void Entity::addComponent(Component* c){
     if(c) {
         c->setOwner(this);
         components.push_back(c);
-        c->start();
     }
 }
 

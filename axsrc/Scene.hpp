@@ -18,6 +18,8 @@ public:
     Scene();
     ~Scene();
     
+    void start();
+
     /*!
     * Called via the Core game loop. 
     * This will call Update on all Entities and thus Components 
@@ -36,7 +38,7 @@ public:
     */
     bool addEntity(Entity* e);
 
-    bool addGameMaster(Entity* e);
+    bool setGameMaster(Entity* e);
 
     Entity* getGameMaster();
 
@@ -56,6 +58,7 @@ public:
     * Returns the number of Entities in this Scene
     * @return number of Entities in the Scene vector
     */
+    std::vector<Entity*>& getEntities();
     int numEntities();
 };
 

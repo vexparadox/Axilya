@@ -46,10 +46,14 @@ public:
     //constructors
     Entity(const std::string& name, const Math::Vector2D& pos, const Math::Vector2D& size);
     Entity(const std::string& name, float x, float y, float w, float h);
-    virtual ~Entity();
+    Entity(const std::string& name);
+    ~Entity();
+
+    //sets up components
+    void start();
     //update and draws
-    virtual void update();
-    virtual void draw();
+    void update();
+    void draw();
 
     //this method deletes all the data to do with this entity
     void destroy();
