@@ -104,6 +104,8 @@ Runner::Runner(float windowWidth, float windowHeight, int frameRate, const char*
         glfwPollEvents();
     }
     //end the program
+    delete activeScene;
+    activeScene = 0;
     glfwDestroyWindow(window);
     glfwTerminate();
     exit(EXIT_SUCCESS);

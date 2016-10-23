@@ -25,7 +25,7 @@ public:
     virtual void draw(){};
     virtual void setup(){};
     virtual void update(){};
-    virtual void exitCalled(){std::exit(0);};
+    virtual void exitCalled(){ Runner::shutdown(); };
     GLFWwindow*& getWindow();
 };
 
