@@ -2,6 +2,10 @@
 
 
 void RigidBodyMove::start(){
+    //this is called after the Core Setup
+    //you'll manually have to call this method if you're creating components after the Core Setup
+
+    //lets save a pointer to the GameMaster Component on the GameMaster Entity
     this->gm = getScene()->getGameMaster()->getComponent<GameMaster>();
 }
 

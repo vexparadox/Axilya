@@ -55,9 +55,9 @@ void engineCore::setup(){
     //add your entity to the scene
 	prefabManager->addPrefab(barrier);
 
-	//lets make 5 barriers
+	//lets make 12 barriers
 	for(int i = 0; i < 12; i++){
-		scene1->instantiate("barrier_clone"+i, prefabManager->getPrefab("barrier"), new Transform(i*50, Runner::getHeight()/2, 20, 10));
+		scene1->instantiate("barrier_clone_"+std::to_string(i), prefabManager->getPrefab("barrier"), new Transform(i*50, Runner::getHeight()/2, 20, 10));
 	}
 
 	//Start a new Entity
@@ -82,14 +82,14 @@ void engineCore::setup(){
 	//Setup our gameMaster
 	//A gameMaster is no different to another Entity, it's just stored in a special place
 	//we can get the gameMaster from the Scene, this means from any component
+	//the gameMaster is never drawn, only updated
 	//We use the gameMaster to "manage" the game state in the scene
 	//gameManagers are never drawn
-	//creating an entity with just a name implies it's a data-only entity
+	//creating an entity with just a name implies it's a data-only entity, it will have a DrawType of NONE
 	//there can only be one gameMaster per scene
 	gameMaster = new Entity("game_manager");
 	gameMaster->addComponent(new GameMaster());
 	scene1->setGameMaster(gameMaster);
-
 	for(auto &e : scene1->getEntities()){
 		std::cout << e->getName() << std::endl;
 	}

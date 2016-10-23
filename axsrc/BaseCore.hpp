@@ -10,8 +10,10 @@
 #include <stdlib.h>
 #include "Client.hpp"
 #include "Graphics.hpp"
+
 //this class is a virtual instance of the core
 //it allows for the users to not implement methods but stil make use of GLFW method call backs on events
+class Runner;
 class BaseCore{
 protected:
     GLFWwindow* window;
@@ -25,7 +27,7 @@ public:
     virtual void draw(){};
     virtual void setup(){};
     virtual void update(){};
-    virtual void exitCalled(){ Runner::shutdown(); };
+    virtual void exitCalled();
     GLFWwindow*& getWindow();
 };
 

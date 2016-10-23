@@ -7,6 +7,7 @@
 //
 
 #include "BaseCore.hpp"
+#include "Runner.hpp"
 
 GLFWwindow*& BaseCore::getWindow(){
     return window;
@@ -16,4 +17,8 @@ BaseCore::~BaseCore(){
     if(Client::getInstance()->isConnected()){
         Client::getInstance()->disconnect();
     }
+}
+
+void BaseCore::exitCalled(){
+	Runner::shutdown();
 }
