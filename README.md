@@ -16,10 +16,11 @@ Versions jump around because I haven't been able to consistently work on feature
 - Better physics on RigidBodies
 - Handling random key presses in the Input class
 
-## v0.6.9
-
+## v0.6.9 Change Log
+ 
 - Added special GameMaster entity
 - Added proper shutdown procedure
+- Fixed Start calls on Components
 
 ## v0.6.8.1
 
