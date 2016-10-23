@@ -129,6 +129,7 @@ Entity* Entity::clone(){
     e->animator->setOwner(e);
     e->active = this->active;
     e->dead = this->dead;
+    e->setDrawType(this->drawType);
     return e;
 }
 

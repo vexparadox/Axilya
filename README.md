@@ -19,6 +19,7 @@ Versions jump around because I haven't been able to consistently work on feature
 ## v0.6.9
 
 - Added special GameMaster entity
+- Added proper shutdown procedure
 
 ## v0.6.8.1
 
