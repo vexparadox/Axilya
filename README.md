@@ -1,4 +1,4 @@
-# Axilya v0.6.8.1
+# Axilya v0.6.9
 
 A basic 2D game framework written in C++, runnable with Make. To see the initial production of this project see: https://github.com/vexparadox/axInitial
 
@@ -16,7 +16,11 @@ Versions jump around because I haven't been able to consistently work on feature
 - Better physics on RigidBodies
 - Handling random key presses in the Input class
 
-## v0.6.8.1 ChangeLog
+## v0.6.9
+
+- Added special GameMaster entity
+
+## v0.6.8.1
 
 - Fixed some things
 
