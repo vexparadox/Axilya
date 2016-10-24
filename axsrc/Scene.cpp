@@ -52,7 +52,7 @@ void Scene::update() {
     for(auto it = entities.begin(); it != entities.end(); it++){
         if((*it)->isDead()){
             uMap.erase((*it)->getName());
-            delete *it;
+            (*it)->onDestroy();
             entities.erase(it);
             break;
         }

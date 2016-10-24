@@ -86,6 +86,8 @@ public:
     void onWorldCollision();
     //when a click happens
     void onClick(int mouseButton);
+
+    void onDestroy();
     //when it's being hovered
     void onHover();
     //add a collider

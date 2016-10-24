@@ -215,6 +215,13 @@ void Entity::addCollider(Collider* c){
     }
 }
 
+void Entity::onDestroy(){
+    for(auto& c : components){
+        c->onDestroy();
+    }
+    delete this;
+}
+
 void Entity::setDrawType(EntityDrawType type){
     this->drawType = type;
 }

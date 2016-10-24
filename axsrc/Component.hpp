@@ -41,6 +41,7 @@ public:
     virtual void onWorldCollision(){};
     virtual void onClick(int mouseButton){};
     virtual void onHover(){};
+    virtual void onDestroy(){};
 };
 
 #endif /* Component_hpp */
