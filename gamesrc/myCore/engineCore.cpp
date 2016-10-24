@@ -90,9 +90,12 @@ void engineCore::setup(){
 	gameMaster = new Entity("game_manager");
 	gameMaster->addComponent(new GameMaster());
 	scene1->setGameMaster(gameMaster);
+
+	//lets just print all the names in the scene
 	for(auto &e : scene1->getEntities()){
 		std::cout << e->getName() << std::endl;
 	}
+	
     Runner::setCurrentScene(scene1);
 }
 

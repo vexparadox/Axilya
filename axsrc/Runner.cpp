@@ -84,14 +84,6 @@ Runner::Runner(float windowWidth, float windowHeight, int frameRate, const char*
         glOrtho(0.f, windowWidth, windowHeight, 0.f, -1.f, 1.f);
         glMatrixMode(GL_MODELVIEW);
         glLoadIdentity();
-        //call update and then draw if the window isn't iconified
-        if(!iconified && focused){
-            //draw
-            c->draw();
-            if(activeScene) {
-                activeScene->draw();
-            }
-        }
         //swap the buffers
         glfwSwapBuffers(window);
         if(!iconified && focused){
@@ -99,6 +91,14 @@ Runner::Runner(float windowWidth, float windowHeight, int frameRate, const char*
             c->update();
             if(activeScene) {
                 activeScene->update();
+            }
+        }
+        //call update and then draw if the window isn't iconified
+        if(!iconified && focused){
+            //draw
+            c->draw();
+            if(activeScene) {
+                activeScene->draw();
             }
         }
         glfwPollEvents();
