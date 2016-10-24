@@ -72,12 +72,12 @@ void engineCore::setup(){
 	prefabManager->addPrefab(character2);
 	
 	//create a copy of the "big_box" from the prefab manager and keep track of it with `e`
-	Entity* e = scene1->instantiate("player_box_clone", prefabManager->getPrefab("player_box"), new Transform(1, 1, 20, 20));
+	Entity* e = scene1->instantiate("player_box_clone", prefabManager->getPrefab("player_box"), new Transform(1, 1, 60, 60));
 	//lets check if it was successful
-	if(e){
+	// if(e){
 		// any changes we make to e are seperate to the original copy of character2
-		e->setDrawType(EntityDrawType::ELLIPSE); // make e an Ellipse, defaults too a Rect
-	}
+		// e->setDrawType(EntityDrawType::RECT); // make e an Ellipse, defaults too a Rect
+	// }
 
 	//Setup our gameMaster
 	//A gameMaster is no different to another Entity, it's just stored in a special place
