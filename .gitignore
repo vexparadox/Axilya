@@ -1,6 +1,7 @@
 .DS_STORE
 *.o
 axilya
+libaxilya.a
 .browse.*
 *.png
 libcf.a
