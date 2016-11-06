@@ -54,7 +54,9 @@ Runner::Runner(float windowWidth, float windowHeight, int frameRate, const char*
     Input::init();
     //call setup for first time run
     c->setup();
-    activeScene->start();
+    if(activeScene){
+       activeScene->start();
+    }
     //the game loop
     while (!glfwWindowShouldClose(window))
     {

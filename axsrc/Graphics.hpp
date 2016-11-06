@@ -23,8 +23,12 @@ namespace Graphics{
     void drawRect(const Rect &r);
     void drawRect(const Math::Vector2D &v1, float w, float h);
     void drawRect(float x, float y, float w, float h);
-
     void drawRectCenter(float x, float y, float w, float h);
+
+    void drawLine(float x, float y, float x2, float y2, float width);
+    void drawLine(float x, float y, float x2, float y2);
+    void drawLine(const Math::Vector2D& v1, const Math::Vector2D& v2, float width);
+    void drawLine(const Math::Vector2D& v1, const Math::Vector2D& v2);
 
     //Polygons
     void drawPoly(const Polygon &p);
@@ -36,6 +40,8 @@ namespace Graphics{
     void drawEllipse(float x, float y, float xR, float yR);
     void drawEllipse(float x, float y, float r);
     void drawEllipseCenter(float x, float y, float xR, float yR);
+    void drawEllipseCenter(float x, float y, float r);
+    void drawEllipseCenter(const Math::Vector2D &cp, float r);
     
     //gets the pixel data between two points, (x,y) and (w,h)
     std::vector<unsigned char> getScreenData(int x, int y, int w, int h);
@@ -43,6 +49,7 @@ namespace Graphics{
     //set the background to be flushed
     void setBackground(float r, float g, float b, float a);
     void setBackground(float r, float g, float b);
+    void setBackground(float rgba);
     void setBackground(const Colour &c);
     
     //push and pop a new matrix
