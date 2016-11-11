@@ -4,8 +4,8 @@
 #include <stdio.h>
 #include "ResourceManager.hpp"
 #include "PrefabManager.hpp"
-#include "SOIL/SOIL.h"
 #include <SDL2/SDL.h>
+#include "glad/glad.h"
 #include <iostream>
 #include <stdlib.h>
 #include "Client.hpp"

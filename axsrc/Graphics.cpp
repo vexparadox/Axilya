@@ -10,7 +10,6 @@
 
 #include "Graphics.hpp"
 #include "Runner.hpp"
-
 namespace Graphics{
     //TRIANGLES
     void drawTriangle(Triangle& t){

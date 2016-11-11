@@ -17,7 +17,6 @@ class Runner{
     static BaseCore* c;
     double currentTime, lastTime;
     static Scene* activeScene;
-    bool fps(int framerate);
     static int go;
 public:
     static std::string runPath;
@@ -49,26 +48,6 @@ public:
     /*!
     * Called when GLFW errors 
     */
-    static void errorCallback(int error, const char* description);
-    /*!
-    * Called when GLFW detects a key input
-    * This data is passed into the Input class
-    * @see Input class 
-    */
-    static void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods);
-    /*!
-    * Called when GLFW detects MouseButton input
-    * This data is passed into the Input class
-    * @see Input class 
-    */
-    static void mouseCallback(GLFWwindow* window, int button, int action, int mods);
-    /*!
-    * Called when GLFW detects mouse movement
-    * This data is passed into the Input class
-    * @see Input class 
-    */
-    static void cursorCallback(GLFWwindow* window, double xpos, double ypos);
-
     static void setCurrentScene(Scene* s);
     static void shutdown();
 };

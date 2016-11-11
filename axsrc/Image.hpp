@@ -8,9 +8,7 @@
 
 #ifndef Image_hpp
 #define Image_hpp
-
-#include "SOIL/SOIL.h"
-#include "GLFW/glfw3.h"
+#include "glad/glad.h"
 #include "Vector2D.h"
 #include <iostream>
 #include <sys/stat.h>

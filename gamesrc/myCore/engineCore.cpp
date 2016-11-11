@@ -51,7 +51,7 @@ void engineCore::setup(){
 	barrier->addComponent(new Destroyable()); // this is a custom component that allows this entity to be destroyed when clicked on
 	barrier->addCollider(new BoxCollider()); // Adds a simple box collider
 	barrier->setColour(255, 0, 0); // setting a colour doesn't affect sprites
-    // barrier->getAnimator()->addSprite(new StaticSprite("standing_box", "img2.png")); // this adds a new static sprite with the image of "img2.png" in the data folder
+    barrier->getAnimator()->addSprite(new StaticSprite("standing_box", "img2.png")); // this adds a new static sprite with the image of "img2.png" in the data folder
     //add your entity to the scene
 	prefabManager->addPrefab(barrier);
 

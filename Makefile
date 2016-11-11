@@ -8,11 +8,11 @@ program_OBJS := ${program_CXX_SRCS:.cpp=.o}
 program_INCLUDE_DIRS := $(shell echo ./gamesrc/**/)
 program_HEADERS := $(foreach directory, $(program_INCLUDE_DIRS), -I$(directory))
 program_LIBRARY_DIRS := ./libs/
-program_LIBRARIES := drawtext-noft GLEW glfw3 SOIL enet pugixml
+program_LIBRARIES := enet pugixml
 
 
 CPPFLAGS += $(program_HEADERS) -Wno-c++11-extensions -Wno-c++11-compat-deprecated-writable-strings -Wno-return-stack-address
-LDFLAGS += -framework OpenGL -framework SDL2 -framework Cocoa -framework IOKit -framework CoreVideo -framework CoreFoundation -Wl $(foreach librarydir,$(program_LIBRARY_DIRS),-L$(librarydir))
+LDFLAGS += -framework SDL2 -Wl $(foreach librarydir,$(program_LIBRARY_DIRS),-L$(librarydir))
 LDFLAGS += $(foreach library,$(program_LIBRARIES),-l$(library)) 
 
 .PHONY: all clean distclean

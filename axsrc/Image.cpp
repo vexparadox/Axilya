@@ -8,6 +8,10 @@
 
 #include "Image.hpp"
 #include "Runner.hpp"
+
+#define STB_IMAGE_IMPLEMENTATION
+#include "stb_image.h"
+
 namespace Graphics{
     Image::~Image(){
         //remove the textures from the GL buffer
@@ -55,14 +59,15 @@ namespace Graphics{
         glGenTextures(1, &texture_id);
         glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, texture_id);
-        unsigned char* imageDataPtr = SOIL_load_image(name, &this->w, &this->h, 0, SOIL_LOAD_RGBA);
+        // *data = stbi_load(filename, &x, &y, &n, 0);
+        unsigned char* imageDataPtr = stbi_load(name, &this->w, &this->h, 0, 0);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
         glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
         glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
         glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, this->w, this->h, 0, GL_RGBA, GL_UNSIGNED_BYTE, imageDataPtr);
         glEnd();
-        SOIL_free_image_data(imageDataPtr);
+        stbi_image_free(imageDataPtr);
         this->textureID = texture_id;
     }
     
@@ -98,12 +103,13 @@ namespace Graphics{
     }
 
     bool Image::grabScreen(float x, float y, float w, float h){
-        return SOIL_save_screenshot
-        (
-         "save.bmp",
-         SOIL_SAVE_TYPE_BMP,
-         0, 0, 1024, 768
-         );
+        return false;
+        // return SOIL_save_screenshot
+        // (
+        //  "save.bmp",
+        //  SOIL_SAVE_TYPE_BMP,
+        //  0, 0, 1024, 768
+        //  );
     }
 
     bool Image::isLoaded(){

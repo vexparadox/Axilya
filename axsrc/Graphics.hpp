@@ -10,10 +10,10 @@
 #define Graphics_hpp
 
 #include "Types.h"
-#include "GLFW/glfw3.h"
+#include <SDL2/SDL.h>
 #include <vector>
 #include "Math.h"
-
+#include "glad/glad.h"
 namespace Graphics{
     //Triangles
     void drawTriangle(const Triangle &t);
