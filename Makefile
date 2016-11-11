@@ -11,7 +11,7 @@ program_LIBRARY_DIRS := ./libs/
 program_LIBRARIES := enet pugixml
 
 
-CPPFLAGS += $(program_HEADERS) -Wno-c++11-extensions -Wno-c++11-compat-deprecated-writable-strings -Wno-return-stack-address
+CPPFLAGS += $(program_HEADERS) -std=c++11 -Wno-c++11-compat-deprecated-writable-strings -Wno-return-stack-address
 LDFLAGS += -framework SDL2 -Wl $(foreach librarydir,$(program_LIBRARY_DIRS),-L$(librarydir))
 LDFLAGS += $(foreach library,$(program_LIBRARIES),-l$(library)) 
 

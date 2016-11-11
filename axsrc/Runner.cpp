@@ -51,6 +51,7 @@ Runner::Runner(float windowWidth, float windowHeight, int frameRate, const char*
        activeScene->start();
     }
     SDL_Event event;
+    bool inFocus = true;
     // glColor4f(1, 1, 1, 1);
     while(go == 1){
         while( SDL_PollEvent( &event ) != 0 ){
@@ -72,17 +73,28 @@ Runner::Runner(float windowWidth, float windowHeight, int frameRate, const char*
                 Input::mousePressed(event.button.button);
             }else if(event.type == SDL_MOUSEBUTTONUP){
                 Input::mouseReleased(event.button.button);
+            }else if(event.window.event == SDL_WINDOWEVENT_FOCUS_LOST){
+                std::cout << "Focusad lsoat" << std::endl;
+                inFocus = false;
+            }else if(event.window.event == SDL_WINDOWEVENT_FOCUS_GAINED){
+                inFocus = true;
             }
         }
-        if(activeScene) {
-            activeScene->update();
+        if(inFocus){
+            c->update();
+            if(activeScene) {
+                activeScene->update();
+            }
         }
         //Fill the surface white
         // std::cout << Runner::r << " " << std::cout << g << std::endl;
         SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
         SDL_RenderClear(renderer);
-        if(activeScene) {
-            activeScene->draw();
+        if(inFocus){
+            c->draw();
+            if(activeScene) {
+                activeScene->draw();
+            }
         }
         SDL_RenderPresent(renderer);
     }

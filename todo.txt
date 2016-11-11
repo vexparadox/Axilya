@@ -7,7 +7,6 @@ add predefined components for tiles (TileCollider)
 
 ## General
 implement TiledWorld collisions (see TileCollider)
-Port to SDL2
 
 REMEMBER
 
