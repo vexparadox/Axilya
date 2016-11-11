@@ -5,7 +5,7 @@
 #include "ResourceManager.hpp"
 #include "PrefabManager.hpp"
 #include "SOIL/SOIL.h"
-#include "GLFW/glfw3.h"
+#include <SDL2/SDL.h>
 #include <iostream>
 #include <stdlib.h>
 #include "Client.hpp"
@@ -16,7 +16,7 @@
 class Runner;
 class BaseCore{
 protected:
-    GLFWwindow* window;
+    SDL_Window* window;
     BaseCore(){};
     BaseCore(BaseCore const&){};
     ResourceManager* resourceManager = ResourceManager::getInstance();
@@ -28,7 +28,8 @@ public:
     virtual void setup(){};
     virtual void update(){};
     virtual void exitCalled();
-    GLFWwindow*& getWindow();
+    SDL_Window* getWindow();
+    void setWindow(SDL_Window*);
 };
 
 #endif /* BaseCore_hpp */

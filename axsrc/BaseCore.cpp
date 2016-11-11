@@ -9,8 +9,14 @@
 #include "BaseCore.hpp"
 #include "Runner.hpp"
 
-GLFWwindow*& BaseCore::getWindow(){
+SDL_Window* BaseCore::getWindow(){
     return window;
+}
+
+void BaseCore::setWindow(SDL_Window* w){
+	if(w){
+		window = w;
+	}
 }
 
 BaseCore::~BaseCore(){

@@ -18,6 +18,7 @@ class Runner{
     double currentTime, lastTime;
     static Scene* activeScene;
     bool fps(int framerate);
+    static int go;
 public:
     static std::string runPath;
     //the RGBA of the next screen flush IE the background
