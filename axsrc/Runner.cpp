@@ -33,8 +33,11 @@ Runner::Runner(float windowWidth, float windowHeight, int frameRate, const char*
     }
     //make a renderer
     renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+
     Runner::c = c;
     gladLoadGLLoader(SDL_GL_GetProcAddress);
+    glEnable (GL_BLEND);
+    glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
     //set blend mode
     SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);

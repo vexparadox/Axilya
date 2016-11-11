@@ -61,6 +61,7 @@ namespace Graphics{
         glBindTexture(GL_TEXTURE_2D, texture_id);
         // *data = stbi_load(filename, &x, &y, &n, 0);
         unsigned char* imageDataPtr = stbi_load(name, &this->w, &this->h, 0, 0);
+        std::cout << imageDataPtr[0] << " " << imageDataPtr[1] << " " << imageDataPtr[2] << " " << imageDataPtr[3] << std::endl;
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
         glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
