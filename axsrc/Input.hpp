@@ -4,6 +4,7 @@
 #include <vector>
 #include <unordered_map>
 #include "Key.h"
+#include <SDL2/SDL.h>
 
 class Input{
     Input(){};

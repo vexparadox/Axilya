@@ -53,9 +53,9 @@ Runner::Runner(float windowWidth, float windowHeight, int frameRate, const char*
             if(event.type == SDL_QUIT){
                 c->exitCalled();
             }else if( event.type == SDL_KEYDOWN){
-                Input::setKeyDown(event.key.keysym.sym);
+                Input::setKeyDown(event.key.keysym.scancode);
             }else if(event.type == SDL_KEYUP){
-                Input::setKeyUp(event.key.keysym.sym);
+                Input::setKeyUp(event.key.keysym.scancode);
             }
         }
         if(activeScene) {
