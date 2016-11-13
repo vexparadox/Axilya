@@ -1,13 +1,13 @@
 //
 //  Vector3D.h
-//  GLFW3
+//  Axilya
 //
 //  Created by William Meaton on 07/12/2015.
 //  Copyright © 2015 WillMeaton.uk. All rights reserved.
 #ifndef Vector3D_h
 #define Vector3D_h
 
-//A 3D vector, missing some operators but not really used in my program.
+//A 3D vector, missing some operators
 namespace Math {
     class Vector3D{
     public:

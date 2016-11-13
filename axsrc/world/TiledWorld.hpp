@@ -29,4 +29,4 @@ public:
 };
 
 
-#endif //CLOSEDFRAMEWORKS_TILEDWORLD_H
+#endif //Axilya_TILEDWORLD_H

@@ -1,6 +1,6 @@
 //
 //  Runner.hpp
-//  GLFW3
+//  Axilya
 //
 //  Created by William Meaton on 09/12/2015.
 //  Copyright © 2015 WillMeaton.uk. All rights reserved.

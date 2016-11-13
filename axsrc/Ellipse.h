@@ -1,8 +1,8 @@
 //
 //  Ellipse.h
-//  closedFrameworks
+//  Axilya
 //
-//  Created by Charles Ringer on 27/03/2016.
+//  Created by Charles Ringer on 27/03/2016. Edited by William Meaton
 //  Copyright © 2016 WillMeaton.uk. All rights reserved.
 //
 

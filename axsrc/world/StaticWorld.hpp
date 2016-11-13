@@ -20,4 +20,4 @@ public:
 };
 
 
-#endif //CLOSEDFRAMEWORKS_STATICWORLD_HPP
+#endif //Axilya_STATICWORLD_HPP
