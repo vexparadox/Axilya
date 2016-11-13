@@ -1,4 +1,5 @@
 UNAME := $(shell uname)
+ARCH := $(shell getconf LONG_BIT)
 ifeq ($(UNAME), Linux)
 	#program_LIBRARIES := 
 	SHELL := /bin/zsh
