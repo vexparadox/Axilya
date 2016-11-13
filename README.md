@@ -20,7 +20,8 @@ Versions jump around because I haven't been able to consistently work on feature
 
 - Now has an onDestory in Component
 - Moved to SDL, stb_image, glad
-- Removed SOIL, GLEW, drawtext-noft, GLFW3
+- Removed SOIL, GLEW, drawtext-noft, GLFW3, Enet
+- Temporarily removed networking
 
 ## v0.6.9 
  
