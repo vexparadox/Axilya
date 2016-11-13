@@ -36,10 +36,10 @@ void Animator::draw() {
         Graphics::fill(255,255,255,255);
         currentSprite->draw(owner->getTransform()->getPos().x, owner->getTransform()->getPos().y, owner->getTransform()->getSize().x, owner->getTransform()->getSize().y);
     }else{
-        if(owner->getDrawType() == EntityDrawType::RECT){
+        if(owner->getDrawType() == AX_DRAW_RECT){
             Graphics::fill(colour);
             Graphics::drawRect(owner->getTransform()->getPos(), owner->getTransform()->getSize().x, owner->getTransform()->getSize().y);
-        }else if(owner->getDrawType() == EntityDrawType::ELLIPSE){
+        }else if(owner->getDrawType() == AX_DRAW_ELLIPSE){
             Graphics::fill(colour);
             Graphics::drawEllipse(owner->getTransform()->getPos().x+owner->getTransform()->getSize().x/2, 
                 owner->getTransform()->getPos().y+owner->getTransform()->getSize().y/2

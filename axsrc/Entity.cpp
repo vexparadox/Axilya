@@ -28,7 +28,7 @@ Entity::Entity(const std::string& name): name(name){
     transform->setOwner(this);
     animator = new Animator();
     animator->setOwner(this);
-    setDrawType(EntityDrawType::NONE);
+    setDrawType(AX_DRAW_NONE);
 }
 
 Entity::~Entity(){
@@ -222,11 +222,11 @@ void Entity::onDestroy(){
     delete this;
 }
 
-void Entity::setDrawType(EntityDrawType type){
+void Entity::setDrawType(int type){
     this->drawType = type;
 }
 
-EntityDrawType Entity::getDrawType(){
+int Entity::getDrawType(){
     return this->drawType;
 }
 
