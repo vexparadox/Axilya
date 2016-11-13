@@ -8,7 +8,6 @@
 #include "glad/glad.h"
 #include <iostream>
 #include <stdlib.h>
-#include "Client.hpp"
 #include "Graphics.hpp"
 
 //this class is a virtual instance of the core

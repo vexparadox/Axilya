@@ -20,9 +20,6 @@ void BaseCore::setWindow(SDL_Window* w){
 }
 
 BaseCore::~BaseCore(){
-    if(Client::getInstance()->isConnected()){
-        Client::getInstance()->disconnect();
-    }
 }
 
 void BaseCore::exitCalled(){

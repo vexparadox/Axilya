@@ -11,11 +11,6 @@
 using namespace Graphics;
 
 void engineCore::setup(){
-    //setup the client
-    Client::getInstance()->setup("127.0.0.1", 1234, 2, 0, 0);
-    Client::getInstance()->connect(200); //connect it and only wait for 200ms
-	if(Client::getInstance()->isConnected()){ std::cout << "Connected succeded!" << std::endl; }
-
 	//set the background color, transparent
 	setBackground(255, 255, 255, 0);
 
@@ -35,8 +30,6 @@ void engineCore::setup(){
 	loadTiles();
     //NFI
 	tileWorld->loadWorld("world1.csv", 64); // This line loads in the CSV file with a tilesize of 64 pixels
-
-
 	//create and load a static world
 	//static worlds are just background images drawn at the size of the window
 	//they contain no logic

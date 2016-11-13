@@ -9,6 +9,7 @@
 #ifndef Vector2D_h
 #define Vector2D_h
 #include <cmath>
+#include <iostream>
 
 //A much more fleshed out 2D vector
 namespace Math {
@@ -111,7 +112,7 @@ namespace Math {
             return result;
         }
         
-        friend inline void operator*= (Vector2D& v1, const Vector2D& v2){
+        inline friend void operator*= (Vector2D& v1, const Vector2D& v2){
             v1 = v1*v2;
             return;
         }
@@ -137,7 +138,7 @@ namespace Math {
             return result;
         }
         
-        inline Vector2D& operator/ (float n) const{
+        inline Vector2D operator/ (float n) const{
             Vector2D result;
             result.x = this->x/n;
             result.y = this->y/n;

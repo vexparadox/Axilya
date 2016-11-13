@@ -1,5 +1,15 @@
+UNAME := $(shell uname)
+ifeq ($(UNAME), Linux)
+	#program_LIBRARIES := 
+	SHELL := /bin/zsh
+	LDFLAGS += `pkg-config --cflags --libs sdl2` -W
+endif
+ifeq ($(UNAME), Darwin)
+	#program_LIBRARIES := enetOSX
+	SHELL := /bin/zsh
+	LDFLAGS += -framework SDL2 -Wl
+endif
 program_NAME := axilya
-SHELL := /bin/zsh
 lib_NAME := libaxilya
 program_CXX_SRCS := $(shell find axsrc/ -type f -name '*.cpp')
 lib_OBJS := ${program_CXX_SRCS:.cpp=.o}
@@ -8,11 +18,9 @@ program_OBJS := ${program_CXX_SRCS:.cpp=.o}
 program_INCLUDE_DIRS := $(shell echo ./gamesrc/**/)
 program_HEADERS := $(foreach directory, $(program_INCLUDE_DIRS), -I$(directory))
 program_LIBRARY_DIRS := ./libs/
-program_LIBRARIES := enet pugixml
 
-
-CPPFLAGS += $(program_HEADERS) -std=c++11 -Wno-c++11-compat-deprecated-writable-strings -Wno-return-stack-address
-LDFLAGS += -framework SDL2 -Wl $(foreach librarydir,$(program_LIBRARY_DIRS),-L$(librarydir))
+CPPFLAGS += $(program_HEADERS) -g -std=c++11 -Wno-c++11-compat-deprecated-writable-strings
+LDFLAGS +=  $(foreach librarydir,$(program_LIBRARY_DIRS),-L$(librarydir))
 LDFLAGS += $(foreach library,$(program_LIBRARIES),-l$(library)) 
 
 .PHONY: all clean distclean

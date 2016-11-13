@@ -24,6 +24,5 @@
 #include "../axsrc/ResourceManager.hpp"
 #include "../axsrc/PrefabManager.hpp"
 #include "../axsrc/EntityDrawTypes.hpp"
-#include "../axsrc/Client.hpp"
 
 #endif /* CoreMain_h */

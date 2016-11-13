@@ -18,10 +18,6 @@ void RigidBodyMove::update(){
         //this line gets a pointer to the rigidBody attached to the owner
         //it then adds an upwards force to it, the rigidBody handles the rest core
 		owner->getRigidBody()->addForce(0, -5);
-        //set the colour of the entity
-        if(Client::getInstance()->isConnected()){
-            Client::getInstance()->sendPacket();
-        }
 	}
     if(Input::keyRight()|| Input::getKey("D")){
 		owner->getRigidBody()->addForce(1.5, 0);
