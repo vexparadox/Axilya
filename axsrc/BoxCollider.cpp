@@ -74,6 +74,15 @@ bool BoxCollider::checkMovement(Entity* e, Math::Vector2D& proposedMovement){
             // std::cout << "Bottom Right" << std::endl;
             return true;
         }
+        //middle
+        Math::Vector2D middle = Math::Vector2D(otherBounds->getPosition().x+otherBounds->getSize().x/2, ((otherBounds->getPosition().y+otherBounds->getSize().y)/2)+proposedMovement.y);
+        if(Math::isInsideQuad(middle, bounds->getPosition(), bounds->getPosition()+bounds->getSize())){
+            proposedMovement.y = 0;
+            e->getTransform()->set(otherBounds->getPosition().x, bounds->getPosition().y-otherBounds->getSize().y);
+            // std::cout << "Bottom Right" << std::endl;
+            return true;
+        }
+
         Math::Vector2D topRightThis = Math::Vector2D(bounds->getPosition().x, bounds->getPosition().y);
         if(Math::isInsideQuad(topRightThis.x, topRightThis.y, otherBounds->getPosition().x,otherBounds->getPosition().y+proposedMovement.y, otherBounds->getPosition().x+otherBounds->getSize().x, otherBounds->getPosition().y+otherBounds->getSize().y+proposedMovement.y)){
             proposedMovement.y = 0;
@@ -88,6 +97,14 @@ bool BoxCollider::checkMovement(Entity* e, Math::Vector2D& proposedMovement){
             // std::cout << "Top Left This" << std::endl;
             return true;
         }
+        Math::Vector2D middleThis = Math::Vector2D(bounds->getPosition().x+bounds->getSize().x/2, bounds->getPosition().y+bounds->getSize().y/2);
+        if(Math::isInsideQuad(middleThis.x, middleThis.y, otherBounds->getPosition().x,otherBounds->getPosition().y+proposedMovement.y, otherBounds->getPosition().x+otherBounds->getSize().x, otherBounds->getPosition().y+otherBounds->getSize().y+proposedMovement.y)){
+            e->getTransform()->set(otherBounds->getPosition().x, bounds->getPosition().y-otherBounds->getSize().y);
+            proposedMovement.y= 0;
+            // std::cout << "Top Left This" << std::endl;
+            return true;
+        }
+
     // else if e is moving upwards
     }else if(proposedMovement.y < 0){
         Math::Vector2D topRight = Math::Vector2D(otherBounds->getPosition().x+otherBounds->getSize().x, otherBounds->getPosition().y+proposedMovement.y);

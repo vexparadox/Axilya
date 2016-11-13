@@ -4,11 +4,15 @@ ifeq ($(UNAME), Linux)
 	#program_LIBRARIES := 
 	SHELL := /bin/zsh
 	LDFLAGS += `pkg-config --cflags --libs sdl2` -W
-endif
+else
 ifeq ($(UNAME), Darwin)
 	#program_LIBRARIES := enetOSX
 	SHELL := /bin/zsh
 	LDFLAGS += -framework SDL2 -Wl
+else
+	#windows
+	SHELL := sh.exe
+endif
 endif
 program_NAME := axilya
 lib_NAME := libaxilya
