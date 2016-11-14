@@ -15,7 +15,7 @@ BaseCore* Runner::c = 0;
 Scene* Runner::activeScene = 0;
 std::string Runner::runPath = "";
 int Runner::go = 1;
-Runner::Runner(float windowWidth, float windowHeight, int frameRate, const char* title, BaseCore* c){
+Runner::Runner(float windowWidth, float windowHeight, const char* title, BaseCore* c){
     //The window we'll be rendering to
 
     SDL_Window* window = NULL;
@@ -74,7 +74,6 @@ Runner::Runner(float windowWidth, float windowHeight, int frameRate, const char*
             }else if(event.type == SDL_MOUSEBUTTONUP){
                 Input::mouseReleased(event.button.button);
             }else if(event.window.event == SDL_WINDOWEVENT_FOCUS_LOST){
-                std::cout << "Focusad lsoat" << std::endl;
                 inFocus = false;
             }else if(event.window.event == SDL_WINDOWEVENT_FOCUS_GAINED){
                 inFocus = true;
