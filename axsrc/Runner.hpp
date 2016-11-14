@@ -29,7 +29,7 @@ public:
     * The runner class encompasses the entire program
     * It controls the game loop and key, mouse and cursor callbacks
     */
-    Runner(float windowWidth, float windowHeight, int frameRate, const char* title, BaseCore* c);
+    Runner(float windowWidth, float windowHeight, const char* title, BaseCore* c);
     ~Runner(){};
     //get window size
     
