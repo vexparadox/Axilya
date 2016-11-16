@@ -12,22 +12,22 @@
 Entity::Entity(const std::string& name, float x, float y, float w, float h) : name(name){
     transform = new Transform(x, y, w, h);
     transform->setOwner(this);
-    animator = new Animator();
-    animator->setOwner(this);
+    renderer = new Renderer();
+    renderer->setOwner(this);
 }
 
 Entity::Entity(const std::string& name, const Math::Vector2D& pos, const Math::Vector2D& size) : name(name){
     transform = new Transform(pos, size);
     transform->setOwner(this);
-    animator = new Animator();
-    animator->setOwner(this);
+    renderer = new Renderer();
+    renderer->setOwner(this);
 }
 
 Entity::Entity(const std::string& name): name(name){
     transform = new Transform(0, 0, 0, 0);
     transform->setOwner(this);
-    animator = new Animator();
-    animator->setOwner(this);
+    renderer = new Renderer();
+    renderer->setOwner(this);
     setDrawType(AX_DRAW_NONE);
 }
 
@@ -40,8 +40,8 @@ Entity::~Entity(){
     collider = 0;
     delete rigidBody;
     rigidBody = 0;
-    delete animator;
-    animator = 0;
+    delete renderer;
+    renderer = 0;
     for(auto c : components){
         delete c;
         c = 0;
@@ -55,7 +55,7 @@ void Entity::start(){
 }
 
 void Entity::draw(){
-    animator->draw();
+    renderer->draw();
 }
 void Entity::update(){
     if(rigidBody){
@@ -124,9 +124,9 @@ Entity* Entity::clone(){
     for(auto& c : components){
         e->addComponent(c->clone());
     }
-    e->animator = this->animator->clone();
-    e->animator->setColour(this->animator->getColour());
-    e->animator->setOwner(e);
+    e->renderer = this->renderer->clone();
+    e->renderer->setColour(this->renderer->getColour());
+    e->renderer->setOwner(e);
     e->active = this->active;
     e->dead = this->dead;
     e->setDrawType(this->drawType);
@@ -262,21 +262,21 @@ std::string& Entity::getName(){
     return this->name;
 }
 
-Animator* Entity::getAnimator() {
-    return animator;
+Renderer* Entity::getRenderer() {
+    return renderer;
 }
 void Entity::setColour(float r, float g, float b, float a){
-    animator->setColour(r, g, b, a);
+    renderer->setColour(r, g, b, a);
 }
 
 void Entity::setColour(float r, float g, float b){
-    animator->setColour(r, g, b, 255);
+    renderer->setColour(r, g, b, 255);
 }
 
 void Entity::setColour(const Graphics::Colour& c){
-    animator->setColour(c.getR(), c.getG(), c.getB(), c.getA());
+    renderer->setColour(c.getR(), c.getG(), c.getB(), c.getA());
 }
 
 const Graphics::Colour& Entity::getColour(){
-    return animator->getColour();
+    return renderer->getColour();
 }

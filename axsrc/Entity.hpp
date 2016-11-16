@@ -16,7 +16,7 @@
 #include "PrefabManager.hpp"
 //components
 #include "Components.h"
-#include "Animator.hpp"
+#include "Renderer.hpp"
 #include "EntityDrawTypes.hpp"
 class Scene;
 class Entity{
@@ -37,8 +37,8 @@ class Entity{
     RigidBody* rigidBody = 0;
     //a list of custom components
     std::vector<Component*> components;
-    //Animator holds all of the drawing capabilities of the Entitity
-    Animator* animator = 0;
+    //Renderer holds all of the drawing capabilities of the Entitity
+    Renderer* renderer = 0;
     void handle_eptr(std::exception_ptr);
     //default to drawing rect
     int drawType = AX_DRAW_RECT;
@@ -99,7 +99,7 @@ public:
     //return the transform
     Transform* getTransform();
     //get the animator
-    Animator* getAnimator();
+    Renderer* getRenderer();
     //get the name of the entity
     std::string& getName();
     void setName(const std::string& name);
