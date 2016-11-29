@@ -24,7 +24,6 @@ void Scene::start(){
     for(auto& e : entities){
         e->start();
     }
-    renderOffset.x = 50;
 }
 
 void Scene::draw(){

@@ -43,7 +43,7 @@ void engineCore::setup(){
 	barrier->addComponent(new Destroyable()); // this is a custom component that allows this entity to be destroyed when clicked on
 	barrier->addCollider(new BoxCollider()); // Adds a simple box collider
 	barrier->setColour(255, 0, 0); // setting a colour doesn't affect sprites
-    barrier->getRenderer()->addSprite(new StaticSprite("standing_box", "img.png")); // this adds a new static sprite with the image of "img2.png" in the data folder
+    // barrier->getRenderer()->addSprite(new StaticSprite("standing_box", "img.png")); // this adds a new static sprite with the image of "img2.png" in the data folder
     //add your entity to the scene
 	prefabManager->addPrefab(barrier);
 
@@ -66,10 +66,10 @@ void engineCore::setup(){
 	//create a copy of the "big_box" from the prefab manager and keep track of it with `e`
 	Entity* e = scene1->instantiate("player_box_clone", prefabManager->getPrefab("player_box"), new Transform(1, 1, 60, 60));
 	//lets check if it was successful
-	if(e){
+	// if(e){
 		// any changes we make to e are seperate to the origi§nal copy of character2
-		e->setDrawType(AX_DRAW_ELLIPSE); // make e an Ellipse, defaults too a Rect
-	}
+		// e->setDrawType(AX_DRAW_ELLIPSE); // make e an Ellipse, defaults too a Rect
+	// }
 
 	//Setup our gameMaster
 	//A gameMaster is no different to another Entity, it's just stored in a special place
