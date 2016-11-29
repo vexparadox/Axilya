@@ -1,4 +1,4 @@
-# Axilya v0.7
+# Axilya v0.7.1
 
 A basic 2D game framework written in C++, runnable with Make. To see the initial production of this project see: https://github.com/vexparadox/axInitial
 
@@ -16,7 +16,12 @@ Versions jump around because I haven't been able to consistently work on feature
 - Better physics on RigidBodies
 - Handling random key presses in the Input class
 
-## v0.7 Change Log
+## v0.7.1 Change Log
+
+- Moved to GPU sprite rendering
+- Much more effcient drawing
+
+## v0.7
 
 - Now has an onDestory in Component
 - Moved to SDL, stb_image, glad

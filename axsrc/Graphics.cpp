@@ -20,6 +20,10 @@ namespace Graphics{
         drawTriangle(v1.x, v1.y, v2.x, v2.y, v3.x, v3.y);
     }
 
+    void drawPoint(const Math::Vector2D &v){
+        SDL_RenderDrawPoint(Runner::renderer, v.x, v.y);
+    }
+
     void drawTriangle(float x1, float y1, float x2, float y2, float x3, float y3){
         glDisable(GL_TEXTURE_2D);
         glBegin(GL_TRIANGLES);
@@ -31,11 +35,7 @@ namespace Graphics{
 
     //lines
     void drawLine(float x, float y, float x2, float y2, float width){
-        glLineWidth(width); 
-        glBegin(GL_LINES);
-        glVertex3f(x, y, 0.0);
-        glVertex3f(x2, y2, 0.0);
-        glEnd();
+        SDL_RenderDrawLine(Runner::renderer, x, y, x2, y2);
     }
     void drawLine(float x, float y, float x2, float y2){
         drawLine(x, y, x2, y2, 0);
@@ -49,20 +49,14 @@ namespace Graphics{
         drawLine(v1.x, v1.y, v2.x, v2.y, 0);
     }
 
-
     //RECTANGLES
     void drawRect(float x, float y, float w, float h){
-        glDisable(GL_TEXTURE_2D);
-        glBegin(GL_QUADS);
-        glVertex3f(x, y, 0.0f);
-        //top left
-        glVertex3f(x, y+h, 0.0f );
-        //bottom left
-        glVertex3f(x+w, y+h, 0.0f );
-        //bottom right
-        glVertex3f(x+w, y, 0.0f );
-        //top right
-        glEnd();
+        SDL_Rect rect;
+        rect.x = x;
+        rect.y = y;
+        rect.w = w;
+        rect.h = h;
+        SDL_RenderFillRect(Runner::renderer, &rect);
     }
 
     void drawRectCenter(float x, float y, float w, float h){
@@ -186,23 +180,23 @@ namespace Graphics{
     
     //FILLS
     void fill(const Graphics::Colour &c){
-        glColor4f(c.getR(), c.getG(), c.getB(), c.getA());
+        SDL_SetRenderDrawColor(Runner::renderer, c.getR(), c.getG(), c.getB(), c.getA());
     }
     
     void fill(const float &rgb){
-        glColor4f(rgb/255, rgb/255, rgb/255, 1);
+        SDL_SetRenderDrawColor(Runner::renderer, rgb, rgb, rgb, 255);
     }
     
     void fill(const float &r, const float &g, const float &b, const float &a){
-        glColor4f(r/255, g/255, b/255, a/255);
+        SDL_SetRenderDrawColor(Runner::renderer, r, g, b, a);
     }
     
     void fill(const float &r, const float &g, const float &b){
-        glColor4f(r/255, g/255, b/255, 1);
+        SDL_SetRenderDrawColor(Runner::renderer, r, g, b, 255);
     }
     
     void clearFill(){
-        glColor4f(1, 1, 1, 0);
+        SDL_SetRenderDrawColor(Runner::renderer, 255, 255, 255, 255);
     }
 
 }

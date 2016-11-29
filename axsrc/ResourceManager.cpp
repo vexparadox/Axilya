@@ -22,7 +22,6 @@ int ResourceManager::addTexture(Graphics::Image* i){
     if(isTextureLoaded(i->getPath())){
         return textureMap.at(i->getPath())->getID();
     }
-
     if(i){
         int id = textures.size(); // get the next id
         Texture* tempTex = new Texture(id, i); // create the new texture

@@ -8,6 +8,7 @@
 #include <unordered_map>
 #include "sprite/Sprite.hpp"
 #include "Graphics.hpp"
+#include <SDL2/SDL.h>
 #include "EntityDrawTypes.hpp"
 class Entity;
 class Renderer {
@@ -22,6 +23,7 @@ public:
     void addSprite(Sprite* s);
     void setSprite(Sprite* s);
     void setSprite(const std::string& name);
+    Sprite* getCurrentSprite();
     Graphics::Colour& getColour();
     void setColour(float r, float g, float b, float a);
     void setColour(float r, float g, float b);

@@ -9,6 +9,7 @@
 #ifndef Image_hpp
 #define Image_hpp
 #include "glad/glad.h"
+#include <SDL2/SDL.h>
 #include "Vector2D.h"
 #include <iostream>
 #include <sys/stat.h>
@@ -18,13 +19,14 @@ class Runner;
 namespace Graphics{
 class Image{
 private:
-    GLuint textureID;
+    SDL_Surface* surface;
+    SDL_Texture* texture;
     std::string path;
-    int w = 0, h = 0, mipMapLeveCount = 0;
+    int w = 0, h = 0;
     bool loaded = false;
-    void openGlLoad(const char* name);
+    bool sdlLoad(const char* name);
+    unsigned char* imageDataPtr = 0;
 public:
-    GLuint getTextureID();
     Image(){};
     ~Image();
     Image(std::string nameInput);

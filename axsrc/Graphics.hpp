@@ -25,6 +25,8 @@ namespace Graphics{
     void drawRect(float x, float y, float w, float h);
     void drawRectCenter(float x, float y, float w, float h);
 
+    void drawPoint(const Math::Vector2D &v);
+
     void drawLine(float x, float y, float x2, float y2, float width);
     void drawLine(float x, float y, float x2, float y2);
     void drawLine(const Math::Vector2D& v1, const Math::Vector2D& v2, float width);

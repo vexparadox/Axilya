@@ -14,6 +14,7 @@ float Runner::a;
 BaseCore* Runner::c = 0;
 Scene* Runner::activeScene = 0;
 std::string Runner::runPath = "";
+SDL_Renderer* Runner::renderer = 0;
 int Runner::go = 1;
 Runner::Runner(float windowWidth, float windowHeight, const char* title, BaseCore* c){
     //The window we'll be rendering to
@@ -32,7 +33,7 @@ Runner::Runner(float windowWidth, float windowHeight, const char* title, BaseCor
         printf( "Window could not be created! SDL_Error: %s\n", SDL_GetError() );
     }
     //make a renderer
-    renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+    Runner::renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 
     Runner::c = c;
     gladLoadGLLoader(SDL_GL_GetProcAddress);
@@ -86,16 +87,15 @@ Runner::Runner(float windowWidth, float windowHeight, const char* title, BaseCor
             }
         }
         //Fill the surface white
-        // std::cout << Runner::r << " " << std::cout << g << std::endl;
-        SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-        SDL_RenderClear(renderer);
+        SDL_SetRenderDrawColor(Runner::renderer, 255, 255, 255, 255);
+        SDL_RenderClear(Runner::renderer);
         if(inFocus){
             c->draw();
             if(activeScene) {
                 activeScene->draw();
             }
         }
-        SDL_RenderPresent(renderer);
+        SDL_RenderPresent(Runner::renderer);
     }
     SDL_DestroyWindow(window);
     //Quit SDL subsystems

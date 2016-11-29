@@ -25,7 +25,7 @@ program_HEADERS := $(foreach directory, $(program_INCLUDE_DIRS), -I$(directory))
 program_LIBRARY_DIRS := ./libs/
 
 CPPFLAGS += $(program_HEADERS) -g -std=c++11 -Wno-c++11-compat-deprecated-writable-strings
-LDFLAGS +=  $(foreach librarydir,$(program_LIBRARY_DIRS),-L$(librarydir))
+LDFLAGS +=  -g $(foreach librarydir,$(program_LIBRARY_DIRS),-L$(librarydir))
 LDFLAGS += $(foreach library,$(program_LIBRARIES),-l$(library)) 
 
 .PHONY: all clean distclean

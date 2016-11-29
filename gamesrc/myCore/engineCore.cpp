@@ -17,7 +17,6 @@ void engineCore::setup(){
 	//Load the texture into the resourceManager
 	tile1ID = resourceManager->addTexture("img.png");
 	backgroundID = resourceManager->addTexture("img.png"); // this will simply return the value given to tile1ID
-
 	//Create a new scene
 	//scenes contain entities and worlds
 	//scenes will update/draw entities and worlds appropriately
@@ -44,7 +43,7 @@ void engineCore::setup(){
 	barrier->addComponent(new Destroyable()); // this is a custom component that allows this entity to be destroyed when clicked on
 	barrier->addCollider(new BoxCollider()); // Adds a simple box collider
 	barrier->setColour(255, 0, 0); // setting a colour doesn't affect sprites
-    // barrier->getAnimator()->addSprite(new StaticSprite("standing_box", "img2.png")); // this adds a new static sprite with the image of "img2.png" in the data folder
+    // barrier->getRenderer()->addSprite(new StaticSprite("standing_box", "img.png")); // this adds a new static sprite with the image of "img2.png" in the data folder
     //add your entity to the scene
 	prefabManager->addPrefab(barrier);
 
@@ -69,7 +68,7 @@ void engineCore::setup(){
 	//lets check if it was successful
 	// if(e){
 		// any changes we make to e are seperate to the original copy of character2
-		// e->setDrawType(EntityDrawType::RECT); // make e an Ellipse, defaults too a Rect
+		// e->setDrawType(EntityDrawType::AX_DRAW_RECT); // make e an Ellipse, defaults too a Rect
 	// }
 
 	//Setup our gameMaster

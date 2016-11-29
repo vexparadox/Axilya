@@ -14,8 +14,9 @@
 
 namespace Graphics{
     Image::~Image(){
-        //remove the textures from the GL buffer
-        glDeleteTextures(1, &textureID);
+        SDL_FreeSurface(surface);
+        stbi_image_free(imageDataPtr);
+        SDL_DestroyTexture(texture);
     }
     
     Image::Image(std::string name){
@@ -27,10 +28,6 @@ namespace Graphics{
     }
     
     bool Image::loadImage(std::string nameInput){
-        if(loaded){
-            std::cout << "Image: already loaded" << std::endl;
-            return false;
-        }
         path = nameInput;
         std::string temp = "data/" + nameInput;
         const char* name = temp.c_str();
@@ -38,38 +35,40 @@ namespace Graphics{
             return false;
         }
         //check if it's already loaded, if so load into the same texture point
-        if(!loaded){
-            openGlLoad(name);
-        }else{
+        if(loaded){
             //delete the texture and reload
-            glDeleteTextures(1, &textureID);
+            SDL_FreeSurface(surface);
+            stbi_image_free(imageDataPtr);
+            SDL_DestroyTexture(texture);
+            texture = NULL;
+            surface = NULL;
             //then load the texture
-            openGlLoad(name);
+            sdlLoad(name);
         }
-        if(textureID != 0){
-            loaded = true;
-            return true;
-        }
-        return false;
+        loaded = sdlLoad(name);
+        return loaded;
     }
     
-    void Image::openGlLoad(const char* name){
-        glEnable(GL_TEXTURE_2D);
-        GLuint texture_id;
-        glGenTextures(1, &texture_id);
-        glActiveTexture(GL_TEXTURE0);
-        glBindTexture(GL_TEXTURE_2D, texture_id);
-        // *data = stbi_load(filename, &x, &y, &n, 0);
-        unsigned char* imageDataPtr = stbi_load(name, &this->w, &this->h, 0, 0);
-        std::cout << imageDataPtr[0] << " " << imageDataPtr[1] << " " << imageDataPtr[2] << " " << imageDataPtr[3] << std::endl;
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-        glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-        glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, this->w, this->h, 0, GL_RGBA, GL_UNSIGNED_BYTE, imageDataPtr);
-        glEnd();
-        stbi_image_free(imageDataPtr);
-        this->textureID = texture_id;
+    bool Image::sdlLoad(const char* name){
+        int format = STBI_rgb_alpha;
+        int formatFound;
+        imageDataPtr = stbi_load(name, &this->w, &this->h, &formatFound, format);
+        if(imageDataPtr == NULL){
+            std::cout << stbi_failure_reason() << std::endl;
+            return false;
+        }
+        surface = SDL_CreateRGBSurfaceWithFormatFrom(imageDataPtr, this->w, this->h, 32, 4*this->w, SDL_PIXELFORMAT_RGBA32);  
+        if (surface == NULL) {
+            std::cout << SDL_GetError() << std::endl;
+            stbi_image_free(imageDataPtr);
+            return false;
+        }
+        texture = SDL_CreateTextureFromSurface(Runner::renderer, surface);
+        if(texture == NULL){
+            std::cout << SDL_GetError() << std::endl;
+            return false;
+        }
+        return true;
     }
     
     void Image::draw(float x, float y){
@@ -85,32 +84,22 @@ namespace Graphics{
     }
     
     void Image::draw(float x, float y, float width, float height){
-        if(textureID == 0 || !loaded){
+        if(!loaded || texture == NULL || surface == NULL){
             std::cout << "No image has been loaded" << std::endl;
             return;
         }
-        glBindTexture(GL_TEXTURE_2D, textureID);
-        glEnable(GL_TEXTURE_2D);
-        glBegin(GL_QUADS);
-        glTexCoord2d(0, 1); glVertex2f(x, y+height);
-        //bottom left
-        glTexCoord2d(0, 0); glVertex2f(x,y);
-        //top left
-        glTexCoord2d(1, 0); glVertex2f(x+width, y);
-        //top right
-        glTexCoord2d(1, 1); glVertex2f(x+width, y+height);
-        //bottom right
-        glEnd();
+        SDL_Rect dest;
+        dest.x = x;
+        dest.y = y;
+        dest.w = width;
+        dest.h = height;
+        if(SDL_RenderCopy(Runner::renderer, this->texture, NULL, &dest) != 0){
+            std::cout << SDL_GetError() << std::endl;
+        }
     }
 
     bool Image::grabScreen(float x, float y, float w, float h){
         return false;
-        // return SOIL_save_screenshot
-        // (
-        //  "save.bmp",
-        //  SOIL_SAVE_TYPE_BMP,
-        //  0, 0, 1024, 768
-        //  );
     }
 
     bool Image::isLoaded(){
@@ -119,10 +108,6 @@ namespace Graphics{
     
     std::string Image::getPath(){
         return path;
-    }
-
-    GLuint Image::getTextureID(){
-        return textureID;
     }
      
     int Image::getHeight(){
