@@ -118,15 +118,7 @@ namespace Graphics{
     void drawEllipseCenter(const Math::Vector2D &cp, float r){
         drawEllipse(cp.x-r/2, cp.y-r/2, r, r);
     }
-
-
-    
-    std::vector<unsigned char> getScreenData(int x, int y, int w, int h){
-        std::vector<unsigned char> data(4*w*h);
-        glReadPixels(x, y, w, h, GL_RGBA, GL_UNSIGNED_BYTE, &data[0]);
-        return data;
-    }
-    
+        
     //BACKGROUNDS
     void setBackground(float r, float g, float b, float a){
         Runner::backgroundColour.set(r, g, b, a);
@@ -153,21 +145,21 @@ namespace Graphics{
         glPushMatrix();
     }
     
-    void translate(float x, float y, float z){
-        glTranslatef(x, y, z);
-    }
+    // void translate(float x, float y, float z){
+    //     glTranslatef(x, y, z);
+    // }
     
-    void translate(float x, float y){
-        glTranslatef(x, y, 0);
-    }
+    // void translate(float x, float y){
+    //     glTranslatef(x, y, 0);
+    // }
     
-    void translate(const Math::Vector2D &v){
-        glTranslatef(v.x, v.y, 0);
-    }
+    // void translate(const Math::Vector2D &v){
+    //     glTranslatef(v.x, v.y, 0);
+    // }
     
-    void translate(const Math::Vector3D &v){
-        glTranslatef(v.x, v.y, v.z);
-    }
+    // void translate(const Math::Vector3D &v){
+    //     glTranslatef(v.x, v.y, v.z);
+    // }
     
     
     //FILLS

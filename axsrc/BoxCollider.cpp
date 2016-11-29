@@ -14,8 +14,8 @@ bool BoxCollider::worldCollideCheck(Math::Vector2D& v){
     float yOffset = position.y - owner->getTransform()->getPos().y;
     int screenWidth = Runner::getWidth()+owner->getScene()->getRenderOffset().x;
     int screenHeight = Runner::getHeight()+owner->getScene()->getRenderOffset().y;
-    int screenWidthOrigin = owner->getScene()->getRenderOffset().x;
-    int screenHeightOrigin = owner->getScene()->getRenderOffset().y;
+    int screenWidthOrigin = -owner->getScene()->getRenderOffset().x;
+    int screenHeightOrigin = -owner->getScene()->getRenderOffset().y;
     //if it goes out of the screen downwards
     if(position.y+size.y+v.y >= screenHeight){
         v.y = 0;

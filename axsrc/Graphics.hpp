@@ -44,10 +44,7 @@ namespace Graphics{
     void drawEllipseCenter(float x, float y, float xR, float yR);
     void drawEllipseCenter(float x, float y, float r);
     void drawEllipseCenter(const Math::Vector2D &cp, float r);
-    
-    //gets the pixel data between two points, (x,y) and (w,h)
-    std::vector<unsigned char> getScreenData(int x, int y, int w, int h);
-    
+        
     //set the background to be flushed
     void setBackground(float r, float g, float b, float a);
     void setBackground(float r, float g, float b);
