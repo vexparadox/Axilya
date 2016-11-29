@@ -24,6 +24,7 @@ void Scene::start(){
     for(auto& e : entities){
         e->start();
     }
+    renderOffset.x = 50;
 }
 
 void Scene::draw(){
@@ -32,7 +33,7 @@ void Scene::draw(){
     }
     for(auto& e : entities){
         if(e->isActive() && !e->isDead()){
-            e->draw();
+            e->draw(renderOffset);
         }
     }
 }
@@ -183,4 +184,23 @@ std::vector<Entity*>& Scene::getEntities(){
 
 int Scene::numEntities(){
     return this->entities.size();
+}
+
+Math::Vector2D& Scene::getRenderOffset(){
+    return renderOffset;
+}
+void Scene::offsetRenderer(float x, float y){
+    renderOffset.x += x;
+    renderOffset.y += y;
+}
+
+void Scene::offsetRenderer(Math::Vector2D& v){
+    renderOffset += v;
+}
+void Scene::setRenderOffset(float x, float y){
+    renderOffset.x = x;
+    renderOffset.y = y;
+}
+void Scene::setRenderOffset(Math::Vector2D& v){
+    renderOffset = v;
 }

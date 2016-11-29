@@ -13,6 +13,7 @@ class Scene{
     std::vector<Entity*> entities;
     World* world = 0;
     Entity* gameMaster = 0;
+    Math::Vector2D renderOffset;
     std::unordered_map<std::string, Entity*> uMap;
 public:
     Scene();
@@ -36,6 +37,13 @@ public:
     * @param e the new Entity being added
     * @return wheather it was succesful or not
     */
+
+    Math::Vector2D& getRenderOffset();
+    void offsetRenderer(float x, float y);
+    void offsetRenderer(Math::Vector2D& v);
+    void setRenderOffset(float x, float y);
+    void setRenderOffset(Math::Vector2D& v);
+    
     bool addEntity(Entity* e);
 
     bool setGameMaster(Entity* e);

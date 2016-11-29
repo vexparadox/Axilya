@@ -12,8 +12,10 @@ bool BoxCollider::worldCollideCheck(Math::Vector2D& v){
     //get the offset between the collider and the entity
     float xOffset = position.x - owner->getTransform()->getPos().x;
     float yOffset = position.y - owner->getTransform()->getPos().y;
-    int screenWidth = Runner::getWidth();
-    int screenHeight = Runner::getHeight();
+    int screenWidth = Runner::getWidth()+owner->getScene()->getRenderOffset().x;
+    int screenHeight = Runner::getHeight()+owner->getScene()->getRenderOffset().y;
+    int screenWidthOrigin = owner->getScene()->getRenderOffset().x;
+    int screenHeightOrigin = owner->getScene()->getRenderOffset().y;
     //if it goes out of the screen downwards
     if(position.y+size.y+v.y >= screenHeight){
         v.y = 0;
@@ -21,9 +23,9 @@ bool BoxCollider::worldCollideCheck(Math::Vector2D& v){
         hasCollided = true;
     }
     //if it goes out of the screen upwards
-    if(position.y+v.y < 0){
+    if(position.y+v.y < screenHeightOrigin){
         v.y = 0;
-        position.y = 0;
+        position.y = screenHeightOrigin;
         hasCollided = true;
     }
     //if it goes out of the screen rightways
@@ -33,9 +35,9 @@ bool BoxCollider::worldCollideCheck(Math::Vector2D& v){
         hasCollided = true;
     }
     //if it goes out of the screen leftways
-    if(position.x+v.x < 0){
+    if(position.x+v.x < screenWidthOrigin){
         v.x = 0;
-        position.x = 0;
+        position.x = screenWidthOrigin;
         hasCollided = true;
     }
     //set the players position to the corrected (NEEDS OFFSETS FOR COLLIDERS)
@@ -260,7 +262,7 @@ void BoxCollider::correctColliderCollision(Collider *c, const Math::Vector2D& v,
 }
 
 void BoxCollider::mouseCheck(){
-    if(Math::isInsideQuad(Input::mouseX, Input::mouseY, bounds->getPosition().x, bounds->getPosition().y, bounds->getPosition().x+bounds->getSize().x, bounds->getPosition().y+bounds->getSize().y)){
+    if(Math::isInsideQuad(Input::mouseX, Input::mouseY, bounds->getPosition().x+owner->getScene()->getRenderOffset().x, bounds->getPosition().y+owner->getScene()->getRenderOffset().y, bounds->getPosition().x+bounds->getSize().x+owner->getScene()->getRenderOffset().x, bounds->getPosition().y+bounds->getSize().y+owner->getScene()->getRenderOffset().y)){
         owner->onHover();
         if(Input::mouseIsPressed){
             owner->onClick(Input::mouseButton);

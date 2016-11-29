@@ -33,19 +33,19 @@ Sprite* Renderer::getCurrentSprite(){
     return currentSprite;
 }
 
-void Renderer::draw() {
+void Renderer::draw(const Math::Vector2D& renderOffset) {
+    Math::Vector2D position = owner->getTransform()->getPos()+renderOffset;
+    Math::Vector2D size = owner->getTransform()->getSize();
     if(currentSprite){
         //make sure the colour is transparent
-        Graphics::fill(255,255,255,255);
-        currentSprite->draw(owner->getTransform()->getPos().x, owner->getTransform()->getPos().y, owner->getTransform()->getSize().x, owner->getTransform()->getSize().y);
+        Graphics::fill(255,255,255, 0);
+        currentSprite->draw(position.x, position.y, size.x, size.y);
     }else{
         Graphics::fill(colour);
         if(owner->getDrawType() == AX_DRAW_RECT){
-            Graphics::drawRect(owner->getTransform()->getPos(), owner->getTransform()->getSize().x, owner->getTransform()->getSize().y);
+            Graphics::drawRect(position.x, position.y, size.x, size.y);
         }else if(owner->getDrawType() == AX_DRAW_ELLIPSE){
-            Graphics::drawEllipse(owner->getTransform()->getPos().x+owner->getTransform()->getSize().x/2, 
-                owner->getTransform()->getPos().y+owner->getTransform()->getSize().y/2
-                , owner->getTransform()->getSize().x/2, owner->getTransform()->getSize().y/2);
+            Graphics::drawEllipse(position.x+size.x/2, position.y+size.y/2, size.x/2, size.y/2);
         }
     }
 }

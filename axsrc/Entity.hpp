@@ -53,7 +53,7 @@ public:
     void start();
     //update and draws
     void update();
-    void draw();
+    void draw(const Math::Vector2D& renderOffset);
 
     //this method deletes all the data to do with this entity
     void destroy();

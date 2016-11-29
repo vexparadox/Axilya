@@ -28,7 +28,7 @@ public:
     void setColour(float r, float g, float b, float a);
     void setColour(float r, float g, float b);
     void setColour(const Graphics::Colour &c);
-    void draw();
+    void draw(const Math::Vector2D& renderOffset);
     Renderer* clone();
 };
 
