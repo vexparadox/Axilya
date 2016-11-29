@@ -22,7 +22,8 @@ public:
     static SDL_Renderer* renderer;
     static std::string runPath;
     //the RGBA of the next screen flush IE the background
-    static float r, g, b, a;
+    static Graphics::Colour backgroundColour;
+    static Graphics::Colour renderColour;
     //the creation of the runner
     
     /*!

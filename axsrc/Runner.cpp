@@ -7,10 +7,8 @@
 //
 
 #include "Runner.hpp"
-float Runner::r;
-float Runner::g;
-float Runner::b;
-float Runner::a;
+Graphics::Colour Runner::backgroundColour;
+Graphics::Colour Runner::renderColour;
 BaseCore* Runner::c = 0;
 Scene* Runner::activeScene = 0;
 std::string Runner::runPath = "";
@@ -87,7 +85,7 @@ Runner::Runner(float windowWidth, float windowHeight, const char* title, BaseCor
             }
         }
         //Fill the surface white
-        SDL_SetRenderDrawColor(Runner::renderer, 255, 255, 255, 255);
+        SDL_SetRenderDrawColor(Runner::renderer, backgroundColour.getR(), backgroundColour.getG(), backgroundColour.getB(), backgroundColour.getA());
         SDL_RenderClear(Runner::renderer);
         if(inFocus){
             c->draw();

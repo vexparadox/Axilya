@@ -100,18 +100,11 @@ namespace Graphics{
     }
     
     void drawEllipse(float x, float y, float xR, float yR){
-        filledEllipseRGBA(Runner::renderer, x, y, xR, yR);
-        // glDisable(GL_TEXTURE_2D);
-        // glBegin(GL_TRIANGLE_FAN);
-        // // xR /= 2;
-        // // yR /= 2;
-        // float degToRad = M_PI/180.0;
-        // for(int i = 0; i < 360; i++)
-        // {
-        //     float rad = i*degToRad;
-        //     glVertex3f(cos(rad)*xR+x, sin(rad)*yR+y, 0.0f);
-        // }
-        // glEnd();
+        filledEllipseRGBA(Runner::renderer, x, y, xR, yR, 
+        Runner::renderColour.getR(),
+        Runner::renderColour.getG(),
+        Runner::renderColour.getB(),
+        Runner::renderColour.getA());
     }
 
     void drawEllipseCenter(float x, float y, float xR, float yR){
@@ -136,10 +129,7 @@ namespace Graphics{
     
     //BACKGROUNDS
     void setBackground(float r, float g, float b, float a){
-        Runner::r = r/255;
-        Runner::g = g/255;
-        Runner::b = b/255;
-        Runner::a = a/255;
+        Runner::backgroundColour.set(r, g, b, a);
     }
     
     void setBackground(float r, float g, float b){
@@ -182,22 +172,27 @@ namespace Graphics{
     
     //FILLS
     void fill(const Graphics::Colour &c){
+        Runner::renderColour.set(c.getR(), c.getG(), c.getB(), c.getA());
         SDL_SetRenderDrawColor(Runner::renderer, c.getR(), c.getG(), c.getB(), c.getA());
     }
     
     void fill(const float &rgb){
+        Runner::renderColour.set(rgb, rgb, rgb, 255);
         SDL_SetRenderDrawColor(Runner::renderer, rgb, rgb, rgb, 255);
     }
     
     void fill(const float &r, const float &g, const float &b, const float &a){
+        Runner::renderColour.set(r, g, b, a);
         SDL_SetRenderDrawColor(Runner::renderer, r, g, b, a);
     }
     
     void fill(const float &r, const float &g, const float &b){
+        Runner::renderColour.set(r, g, b, 255);
         SDL_SetRenderDrawColor(Runner::renderer, r, g, b, 255);
     }
     
     void clearFill(){
+        Runner::renderColour.set(255, 255, 255, 255);
         SDL_SetRenderDrawColor(Runner::renderer, 255, 255, 255, 255);
     }
 

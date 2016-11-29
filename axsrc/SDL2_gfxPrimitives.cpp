@@ -3308,8 +3308,6 @@ int texturedPolygon(SDL_Renderer *renderer, const Sint16 * vx, const Sint16 * vy
 	*/
 	return (texturedPolygonMT(renderer, vx, vy, n, texture, texture_dx, texture_dy, NULL, NULL));
 }
-
-
 /* ---- Bezier curve */
 
 /*!
