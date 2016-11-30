@@ -30,9 +30,6 @@ void RigidBody::update(){
             isGrounded = false;
         }
     }
-    if(isGrounded){
-        velocity.y = 0;
-    }
     // move the entity (this will move the colliders too)
     this->owner->moveEntity(velocity);
 }
