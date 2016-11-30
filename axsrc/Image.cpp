@@ -29,7 +29,7 @@ namespace Graphics{
     
     bool Image::loadImage(std::string nameInput){
         path = nameInput;
-        std::string temp = "data/" + nameInput;
+        std::string temp = Runner::runPath+"data/" + nameInput;
         const char* name = temp.c_str();
         if(!fileExists(temp)){
             return false;

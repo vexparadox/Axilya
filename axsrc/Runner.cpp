@@ -16,7 +16,7 @@ SDL_Renderer* Runner::renderer = 0;
 int Runner::go = 1;
 Runner::Runner(float windowWidth, float windowHeight, const char* title, BaseCore* c){
     //The window we'll be rendering to
-
+    runPath = SDL_GetBasePath();
     SDL_Window* window = NULL;
     SDL_Renderer* renderer = NULL;
     //Initialize SDL
@@ -40,7 +40,6 @@ Runner::Runner(float windowWidth, float windowHeight, const char* title, BaseCor
 
     //set blend mode
     SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
-
     c->setWindow(window);
     c->windowHeight = windowHeight;
     c->windowWidth = windowWidth;
@@ -96,6 +95,7 @@ Runner::Runner(float windowWidth, float windowHeight, const char* title, BaseCor
         SDL_RenderPresent(Runner::renderer);
     }
     SDL_DestroyWindow(window);
+    SDL_DestroyRenderer(renderer);
     //Quit SDL subsystems
     SDL_Quit();
     exit(EXIT_SUCCESS);
