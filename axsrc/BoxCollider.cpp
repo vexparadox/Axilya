@@ -12,8 +12,8 @@ bool BoxCollider::worldCollideCheck(Math::Vector2D& v){
     //get the offset between the collider and the entity
     float xOffset = position.x - owner->getTransform()->getPos().x;
     float yOffset = position.y - owner->getTransform()->getPos().y;
-    int screenWidth = Runner::getWidth()+owner->getScene()->getRenderOffset().x;
-    int screenHeight = Runner::getHeight()+owner->getScene()->getRenderOffset().y;
+    int screenWidth = Runner::getWidth()-owner->getScene()->getRenderOffset().x;
+    int screenHeight = Runner::getHeight()-owner->getScene()->getRenderOffset().y;
     int screenWidthOrigin = -owner->getScene()->getRenderOffset().x;
     int screenHeightOrigin = -owner->getScene()->getRenderOffset().y;
     //if it goes out of the screen downwards

@@ -26,12 +26,11 @@ namespace Graphics{
     }
 
     void drawTriangle(float x1, float y1, float x2, float y2, float x3, float y3){
-        glDisable(GL_TEXTURE_2D);
-        glBegin(GL_TRIANGLES);
-        glVertex3f(x1, y1, 0.f);
-        glVertex3f(x2, y2, 0.f);
-        glVertex3f(x3, y3, 0.f);
-        glEnd();
+        filledTrigonRGBA(Runner::renderer, x1, y1, x2, y2, x3, y3,
+            Runner::renderColour.getR(),
+            Runner::renderColour.getG(),
+            Runner::renderColour.getB(),
+            Runner::renderColour.getA());
     }
 
     //lines

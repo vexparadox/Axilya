@@ -20,6 +20,7 @@ Versions jump around because I haven't been able to consistently work on feature
 
 - Moved to GPU sprite rendering
 - Much more effcient drawing
+- Added Offsets to scene rendering
 
 ## v0.7
 
