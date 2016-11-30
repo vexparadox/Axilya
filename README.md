@@ -14,7 +14,7 @@ Versions jump around because I haven't been able to consistently work on feature
 
 - Better Client-Server intergration (setting Entities to sync etc)
 - Better physics on RigidBodies
-- Handling random key presses in the Input class
+- Handle joystick input
 
 ## v0.7.1 Change Log
 
