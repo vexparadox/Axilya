@@ -43,10 +43,28 @@ void Input::init() {
     keys.push_back(new Key("X", SDL_SCANCODE_X));
     keys.push_back(new Key("Y", SDL_SCANCODE_Y));
     keys.push_back(new Key("Z", SDL_SCANCODE_Z));
+    keys.push_back(new Key("1", SDL_SCANCODE_1));
+    keys.push_back(new Key("2", SDL_SCANCODE_2));
+    keys.push_back(new Key("3", SDL_SCANCODE_3));
+    keys.push_back(new Key("4", SDL_SCANCODE_4));
+    keys.push_back(new Key("5", SDL_SCANCODE_5));
+    keys.push_back(new Key("6", SDL_SCANCODE_6));
+    keys.push_back(new Key("7", SDL_SCANCODE_7));
+    keys.push_back(new Key("8", SDL_SCANCODE_8));
+    keys.push_back(new Key("9", SDL_SCANCODE_9));
+    keys.push_back(new Key("0", SDL_SCANCODE_0));
     keys.push_back(new Key("RIGHT", SDL_SCANCODE_RIGHT));
     keys.push_back(new Key("LEFT", SDL_SCANCODE_LEFT));
     keys.push_back(new Key("DOWN", SDL_SCANCODE_DOWN));
     keys.push_back(new Key("UP", SDL_SCANCODE_UP));
+    keys.push_back(new Key("ENTER", SDL_SCANCODE_RETURN));
+    keys.push_back(new Key("TAB", SDL_SCANCODE_TAB));
+    keys.push_back(new Key("LCTRL", SDL_SCANCODE_LCTRL));
+    keys.push_back(new Key("LSHIFT", SDL_SCANCODE_LSHIFT));
+    keys.push_back(new Key("LALT", SDL_SCANCODE_LALT));
+    keys.push_back(new Key("RCTRL", SDL_SCANCODE_RCTRL));
+    keys.push_back(new Key("RALT", SDL_SCANCODE_RALT));
+    keys.push_back(new Key("RSHIFT", SDL_SCANCODE_RSHIFT));
     keyCodes.reserve(keys.size());
     keyNames.reserve(keys.size());
     //loop through and add the keys to the maps

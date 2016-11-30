@@ -20,7 +20,7 @@ Runner::Runner(float windowWidth, float windowHeight, const char* title, BaseCor
     SDL_Window* window = NULL;
     SDL_Renderer* renderer = NULL;
     //Initialize SDL
-    if( SDL_Init( SDL_INIT_VIDEO ) < 0 )
+    if( SDL_Init( SDL_INIT_VIDEO | SDL_INIT_JOYSTICK) < 0 )
     {
         printf( "SDL could not initialize! SDL_Error: %s\n", SDL_GetError() );
     }
