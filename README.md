@@ -8,8 +8,6 @@ See https://github.com/vexparadox/AXServer for the server module of Axilya. This
 
 `NFI` = Not fully implemented
 
-Versions jump around because I haven't been able to consistently work on features!
-
 ## Coming Soon
 
 - Better Client-Server intergration (setting Entities to sync etc)

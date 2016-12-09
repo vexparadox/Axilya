@@ -7,7 +7,8 @@ add predefined components for tiles (TileCollider)
 
 ## General
 implement TiledWorld collisions (see TileCollider)
-
+## collision
+middle with left corners - it jumps
 REMEMBER
 
 CustomComponent clone doesn't copy variables
