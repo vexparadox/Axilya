@@ -149,11 +149,16 @@ namespace Math {
             v1 = v1/v2;
             return;
         }
-	//Zeros the vector
-	inline void zero(){
-	    this->x = 0;
-	    this->y = 0;
-	}		
+    	//Zeros the vector
+    	inline void zero(){
+    	    this->x = 0;
+    	    this->y = 0;
+    	}		
+
+        inline float dot(const &Vector2D v) const{
+            return (this->x*v.x)+(this->y*v.y);
+        }
+
         //normalise
         inline Vector2D& normalise(){
             float length = this->length();
@@ -164,8 +169,7 @@ namespace Math {
           return *this;
         }
         
-        //Returns the length of a vec using Pythag (A^2+B^2 = C^2)
-        float length() const{
+        inline float magnitude() const{
             return sqrt(x*x+y*y);
         }
 
