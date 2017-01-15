@@ -37,7 +37,8 @@ Runner::Runner(float windowWidth, float windowHeight, const char* title, BaseCor
     gladLoadGLLoader(SDL_GL_GetProcAddress);
     glEnable (GL_BLEND);
     glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-
+    backgroundColour.set(255, 255, 255, 255);
+    renderColour.set(0, 0, 0, 255);
     //set blend mode
     SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
     c->setWindow(window);
@@ -87,6 +88,7 @@ Runner::Runner(float windowWidth, float windowHeight, const char* title, BaseCor
         SDL_SetRenderDrawColor(Runner::renderer, backgroundColour.getR(), backgroundColour.getG(), backgroundColour.getB(), backgroundColour.getA());
         SDL_RenderClear(Runner::renderer);
         if(inFocus){
+            SDL_SetRenderDrawColor(Runner::renderer, renderColour.getR(), renderColour.getG(), renderColour.getB(), renderColour.getA());
             c->draw();
             if(activeScene) {
                 activeScene->draw();
