@@ -11,7 +11,6 @@
 #include <cmath>
 #include <iostream>
 
-//A much more fleshed out 2D vector
 namespace Math {
     class Vector2D{
     public:
@@ -20,15 +19,10 @@ namespace Math {
             this->x = x;
             this->y = y;
         }
-        
-        //TO ADD: dot, scale, etc
-        Vector2D(){}
+        Vector2D(){ x = 0; y = 0;}
         ~Vector2D(){}
         inline friend bool operator== (const Vector2D& v1, const Vector2D& v2){
-            if(v1.x == v2.x && v1.y == v2.y){
-                return true;
-            }
-            return false;
+            return (v1.x == v2.x && v1.y == v2.y);
         }
         
         inline friend bool operator!= (const Vector2D& v1, const Vector2D& v2){
@@ -155,20 +149,20 @@ namespace Math {
     	    this->y = 0;
     	}		
 
-        inline float dot(const &Vector2D v) const{
+        inline float dot(const Vector2D& v) const{
             return (this->x*v.x)+(this->y*v.y);
         }
 
         //normalise
         inline Vector2D& normalise(){
-            float length = this->length();
+            float length = this->magnitude();
                 if(length > 0) {
                     this->x/= length;
                     this->y/= length;
                 }
           return *this;
         }
-        
+
         inline float magnitude() const{
             return sqrt(x*x+y*y);
         }
