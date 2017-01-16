@@ -10,13 +10,7 @@
 #include "Runner.hpp"
 
 SDL_Window* BaseCore::getWindow(){
-    return window;
-}
-
-void BaseCore::setWindow(SDL_Window* w){
-	if(w){
-		window = w;
-	}
+	return Runner::getWindow();
 }
 
 BaseCore::~BaseCore(){
@@ -24,4 +18,12 @@ BaseCore::~BaseCore(){
 
 void BaseCore::exitCalled(){
 	Runner::shutdown();
+}
+
+int BaseCore::windowHeight(){
+	return Runner::getHeight();
+}
+
+int BaseCore::windowWidth(){
+	return Runner::getWidth();
 }

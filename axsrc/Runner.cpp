@@ -9,24 +9,34 @@
 #include "Runner.hpp"
 Graphics::Colour Runner::backgroundColour;
 Graphics::Colour Runner::renderColour;
+int Runner::windowWidth = 0;
+int Runner::windowHeight = 0;
 BaseCore* Runner::c = 0;
 Scene* Runner::activeScene = 0;
 std::string Runner::runPath = "";
 SDL_Renderer* Runner::renderer = 0;
+SDL_Window* Runner::window = 0;
 int Runner::go = 1;
-Runner::Runner(float windowWidth, float windowHeight, int windowStyle, const char* title, BaseCore* c){
+Runner::Runner(float wWidth, float wHeight, int windowStyle, const char* title, BaseCore* c){
     //The window we'll be rendering to
     runPath = SDL_GetBasePath();
-    SDL_Window* window = NULL;
-    SDL_Renderer* renderer = NULL;
     //Initialize SDL
     if( SDL_Init( SDL_INIT_VIDEO | SDL_INIT_JOYSTICK) < 0 )
     {
         printf( "SDL could not initialize! SDL_Error: %s\n", SDL_GetError() );
     }
+
+    //get the display size
+    SDL_DisplayMode mode;
+    if(SDL_GetCurrentDisplayMode(0, &mode) == 0){
+        std::cout << mode.w << " <w    h> " << mode.h << std::endl;
+    }else{
+        std::cout << SDL_GetError() << std::endl;
+    }
+
     //Create window
-    window = SDL_CreateWindow(title, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, windowWidth, windowHeight, SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN);
-    if( window == NULL )
+    Runner::window = SDL_CreateWindow(title, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, wWidth, wHeight, SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN);
+    if(window == NULL )
     {
         printf( "Window could not be created! SDL_Error: %s\n", SDL_GetError() );
     }
@@ -41,6 +51,11 @@ Runner::Runner(float windowWidth, float windowHeight, int windowStyle, const cha
            SDL_SetWindowFullscreen(window, 0);
             break;
     }
+
+    //save the window width and height
+    Runner::windowWidth = wWidth;
+    Runner::windowHeight = wHeight;
+    
     //make a renderer
     Runner::renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 
@@ -52,9 +67,6 @@ Runner::Runner(float windowWidth, float windowHeight, int windowStyle, const cha
     renderColour.set(0, 0, 0, 255);
     //set blend mode
     SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
-    c->setWindow(window);
-    c->windowHeight = windowHeight;
-    c->windowWidth = windowWidth;
     Input::init();
     c->setup();
     if(activeScene){
@@ -95,7 +107,7 @@ Runner::Runner(float windowWidth, float windowHeight, int windowStyle, const cha
                 activeScene->update();
             }
         }
-        //Fill the surface white
+        //Fill the surface wshite
         SDL_SetRenderDrawColor(Runner::renderer, backgroundColour.getR(), backgroundColour.getG(), backgroundColour.getB(), backgroundColour.getA());
         SDL_RenderClear(Runner::renderer);
         if(inFocus){
@@ -121,11 +133,15 @@ void Runner::setCurrentScene(Scene *s) {
 }
 
 int Runner::getHeight(){
-    return Runner::c->windowHeight;
+    return windowHeight;
+}
+
+SDL_Window* Runner::getWindow(){
+    return window;
 }
 
 int Runner::getWidth(){
-    return Runner::c->windowWidth;
+    return windowWidth;
 }
 
 void Runner::shutdown(){

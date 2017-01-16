@@ -16,7 +16,7 @@ See https://github.com/vexparadox/AXServer for the server module of Axilya. This
 
 ## v0.7.2 Change Log
 
-- Added fullscreen and fullscreen borderless
+- Added fullscreen
 
 ## v0.7.1 Change Log
 

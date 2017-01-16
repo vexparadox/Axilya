@@ -19,9 +19,12 @@ class Runner{
     double currentTime, lastTime;
     static Scene* activeScene;
     static int go;
+    static int windowWidth, windowHeight;
+    static SDL_Window* window;
 public:
     static SDL_Renderer* renderer;
     static std::string runPath;
+
     //the RGBA of the next screen flush IE the background
     static Graphics::Colour backgroundColour;
     static Graphics::Colour renderColour;
@@ -51,6 +54,7 @@ public:
     /*!
     * Called when GLFW errors 
     */
+    static SDL_Window* getWindow();
     static void setCurrentScene(Scene* s);
     static void shutdown();
 };

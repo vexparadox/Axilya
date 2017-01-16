@@ -15,20 +15,19 @@
 class Runner;
 class BaseCore{
 protected:
-    SDL_Window* window;
     BaseCore(){};
     BaseCore(BaseCore const&){};
     ResourceManager* resourceManager = ResourceManager::getInstance();
     PrefabManager* prefabManager = PrefabManager::getInstance();
 public:
-    int windowWidth= 0, windowHeight = 0;
     virtual ~BaseCore();
     virtual void draw(){};
     virtual void setup(){};
     virtual void update(){};
     virtual void exitCalled();
+    int windowWidth();
+    int windowHeight();
     SDL_Window* getWindow();
-    void setWindow(SDL_Window*);
 };
 
 #endif /* BaseCore_hpp */
