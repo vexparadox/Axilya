@@ -43,13 +43,21 @@ Runner::Runner(float wWidth, float wHeight, int windowStyle, const char* title, 
     }else{
         std::cout << SDL_GetError() << std::endl;
     }
-
-    //Create window
+    //if it's <0 default to the display size
+    if(wWidth < 0){
+        wWidth = displayWidth;
+    }
+    if(wHeight < 0){
+        wHeight = displayHeight;
+    }
+    //Create a window
     Runner::window = SDL_CreateWindow(title, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, wWidth, wHeight, SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN);
     if(window == NULL )
     {
         printf( "Window could not be created! SDL_Error: %s\n", SDL_GetError() );
     }
+
+    //set the window based on it
     switch(windowStyle){
         case AX_WINDOWED:
            SDL_SetWindowFullscreen(window, 0);
@@ -61,7 +69,6 @@ Runner::Runner(float wWidth, float wHeight, int windowStyle, const char* title, 
            SDL_SetWindowFullscreen(window, 0);
             break;
     }
-
     //save the window width and height
     Runner::windowWidth = wWidth;
     Runner::windowHeight = wHeight;
