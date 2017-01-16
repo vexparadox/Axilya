@@ -30,7 +30,7 @@ Runner::Runner(float wWidth, float wHeight, int windowStyle, const char* title, 
     //The window we'll be rendering to
     runPath = SDL_GetBasePath();
     //Initialize SDL
-    if( SDL_Init( SDL_INIT_VIDEO | SDL_INIT_JOYSTICK) < 0 )
+    if(SDL_Init(SDL_INIT_EVERYTHING) < 0 )
     {
         printf( "SDL could not initialize! SDL_Error: %s\n", SDL_GetError() );
     }
@@ -116,7 +116,15 @@ Runner::Runner(float wWidth, float wHeight, int windowStyle, const char* title, 
                 inFocus = false;
             }else if(event.window.event == SDL_WINDOWEVENT_FOCUS_GAINED){
                 inFocus = true;
-            }
+            }else if(event.type == SDL_CONTROLLERBUTTONDOWN){
+                printf("%X\n", event.cbutton.button);
+            }else if(event.type == SDL_CONTROLLERDEVICEADDED){
+                 Input::controller = SDL_GameControllerOpen(event.cdevice.which);
+                 std::cout << "controller connected" << std::endl;
+            }else if(event.type == SDL_CONTROLLERDEVICEREMOVED){
+                std::cout << "Controller disconnected" << std::endl;
+                SDL_GameControllerClose(Input::controller);
+            }  
         }
         if(inFocus){
             c->update();

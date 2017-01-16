@@ -14,6 +14,7 @@ class Input{
     static std::vector<Key*> keys;
     static int keysPressed, mouseButtonsPressed;
     public:
+    static SDL_GameController* controller;
     static bool keyIsPressed, mouseIsPressed;
     static int keyCode, mouseButton;
     static int mouseX, mouseY;
@@ -28,6 +29,6 @@ class Input{
     static bool keyLeft();
     static bool getKey(const std::string& key);
     static bool getKey(int key);
-    };
+};
 
 #endif

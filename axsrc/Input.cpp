@@ -10,6 +10,7 @@ int Input::mouseX = 0;
 int Input::mouseY = 0;
 int Input::keysPressed = 0;
 int Input::mouseButtonsPressed = 0;
+SDL_GameController* Input::controller = 0;
 std::vector<Key*> Input::keys;
 std::unordered_map<int, Key*> Input::keyCodes;
 std::unordered_map<std::string, Key*> Input::keyNames;
