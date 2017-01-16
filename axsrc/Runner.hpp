@@ -20,6 +20,7 @@ class Runner{
     static Scene* activeScene;
     static int go;
     static int windowWidth, windowHeight;
+    static int displayWidth, displayHeight;
     static SDL_Window* window;
 public:
     static SDL_Renderer* renderer;
@@ -50,10 +51,9 @@ public:
     * @return window height 
     */
     static int getHeight();
-    //event call backs
-    /*!
-    * Called when GLFW errors 
-    */
+
+    static int getDisplayWidth();
+    static int getDisplayHeight();
     static SDL_Window* getWindow();
     static void setCurrentScene(Scene* s);
     static void shutdown();

@@ -27,6 +27,8 @@ public:
     virtual void exitCalled();
     int windowWidth();
     int windowHeight();
+    int displayWidth();
+    int displayHeight();
     SDL_Window* getWindow();
 };
 

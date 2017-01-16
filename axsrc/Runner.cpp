@@ -7,15 +7,24 @@
 //
 
 #include "Runner.hpp"
+//render colours
 Graphics::Colour Runner::backgroundColour;
 Graphics::Colour Runner::renderColour;
+//store the display and window sizes
 int Runner::windowWidth = 0;
 int Runner::windowHeight = 0;
+int Runner::displayWidth = 0;
+int Runner::displayHeight = 0;
+//store the core
 BaseCore* Runner::c = 0;
+//the active scene
 Scene* Runner::activeScene = 0;
+//the run path
 std::string Runner::runPath = "";
+//store the SDL window and renderer
 SDL_Renderer* Runner::renderer = 0;
 SDL_Window* Runner::window = 0;
+//the running variable
 int Runner::go = 1;
 Runner::Runner(float wWidth, float wHeight, int windowStyle, const char* title, BaseCore* c){
     //The window we'll be rendering to
@@ -29,7 +38,8 @@ Runner::Runner(float wWidth, float wHeight, int windowStyle, const char* title, 
     //get the display size
     SDL_DisplayMode mode;
     if(SDL_GetCurrentDisplayMode(0, &mode) == 0){
-        std::cout << mode.w << " <w    h> " << mode.h << std::endl;
+        displayWidth = mode.w;
+        displayHeight = mode.h;
     }else{
         std::cout << SDL_GetError() << std::endl;
     }
@@ -69,7 +79,7 @@ Runner::Runner(float wWidth, float wHeight, int windowStyle, const char* title, 
     SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
     Input::init();
     c->setup();
-    if(activeScene){
+    if(activeScene){    
        activeScene->start();
     }
     SDL_Event event;
@@ -142,6 +152,14 @@ SDL_Window* Runner::getWindow(){
 
 int Runner::getWidth(){
     return windowWidth;
+}
+
+int Runner::getDisplayWidth(){
+    return displayWidth;
+}
+
+int Runner::getDisplayHeight(){
+    return displayHeight;
 }
 
 void Runner::shutdown(){

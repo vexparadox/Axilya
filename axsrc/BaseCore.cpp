@@ -27,3 +27,11 @@ int BaseCore::windowHeight(){
 int BaseCore::windowWidth(){
 	return Runner::getWidth();
 }
+
+int BaseCore::displayWidth(){
+	return Runner::getDisplayWidth();
+}
+
+int BaseCore::displayHeight(){
+	return Runner::getDisplayHeight();
+}
