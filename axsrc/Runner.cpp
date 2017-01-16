@@ -37,9 +37,6 @@ Runner::Runner(float windowWidth, float windowHeight, int windowStyle, const cha
         case AX_FULLSCREEN:
            SDL_SetWindowFullscreen(window, SDL_WINDOW_FULLSCREEN);
            break;
-        case AX_FULLSCREEN_BORDERLESS:
-           SDL_SetWindowFullscreen(window, SDL_WINDOW_FULLSCREEN_DESKTOP);
-            break;
         default:
            SDL_SetWindowFullscreen(window, 0);
             break;

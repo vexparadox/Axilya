@@ -12,9 +12,9 @@
 int main(int argc, char *argv[])
 {
     //start a new runner with the constructor
-    //Runner(int width, int height, const char* title, new "corename");
+    //Runner(int width, int height, int windowType, const char* title, new "corename");
     //there are two example cores given with the repo, frameworkCore and engineCore
     //framework core is for showing off the simple framework code
     //engine core is for showing off the ECS and engine code
-    Runner(1280, 720, AX_WINDOWED, "Axilya", new engineCore());
+    Runner(720, 480, AX_FULLSCREEN, "Axilya", new engineCore());
 }
