@@ -12,6 +12,7 @@
 #include "BaseCore.hpp"
 #include "Scene.hpp"
 #include "Input.hpp"
+#include "WindowTypes.hpp"
 //this class controls the main game loop, calls BaseCore update and render
 class Runner{
     static BaseCore* c;
@@ -31,7 +32,7 @@ public:
     * The runner class encompasses the entire program
     * It controls the game loop and key, mouse and cursor callbacks
     */
-    Runner(float windowWidth, float windowHeight, const char* title, BaseCore* c);
+    Runner(float windowWidth, float windowHeight, int windowType, const char* title, BaseCore* c);
     ~Runner(){};
     //get window size
     

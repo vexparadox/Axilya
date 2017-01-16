@@ -14,6 +14,10 @@ See https://github.com/vexparadox/AXServer for the server module of Axilya. This
 - Better physics on RigidBodies
 - Handle joystick input
 
+## v0.7.2 Change Log
+
+- Added fullscreen and fullscreen borderless
+
 ## v0.7.1 Change Log
 
 - Moved to GPU sprite rendering

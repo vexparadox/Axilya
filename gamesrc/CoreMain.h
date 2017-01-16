@@ -25,5 +25,6 @@
 #include "../axsrc/ResourceManager.hpp"
 #include "../axsrc/PrefabManager.hpp"
 #include "../axsrc/EntityDrawTypes.hpp"
+#include "../axsrc/WindowTypes.hpp"
 
 #endif /* CoreMain_h */

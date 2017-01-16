@@ -14,7 +14,7 @@ Scene* Runner::activeScene = 0;
 std::string Runner::runPath = "";
 SDL_Renderer* Runner::renderer = 0;
 int Runner::go = 1;
-Runner::Runner(float windowWidth, float windowHeight, const char* title, BaseCore* c){
+Runner::Runner(float windowWidth, float windowHeight, int windowStyle, const char* title, BaseCore* c){
     //The window we'll be rendering to
     runPath = SDL_GetBasePath();
     SDL_Window* window = NULL;
@@ -29,6 +29,20 @@ Runner::Runner(float windowWidth, float windowHeight, const char* title, BaseCor
     if( window == NULL )
     {
         printf( "Window could not be created! SDL_Error: %s\n", SDL_GetError() );
+    }
+    switch(windowStyle){
+        case AX_WINDOWED:
+           SDL_SetWindowFullscreen(window, 0);
+            break;
+        case AX_FULLSCREEN:
+           SDL_SetWindowFullscreen(window, SDL_WINDOW_FULLSCREEN);
+           break;
+        case AX_FULLSCREEN_BORDERLESS:
+           SDL_SetWindowFullscreen(window, SDL_WINDOW_FULLSCREEN_DESKTOP);
+            break;
+        default:
+           SDL_SetWindowFullscreen(window, 0);
+            break;
     }
     //make a renderer
     Runner::renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
