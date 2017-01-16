@@ -6,7 +6,7 @@
 #define exampleTileComponent_hpp
 
 #include <CoreMain.h>
-class exampleTileComponent : public TileComponent{
+class exampleTileComponent : public CustomTileComponent<exampleTileComponent>{
 public:
     void update();
 };

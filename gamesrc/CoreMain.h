@@ -17,6 +17,7 @@
 #include "../axsrc/Scene.hpp"
 #include "../axsrc/world/TiledWorld.hpp"
 #include "../axsrc/world/StaticWorld.hpp"
+#include "../axsrc/world/CustomTileComponent.hpp"
 #include "../axsrc/sprite/StaticSprite.hpp"
 #include "../axsrc/sprite/AnimatedSprite.hpp"
 #include "../axsrc/world/Tile.hpp"
