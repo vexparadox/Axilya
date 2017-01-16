@@ -14,10 +14,10 @@ class TiledWorld : public World {
     std::unordered_map<char, Tile*> tileTypes;
     std::vector<Tile*> worldMatrix;
     bool isLoaded;
-
+    int width, height;
 public:
     ~TiledWorld();
-    TiledWorld();
+    TiledWorld(int width, int height);
     //allows the user to add a new tile type
     void addTileType(char key, Tile* tile);
     //returns a tile type based on a char

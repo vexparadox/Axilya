@@ -16,7 +16,7 @@ void Tile::update() {
     }
 }
 
-void Tile::draw(float x, float y) {
+void Tile::draw(float x, float y, int w, int h) {
     if(texture) {
         texture->getImage()->draw(x, y);
     }

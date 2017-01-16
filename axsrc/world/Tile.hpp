@@ -12,7 +12,7 @@ class Tile{
 public:
     Tile(int textureID);
     Tile(Texture* texture);
-    void draw(float x, float y);
+    void draw(float x, float y, int w, int h);
     void update();
     void setScene(Scene* scene);
     Scene* getScene();

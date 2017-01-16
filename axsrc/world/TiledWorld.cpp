@@ -3,7 +3,7 @@
 //
 #include "TiledWorld.hpp"
 
-TiledWorld::TiledWorld(){
+TiledWorld::TiledWorld(int width, int height) : width(width), height(height){
     isLoaded = false;
 }
 
@@ -40,7 +40,8 @@ Tile* TiledWorld::getTileType(char key){
 
 void TiledWorld::draw(){
     for(auto& t : worldMatrix){
-//        t->draw()
+        //need to pass the x, y to the tile to draw
+       // t->draw(w, h)
     }
 }
 
