@@ -136,13 +136,13 @@ namespace Graphics{
     }
     
     //MATRIXES
-    void popMatrix(){
-        glPopMatrix();
-    }
+    // void popMatrix(){
+    //     glPopMatrix();
+    // }
     
-    void pushMatrix(){
-        glPushMatrix();
-    }
+    // void pushMatrix(){
+    //     glPushMatrix();
+    // }
     
     // void translate(float x, float y, float z){
     //     glTranslatef(x, y, z);

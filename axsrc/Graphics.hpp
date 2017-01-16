@@ -52,14 +52,14 @@ namespace Graphics{
     void setBackground(const Colour &c);
     
     //push and pop a new matrix
-    void pushMatrix();
-    void popMatrix();
+    // void pushMatrix();
+    // void popMatrix();
     
     //translate the current pushed matrix
-    void translate(float x, float y, float z);
-    void translate(float x, float y);
-    void translate(const Math::Vector2D& v);
-    void translate(const Math::Vector3D& v);
+    // void translate(float x, float y, float z);
+    // void translate(float x, float y);
+    // void translate(const Math::Vector2D& v);
+    // void translate(const Math::Vector3D& v);
 
     //colours
     void fill(const Graphics::Colour &c);

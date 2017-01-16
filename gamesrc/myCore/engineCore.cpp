@@ -11,9 +11,6 @@
 using namespace Graphics;
 
 void engineCore::setup(){
-	//set the background color, transparent
-	setBackground(255, 255, 255, 0);
-
 	//Load the texture into the resourceManager
 	tile1ID = resourceManager->addTexture("img.png");
 	backgroundID = resourceManager->addTexture("img.png"); // this will simply return the value given to tile1ID
