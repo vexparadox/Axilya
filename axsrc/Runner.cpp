@@ -112,19 +112,21 @@ Runner::Runner(float wWidth, float wHeight, int windowStyle, const char* title, 
                 Input::mousePressed(event.button.button);
             }else if(event.type == SDL_MOUSEBUTTONUP){
                 Input::mouseReleased(event.button.button);
-            }else if(event.window.event == SDL_WINDOWEVENT_FOCUS_LOST){
-                inFocus = false;
-            }else if(event.window.event == SDL_WINDOWEVENT_FOCUS_GAINED){
-                inFocus = true;
             }else if(event.type == SDL_CONTROLLERBUTTONDOWN){
-                printf("%X\n", event.cbutton.button);
+                printf("%s\n", SDL_GameControllerGetStringForButton((SDL_GameControllerButton)event.cbutton.button));
             }else if(event.type == SDL_CONTROLLERDEVICEADDED){
                  Input::controller = SDL_GameControllerOpen(event.cdevice.which);
                  std::cout << "controller connected" << std::endl;
             }else if(event.type == SDL_CONTROLLERDEVICEREMOVED){
                 std::cout << "Controller disconnected" << std::endl;
                 SDL_GameControllerClose(Input::controller);
-            }  
+            }else if(event.type == SDL_WINDOWEVENT){
+                if(event.window.event == SDL_WINDOWEVENT_FOCUS_GAINED){
+                    inFocus = true;    
+                }else if(event.window.event == SDL_WINDOWEVENT_FOCUS_LOST){
+                    inFocus = false;    
+                }
+            }
         }
         if(inFocus){
             c->update();
