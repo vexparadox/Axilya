@@ -14,15 +14,15 @@ void RigidBodyMove::update(){
     //reset the colour here so onHover is temporary!
     owner->setColour(0, 0, 0, 255);
     //Input is a static class that allows you to get the user input
-    if(Input::keyUp()|| Input::getKey("W")){
+    if(Input::keyUp()|| Input::getKey("W") || Input::getKey("GC_A")){
         //this line gets a pointer to the rigidBody attached to the owner
         //it then adds an upwards force to it, the rigidBody handles the rest core
 		owner->getRigidBody()->addForce(0, -5);
 	}
-    if(Input::keyRight()|| Input::getKey("D")){
+    if(Input::keyRight()|| Input::getKey("D") || Input::getKey("GC_DRIGHT")){
 		owner->getRigidBody()->addForce(1.5, 0);
 	}
-    if(Input::keyLeft() || Input::getKey("A")){
+    if(Input::keyLeft() || Input::getKey("A") || Input::getKey("GC_DLEFT")){
 		owner->getRigidBody()->addForce(-1.5, 0);
 	}
 }

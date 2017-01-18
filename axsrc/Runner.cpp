@@ -52,8 +52,7 @@ Runner::Runner(float wWidth, float wHeight, int windowStyle, const char* title, 
     }
     //Create a window
     Runner::window = SDL_CreateWindow(title, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, wWidth, wHeight, SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN);
-    if(window == NULL )
-    {
+    if(window == NULL ){
         printf( "Window could not be created! SDL_Error: %s\n", SDL_GetError() );
     }
 
@@ -113,7 +112,11 @@ Runner::Runner(float wWidth, float wHeight, int windowStyle, const char* title, 
             }else if(event.type == SDL_MOUSEBUTTONUP){
                 Input::mouseReleased(event.button.button);
             }else if(event.type == SDL_CONTROLLERBUTTONDOWN){
-                printf("%s\n", SDL_GameControllerGetStringForButton((SDL_GameControllerButton)event.cbutton.button));
+                Input::setKeyDown((SDL_GameControllerButton)event.cbutton.button+AX_INPUT_CONTROLLER_OFFSET);
+                // printf("%s\n", SDL_GameControllerGetStringForButton((SDL_GameControllerButton)event.cbutton.button));
+            }else if(event.type == SDL_CONTROLLERBUTTONUP){
+                Input::setKeyUp((SDL_GameControllerButton)event.cbutton.button+AX_INPUT_CONTROLLER_OFFSET);
+                // printf("%s\n", SDL_GameControllerGetStringForButton((SDL_GameControllerButton)event.cbutton.button));
             }else if(event.type == SDL_CONTROLLERDEVICEADDED){
                  Input::controller = SDL_GameControllerOpen(event.cdevice.which);
                  std::cout << "controller connected" << std::endl;

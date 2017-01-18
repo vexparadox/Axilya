@@ -16,7 +16,7 @@ std::unordered_map<int, Key*> Input::keyCodes;
 std::unordered_map<std::string, Key*> Input::keyNames;
 
 void Input::init() {
-    keys.reserve(31);
+    keys.reserve(45);
     keys.push_back(new Key("SPACE", SDL_SCANCODE_SPACE));
     keys.push_back(new Key("A", SDL_SCANCODE_A));
     keys.push_back(new Key("B", SDL_SCANCODE_B));
@@ -66,6 +66,23 @@ void Input::init() {
     keys.push_back(new Key("RCTRL", SDL_SCANCODE_RCTRL));
     keys.push_back(new Key("RALT", SDL_SCANCODE_RALT));
     keys.push_back(new Key("RSHIFT", SDL_SCANCODE_RSHIFT));
+
+    keys.push_back(new Key("GC_A", SDL_CONTROLLER_BUTTON_A+AX_INPUT_CONTROLLER_OFFSET));
+    keys.push_back(new Key("GC_B", SDL_CONTROLLER_BUTTON_B+AX_INPUT_CONTROLLER_OFFSET));
+    keys.push_back(new Key("GC_X", SDL_CONTROLLER_BUTTON_X+AX_INPUT_CONTROLLER_OFFSET));
+    keys.push_back(new Key("GC_Y", SDL_CONTROLLER_BUTTON_Y+AX_INPUT_CONTROLLER_OFFSET));
+    keys.push_back(new Key("GC_BACK", SDL_CONTROLLER_BUTTON_BACK+AX_INPUT_CONTROLLER_OFFSET));
+    keys.push_back(new Key("GC_GUIDE", SDL_CONTROLLER_BUTTON_GUIDE+AX_INPUT_CONTROLLER_OFFSET));
+    keys.push_back(new Key("GC_START", SDL_CONTROLLER_BUTTON_START+AX_INPUT_CONTROLLER_OFFSET));
+    keys.push_back(new Key("GC_LEFTSTICK", SDL_CONTROLLER_BUTTON_LEFTSTICK+AX_INPUT_CONTROLLER_OFFSET));
+    keys.push_back(new Key("GC_RIGHTSTICK", SDL_CONTROLLER_BUTTON_RIGHTSTICK+AX_INPUT_CONTROLLER_OFFSET));
+    keys.push_back(new Key("GC_LEFTSHOULDER", SDL_CONTROLLER_BUTTON_LEFTSHOULDER+AX_INPUT_CONTROLLER_OFFSET));
+    keys.push_back(new Key("GC_RIGHTSHOULDER", SDL_CONTROLLER_BUTTON_RIGHTSHOULDER+AX_INPUT_CONTROLLER_OFFSET));
+    keys.push_back(new Key("GC_DUP", SDL_CONTROLLER_BUTTON_DPAD_UP+AX_INPUT_CONTROLLER_OFFSET));
+    keys.push_back(new Key("GC_DDOWN", SDL_CONTROLLER_BUTTON_DPAD_DOWN+AX_INPUT_CONTROLLER_OFFSET));
+    keys.push_back(new Key("GC_DLEFT", SDL_CONTROLLER_BUTTON_DPAD_LEFT+AX_INPUT_CONTROLLER_OFFSET));
+    keys.push_back(new Key("GC_DRIGHT", SDL_CONTROLLER_BUTTON_DPAD_RIGHT+AX_INPUT_CONTROLLER_OFFSET));
+
     keyCodes.reserve(keys.size());
     keyNames.reserve(keys.size());
     //loop through and add the keys to the maps
@@ -113,13 +130,6 @@ void Input::setKeyUp(int key){
 bool Input::getKey(const std::string& key){
     if(keyNames.find(key) != keyNames.end()){
         return keyNames.at(key)->getPressed();
-    }
-    return false;
-}
-
-bool Input::getKey(int key) {
-    if (keyCodes.find(key) != keyCodes.end()) {
-        return keyCodes.at(key)->getPressed();
     }
     return false;
 }
