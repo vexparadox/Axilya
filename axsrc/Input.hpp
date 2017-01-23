@@ -15,7 +15,7 @@ class Input{
     
     static int keysPressed, mouseButtonsPressed;
     public:
-    static SDL_GameController* controller;
+    static SDL_GameController* controllers[4];
     static bool keyIsPressed, mouseIsPressed;
     static int keyCode, mouseButton;
     static int mouseX, mouseY;

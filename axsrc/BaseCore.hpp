@@ -24,6 +24,8 @@ public:
     virtual void draw(){};
     virtual void setup(){};
     virtual void update(){};
+    virtual void mouseClicked(int button, int mouseX, int mouseY){};
+    virtual void mouseReleased(int button, int mouseX, int mouseY){};
     virtual void exitCalled();
     int windowWidth();
     int windowHeight();

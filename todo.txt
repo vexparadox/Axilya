@@ -10,6 +10,8 @@ implement TiledWorld collisions (see TileCollider)
 ## collision
 middle with left corners - it jumps
 pass the side with world collide
+## input
+add mouseClicked calls to basecore again
 ## colours
 Entity colours arn't filling out properly
 
