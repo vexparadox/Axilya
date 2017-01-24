@@ -12,7 +12,6 @@ See https://github.com/vexparadox/AXServer for the server module of Axilya. This
 
 - Better Client-Server intergration (setting Entities to sync etc)
 - Better physics on RigidBodies
-- Handle joystick input
 
 ## v0.7.2 Change Log
 
