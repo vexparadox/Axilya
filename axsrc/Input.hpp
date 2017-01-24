@@ -31,7 +31,7 @@ class Input{
     static int keyRight();
     static int keyLeft();
     static int numControllers();
-    static int getKey(const std::string& key);
+    static int getValue(const std::string& key);
 };
 
 #endif

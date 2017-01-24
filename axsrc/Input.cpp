@@ -212,7 +212,7 @@ void Input::setKeyUp(int key){
     }
 }
 
-int Input::getKey(const std::string& key){
+int Input::getValue(const std::string& key){
     if(inputNames.find(key) != inputNames.end()){
         return inputNames.at(key)->getValue();
     }
@@ -230,14 +230,14 @@ int Input::numControllers(){
 }
 
 int Input::keyUp(){
-    return getKey("UP");
+    return getValue("UP");
 }
 int Input::keyDown(){
-    return getKey("DOWN");
+    return getValue("DOWN");
 }
 int Input::keyRight(){
-    return getKey("RIGHT");
+    return getValue("RIGHT");
 }
 int Input::keyLeft(){
-    return getKey("LEFT");
+    return getValue("LEFT");
 }
