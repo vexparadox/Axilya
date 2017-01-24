@@ -115,16 +115,17 @@ Runner::Runner(float wWidth, float wHeight, int windowStyle, const char* title, 
                 Input::mouseReleased(event.button.button);
             }else if(event.type == SDL_CONTROLLERBUTTONDOWN){
                 Input::setKeyDown((SDL_GameControllerButton)event.cbutton.button+(AX_INPUT_CONTROLLER_OFFSET*(event.cdevice.which+1)));
-                // printf("%s\n", SDL_GameControllerGetStringForButton((SDL_GameControllerButton)event.cbutton.button));
             }else if(event.type == SDL_CONTROLLERBUTTONUP){
                 Input::setKeyUp((SDL_GameControllerButton)event.cbutton.button+(AX_INPUT_CONTROLLER_OFFSET*(event.cdevice.which+1)));
-                // printf("%s\n", SDL_GameControllerGetStringForButton((SDL_GameControllerButton)event.cbutton.button));
             }else if(event.type == SDL_CONTROLLERDEVICEADDED){
                  Input::controllers[event.cdevice.which] = SDL_GameControllerOpen(event.cdevice.which);
-                 std::cout << "Controller connected " << event.cdevice.which << std::endl;
+                 std::cout << "Controller connected: " << event.cdevice.which << std::endl;
             }else if(event.type == SDL_CONTROLLERDEVICEREMOVED){
-                std::cout << "Controller disconnected" << event.cdevice.which << std::endl;
+                std::cout << "Controller disconnected: " << event.cdevice.which << std::endl;
                 SDL_GameControllerClose(Input::controllers[event.cdevice.which]);
+                Input::controllers[event.cdevice.which] = 0;
+            }else if(event.type == SDL_CONTROLLERAXISMOTION){
+                Input::setAxisValue(AX_INPUT_CONTROLLER_AXIS_OFFSET+event.caxis.axis+AX_INPUT_CONTROLLER_OFFSET*(event.caxis.which+1), event.caxis.value);
             }else if(event.type == SDL_WINDOWEVENT){
                 if(event.window.event == SDL_WINDOWEVENT_FOCUS_GAINED){
                     inFocus = true;    

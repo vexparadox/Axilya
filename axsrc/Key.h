@@ -11,19 +11,19 @@
 class Key {
     std::string identifier;
     int keyCode;
-    bool pressed;
+    int value;
 public:
     Key(const std::string& identifier, int keyCode){
         this->identifier = identifier;
         this->keyCode = keyCode;
-        pressed = false;
+        this->value = 0;
     }
-    void setPressed(bool p){
-        this->pressed = p;
+    void setValue(int v){
+        this->value = v;
     }
 
-    bool getPressed(){
-        return this->pressed;
+    int getValue(){
+        return this->value;
     }
 
     std::string getIdentifier(){

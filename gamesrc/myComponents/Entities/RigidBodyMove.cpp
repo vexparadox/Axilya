@@ -20,10 +20,10 @@ void RigidBodyMove::update(){
         //it then adds an upwards force to it, the rigidBody handles the rest core
 		owner->getRigidBody()->addForce(0, -5);
 	}
-    if(Input::keyRight()|| Input::getKey("D") || Input::getKey("GC2_DRIGHT")){
+    if(Input::keyRight()|| Input::getKey("D") || Input::getKey("GC1_LEFTSTICK_X") > 3000){
 		owner->getRigidBody()->addForce(1.5, 0);
 	}
-    if(Input::keyLeft() || Input::getKey("A") || Input::getKey("GC1_DLEFT")){
+    if(Input::keyLeft() || Input::getKey("A") || Input::getKey("GC1_LEFTSTICK_X") < -3000){
 		owner->getRigidBody()->addForce(-1.5, 0);
 	}
 }

@@ -1,4 +1,4 @@
-# Axilya v0.7.1
+# Axilya v0.7.2
 
 A basic 2D game framework written in C++, runnable with Make. To see the initial production of this project see: https://github.com/vexparadox/axInitial
 
@@ -20,7 +20,7 @@ See https://github.com/vexparadox/AXServer for the server module of Axilya. This
 - Added mouse click callbacks to BaseCore
 - Multiple Controller support!
 
-## v0.7.1 Change Log
+## v0.7.1
 
 - Moved to GPU sprite rendering
 - Much more effcient drawing
