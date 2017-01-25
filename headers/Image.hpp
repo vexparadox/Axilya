@@ -9,7 +9,7 @@
 #ifndef Image_hpp
 #define Image_hpp
 #include <SDL2/SDL.h>
-#include "glad.h"
+#include "glad/glad.h"
 #include "Vector2D.h"
 #include <iostream>
 #include <sys/stat.h>

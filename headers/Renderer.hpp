@@ -6,7 +6,7 @@
 #define Renderer_hpp
 
 #include <unordered_map>
-#include "Sprite.hpp"
+#include "sprite/Sprite.hpp"
 #include "Graphics.hpp"
 #include <SDL2/SDL.h>
 #include "EntityDrawTypes.hpp"

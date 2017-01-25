@@ -13,7 +13,7 @@
 #include <SDL2/SDL.h>
 #include <vector>
 #include "Math.h"
-#include "glad.h"
+#include "glad/glad.h"
 namespace Graphics{
     //Triangles
     void drawTriangle(const Triangle &t);

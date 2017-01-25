@@ -3,7 +3,7 @@
 //
 
 #include "StaticWorld.hpp"
-#include "../Runner.hpp"
+#include "Runner.hpp"
 
 StaticWorld::StaticWorld() {
 

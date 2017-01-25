@@ -3,8 +3,8 @@
 #include <vector>
 #include <unordered_map>
 #include <algorithm>
-#include "World.hpp"
-#include "pugixml.hpp"
+#include "world/World.hpp"
+#include "PUGIXML/pugixml.hpp"
 
 class Entity;
 class Transform;

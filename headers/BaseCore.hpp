@@ -5,7 +5,7 @@
 #include "ResourceManager.hpp"
 #include "PrefabManager.hpp"
 #include <SDL2/SDL.h>
-#include "glad.h"
+#include "glad/glad.h"
 #include <iostream>
 #include <stdlib.h>
 #include "Graphics.hpp"
