@@ -1,1 +1,2 @@
-find . -type f -name '*.hpp' -exec cp '{}' ./headers/ \;
+mkdir headers
+find ./axsrc/ -type f -name '*.hpp' -exec cp '{}' ./headers/ \;
