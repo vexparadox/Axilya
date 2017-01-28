@@ -10,7 +10,7 @@
 using namespace Graphics;
 
 void frameworkCore::setup(){
-
+	AXString str("hello");
 }
 
 void frameworkCore::update(){

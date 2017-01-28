@@ -16,5 +16,5 @@ int main(int argc, char *argv[])
     //there are two example cores given with the repo, frameworkCore and engineCore
     //framework core is for showing off the simple framework code
     //engine core is for showing off the ECS and engine code
-    Runner(720, 480, AX_WINDOWED, "Axilya", new engineCore());
+    Runner(720, 480, AX_WINDOWED, "Axilya", new frameworkCore());
 }
