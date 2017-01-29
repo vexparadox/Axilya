@@ -1,6 +1,6 @@
 # Axilya v0.7.2
 
-A basic 2D game framework written in C++. To see the initial production of this project see: https://github.com/vexparadox/axInitial
+A basic 2D game engine library written in C++. To see the initial production of this project see: https://github.com/vexparadox/axInitial
 
 ## Compiling
 

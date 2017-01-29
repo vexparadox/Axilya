@@ -38,6 +38,7 @@
 		C2A6C1501E3E54BE00683423 /* Transform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2A6C1321E3E54BE00683423 /* Transform.cpp */; };
 		C2A6C1511E3E54BE00683423 /* Utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2A6C1331E3E54BE00683423 /* Utils.cpp */; };
 		C2A6C1521E3E54BE00683423 /* World.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2A6C1341E3E54BE00683423 /* World.cpp */; };
+		C2CBB3C01E3E6ADC00A89579 /* Vector2D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2CBB3BF1E3E6ADC00A89579 /* Vector2D.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +74,7 @@
 		C2A6C1321E3E54BE00683423 /* Transform.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Transform.cpp; path = src/Transform.cpp; sourceTree = "<group>"; };
 		C2A6C1331E3E54BE00683423 /* Utils.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Utils.cpp; path = src/Utils.cpp; sourceTree = "<group>"; };
 		C2A6C1341E3E54BE00683423 /* World.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = World.cpp; path = src/World.cpp; sourceTree = "<group>"; };
+		C2CBB3BF1E3E6ADC00A89579 /* Vector2D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Vector2D.cpp; path = src/Vector2D.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 				C2A6C1321E3E54BE00683423 /* Transform.cpp */,
 				C2A6C1331E3E54BE00683423 /* Utils.cpp */,
 				C2A6C1341E3E54BE00683423 /* World.cpp */,
+				C2CBB3BF1E3E6ADC00A89579 /* Vector2D.cpp */,
 				C2A6C10E1E3E546D00683423 /* Products */,
 				C2A6C1141E3E54AB00683423 /* Frameworks */,
 			);
@@ -222,6 +225,7 @@
 				C2A6C1401E3E54BE00683423 /* Input.cpp in Sources */,
 				C2A6C1411E3E54BE00683423 /* PrefabManager.cpp in Sources */,
 				C2A6C1421E3E54BE00683423 /* pugixml.cpp in Sources */,
+				C2CBB3C01E3E6ADC00A89579 /* Vector2D.cpp in Sources */,
 				C2A6C1431E3E54BE00683423 /* Renderer.cpp in Sources */,
 				C2A6C1441E3E54BE00683423 /* ResourceManager.cpp in Sources */,
 				C2A6C1451E3E54BE00683423 /* RigidBody.cpp in Sources */,
