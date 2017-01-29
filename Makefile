@@ -18,9 +18,9 @@ program_CXX_SRCS += $(shell find gamesrc -type f -name '*.cpp')
 program_OBJS := ${program_CXX_SRCS:.cpp=.o}
 program_INCLUDE_DIRS := $(shell find gamesrc -type d)
 program_HEADERS := $(foreach directory, $(program_INCLUDE_DIRS), -I$(directory))
-program_LIBRARY_DIRS := ./libs/
+program_LIBRARY_DIRS := 
 
-CPPFLAGS += $(program_HEADERS) -g -std=c++11 -Wno-c++11-compat-deprecated-writable-strings
+CPPFLAGS += $(program_HEADERS) -g -std=c++11 -mmacosx-version-min=10.9 -Wno-c++11-compat-deprecated-writable-strings
 LDFLAGS +=  -g $(foreach librarydir,$(program_LIBRARY_DIRS),-L$(librarydir))
 LDFLAGS += $(foreach library,$(program_LIBRARIES),-l$(library)) 
 
