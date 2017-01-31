@@ -8,12 +8,11 @@
 #include <Axilya/AXMain.h>
 
 int x = 0;
-
-}
 void update(){
     if(Input::getValue("D")){
         x++;
     }
+}
 
 void draw(){
     //using the AXGraphics namespace you can draw raw shapes, lines and points 
