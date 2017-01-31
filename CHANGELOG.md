@@ -1,8 +1,14 @@
-## Coming Soon
-- Better Client-Server intergration (setting Entities to sync etc)
-- Better physics on RigidBodies
+## v0.8.0
 
-## v0.7.2 Change Log
+- Completely moved to Library format - installs to /usr/local/
+- Removed BaseCore concept - code now runs in the main function
+- New updated examples
+- Singluar Makefile install
+- Now works nicely with xCode and other IDEs
+- Runner > AXWindow
+- Graphics:: > AXGraphics::
+
+## v0.7.2
 
 - Added fullscreen mode and display information
 - Added mouse click callbacks to BaseCore

@@ -1,6 +1,8 @@
-# Axilya v0.7.2
+# Axilya v0.8.0
 
-A basic 2D game engine library written in C++. To see the initial production of this project see: https://github.com/vexparadox/axInitial
+A 2D Game Engine Library written in C++ by William Meaton.
+
+See the examples and wiki for a better idea of what's happening.
 
 ## Compiling
 
@@ -28,3 +30,8 @@ To remove the install use:
 ```
 
 You can also build just the library using xCode using the project file included.
+
+
+## Other
+
+To see the initial production of this project see: https://github.com/vexparadox/axInitial
