@@ -15,16 +15,15 @@
 class RigidBody : public Component{
     bool gravity;
     Math::Vector2D velocity, drag, previousVelocity;
-    bool wasGrounded = false, isGrounded = false;
-    bool screenBound = true;
-    float maxVelocityY = 8, maxVelocityX = 7;
+    bool wasGrounded, isGrounded;
+    bool screenBound;
+    float maxVelocityY, maxVelocityX;
     void applyDrag();
     void applyGravity();
     void terminalVelocity();
 public:
     /*!
     * Adds a force to the rigid body 
-    * @param owner the Entity which this component belongs too
     * @param gravity wheather this RigidBody has gravity
     */
     RigidBody(bool gravity);

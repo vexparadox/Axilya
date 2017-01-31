@@ -4,6 +4,11 @@
 
 #include "headers/Renderer.hpp"
 #include "headers/Entity.hpp"
+
+Renderer::Renderer(){
+     this->colour = Graphics::Colour(0, 0, 0, 255);
+}
+
 Renderer::~Renderer(){
     for(auto it = sprites.begin(); it != sprites.end(); it++){
        delete it->second;

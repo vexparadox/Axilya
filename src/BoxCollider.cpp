@@ -10,10 +10,10 @@ bool BoxCollider::worldCollideCheck(Math::Vector2D& v){
     Math::Vector2D position = bounds->getPosition();
     Math::Vector2D size = bounds->getSize();
     //get the offset between the collider and the entity
-    float xOffset = position.x - owner->getTransform()->getPos().x;
-    float yOffset = position.y - owner->getTransform()->getPos().y;
-    int screenWidth = Runner::getWidth()-owner->getScene()->getRenderOffset().x;
-    int screenHeight = Runner::getHeight()-owner->getScene()->getRenderOffset().y;
+//    float xOffset = position.x - owner->getTransform()->getPos().x;
+//    float yOffset = position.y - owner->getTransform()->getPos().y;
+    int screenWidth = AXWindow::getWidth()-owner->getScene()->getRenderOffset().x;
+    int screenHeight = AXWindow::getHeight()-owner->getScene()->getRenderOffset().y;
     int screenWidthOrigin = -owner->getScene()->getRenderOffset().x;
     int screenHeightOrigin = -owner->getScene()->getRenderOffset().y;
     //if it goes out of the screen downwards
@@ -58,7 +58,7 @@ bool BoxCollider::checkMovement(Entity* e, Math::Vector2D& proposedMovement){
     
     Shape* otherBounds = e->getCollider()->getBounds();
     //if moving right
-    bool collisionHappened = false;
+//    bool collisionHappened = false;
         //else if you're going down
     if(proposedMovement.y > 0){
         Math::Vector2D bottomLeft = Math::Vector2D(otherBounds->getPosition().x, otherBounds->getPosition().y+otherBounds->getSize().y+proposedMovement.y);

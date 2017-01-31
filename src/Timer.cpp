@@ -8,12 +8,12 @@
 
 #include "headers/Timer.hpp"
 namespace Math{
-    Timer::Timer(bool startNow){
+    Timer::Timer(bool startNow) : beginTime(0), endTime(0), started(false), running(false) {
         if(startNow){
             this->start();
         }
     }
-    Timer::Timer(){
+    Timer::Timer() : beginTime(0), endTime(0), started(false), running(false){
         
     }
     void Timer::start(){

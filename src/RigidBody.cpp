@@ -8,6 +8,11 @@
 #include "headers/Entity.hpp"
 
 RigidBody::RigidBody(bool gravity): velocity(0, 0), drag(0.5, 0.5), gravity(gravity){
+    wasGrounded = false;
+    isGrounded = false;
+    screenBound = true;
+    maxVelocityY = 8;
+    maxVelocityX = 7;
 }
 
 void RigidBody::update(){
@@ -24,7 +29,7 @@ void RigidBody::update(){
             this->owner->onWorldCollision();
         }
     }else{
-        if(owner->getTransform()->getPos().y+owner->getTransform()->getSize().y >= Runner::getHeight()){
+        if(owner->getTransform()->getPos().y+owner->getTransform()->getSize().y >= AXWindow::getHeight()){
             isGrounded = true;
         }else{
             isGrounded = false;

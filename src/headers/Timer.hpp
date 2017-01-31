@@ -17,10 +17,10 @@ namespace Math {
     class Timer{
     private:
         //stores the begin and end time of the timer
-        unsigned long beginTime = 0;
-        unsigned long endTime = 0;
+        unsigned long beginTime;
+        unsigned long endTime;
         //bools state the current state of the timer
-        bool running = false, started = false;
+        bool running, started;
     public:
         /*!
         * Constructor of Timer

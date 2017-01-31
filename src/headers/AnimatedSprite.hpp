@@ -11,9 +11,9 @@ class AnimatedSprite : Sprite {
     int frameLength;
     std::vector<Texture*> textures;
     //current frame we're on
-    int frameCount = 0;
+    int frameCount;
     //the current texture being drawn
-    int texturePosition =0;
+    int texturePosition;
 public:
     ~AnimatedSprite();
     AnimatedSprite(const std::string& name, int frameLength);

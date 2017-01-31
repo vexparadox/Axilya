@@ -10,10 +10,10 @@ StaticSprite::~StaticSprite(){
 	
 }
 
-StaticSprite::StaticSprite(const std::string& name) : Sprite(name){
+StaticSprite::StaticSprite(const std::string& name) : Sprite(name), texture(0){
 }
 
-StaticSprite::StaticSprite(const std::string &name, const std::string &filename) : Sprite(name){
+StaticSprite::StaticSprite(const std::string &name, const std::string &filename) : Sprite(name), texture(0){
     this->setTexture(resourceManager->addTexture(filename));
 }
 

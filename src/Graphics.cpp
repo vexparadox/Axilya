@@ -9,7 +9,7 @@
 //
 
 #include "headers/Graphics.hpp"
-#include "headers/Runner.hpp"
+#include "headers/AXWindow.hpp"
 #include "headers/SDL2_gfxPrimitives.h"
 namespace Graphics{
     //TRIANGLES
@@ -22,20 +22,20 @@ namespace Graphics{
     }
 
     void drawPoint(const Math::Vector2D &v){
-        SDL_RenderDrawPoint(Runner::renderer, v.x, v.y);
+        SDL_RenderDrawPoint(AXWindow::renderer, v.x, v.y);
     }
 
     void drawTriangle(float x1, float y1, float x2, float y2, float x3, float y3){
-        filledTrigonRGBA(Runner::renderer, x1, y1, x2, y2, x3, y3,
-            Runner::renderColour.getR(),
-            Runner::renderColour.getG(),
-            Runner::renderColour.getB(),
-            Runner::renderColour.getA());
+        filledTrigonRGBA(AXWindow::renderer, x1, y1, x2, y2, x3, y3,
+            AXWindow::renderColour.getR(),
+            AXWindow::renderColour.getG(),
+            AXWindow::renderColour.getB(),
+            AXWindow::renderColour.getA());
     }
 
     //lines
     void drawLine(float x, float y, float x2, float y2, float width){
-        SDL_RenderDrawLine(Runner::renderer, x, y, x2, y2);
+        SDL_RenderDrawLine(AXWindow::renderer, x, y, x2, y2);
     }
     void drawLine(float x, float y, float x2, float y2){
         drawLine(x, y, x2, y2, 0);
@@ -56,7 +56,7 @@ namespace Graphics{
         rect.y = y;
         rect.w = w;
         rect.h = h;
-        SDL_RenderFillRect(Runner::renderer, &rect);
+        SDL_RenderFillRect(AXWindow::renderer, &rect);
     }
 
     void drawRectCenter(float x, float y, float w, float h){
@@ -99,11 +99,11 @@ namespace Graphics{
     }
     
     void drawEllipse(float x, float y, float xR, float yR){
-        filledEllipseRGBA(Runner::renderer, x, y, xR, yR, 
-        Runner::renderColour.getR(),
-        Runner::renderColour.getG(),
-        Runner::renderColour.getB(),
-        Runner::renderColour.getA());
+        filledEllipseRGBA(AXWindow::renderer, x, y, xR, yR, 
+        AXWindow::renderColour.getR(),
+        AXWindow::renderColour.getG(),
+        AXWindow::renderColour.getB(),
+        AXWindow::renderColour.getA());
     }
 
     void drawEllipseCenter(float x, float y, float xR, float yR){
@@ -120,7 +120,7 @@ namespace Graphics{
         
     //BACKGROUNDS
     void setBackground(float r, float g, float b, float a){
-        Runner::backgroundColour.set(r, g, b, a);
+        AXWindow::backgroundColour.set(r, g, b, a);
     }
     
     void setBackground(float r, float g, float b){
@@ -163,28 +163,28 @@ namespace Graphics{
     
     //FILLS
     void fill(const Graphics::Colour &c){
-        Runner::renderColour.set(c.getR(), c.getG(), c.getB(), c.getA());
-        SDL_SetRenderDrawColor(Runner::renderer, c.getR(), c.getG(), c.getB(), c.getA());
+        AXWindow::renderColour.set(c.getR(), c.getG(), c.getB(), c.getA());
+        SDL_SetRenderDrawColor(AXWindow::renderer, c.getR(), c.getG(), c.getB(), c.getA());
     }
     
     void fill(const float &rgb){
-        Runner::renderColour.set(rgb, rgb, rgb, 255);
-        SDL_SetRenderDrawColor(Runner::renderer, rgb, rgb, rgb, 255);
+        AXWindow::renderColour.set(rgb, rgb, rgb, 255);
+        SDL_SetRenderDrawColor(AXWindow::renderer, rgb, rgb, rgb, 255);
     }
     
     void fill(const float &r, const float &g, const float &b, const float &a){
-        Runner::renderColour.set(r, g, b, a);
-        SDL_SetRenderDrawColor(Runner::renderer, r, g, b, a);
+        AXWindow::renderColour.set(r, g, b, a);
+        SDL_SetRenderDrawColor(AXWindow::renderer, r, g, b, a);
     }
     
     void fill(const float &r, const float &g, const float &b){
-        Runner::renderColour.set(r, g, b, 255);
-        SDL_SetRenderDrawColor(Runner::renderer, r, g, b, 255);
+        AXWindow::renderColour.set(r, g, b, 255);
+        SDL_SetRenderDrawColor(AXWindow::renderer, r, g, b, 255);
     }
     
     void clearFill(){
-        Runner::renderColour.set(255, 255, 255, 255);
-        SDL_SetRenderDrawColor(Runner::renderer, 255, 255, 255, 255);
+        AXWindow::renderColour.set(255, 255, 255, 255);
+        SDL_SetRenderDrawColor(AXWindow::renderer, 255, 255, 255, 255);
     }
 
 }

@@ -5,14 +5,15 @@
 #include <algorithm>
 #include "World.hpp"
 #include "pugixml.hpp"
+#include "Math.h"
 
 class Entity;
 class Transform;
 class Scene{
     //the vector of entities
     std::vector<Entity*> entities;
-    World* world = 0;
-    Entity* gameMaster = 0;
+    World* world;
+    Entity* gameMaster;
     Math::Vector2D renderOffset;
     std::unordered_map<std::string, Entity*> uMap;
 public:

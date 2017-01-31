@@ -25,7 +25,6 @@
 		C2A6C1431E3E54BE00683423 /* Renderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2A6C1251E3E54BE00683423 /* Renderer.cpp */; };
 		C2A6C1441E3E54BE00683423 /* ResourceManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2A6C1261E3E54BE00683423 /* ResourceManager.cpp */; };
 		C2A6C1451E3E54BE00683423 /* RigidBody.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2A6C1271E3E54BE00683423 /* RigidBody.cpp */; };
-		C2A6C1461E3E54BE00683423 /* Runner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2A6C1281E3E54BE00683423 /* Runner.cpp */; };
 		C2A6C1471E3E54BE00683423 /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2A6C1291E3E54BE00683423 /* Scene.cpp */; };
 		C2A6C1481E3E54BE00683423 /* SDL2_gfxPrimitives.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2A6C12A1E3E54BE00683423 /* SDL2_gfxPrimitives.cpp */; };
 		C2A6C1491E3E54BE00683423 /* Sprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2A6C12B1E3E54BE00683423 /* Sprite.cpp */; };
@@ -39,6 +38,7 @@
 		C2A6C1511E3E54BE00683423 /* Utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2A6C1331E3E54BE00683423 /* Utils.cpp */; };
 		C2A6C1521E3E54BE00683423 /* World.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2A6C1341E3E54BE00683423 /* World.cpp */; };
 		C2CBB3C01E3E6ADC00A89579 /* Vector2D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2CBB3BF1E3E6ADC00A89579 /* Vector2D.cpp */; };
+		C2F01D0A1E3F792F00AAC2E0 /* AXWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2F01D091E3F792F00AAC2E0 /* AXWindow.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,7 +61,6 @@
 		C2A6C1251E3E54BE00683423 /* Renderer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Renderer.cpp; path = src/Renderer.cpp; sourceTree = "<group>"; };
 		C2A6C1261E3E54BE00683423 /* ResourceManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = ResourceManager.cpp; path = src/ResourceManager.cpp; sourceTree = "<group>"; };
 		C2A6C1271E3E54BE00683423 /* RigidBody.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = RigidBody.cpp; path = src/RigidBody.cpp; sourceTree = "<group>"; };
-		C2A6C1281E3E54BE00683423 /* Runner.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Runner.cpp; path = src/Runner.cpp; sourceTree = "<group>"; };
 		C2A6C1291E3E54BE00683423 /* Scene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Scene.cpp; path = src/Scene.cpp; sourceTree = "<group>"; };
 		C2A6C12A1E3E54BE00683423 /* SDL2_gfxPrimitives.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = SDL2_gfxPrimitives.cpp; path = src/SDL2_gfxPrimitives.cpp; sourceTree = "<group>"; };
 		C2A6C12B1E3E54BE00683423 /* Sprite.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Sprite.cpp; path = src/Sprite.cpp; sourceTree = "<group>"; };
@@ -75,6 +74,8 @@
 		C2A6C1331E3E54BE00683423 /* Utils.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Utils.cpp; path = src/Utils.cpp; sourceTree = "<group>"; };
 		C2A6C1341E3E54BE00683423 /* World.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = World.cpp; path = src/World.cpp; sourceTree = "<group>"; };
 		C2CBB3BF1E3E6ADC00A89579 /* Vector2D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Vector2D.cpp; path = src/Vector2D.cpp; sourceTree = "<group>"; };
+		C2E92B721E40B0FD002434EA /* AXWindow.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = AXWindow.cpp; path = src/AXWindow.cpp; sourceTree = "<group>"; };
+		C2F01D091E3F792F00AAC2E0 /* AXWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AXWindow.cpp; path = src/AXWindow.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +93,7 @@
 		C2A6C1041E3E546C00683423 = {
 			isa = PBXGroup;
 			children = (
+				C2E92B721E40B0FD002434EA /* AXWindow.cpp */,
 				C2A6C1171E3E54BE00683423 /* AnimatedSprite.cpp */,
 				C2A6C1181E3E54BE00683423 /* AXString.cpp */,
 				C2A6C1191E3E54BE00683423 /* BaseCore.cpp */,
@@ -109,7 +111,7 @@
 				C2A6C1251E3E54BE00683423 /* Renderer.cpp */,
 				C2A6C1261E3E54BE00683423 /* ResourceManager.cpp */,
 				C2A6C1271E3E54BE00683423 /* RigidBody.cpp */,
-				C2A6C1281E3E54BE00683423 /* Runner.cpp */,
+				C2F01D091E3F792F00AAC2E0 /* AXWindow.cpp */,
 				C2A6C1291E3E54BE00683423 /* Scene.cpp */,
 				C2A6C12A1E3E54BE00683423 /* SDL2_gfxPrimitives.cpp */,
 				C2A6C12B1E3E54BE00683423 /* Sprite.cpp */,
@@ -211,6 +213,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2F01D0A1E3F792F00AAC2E0 /* AXWindow.cpp in Sources */,
 				C2A6C1351E3E54BE00683423 /* AnimatedSprite.cpp in Sources */,
 				C2A6C1361E3E54BE00683423 /* AXString.cpp in Sources */,
 				C2A6C1371E3E54BE00683423 /* BaseCore.cpp in Sources */,
@@ -229,7 +232,6 @@
 				C2A6C1431E3E54BE00683423 /* Renderer.cpp in Sources */,
 				C2A6C1441E3E54BE00683423 /* ResourceManager.cpp in Sources */,
 				C2A6C1451E3E54BE00683423 /* RigidBody.cpp in Sources */,
-				C2A6C1461E3E54BE00683423 /* Runner.cpp in Sources */,
 				C2A6C1471E3E54BE00683423 /* Scene.cpp in Sources */,
 				C2A6C1481E3E54BE00683423 /* SDL2_gfxPrimitives.cpp in Sources */,
 				C2A6C1491E3E54BE00683423 /* Sprite.cpp in Sources */,

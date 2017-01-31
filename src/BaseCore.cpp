@@ -7,31 +7,39 @@
 //
 
 #include "headers/BaseCore.hpp"
-#include "headers/Runner.hpp"
+#include "headers/AXWindow.hpp"
 
-SDL_Window* BaseCore::getWindow(){
-	return Runner::getWindow();
+BaseCore::BaseCore(){
+    resourceManager = ResourceManager::getInstance();
+    prefabManager = PrefabManager::getInstance();
 }
+
 
 BaseCore::~BaseCore(){
+
 }
 
+SDL_Window* BaseCore::getWindow(){
+	return AXWindow::getWindow();
+}
+
+
 void BaseCore::exitCalled(){
-	Runner::shutdown();
+	AXWindow::shutdown();
 }
 
 int BaseCore::windowHeight(){
-	return Runner::getHeight();
+	return AXWindow::getHeight();
 }
 
 int BaseCore::windowWidth(){
-	return Runner::getWidth();
+	return AXWindow::getWidth();
 }
 
 int BaseCore::displayWidth(){
-	return Runner::getDisplayWidth();
+	return AXWindow::getDisplayWidth();
 }
 
 int BaseCore::displayHeight(){
-	return Runner::getDisplayHeight();
+	return AXWindow::getDisplayHeight();
 }

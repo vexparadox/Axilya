@@ -15,10 +15,10 @@
 class Runner;
 class BaseCore{
 protected:
-    BaseCore(){};
+    BaseCore();
     BaseCore(BaseCore const&){};
-    ResourceManager* resourceManager = ResourceManager::getInstance();
-    PrefabManager* prefabManager = PrefabManager::getInstance();
+    ResourceManager* resourceManager;
+    PrefabManager* prefabManager;
 public:
     virtual ~BaseCore();
     virtual void draw(){};

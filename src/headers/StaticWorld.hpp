@@ -9,7 +9,7 @@
 #include "World.hpp"
 
 class StaticWorld : public World {
-    Texture* texture = 0;
+    Texture* texture;
     ResourceManager* resourceManager = ResourceManager::getInstance();
 public:
     StaticWorld();

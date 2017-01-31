@@ -3,7 +3,7 @@
 //
 
 #include "headers/StaticWorld.hpp"
-#include "headers/Runner.hpp"
+#include "headers/AXWindow.hpp"
 
 StaticWorld::StaticWorld() {
 
@@ -23,7 +23,7 @@ void StaticWorld::loadTexture(Texture *t) {
 
 void StaticWorld::draw() {
     if(texture) {
-        texture->getImage()->draw(0, 0, Runner::getWidth(), Runner::getHeight());
+        texture->getImage()->draw(0, 0, AXWindow::getWidth(), AXWindow::getHeight());
     }
 }
 

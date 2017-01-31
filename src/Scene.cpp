@@ -1,9 +1,9 @@
 #include "headers/Entity.hpp"
-#include "headers/Runner.hpp"
+#include "headers/AXWindow.hpp"
 #include "headers/Scene.hpp"
 #include "headers/Transform.hpp"
 
-Scene::Scene(){
+Scene::Scene() : world(0), gameMaster(0){
 }
 
 Scene::~Scene(){

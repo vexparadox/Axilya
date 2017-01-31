@@ -1,10 +1,12 @@
 #include "headers/Tile.hpp"
 
-Tile::Tile(int textureID) {
+Tile::Tile(int textureID) : texture(0), scene(0) {
+    resourceManager = ResourceManager::getInstance();
     texture = resourceManager->getTexture(textureID);
 }
 
-Tile::Tile(Texture* texture){
+Tile::Tile(Texture* texture) : texture(0), scene(0){
+    resourceManager = ResourceManager::getInstance();
     if(texture){
         this->texture = texture;
     }

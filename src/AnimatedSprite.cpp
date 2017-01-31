@@ -8,7 +8,7 @@ AnimatedSprite::~AnimatedSprite(){
     
 }
 
-AnimatedSprite::AnimatedSprite(const std::string &name, int frameLength) : Sprite(name), frameLength(frameLength){
+AnimatedSprite::AnimatedSprite(const std::string &name, int frameLength) : Sprite(name), frameLength(frameLength), frameCount(0), texturePosition(0){
 
 }
 

@@ -39,10 +39,10 @@ Tile* TiledWorld::getTileType(char key){
 }
 
 void TiledWorld::draw(){
-    for(auto& t : worldMatrix){
+//    for(auto& t : worldMatrix){
         //need to pass the x, y to the tile to draw
        // t->draw(w, h)
-    }
+//    }
 }
 
 void TiledWorld::update(){

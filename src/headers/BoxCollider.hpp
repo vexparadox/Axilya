@@ -2,7 +2,7 @@
 #define BoxCollider_h
 
 #include "Collider.hpp"
-#include "Runner.hpp"
+#include "AXWindow.hpp"
 class Entity;
 class BoxCollider : public Collider{
 public:

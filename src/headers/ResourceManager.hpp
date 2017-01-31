@@ -20,7 +20,7 @@ class ResourceManager{
     std::unordered_map<std::string, Texture*> textureMap;
     static ResourceManager* instance;
     ~ResourceManager();
-    public:
+public:
     static ResourceManager* getInstance();
     //add a new texture, will return -1 or new id
     int addTexture(const std::string&);
@@ -28,8 +28,8 @@ class ResourceManager{
     bool isTextureLoaded(const std::string&);
     //gets a texture based on an id, allows 1 step access
 
-    Texture* getTexture(int i);
-    Texture* getTexture(const std::string& s);
+    Texture* getTexture(int);
+    Texture* getTexture(const std::string&);
 };
 
 #endif

@@ -5,9 +5,9 @@
 #include "TileComponent.hpp"
 class Texture;
 class Tile{
-    ResourceManager* resourceManager = ResourceManager::getInstance();
-    Texture* texture = 0;
-    Scene* scene = 0;
+    ResourceManager* resourceManager;
+    Texture* texture;
+    Scene* scene;
     std::vector<TileComponent*> components;
 public:
     Tile(int textureID);

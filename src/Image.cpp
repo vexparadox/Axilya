@@ -7,7 +7,7 @@
 //
 
 #include "headers/Image.hpp"
-#include "headers/Runner.hpp"
+#include "headers/AXWindow.hpp"
 
 #define STB_IMAGE_IMPLEMENTATION
 #include "headers/stb_image.h"
@@ -29,7 +29,7 @@ namespace Graphics{
     
     bool Image::loadImage(std::string nameInput){
         path = nameInput;
-        std::string temp = Runner::runPath+"data/" + nameInput;
+        std::string temp = AXWindow::runPath+"data/" + nameInput;
         const char* name = temp.c_str();
         if(!fileExists(temp)){
             return false;
@@ -57,13 +57,13 @@ namespace Graphics{
             std::cout << stbi_failure_reason() << std::endl;
             return false;
         }
-        surface = SDL_CreateRGBSurfaceWithFormatFrom(imageDataPtr, this->w, this->h, 32, 4*this->w, SDL_PIXELFORMAT_RGBA32);  
+        surface = SDL_CreateRGBSurfaceWithFormatFrom(imageDataPtr, this->w, this->h, 32, 4*this->w, SDL_PIXELFORMAT_RGBA32);
         if (surface == NULL) {
             std::cout << SDL_GetError() << std::endl;
             stbi_image_free(imageDataPtr);
             return false;
         }
-        texture = SDL_CreateTextureFromSurface(Runner::renderer, surface);
+        texture = SDL_CreateTextureFromSurface(AXWindow::renderer, surface);
         if(texture == NULL){
             std::cout << SDL_GetError() << std::endl;
             return false;
@@ -93,7 +93,7 @@ namespace Graphics{
         dest.y = y;
         dest.w = width;
         dest.h = height;
-        if(SDL_RenderCopy(Runner::renderer, this->texture, NULL, &dest) != 0){
+        if(SDL_RenderCopy(AXWindow::renderer, this->texture, NULL, &dest) != 0){
             std::cout << SDL_GetError() << std::endl;
         }
     }

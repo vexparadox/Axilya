@@ -4,10 +4,21 @@ A basic 2D game engine library written in C++. To see the initial production of 
 
 ## Compiling
 
-You can either run the BuildAll script, this will build the library and all examples.
+You can either run the make script, this will build the library and all examples.
 
 ```Shell
-	sh BuildAll.sh
+	make all
+```
+
+To just install use:
+
+```Shell
+	make install
+```
+
+To just build the library use:
+```Shell
+	make lib
 ```
 
 You can also build just the library using xCode using the project file included.
