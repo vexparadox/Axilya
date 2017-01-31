@@ -3,7 +3,7 @@ ifeq ($(OS), Linux)
 	FLAGS += `pkg-config --cflags --libs sdl2`
 else
 ifeq ($(OS), Darwin)
-	FLAGS += -F/Library/Frameworks -framework SDL2
+	FLAGS += -F/Library/Frameworks -framework SDL2 -L/usr/local/lib -I/usr/local/include/
 endif
 endif
 all:
