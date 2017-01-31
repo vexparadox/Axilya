@@ -10,7 +10,7 @@
 #define Poly_h
 #include <vector>
 #include "Vector2D.h"
-namespace Graphics{
+namespace AXGraphics{
 class Polygon{
 private:
     std::vector<Math::Vector2D> v;

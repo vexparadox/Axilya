@@ -10,7 +10,7 @@
 #define Triangle_h
 #include "Vector2D.h"
 
-namespace Graphics{
+namespace AXGraphics{
     class Triangle{
         Math::Vector2D v1, v2, v3;
     public:

@@ -1,20 +1,20 @@
 //
-//  Graphics.hpp
+//  AXGraphics.hpp
 //  Axilya
 //
 //  Created by William Meaton on 07/12/2015.
 //  Copyright © 2015 WillMeaton.uk. All rights reserved.
 //
 
-#ifndef Graphics_hpp
-#define Graphics_hpp
+#ifndef AXGraphics_hpp
+#define AXGraphics_hpp
 
 #include "Types.h"
 #include <SDL2/SDL.h>
 #include <vector>
 #include "Math.h"
 #include "glad.h"
-namespace Graphics{
+namespace AXGraphics{
     //Triangles
     void drawTriangle(const Triangle &t);
     void drawTriangle(const Math::Vector2D &v1, const Math::Vector2D &v2, const Math::Vector2D &v3);
@@ -62,7 +62,7 @@ namespace Graphics{
     // void translate(const Math::Vector3D& v);
 
     //colours
-    void fill(const Graphics::Colour &c);
+    void fill(const AXGraphics::Colour &c);
     void fill(const float &rgb);
     void fill(const float &r, const float &g, const float &b, const float &a);
     void fill(const float &r, const float &g, const float &b);
@@ -70,4 +70,4 @@ namespace Graphics{
 }
 
 
-#endif /* Graphics_hpp */
+#endif /* AXGraphics_hpp */

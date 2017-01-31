@@ -65,8 +65,8 @@ public:
     //set and get the colour
     void setColour(float r, float g, float b, float a);
     void setColour(float r, float g, float b);
-    void setColour(const Graphics::Colour &c);
-    const Graphics::Colour& getColour();
+    void setColour(const AXGraphics::Colour &c);
+    const AXGraphics::Colour& getColour();
     //set and get scene
     void setScene(Scene*);
     Scene* getScene();

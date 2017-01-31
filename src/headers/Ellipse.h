@@ -11,7 +11,7 @@
 #include "Vector2D.h"
 #include "Shape.h"
 
-namespace Graphics{
+namespace AXGraphics{
     class Ellipse : public Shape{
     private:
         //x radius and y radius

@@ -30,8 +30,8 @@ public:
     static std::string runPath;
 
     //the RGBA of the next screen flush IE the background
-    static Graphics::Colour backgroundColour;
-    static Graphics::Colour renderColour;
+    static AXGraphics::Colour backgroundColour;
+    static AXGraphics::Colour renderColour;
     
     //the creation of the AXWindow
     static int init(float wWidth, float wHeight, int windowStyle, const char* title);

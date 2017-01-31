@@ -11,7 +11,7 @@
 
 #include "Math.h"
 #include "Shape.h"
-namespace Graphics{
+namespace AXGraphics{
     class Rect : public Shape{
     public:
         Rect(const Math::Vector2D &v1, float w, float h): Shape(v1, Math::Vector2D(w, h)){

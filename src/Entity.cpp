@@ -208,7 +208,7 @@ void Entity::addCollider(Collider* c){
         c->setOwner(this);
         //this is temporary, it was causing a seg fault if set in the BoxCollider constructor 
         //because owner was not set until after the creation of the collider
-        c->bounds = new Graphics::Rect(transform->getPos(), transform->getSize());
+        c->bounds = new AXGraphics::Rect(transform->getPos(), transform->getSize());
         c->center = Math::Vector2D(transform->getPos()+(transform->getSize()/2));
         c->halfSize = transform->getSize()/2;
         this->collider = c;
@@ -273,10 +273,10 @@ void Entity::setColour(float r, float g, float b){
     renderer->setColour(r, g, b, 255);
 }
 
-void Entity::setColour(const Graphics::Colour& c){
+void Entity::setColour(const AXGraphics::Colour& c){
     renderer->setColour(c.getR(), c.getG(), c.getB(), c.getA());
 }
 
-const Graphics::Colour& Entity::getColour(){
+const AXGraphics::Colour& Entity::getColour(){
     return renderer->getColour();
 }

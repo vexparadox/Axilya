@@ -37,7 +37,7 @@ namespace Math {
         return Math::isInsideQuad(point.x, point.y, v.x, v.y, w, h);
     }
     
-    bool isInsideQuad(const Vector2D &point, const Graphics::Rect &r){
+    bool isInsideQuad(const Vector2D &point, const AXGraphics::Rect &r){
         return Math::isInsideQuad(point.x, point.y, r.getX(), r.getY(), r.getWidth(), r.getHeight());
     }
     
@@ -55,7 +55,7 @@ namespace Math {
         return (det / 2.0f);
     }
     
-    float signVector(const Graphics::Triangle &t){
+    float signVector(const AXGraphics::Triangle &t){
         return signVector(t.getV1(), t.getV2(), t.getV3());
     }
     
@@ -67,7 +67,7 @@ namespace Math {
         return ((b1 == b2) && (b2 == b3));
     }
     
-    bool isInsideTriangle(const Vector2D &point, const Graphics::Triangle &t){
+    bool isInsideTriangle(const Vector2D &point, const AXGraphics::Triangle &t){
         return isInsideTriangle(point, t.getV1(), t.getV2(), t.getV3());
     }
     
@@ -76,7 +76,7 @@ namespace Math {
         //(((x-cp.x)^2)/rX^2 + ((y-cp.y)^2)/rY^2) <= 1
         return  ( (pow((point.x-cp.x),2)/pow(xR,2)) + (pow((point.y-cp.y),2)/pow(yR,2)) ) <=1;
     }
-    bool isInsideEllipse(const Vector2D &point, const Graphics::Ellipse &e)
+    bool isInsideEllipse(const Vector2D &point, const AXGraphics::Ellipse &e)
     {
         //(((x-cp.x)^2)/rX^2 + ((y-cp.y)^2)/rY^2) <= 1
         return  ( (pow((point.x-e.getVec().x),2)/pow(e.getSize().x,2)) + (pow((point.y-e.getVec().y),2)/pow(e.getSize().y,2)) ) <=1;

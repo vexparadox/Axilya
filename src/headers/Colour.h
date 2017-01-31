@@ -8,7 +8,7 @@
 
 #ifndef Colour_h
 #define Colour_h
-namespace Graphics{
+namespace AXGraphics{
     class Colour{
         //#todo add static presets
         float r, g, b, a;

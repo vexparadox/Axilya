@@ -30,16 +30,16 @@ namespace Math {
     //returns the sign of the vectors
     float signVector(float x1, float y1, float x2, float y2, float x3, float y3);
     float signVector(const Vector2D &v1, const Vector2D &v2, const Vector2D &v3);
-    float signVector(const Graphics::Triangle &t);
+    float signVector(const AXGraphics::Triangle &t);
     
     //returns if point is inside of the triangle v1, v2, v3
     bool isInsideTriangle(const Vector2D &point, const Vector2D &v1, const Vector2D &v2, const Vector2D &v3);
-    bool isInsideTriangle(const Vector2D &point, const Graphics::Triangle &t);
+    bool isInsideTriangle(const Vector2D &point, const AXGraphics::Triangle &t);
     
     //returns if point is inside of the circles
     bool isInsideEllipse(const Vector2D &point, const Vector2D &cp, float xR, float yR);
     bool isInsideEllipse(const Vector2D &point, const Vector2D &cp, float r);
-    bool isInsideEllipse(const Vector2D &point, const Graphics::Ellipse &e);
+    bool isInsideEllipse(const Vector2D &point, const AXGraphics::Ellipse &e);
     
     //returns the distance between v1 and v2
     float vectorDistance(const Vector2D& v1, const Vector2D& v2);

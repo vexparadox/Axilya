@@ -6,7 +6,7 @@
 #include "headers/Entity.hpp"
 
 Renderer::Renderer(){
-     this->colour = Graphics::Colour(0, 0, 0, 255);
+     this->colour = AXGraphics::Colour(0, 0, 0, 255);
 }
 
 Renderer::~Renderer(){
@@ -43,14 +43,14 @@ void Renderer::draw(const Math::Vector2D& renderOffset) {
     Math::Vector2D size = owner->getTransform()->getSize();
     if(currentSprite){
         //make sure the colour is transparent
-        Graphics::fill(255,255,255, 0);
+        AXGraphics::fill(255,255,255, 0);
         currentSprite->draw(position.x, position.y, size.x, size.y);
     }else{
-        Graphics::fill(colour);
+        AXGraphics::fill(colour);
         if(owner->getDrawType() == AX_DRAW_RECT){
-            Graphics::drawRect(position.x, position.y, size.x, size.y);
+            AXGraphics::drawRect(position.x, position.y, size.x, size.y);
         }else if(owner->getDrawType() == AX_DRAW_ELLIPSE){
-            Graphics::drawEllipse(position.x+size.x/2, position.y+size.y/2, size.x/2, size.y/2);
+            AXGraphics::drawEllipse(position.x+size.x/2, position.y+size.y/2, size.x/2, size.y/2);
         }
     }
 }
@@ -61,7 +61,7 @@ void Renderer::setOwner(Entity *owner) {
     }
 }
 
-Graphics::Colour& Renderer::getColour() {
+AXGraphics::Colour& Renderer::getColour() {
     return colour;
 }
 
@@ -73,7 +73,7 @@ void Renderer::setColour(float r, float g, float b){
     this->colour.set(r, g, b, 255);
 }
 
-void Renderer::setColour(const Graphics::Colour& c){
+void Renderer::setColour(const AXGraphics::Colour& c){
     this->colour.set(c.getR(), c.getG(), c.getB(), c.getA());
 }
 

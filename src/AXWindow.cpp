@@ -8,8 +8,8 @@
 
 #include "headers/AXWindow.hpp"
 //render colours
-Graphics::Colour AXWindow::backgroundColour;
-Graphics::Colour AXWindow::renderColour;
+AXGraphics::Colour AXWindow::backgroundColour;
+AXGraphics::Colour AXWindow::renderColour;
 //store the display and window sizes
 int AXWindow::windowWidth = 0;
 int AXWindow::windowHeight = 0;
@@ -58,8 +58,8 @@ int AXWindow::init(float wWidth, float wHeight, int windowStyle, const char* tit
         displayWidth = mode.w;
         displayHeight = mode.h;
     }else{
-        return -1;
         std::cout << SDL_GetError() << std::endl;
+        return -1;
     }
     //if it's <0 default to the display size
     if(wWidth < 0){

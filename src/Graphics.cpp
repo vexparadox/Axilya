@@ -1,5 +1,5 @@
 //
-//  Graphics.cpp
+//  AXGraphics.cpp
 //  Axilya
 //
 //  Created by William Meaton on 07/12/2015.
@@ -11,7 +11,7 @@
 #include "headers/Graphics.hpp"
 #include "headers/AXWindow.hpp"
 #include "headers/SDL2_gfxPrimitives.h"
-namespace Graphics{
+namespace AXGraphics{
     //TRIANGLES
     void drawTriangle(Triangle& t){
         drawTriangle(t.getV1(), t.getV2(), t.getV3());
@@ -162,7 +162,7 @@ namespace Graphics{
     
     
     //FILLS
-    void fill(const Graphics::Colour &c){
+    void fill(const AXGraphics::Colour &c){
         AXWindow::renderColour.set(c.getR(), c.getG(), c.getB(), c.getA());
         SDL_SetRenderDrawColor(AXWindow::renderer, c.getR(), c.getG(), c.getB(), c.getA());
     }

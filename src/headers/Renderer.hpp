@@ -16,7 +16,7 @@ class Renderer {
     Sprite* currentSprite = 0;
     Entity* owner = 0;
     //set a colour to be used in place of a sprite
-    Graphics::Colour colour;
+    AXGraphics::Colour colour;
 public:
     Renderer();
     ~Renderer();
@@ -25,10 +25,10 @@ public:
     void setSprite(Sprite*);
     void setSprite(const std::string&);
     Sprite* getCurrentSprite();
-    Graphics::Colour& getColour();
+    AXGraphics::Colour& getColour();
     void setColour(float, float, float, float);
     void setColour(float, float, float);
-    void setColour(const Graphics::Colour&);
+    void setColour(const AXGraphics::Colour&);
     void draw(const Math::Vector2D&);
     Renderer* clone();
 };
