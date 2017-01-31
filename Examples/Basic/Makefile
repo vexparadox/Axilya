@@ -1,6 +1,6 @@
 OS = $(shell uname)
 ifeq ($(OS), Linux)
-	FLAGS += 
+	FLAGS += `pkg-config --cflags --libs sdl2`
 else
 ifeq ($(OS), Darwin)
 	FLAGS += -framework SDL2
