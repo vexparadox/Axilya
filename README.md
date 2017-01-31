@@ -21,4 +21,10 @@ To just build the library use:
 	make lib
 ```
 
+To remove the install use:
+
+```Shell
+	make cleaninstall
+```
+
 You can also build just the library using xCode using the project file included.
