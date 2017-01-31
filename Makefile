@@ -35,18 +35,18 @@ install: lib
 	@echo "Copy complete"
 	@echo "Install complete"
 
-.PHONY: examples
-.PHONY: clean
+.PHONY: clean cleaninstall examples
 examples:
 	@echo "Building examples..."
 	@cd ./Examples/ && make
 
 clean:
-	@echo "Removing libraries and headers"
-	@rm -rf /usr/local/include/Axilya 2> /dev/null
-	@rm -f /usr/local/lib/libAxilya.a 2> /dev/null
-	@echo "Removed."
 	@echo "Cleaning build files"
 	@rm -rf ./Build
 	@echo "Cleaning examples"
 	@cd ./Examples/ && make clean
+cleaninstall:
+	@echo "Removing libraries and headers"
+	@rm -rf /usr/local/include/Axilya 2> /dev/null
+	@rm -f /usr/local/lib/libAxilya.a 2> /dev/null
+	@echo "Install removed."
