@@ -3,7 +3,7 @@ ifeq ($(OS), Linux)
 	CPFLAGS += 
 else
 ifeq ($(OS), Darwin)
-	CPFLAGS += -mmacosx-version-min=10.9
+	CPFLAGS += -mmacosx-version-min=10.9 -F/Library/Frameworks/
 endif
 endif
 temp = $(wildcard ./src/*.cpp)
