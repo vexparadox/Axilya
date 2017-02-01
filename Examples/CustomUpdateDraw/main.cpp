@@ -16,7 +16,7 @@ void update(){
 
 void draw(){
     //using the AXGraphics namespace you can draw raw shapes, lines and points 
-    Graphics::drawRect(x, 50, 50, 50);
+    AXGraphics::drawRect(x, 50, 50, 50);
 }
 
 int main(int argc, char *argv[])

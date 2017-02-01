@@ -6,3 +6,4 @@ clean:
 	@cd ./Basic && make clean
 	@cd ./BasicComponent && make clean
 	@cd ./CustomUpdateDraw && make clean
+	@cd ./xCodeExample && make clean
