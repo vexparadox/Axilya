@@ -2,8 +2,10 @@ all:
 	@cd ./Basic && make
 	@cd ./BasicComponent && make
 	@cd ./CustomUpdateDraw && make
+	@cd ./PongGame && make
 clean:
 	@cd ./Basic && make clean
 	@cd ./BasicComponent && make clean
 	@cd ./CustomUpdateDraw && make clean
 	@cd ./xCodeExample && make clean
+	@cd ./PongGame && make clean
