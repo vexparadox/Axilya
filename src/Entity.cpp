@@ -101,8 +101,9 @@ void Entity::handle_eptr(std::exception_ptr eptr){
 void Entity::moveEntity(Math::Vector2D v){
     if(collider){
         if(collider->screenBound){
-            if(collider->worldCollideCheck(v)){
-                this->onWorldCollision();
+            int dir = collider->worldCollideCheck(v);
+            if(dir){
+                this->onWorldCollision(dir);
             }
         }
         scene->collideCheck(this, v);
@@ -140,10 +141,10 @@ void Entity::destroy(){
     this->dead = true;
 }
 
-void Entity::onWorldCollision(){
+void Entity::onWorldCollision(int direction){
     //When a collision with the world happens
     for(auto& c : components){
-        c->onWorldCollision();
+        c->onWorldCollision(direction);
     }
 
 }

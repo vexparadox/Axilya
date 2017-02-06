@@ -17,7 +17,6 @@
 //components
 #include "Components.h"
 #include "Renderer.hpp"
-#include "EntityDrawTypes.hpp"
 class Scene;
 class Entity{
     //get an instance of the resourcemanager
@@ -83,7 +82,7 @@ public:
     //when a collision happens
     void onCollision(Entity* e);
 
-    void onWorldCollision();
+    void onWorldCollision(int direction);
     //when a click happens
     void onClick(int mouseButton);
 

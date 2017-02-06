@@ -14,4 +14,6 @@
 #include "Collider.hpp"
 #include "BoxCollider.hpp"
 #include "CustomComponent.hpp"
+#include "CollideDirections.hpp"
+#include "EntityDrawTypes.hpp"
 #endif /* Math_h */

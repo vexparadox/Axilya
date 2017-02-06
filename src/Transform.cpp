@@ -16,6 +16,13 @@ Transform::Transform(float x, float y, float w, float h) : position(x, y), size(
     
 }
 
+void Transform::set(float x, float y, float w, float h){
+    this->position.x = x;
+    this->position.y = y;
+    this->size.x = w;
+    this->size.y = h;
+}
+
 void Transform::set(const Math::Vector2D &v, const Math::Vector2D &s){
     this->position = v;
     this->size = s;

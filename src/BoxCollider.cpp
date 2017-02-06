@@ -4,14 +4,13 @@
 BoxCollider::BoxCollider(){
 }
 
-bool BoxCollider::worldCollideCheck(Math::Vector2D& v){
-    bool hasCollided = false;
+int BoxCollider::worldCollideCheck(Math::Vector2D& v){
     //get the bounds
     Math::Vector2D position = bounds->getPosition();
     Math::Vector2D size = bounds->getSize();
-    //get the offset between the collider and the entity
-//    float xOffset = position.x - owner->getTransform()->getPos().x;
-//    float yOffset = position.y - owner->getTransform()->getPos().y;
+    //  get the offset between the collider and the entity
+    // float xOffset = position.x - owner->getTransform()->getPos().x;
+    //  float yOffset = position.y - owner->getTransform()->getPos().y;
     int screenWidth = AXWindow::getWidth()-owner->getScene()->getRenderOffset().x;
     int screenHeight = AXWindow::getHeight()-owner->getScene()->getRenderOffset().y;
     int screenWidthOrigin = -owner->getScene()->getRenderOffset().x;
@@ -19,32 +18,32 @@ bool BoxCollider::worldCollideCheck(Math::Vector2D& v){
     //if it goes out of the screen downwards
     if(position.y+size.y+v.y >= screenHeight){
         v.y = 0;
-        position.y = screenHeight - size.y;
-        hasCollided = true;
+        this->bounds->set(position.x, screenHeight - size.y, size.x, size.y);
+        owner->getTransform()->set(position.x, screenHeight - size.y, size.x, size.y);
+        return AX_COLLIDE_DOWN;
     }
     //if it goes out of the screen upwards
     if(position.y+v.y < screenHeightOrigin){
         v.y = 0;
-        position.y = screenHeightOrigin;
-        hasCollided = true;
+        this->bounds->set(position.x, screenHeightOrigin, size.x, size.y);
+        owner->getTransform()->set(position.x, screenHeightOrigin, size.x, size.y);
+        return AX_COLLIDE_UP;
     }
     //if it goes out of the screen rightways
     if(position.x+size.x+v.x >= screenWidth){
         v.x = 0;
-        position.x = screenWidth-size.x;
-        hasCollided = true;
+        this->bounds->set(screenWidth-size.x, position.y, size.x, size.y);
+        owner->getTransform()->set(screenWidth-size.x, position.y, size.x, size.y);
+        return AX_COLLIDE_RIGHT;
     }
     //if it goes out of the screen leftways
     if(position.x+v.x < screenWidthOrigin){
         v.x = 0;
-        position.x = screenWidthOrigin;
-        hasCollided = true;
+        this->bounds->set(screenWidthOrigin, position.y, size.x, size.y);
+        owner->getTransform()->set(screenWidthOrigin, position.y, size.x, size.y);
+        return AX_COLLIDE_LEFT;
     }
-    //set the players position to the corrected (NEEDS OFFSETS FOR COLLIDERS)
-    owner->getTransform()->set(position);
-    //Moves the collider to the corrected (NEEDS OFFSETS TOO)
-    this->bounds->set(position.x, position.y, size.x, size.y);
-    return hasCollided;
+    return 0;
 }
 
 bool BoxCollider::overlap(Collider* c)

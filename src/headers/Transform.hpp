@@ -28,6 +28,8 @@ public:
     * Sets the transforms parameters
     */
     void set(const Math::Vector2D &v, const Math::Vector2D &s);
+
+    void set(float x, float y, float w, float h);
     /*!
     * Sets the transforms position only
     */
