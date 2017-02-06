@@ -10,7 +10,6 @@
 RigidBody::RigidBody(bool gravity): velocity(0, 0), drag(0.5, 0.5), gravity(gravity){
     wasGrounded = false;
     isGrounded = false;
-    screenBound = true;
     maxVelocityY = 8;
     maxVelocityX = 7;
 }
@@ -22,20 +21,6 @@ void RigidBody::update(){
     this->applyDrag();
     this->applyGravity();
     this->terminalVelocity();
-    //only check if there's a collider, it's screen bound and has a velocity. Stops uneeded checks
-    if(this->owner->getCollider() && screenBound){
-        //check and correct screen
-        if(this->owner->getCollider()->worldCollideCheck(velocity)){
-            this->owner->onWorldCollision();
-        }
-    }else{
-        if(owner->getTransform()->getPos().y+owner->getTransform()->getSize().y >= AXWindow::getHeight()){
-            isGrounded = true;
-        }else{
-            isGrounded = false;
-        }
-    }
-    // move the entity (this will move the colliders too)
     this->owner->moveEntity(velocity);
 }
 
@@ -59,12 +44,16 @@ void RigidBody::terminalVelocity(){
 }
 
 void RigidBody::applyDrag(){
-    if(velocity.y > 0){
+    if(velocity.x < drag.x && velocity.x > drag.x){
+        velocity.x = 0;
+    }else if(velocity.y > 0){
         velocity.y -= drag.y;
     }else if(velocity.y < 0){
         velocity.y += drag.y;
     }
-    if(velocity.x > 0){
+    if(velocity.y < drag.y && velocity.y > drag.y){
+        velocity.y = 0;
+    }else if(velocity.x > 0){
         velocity.x -= drag.x;
     }else if(velocity.x < 0){
         velocity.x += drag.x;
@@ -72,11 +61,7 @@ void RigidBody::applyDrag(){
 }
 
 bool RigidBody::isMoving(){
-    if(velocity.x != 0 || velocity.y != 0){
-        return true;
-    }else{
-        return false;
-    }
+    return (velocity.x != 0 && velocity.y != 0);
 }
 
 void RigidBody::setGravity(bool g){
@@ -120,14 +105,6 @@ void RigidBody::setForce(float x, float y){
 
 void RigidBody::setForce(const Math::Vector2D& force){
     this->setForce(force.x, force.y);
-}
-
-void RigidBody::setScreenBound(bool b){
-    this->screenBound = b;
-}
-
-bool RigidBody::isScreenBound(){
-    return screenBound;
 }
 Component* RigidBody::clone(){
     return new RigidBody(this->gravity);

@@ -6,6 +6,7 @@
 class BallController : public CustomComponent<BallController>{
 	Math::Vector2D velocity;
 public:
+	void onCollision(Entity* e);
 	void start();
 	void update();
 };

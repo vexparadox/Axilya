@@ -34,6 +34,7 @@ int main(int argc, char *argv[])
 
     Entity* ball = new Entity("ball", AXWindow::getWidth()/2, AXWindow::getHeight()/2, 20, 20);
     ball->setColour(255, 0, 0);
+    ball->addCollider(new BoxCollider());
     ball->addComponent(new BallController());
     scene->addEntity(ball);
     //return the window run, this is where the update and draw will be called

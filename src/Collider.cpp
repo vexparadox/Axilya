@@ -2,7 +2,7 @@
 #include "headers/Collider.hpp"
 #include "headers/Entity.hpp"
 Collider::Collider(){
-    
+    screenBound = true;
 }
 
 Collider::~Collider(){
