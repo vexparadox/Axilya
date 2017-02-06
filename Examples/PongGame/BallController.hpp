@@ -4,7 +4,9 @@
 #include <Axilya/AXMain.h>
 
 class BallController : public CustomComponent<BallController>{
+	Math::Vector2D velocity;
 public:
+	void start();
 	void update();
 };
 
