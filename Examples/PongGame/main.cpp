@@ -36,6 +36,7 @@ int main(int argc, char *argv[])
     ball->setColour(255, 0, 0);
     ball->addCollider(new BoxCollider());
     ball->addComponent(new BallController());
+    ball->setDrawType(AX_DRAW_ELLIPSE);
     scene->addEntity(ball);
     //return the window run, this is where the update and draw will be called
     return AXWindow::run();
