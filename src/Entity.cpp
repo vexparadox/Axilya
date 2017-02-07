@@ -120,14 +120,21 @@ Entity* Entity::clone(){
     Entity* e = new Entity(this->name, transform->getPos(), transform->getSize());
     if(collider){
        e->addCollider(collider->clone());
+       e->getCollider()->setOwner(e);
     }
     if(rigidBody){
         e->addRigidBody(rigidBody->clone());
         e->getRigidBody()->setGravity(rigidBody->getGravity());
+        e->getRigidBody()->setOwner(e);
     }
     for(auto& c : components){
-        e->addComponent(c->clone());
+        Component* comp = c->clone();
+        comp->setOwner(e);
+        e->addComponent(comp);
     }
+    //replace old renderer
+    delete e->renderer;
+    //get the new one
     e->renderer = this->renderer->clone();
     e->renderer->setColour(this->renderer->getColour());
     e->renderer->setOwner(e);

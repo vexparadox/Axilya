@@ -21,7 +21,6 @@ class Scene;
 class Entity{
     //get an instance of the resourcemanager
     ResourceManager* resourceManager = ResourceManager::getInstance();
-    PrefabManager* prefabManager = PrefabManager::getInstance();
     //save the name of the entity
     std::string name;
     //if the entity is listed to be removed

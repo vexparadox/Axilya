@@ -82,7 +82,7 @@ Renderer* Renderer::clone(){
     for(auto it = sprites.begin(); it != sprites.end(); it++){
         a->addSprite(it->second->clone());
     }
-    a->currentSprite = this->currentSprite;
+    a->setSprite(this->currentSprite->getName());
     a->colour = this->colour;
     return a;
 }

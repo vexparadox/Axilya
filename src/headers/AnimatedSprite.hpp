@@ -6,7 +6,7 @@
 #define AnimatedSprite_hpp
 
 #include "Sprite.hpp"
-class AnimatedSprite : Sprite {
+class AnimatedSprite : public Sprite {
     //the amount of frames per image
     int frameLength;
     std::vector<Texture*> textures;
