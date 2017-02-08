@@ -1,3 +1,8 @@
+## v0.8.1
+
+- New Pong and Space Invaders examples
+- Updated Collision code
+
 ## v0.8.0
 
 - Completely moved to Library format - installs to /usr/local/
