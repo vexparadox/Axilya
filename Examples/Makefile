@@ -4,6 +4,7 @@ all:
 	@cd ./CustomUpdateDraw && make
 	@cd ./PongGame && make
 	@cd ./SpaceInvaders && make
+	@cd ./Breakout && make
 clean:
 	@cd ./Basic && make clean
 	@cd ./BasicComponent && make clean
@@ -11,3 +12,4 @@ clean:
 	@cd ./xCodeExample && make clean
 	@cd ./PongGame && make clean
 	@cd ./SpaceInvaders && make clean
+	@cd ./Breakout && make clean

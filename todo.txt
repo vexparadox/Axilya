@@ -16,6 +16,8 @@ add mouseClicked calls to basecore again
 ## colours
 Entity colours arn't filling out properly
 
+##axwindow
+add mouse curse disable
 REMEMBER
 
 CustomComponent clone doesn't copy variables
