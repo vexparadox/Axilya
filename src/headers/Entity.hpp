@@ -60,6 +60,7 @@ public:
     int getDrawType();
     //moves the transform and any colliders attached by a certain amount
     void moveEntity(Math::Vector2D v);
+    void moveEntity(float x, float y);
     //set and get the colour
     void setColour(float r, float g, float b, float a);
     void setColour(float r, float g, float b);

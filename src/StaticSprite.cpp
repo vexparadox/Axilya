@@ -24,6 +24,10 @@ void StaticSprite::draw(float x, float y, float w, float h) {
 
 }
 
+Texture* StaticSprite::getTexture(){
+	return texture;
+}
+
 void StaticSprite::setTexture(int textureID) {
     texture = resourceManager->getTexture(textureID);
 }

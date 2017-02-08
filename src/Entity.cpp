@@ -97,6 +97,9 @@ void Entity::handle_eptr(std::exception_ptr eptr){
     }
 }
 
+void Entity::moveEntity(float x, float y){
+    this->moveEntity(Math::Vector2D(x, y));
+}
 
 void Entity::moveEntity(Math::Vector2D v){
     if(collider){

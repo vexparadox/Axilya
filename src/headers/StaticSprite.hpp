@@ -14,6 +14,7 @@ public:
     ~StaticSprite();
     void draw(float x, float y, float w, float h);
     void setTexture(int textureID);
+    Texture* getTexture();
     Sprite* clone();
 };
 
