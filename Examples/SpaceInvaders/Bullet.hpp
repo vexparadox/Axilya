@@ -8,6 +8,7 @@ public:
 	PlayerController* pc;
 	void update();
 	void onCollision(Entity* e);
-	void onWorldCollision();
+	void onWorldCollision(int direction);
+	void onDestroy();
 };
 #endif

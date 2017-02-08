@@ -5,12 +5,14 @@ void Bullet::update(){
 }
 
 void Bullet::onCollision(Entity* e){
-	pc->bulletDead();
 	e->destroy();
 	owner->destroy();
 }
 
-void Bullet::onWorldCollision(){
-	pc->bulletDead();
+void Bullet::onWorldCollision(int direction){
 	owner->destroy();
+}
+
+void Bullet::onDestroy(){
+	pc->bulletDead();
 }
