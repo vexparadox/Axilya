@@ -33,6 +33,9 @@ void BallController::onCollision(Entity* e){
 		//knock it right
 		velocity.x = -2;
 	}
+	if(e->getName() != "player"){
+		e->destroy();
+	}
 }
 
 void BallController::onWorldCollision(int direction){
