@@ -109,10 +109,10 @@ void Entity::moveEntity(Math::Vector2D v){
                 this->onWorldCollision(dir);
             }
         }
-        scene->collideCheck(this, v);
         v += transform->getPos();
         collider->getBounds()->set(v, collider->getBounds()->getSize());
         transform->set(v);
+        scene->collideCheck(this, v);
     }else{
         v += transform->getPos();
         transform->set(v);

@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
     ball->setColour(200, 70, 0);
     ball->addCollider(new BoxCollider());
     ball->addComponent(new BallController());
-    ball->setDrawType(AX_DRAW_ELLIPSE);
+    // ball->setDrawType(AX_DRAW_ELLIPSE);
     scene->addEntity(ball);
 
     //the game master (keeps track of score)
