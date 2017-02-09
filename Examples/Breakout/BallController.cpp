@@ -39,7 +39,7 @@ void BallController::onWorldCollision(int direction){
 	switch(direction){
 		case AX_COLLIDE_DOWN:
 			hasStarted = false;
-			owner->getTransform()->set(AXWindow::getWidth()/2, AXWindow::getHeight()/2);
+			owner->getTransform()->set(50, AXWindow::getHeight()/2);
 			break;
 		case AX_COLLIDE_UP:
 			velocity.y *= -1;

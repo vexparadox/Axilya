@@ -195,6 +195,22 @@ int AXWindow::getHeight(){
     return windowHeight;
 }
 
+void AXWindow::hideCursor(bool value){
+    if(!value){
+        SDL_ShowCursor(SDL_ENABLE);
+    }else{
+        SDL_ShowCursor(SDL_DISABLE);
+    }
+}
+
+void AXWindow::lockCursor(bool value){
+    if(value){
+        SDL_SetRelativeMouseMode(SDL_TRUE);
+    }else{
+        SDL_SetRelativeMouseMode(SDL_FALSE);
+    }
+}
+
 SDL_Window* AXWindow::getWindow(){
     return window;
 }

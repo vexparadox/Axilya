@@ -50,7 +50,8 @@ public:
     * @return window height 
     */
     static int getHeight();
-
+    static void hideCursor(bool);
+    static void lockCursor(bool);
     static int getDisplayWidth();
     static int getDisplayHeight();
     static SDL_Window* getWindow();
