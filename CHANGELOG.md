@@ -1,3 +1,8 @@
+## v0.8.2
+
+- Fully updated BoxCollider (half as complex, much more accurate)
+- New Breakout example
+
 ## v0.8.1
 
 - New Pong and Space Invaders examples
