@@ -43,7 +43,7 @@ int BoxCollider::worldCollideCheck(Math::Vector2D& v){
 }
 
 int BoxCollider::checkMovement(Entity* e, Math::Vector2D& proposedMovement){
-    //the entities 
+    //the entities
     Shape* box1 = e->getCollider()->getBounds();
     //these bounds
     Shape* box2 = this->bounds;
@@ -51,79 +51,36 @@ int BoxCollider::checkMovement(Entity* e, Math::Vector2D& proposedMovement){
     float h = 0.5 * (box1->getSize().y + box2->getSize().y);
     float deltax = (box1->getPosition().x+(box1->getSize().x/2)) - (box2->getPosition().x+(box2->getSize().x/2));
     float deltay = (box1->getPosition().y+(box1->getSize().y/2)) - (box2->getPosition().y+(box2->getSize().y/2));
-    // std::cout << "proposedMovement" << proposedMovement.x << "  " << proposedMovement.y << std::endl;
     if (Math::absolute(deltax) < w && Math::absolute(deltay) < h)
     {
-        // std::cout << "Collide!" << std::endl;
         //collision!
         float wy = w * deltay;
         float hx = h * deltax;
-        // std::cout << "dx: " << deltax << " dy: " << deltay << " h: " << h << std::endl;
-        // std::cout << "wy: " << wy << " hx: " << hx << std::endl;
-        if(wy > hx){
-            if(wy > -hx){
-                //bottom
-                e->getTransform()->set(box1->getPosition().x, box2->getPosition().y+box2->getSize().y);
-                box1->set(box1->getPosition().x, box2->getPosition().y+box2->getSize().y, box1->getSize().x, box1->getSize().y);
-                proposedMovement.y = 0;
-                return AX_COLLIDE_DOWN;
-
-            }else{
-                //left
-                e->getTransform()->set(box2->getPosition().x-box1->getSize().x, box1->getPosition().y);
-                box1->set(box2->getPosition().x-box1->getSize().x, box1->getPosition().y, box1->getSize().x, box1->getSize().y);
-                proposedMovement.x = 0;
-                return AX_COLLIDE_LEFT;            
-
-            }
-        }else{
-            if(wy > -hx){
-                //right
-                e->getTransform()->set(box2->getPosition().x+box2->getSize().x, box1->getPosition().y);
-                box1->set(box2->getPosition().x+box2->getSize().x, box1->getPosition().y, box1->getSize().x, box1->getSize().y);
-                proposedMovement.x = 0;
-                return AX_COLLIDE_RIGHT; 
-
-            }else{
-                //top
-                e->getTransform()->set(box1->getPosition().x, box2->getPosition().y-box1->getSize().y);
-                box1->set(box1->getPosition().x, box2->getPosition().y-box1->getSize().y, box1->getSize().x, box1->getSize().y);
-                proposedMovement.y = 0;
-                return AX_COLLIDE_UP;
-            }
+        //by evaluating the 4 quads that the entitiy could have been in before the movement, we can work out where the collision occured.
+        if((box1->getPosition().y+box1->getSize().y)-proposedMovement.y <= box2->getPosition().y){
+            // at the top
+            e->getTransform()->set(box1->getPosition().x, box2->getPosition().y-box1->getSize().y);
+            box1->set(box1->getPosition().x, box2->getPosition().y-box1->getSize().y, box1->getSize().x, box1->getSize().y);
+            return AX_COLLIDE_UP;
         }
-        // if((box1->getPosition().y+box1->getSize().y)-proposedMovement.y <= box2->getPosition().y){
-        //     // at the top
-        //     std::cout << "Collision top" << std::endl;
-        //     e->getTransform()->set(box1->getPosition().x, box2->getPosition().y-box1->getSize().y);
-        //     box1->set(box1->getPosition().x, box2->getPosition().y-box1->getSize().y, box1->getSize().x, box1->getSize().y);
-        //     proposedMovement.y = 0;
-        //     return AX_COLLIDE_UP;
-        // }
-        // if((box1->getPosition().y+proposedMovement.y) >= box2->getPosition().y+box2->getSize().y){
-        //     // collision at the bottom
-        //     std::cout << "Collision bottom" << std::endl;
-        //     e->getTransform()->set(box1->getPosition().x, box2->getPosition().y+box2->getSize().y);
-        //     box1->set(box1->getPosition().x, box2->getPosition().y+box2->getSize().y, box1->getSize().x, box1->getSize().y);
-        //     proposedMovement.y = 0;
-        //     return AX_COLLIDE_DOWN;
-        // }
-        // if((box1->getPosition().x+box1->getSize().x)-proposedMovement.x <= box2->getPosition().x){
-        //     // on the left 
-        //     std::cout << "Collision left" << std::endl;
-        //     e->getTransform()->set(box2->getPosition().x-box1->getSize().x, box1->getPosition().y);
-        //     box1->set(box2->getPosition().x-box1->getSize().x, box1->getPosition().y, box1->getSize().x, box1->getSize().y);
-        //     proposedMovement.x = 0;
-        //     return AX_COLLIDE_LEFT;            
-        // }
-        // if(box1->getPosition().x+proposedMovement.x >= box2->getPosition().x+box2->getSize().x){
-        //     // on the right 
-        //     std::cout << "Collision right" << std::endl;
-        //     e->getTransform()->set(box2->getPosition().x+box2->getSize().x, box1->getPosition().y);
-        //     box1->set(box2->getPosition().x+box2->getSize().x, box1->getPosition().y, box1->getSize().x, box1->getSize().y);
-        //     proposedMovement.x = 0;
-        //     return AX_COLLIDE_RIGHT; 
-        // }
+        if((box1->getPosition().y+Math::absolute(proposedMovement.y)) >= box2->getPosition().y+box2->getSize().y){
+            // collision at the bottom
+            e->getTransform()->set(box1->getPosition().x, box2->getPosition().y+box2->getSize().y);
+            box1->set(box1->getPosition().x, box2->getPosition().y+box2->getSize().y, box1->getSize().x, box1->getSize().y);
+            return AX_COLLIDE_DOWN;
+        }
+        if((box1->getPosition().x+box1->getSize().x)-proposedMovement.x <= box2->getPosition().x){
+            // on the left 
+            e->getTransform()->set(box2->getPosition().x-box1->getSize().x, box1->getPosition().y);
+            box1->set(box2->getPosition().x-box1->getSize().x, box1->getPosition().y, box1->getSize().x, box1->getSize().y);
+            return AX_COLLIDE_LEFT;            
+        }
+        if(box1->getPosition().x+Math::absolute(proposedMovement.x) >= box2->getPosition().x+box2->getSize().x){
+            // on the right 
+            e->getTransform()->set(box2->getPosition().x+box2->getSize().x, box1->getPosition().y);
+            box1->set(box2->getPosition().x+box2->getSize().x, box1->getPosition().y, box1->getSize().x, box1->getSize().y);
+            return AX_COLLIDE_RIGHT; 
+        }
     }
     return 0;
 }
