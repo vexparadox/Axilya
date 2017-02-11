@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
     //set the Window to draw and update the current Scene
     AXWindow::setCurrentScene(s);
     //make a new Entity
-    Entity* e = new Entity("player", 10, 10, 10, 10);
+    Entity* e = new Entity("player", 10, 10, 30, 30);
     //attach a box collider
     e->addCollider(new BoxCollider);
     //attach a rigidbody with gravity
@@ -28,6 +28,10 @@ int main(int argc, char *argv[])
     //attach our custom component written in PlayerMove.hpp
     e->addComponent(new PlayerMove());
     //add the entity to the scene
+    s->addEntity(e);
+
+    e = new Entity("block", 200, 200, 100, 100);
+    e->addCollider(new BoxCollider());
     s->addEntity(e);
     //return the window run
     return AXWindow::run();

@@ -13,32 +13,28 @@ int BoxCollider::worldCollideCheck(Math::Vector2D& v){
     //  float yOffset = position.y - owner->getTransform()->getPos().y;
     int screenWidth = AXWindow::getWidth()-owner->getScene()->getRenderOffset().x;
     int screenHeight = AXWindow::getHeight()-owner->getScene()->getRenderOffset().y;
-    int screenWidthOrigin = -owner->getScene()->getRenderOffset().x;
-    int screenHeightOrigin = -owner->getScene()->getRenderOffset().y;
-    //if it goes out of the screen downwards
-    if(position.y+size.y+v.y >= screenHeight){
-        v.y = 0;
+    int screenWidthOrigin = owner->getScene()->getRenderOffset().x;
+    int screenHeightOrigin = owner->getScene()->getRenderOffset().y;
+    // if it goes out of the screen downwards
+    if(position.y+size.y > screenHeight){
         this->bounds->set(position.x, screenHeight - size.y, size.x, size.y);
         owner->getTransform()->set(position.x, screenHeight - size.y, size.x, size.y);
         return AX_COLLIDE_DOWN;
     }
     //if it goes out of the screen upwards
-    if(position.y+v.y < screenHeightOrigin){
-        v.y = 0;
+    if(position.y < screenHeightOrigin){
         this->bounds->set(position.x, screenHeightOrigin, size.x, size.y);
         owner->getTransform()->set(position.x, screenHeightOrigin, size.x, size.y);
         return AX_COLLIDE_UP;
     }
     //if it goes out of the screen rightways
-    if(position.x+size.x+v.x >= screenWidth){
-        v.x = 0;
+    if(position.x+size.x > screenWidth){
         this->bounds->set(screenWidth-size.x, position.y, size.x, size.y);
         owner->getTransform()->set(screenWidth-size.x, position.y, size.x, size.y);
         return AX_COLLIDE_RIGHT;
     }
     //if it goes out of the screen leftways
-    if(position.x+v.x < screenWidthOrigin){
-        v.x = 0;
+    if(position.x < screenWidthOrigin){
         this->bounds->set(screenWidthOrigin, position.y, size.x, size.y);
         owner->getTransform()->set(screenWidthOrigin, position.y, size.x, size.y);
         return AX_COLLIDE_LEFT;
@@ -46,12 +42,7 @@ int BoxCollider::worldCollideCheck(Math::Vector2D& v){
     return 0;
 }
 
-bool BoxCollider::overlap(Collider* c)
-{
-    return false;
-}
-
-bool BoxCollider::checkMovement(Entity* e, Math::Vector2D& proposedMovement){
+int BoxCollider::checkMovement(Entity* e, Math::Vector2D& proposedMovement){
     //the entities 
     Shape* box1 = e->getCollider()->getBounds();
     //these bounds
@@ -60,257 +51,81 @@ bool BoxCollider::checkMovement(Entity* e, Math::Vector2D& proposedMovement){
     float h = 0.5 * (box1->getSize().y + box2->getSize().y);
     float deltax = (box1->getPosition().x+(box1->getSize().x/2)) - (box2->getPosition().x+(box2->getSize().x/2));
     float deltay = (box1->getPosition().y+(box1->getSize().y/2)) - (box2->getPosition().y+(box2->getSize().y/2));
-
+    // std::cout << "proposedMovement" << proposedMovement.x << "  " << proposedMovement.y << std::endl;
     if (Math::absolute(deltax) < w && Math::absolute(deltay) < h)
     {
-        std::cout << "Collide!" << std::endl;
+        // std::cout << "Collide!" << std::endl;
         //collision!
         float wy = w * deltay;
         float hx = h * deltax;
-        std::cout << "dx: " << deltax << " dy: " << deltay << " h: " << h << std::endl;
-        std::cout << "wy: " << wy << " hx: " << hx << std::endl;
-
-        if (wy > hx){
-            if (wy > -hx){
-                // collision at the bottom
-                std::cout << "Collision bottom" << std::endl;
+        // std::cout << "dx: " << deltax << " dy: " << deltay << " h: " << h << std::endl;
+        // std::cout << "wy: " << wy << " hx: " << hx << std::endl;
+        if(wy > hx){
+            if(wy > -hx){
+                //bottom
                 e->getTransform()->set(box1->getPosition().x, box2->getPosition().y+box2->getSize().y);
                 box1->set(box1->getPosition().x, box2->getPosition().y+box2->getSize().y, box1->getSize().x, box1->getSize().y);
                 proposedMovement.y = 0;
-                return true;
+                return AX_COLLIDE_DOWN;
+
             }else{
-                // on the left 
-                std::cout << "Collision left" << std::endl;
+                //left
                 e->getTransform()->set(box2->getPosition().x-box1->getSize().x, box1->getPosition().y);
                 box1->set(box2->getPosition().x-box1->getSize().x, box1->getPosition().y, box1->getSize().x, box1->getSize().y);
                 proposedMovement.x = 0;
-                return true;
+                return AX_COLLIDE_LEFT;            
+
             }
         }else{
-            if (wy > -hx){
-                // on the right 
-                std::cout << "Collision right" << std::endl;
+            if(wy > -hx){
+                //right
                 e->getTransform()->set(box2->getPosition().x+box2->getSize().x, box1->getPosition().y);
                 box1->set(box2->getPosition().x+box2->getSize().x, box1->getPosition().y, box1->getSize().x, box1->getSize().y);
                 proposedMovement.x = 0;
-                return true;
+                return AX_COLLIDE_RIGHT; 
+
             }else{
-                // at the top
-                std::cout << "Collision top" << std::endl;
+                //top
                 e->getTransform()->set(box1->getPosition().x, box2->getPosition().y-box1->getSize().y);
                 box1->set(box1->getPosition().x, box2->getPosition().y-box1->getSize().y, box1->getSize().x, box1->getSize().y);
                 proposedMovement.y = 0;
-                return true;
+                return AX_COLLIDE_UP;
             }
         }
+        // if((box1->getPosition().y+box1->getSize().y)-proposedMovement.y <= box2->getPosition().y){
+        //     // at the top
+        //     std::cout << "Collision top" << std::endl;
+        //     e->getTransform()->set(box1->getPosition().x, box2->getPosition().y-box1->getSize().y);
+        //     box1->set(box1->getPosition().x, box2->getPosition().y-box1->getSize().y, box1->getSize().x, box1->getSize().y);
+        //     proposedMovement.y = 0;
+        //     return AX_COLLIDE_UP;
+        // }
+        // if((box1->getPosition().y+proposedMovement.y) >= box2->getPosition().y+box2->getSize().y){
+        //     // collision at the bottom
+        //     std::cout << "Collision bottom" << std::endl;
+        //     e->getTransform()->set(box1->getPosition().x, box2->getPosition().y+box2->getSize().y);
+        //     box1->set(box1->getPosition().x, box2->getPosition().y+box2->getSize().y, box1->getSize().x, box1->getSize().y);
+        //     proposedMovement.y = 0;
+        //     return AX_COLLIDE_DOWN;
+        // }
+        // if((box1->getPosition().x+box1->getSize().x)-proposedMovement.x <= box2->getPosition().x){
+        //     // on the left 
+        //     std::cout << "Collision left" << std::endl;
+        //     e->getTransform()->set(box2->getPosition().x-box1->getSize().x, box1->getPosition().y);
+        //     box1->set(box2->getPosition().x-box1->getSize().x, box1->getPosition().y, box1->getSize().x, box1->getSize().y);
+        //     proposedMovement.x = 0;
+        //     return AX_COLLIDE_LEFT;            
+        // }
+        // if(box1->getPosition().x+proposedMovement.x >= box2->getPosition().x+box2->getSize().x){
+        //     // on the right 
+        //     std::cout << "Collision right" << std::endl;
+        //     e->getTransform()->set(box2->getPosition().x+box2->getSize().x, box1->getPosition().y);
+        //     box1->set(box2->getPosition().x+box2->getSize().x, box1->getPosition().y, box1->getSize().x, box1->getSize().y);
+        //     proposedMovement.x = 0;
+        //     return AX_COLLIDE_RIGHT; 
+        // }
     }
-    return false;
-//     //e is the moving entity
-//     //get the moving entities bounds
-    
-//     Shape* otherBounds = e->getCollider()->getBounds();
-//     //if moving right
-// //    bool collisionHappened = false;
-//         //else if you're going down
-//     if(proposedMovement.y > 0){
-//         Math::Vector2D bottomLeft = Math::Vector2D(otherBounds->getPosition().x, otherBounds->getPosition().y+otherBounds->getSize().y+proposedMovement.y);
-//         if(Math::isInsideQuad(bottomLeft, bounds->getPosition(), bounds->getPosition()+bounds->getSize())){
-//             e->getTransform()->set(otherBounds->getPosition().x, bounds->getPosition().y-otherBounds->getSize().y);
-//             proposedMovement.y = 0;
-//             // std::cout << "Bottom Left" << std::endl;
-//             return true;
-//         }
-//         //if e's bottom right will be inside of this
-//         Math::Vector2D bottomRight = Math::Vector2D(otherBounds->getPosition().x+otherBounds->getSize().x, otherBounds->getPosition().y+otherBounds->getSize().y+proposedMovement.y);
-//         if(Math::isInsideQuad(bottomRight, bounds->getPosition(), bounds->getPosition()+bounds->getSize())){
-//             proposedMovement.y = 0;
-//             e->getTransform()->set(otherBounds->getPosition().x, bounds->getPosition().y-otherBounds->getSize().y);
-//             // std::cout << "Bottom Right" << std::endl;
-//             return true;
-//         }
-//         //middle
-//         Math::Vector2D middle = Math::Vector2D(otherBounds->getPosition().x+otherBounds->getSize().x/2, ((otherBounds->getPosition().y+otherBounds->getSize().y)/2)+proposedMovement.y);
-//         if(Math::isInsideQuad(middle, bounds->getPosition(), bounds->getPosition()+bounds->getSize())){
-//             proposedMovement.y = 0;
-//             e->getTransform()->set(otherBounds->getPosition().x, bounds->getPosition().y-otherBounds->getSize().y);
-//             // std::cout << "Bottom Right" << std::endl;
-//             return true;
-//         }
-
-//         Math::Vector2D topRightThis = Math::Vector2D(bounds->getPosition().x, bounds->getPosition().y);
-//         if(Math::isInsideQuad(topRightThis.x, topRightThis.y, otherBounds->getPosition().x,otherBounds->getPosition().y+proposedMovement.y, otherBounds->getPosition().x+otherBounds->getSize().x, otherBounds->getPosition().y+otherBounds->getSize().y+proposedMovement.y)){
-//             proposedMovement.y = 0;
-//             e->getTransform()->set(otherBounds->getPosition().x, bounds->getPosition().y-otherBounds->getSize().y);
-//             // std::cout << "Top Left" << std::endl;
-//             return true;
-//         }
-//         Math::Vector2D topLeftThis = Math::Vector2D(bounds->getPosition().x, bounds->getPosition().y);
-//         if(Math::isInsideQuad(topLeftThis.x, topLeftThis.y, otherBounds->getPosition().x,otherBounds->getPosition().y+proposedMovement.y, otherBounds->getPosition().x+otherBounds->getSize().x, otherBounds->getPosition().y+otherBounds->getSize().y+proposedMovement.y)){
-//             e->getTransform()->set(otherBounds->getPosition().x, bounds->getPosition().y-otherBounds->getSize().y);
-//             proposedMovement.y= 0;
-//             // std::cout << "Top Left This" << std::endl;
-//             return true;
-//         }
-//         Math::Vector2D middleThis = Math::Vector2D(bounds->getPosition().x+bounds->getSize().x/2, bounds->getPosition().y+bounds->getSize().y/2);
-//         if(Math::isInsideQuad(middleThis.x, middleThis.y, otherBounds->getPosition().x,otherBounds->getPosition().y+proposedMovement.y, otherBounds->getPosition().x+otherBounds->getSize().x, otherBounds->getPosition().y+otherBounds->getSize().y+proposedMovement.y)){
-//             e->getTransform()->set(otherBounds->getPosition().x, bounds->getPosition().y-otherBounds->getSize().y);
-//             proposedMovement.y= 0;
-//             // std::cout << "Middle This" << std::endl;
-//             return true;
-//         }
-
-//     // else if e is moving upwards
-//     }else if(proposedMovement.y < 0){
-//         Math::Vector2D topRight = Math::Vector2D(otherBounds->getPosition().x+otherBounds->getSize().x, otherBounds->getPosition().y+proposedMovement.y);
-//         if(Math::isInsideQuad(topRight, bounds->getPosition(), bounds->getPosition()+bounds->getSize())){
-//             proposedMovement.y = 0;
-//             e->getTransform()->set(otherBounds->getPosition().x, bounds->getPosition().y+bounds->getSize().y);
-//             // std::cout << "Top Right" << std::endl;
-//             return true;
-//         }
-//         Math::Vector2D topLeft = Math::Vector2D(otherBounds->getPosition().x, otherBounds->getPosition().y+proposedMovement.y);
-//         if(Math::isInsideQuad(topLeft, bounds->getPosition(), bounds->getPosition()+bounds->getSize())){
-//             proposedMovement.y = 0;
-//             e->getTransform()->set(otherBounds->getPosition().x, bounds->getPosition().y+bounds->getSize().y);
-//             // std::cout << "Top Left" << std::endl;
-//             return true;
-//         }
-//         Math::Vector2D middle = Math::Vector2D(otherBounds->getPosition().x+otherBounds->getSize().x/2, (otherBounds->getPosition().y+otherBounds->getSize().y/2)+proposedMovement.y);
-//         if(Math::isInsideQuad(middle, bounds->getPosition(), bounds->getPosition()+bounds->getSize())){
-//             proposedMovement.y = 0;
-//             e->getTransform()->set(otherBounds->getPosition().x, bounds->getPosition().y+bounds->getSize().y);
-//             // std::cout << "Top Left" << std::endl;
-//             return true;
-//         }
-//         Math::Vector2D bottomRightThis = Math::Vector2D(bounds->getPosition().x, bounds->getPosition().y+bounds->getSize().y);
-//         if(Math::isInsideQuad(bottomRightThis.x, bottomRightThis.y, otherBounds->getPosition().x,otherBounds->getPosition().y+proposedMovement.y, otherBounds->getPosition().x+otherBounds->getSize().x, otherBounds->getPosition().y+otherBounds->getSize().y+proposedMovement.y)){
-//             proposedMovement.y = 0;
-//             e->getTransform()->set(otherBounds->getPosition().x, bounds->getPosition().y+bounds->getSize().y);
-//             // std::cout << "going up Bottom right this" << std::endl;
-//             return true;
-//         }
-//         Math::Vector2D bottomLeftThis = Math::Vector2D(bounds->getPosition().x, bounds->getPosition().y+bounds->getSize().y);
-//         if(Math::isInsideQuad(bottomLeftThis.x, bottomLeftThis.y, otherBounds->getPosition().x,otherBounds->getPosition().y+proposedMovement.y, otherBounds->getPosition().x+otherBounds->getSize().x, otherBounds->getPosition().y+otherBounds->getSize().y+proposedMovement.y)){
-//             proposedMovement.y = 0;
-//             e->getTransform()->set(otherBounds->getPosition().x, bounds->getPosition().y+bounds->getSize().y);
-//             // std::cout << "Bottom Left This" << std::endl;
-//             return true;
-//         }
-//         Math::Vector2D middleThis = Math::Vector2D(bounds->getPosition().x+bounds->getSize().x/2, bounds->getPosition().y+bounds->getSize().y/2);
-//         if(Math::isInsideQuad(middleThis.x, middleThis.y, otherBounds->getPosition().x,otherBounds->getPosition().y+proposedMovement.y, otherBounds->getPosition().x+otherBounds->getSize().x, otherBounds->getPosition().y+otherBounds->getSize().y+proposedMovement.y)){
-//             proposedMovement.y = 0;
-//             e->getTransform()->set(otherBounds->getPosition().x, bounds->getPosition().y+bounds->getSize().y);
-//             // std::cout << "Middle This" << std::endl;
-//             return true;
-//         }
-
-
-//     }
-//     if(proposedMovement.x > 0){
-//         //if e's top right will be inside of this
-//         Math::Vector2D topRight = Math::Vector2D(otherBounds->getPosition().x+otherBounds->getSize().x+proposedMovement.x, otherBounds->getPosition().y);
-//         if(Math::isInsideQuad(topRight, bounds->getPosition(), bounds->getPosition()+bounds->getSize())){
-//             proposedMovement.x = 0;
-//             e->getTransform()->set(bounds->getPosition().x-e->getTransform()->getSize().x, e->getTransform()->getPos().y);
-//             // std::cout << "Top Right" << std::endl;
-//             return true;
-//         }
-//         //if e's bottom right will be inside of this
-//         Math::Vector2D bottomRight = Math::Vector2D(otherBounds->getPosition().x+otherBounds->getSize().x+proposedMovement.x, otherBounds->getPosition().y+otherBounds->getSize().y);
-//         if(Math::isInsideQuad(bottomRight, bounds->getPosition(), bounds->getPosition()+bounds->getSize())){
-//             proposedMovement.x = 0;
-//             e->getTransform()->set(bounds->getPosition().x-otherBounds->getSize().x, otherBounds->getPosition().y);
-//             // std::cout << "Bottom Right" << std::endl;
-//             return true;
-//         }
-//         Math::Vector2D middle = Math::Vector2D((otherBounds->getPosition().x+otherBounds->getSize().x/2)+proposedMovement.x, otherBounds->getPosition().y+otherBounds->getSize().y/2);
-//         if(Math::isInsideQuad(middle, bounds->getPosition(), bounds->getPosition()+bounds->getSize())){
-//             proposedMovement.x = 0;
-//             e->getTransform()->set(bounds->getPosition().x-otherBounds->getSize().x, otherBounds->getPosition().y);
-//             // std::cout << "Bottom Right" << std::endl;
-//             return true;
-//         }
-//         //if this's top left will be inside of e
-//         Math::Vector2D topLeftThis = Math::Vector2D(bounds->getPosition().x, bounds->getPosition().y);
-//         if(Math::isInsideQuad(topLeftThis.x, topLeftThis.y, otherBounds->getPosition().x+proposedMovement.x,otherBounds->getPosition().y, otherBounds->getPosition().x+otherBounds->getSize().x+proposedMovement.x, otherBounds->getPosition().y+otherBounds->getSize().y)){
-//             e->getTransform()->set(bounds->getPosition().x-otherBounds->getSize().x, otherBounds->getPosition().y);
-//             proposedMovement.x = 0;
-//             // std::cout << "Top Left This" << std::endl;
-//             return true;
-//         }
-//         //if this's bottom left will be inside of e
-//         Math::Vector2D bottomLeftThis = Math::Vector2D(bounds->getPosition().x, bounds->getPosition().y+bounds->getSize().y);
-//         if(Math::isInsideQuad(bottomLeftThis.x, bottomLeftThis.y, otherBounds->getPosition().x+proposedMovement.x,otherBounds->getPosition().y, otherBounds->getPosition().x+otherBounds->getSize().x+proposedMovement.x, otherBounds->getPosition().y+otherBounds->getSize().y)){
-//             proposedMovement.x = 0;
-//             e->getTransform()->set(bounds->getPosition().x-otherBounds->getSize().x, otherBounds->getPosition().y);
-//             // std::cout << "Bottom Left This" << std::endl;
-//             return true;
-//         }
-//         Math::Vector2D middleThis = Math::Vector2D(bounds->getPosition().x+bounds->getSize().x/2, bounds->getPosition().y+bounds->getSize().y/2);
-//         if(Math::isInsideQuad(middleThis.x, middleThis.y, otherBounds->getPosition().x+proposedMovement.x,otherBounds->getPosition().y, otherBounds->getPosition().x+otherBounds->getSize().x+proposedMovement.x, otherBounds->getPosition().y+otherBounds->getSize().y)){
-//             proposedMovement.x = 0;
-//             e->getTransform()->set(bounds->getPosition().x-otherBounds->getSize().x, otherBounds->getPosition().y);
-//             // std::cout << "Bottom Left This" << std::endl;
-//             return true;
-//         }
-
-
-
-//     }else if(proposedMovement.x < 0){
-//         Math::Vector2D topLeft = Math::Vector2D(otherBounds->getPosition().x+proposedMovement.x, otherBounds->getPosition().y);
-//         if(Math::isInsideQuad(topLeft, bounds->getPosition(), bounds->getPosition()+bounds->getSize())){
-//             e->getTransform()->set(bounds->getPosition().x+bounds->getSize().x, otherBounds->getPosition().y);
-//             proposedMovement.x = 0;
-//             // std::cout << "Top Left" << std::endl;
-//             return true;
-//         }
-//         Math::Vector2D bottomLeft = Math::Vector2D(otherBounds->getPosition().x+proposedMovement.x, otherBounds->getPosition().y+otherBounds->getSize().y);
-//         if(Math::isInsideQuad(bottomLeft, bounds->getPosition(), bounds->getPosition()+bounds->getSize())){
-//             e->getTransform()->set(bounds->getPosition().x+bounds->getSize().x, otherBounds->getPosition().y);
-//             proposedMovement.x = 0;
-//             // std::cout << "Bottom Left" << std::endl;
-//             return true;
-//         }
-//         Math::Vector2D middle = Math::Vector2D((otherBounds->getPosition().x+otherBounds->getSize().x/2)+proposedMovement.x, otherBounds->getPosition().y+otherBounds->getSize().y/2);
-//         if(Math::isInsideQuad(middle, bounds->getPosition(), bounds->getPosition()+bounds->getSize())){
-//             e->getTransform()->set(bounds->getPosition().x+bounds->getSize().x, otherBounds->getPosition().y);
-//             proposedMovement.x = 0;
-//             // std::cout << "Bottom Left" << std::endl;
-//             return true;
-//         }
-//         Math::Vector2D topRightThis = Math::Vector2D(bounds->getPosition().x+bounds->getSize().x, bounds->getPosition().y);
-//         if(Math::isInsideQuad(topRightThis.x, topRightThis.y, otherBounds->getPosition().x+proposedMovement.x,otherBounds->getPosition().y, otherBounds->getPosition().x+otherBounds->getSize().x+proposedMovement.x, otherBounds->getPosition().y+otherBounds->getSize().y)){
-//             e->getTransform()->set(bounds->getPosition().x+bounds->getSize().x, otherBounds->getPosition().y);
-//             proposedMovement.x = 0;
-//             // std::cout << "Top Right this" << std::endl;
-//             return true;
-//         }
-//         Math::Vector2D bottomRightThis = Math::Vector2D(bounds->getPosition().x+bounds->getSize().x, bounds->getPosition().y+bounds->getSize().y);
-//         if(Math::isInsideQuad(bottomRightThis.x, bottomRightThis.y, otherBounds->getPosition().x+proposedMovement.x,otherBounds->getPosition().y, otherBounds->getPosition().x+otherBounds->getSize().x+proposedMovement.x, otherBounds->getPosition().y+otherBounds->getSize().y)){
-//             proposedMovement.x = 0;
-//             e->getTransform()->set(bounds->getPosition().x+bounds->getSize().x, e->getTransform()->getPos().y);
-//             // std::cout << "bottom right this" << std::endl;
-//             return true;
-//         }
-//         Math::Vector2D middleThis = Math::Vector2D(bounds->getPosition().x+bounds->getSize().x/2, bounds->getPosition().y+bounds->getSize().y/2);
-//         if(Math::isInsideQuad(middleThis.x, middleThis.y, otherBounds->getPosition().x+proposedMovement.x,otherBounds->getPosition().y, otherBounds->getPosition().x+otherBounds->getSize().x+proposedMovement.x, otherBounds->getPosition().y+otherBounds->getSize().y)){
-//             proposedMovement.x = 0;
-//             e->getTransform()->set(bounds->getPosition().x+bounds->getSize().x, e->getTransform()->getPos().y);
-//             // std::cout << "bottom right this" << std::endl;
-//             return true;
-//         }
-//     }
-//     return false;
-}
-
-void BoxCollider::correctColliderCollision(Collider *c, const Math::Vector2D& v, bool isMoving){
-    if(isMoving){
-        owner->getTransform()->set(v.x, v.y);
-        owner->getRigidBody()->setForce(0, 0);
-    }else{
-        c->getOwner()->getTransform()->set(v.x, v.y);
-        c->getOwner()->getRigidBody()->setForce(0, 0);
-    }
+    return 0;
 }
 
 void BoxCollider::mouseCheck(){

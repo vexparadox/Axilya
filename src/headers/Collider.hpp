@@ -18,7 +18,7 @@ public:
     Entity* getOwner();
     virtual void mouseCheck() = 0;
     virtual int worldCollideCheck(Math::Vector2D&) = 0;
-    virtual bool checkMovement(Entity*, Math::Vector2D&) = 0;
+    virtual int checkMovement(Entity*, Math::Vector2D&) = 0;
     virtual Collider* clone() = 0;
 };	
 

@@ -3,6 +3,7 @@
 
 #include "Collider.hpp"
 #include "AXWindow.hpp"
+#include "CollideDirections.hpp"
 class Entity;
 class BoxCollider : public Collider{
 public:
@@ -11,10 +12,7 @@ public:
     int worldCollideCheck(Math::Vector2D& v);
     //checks and corrects against collision with this Collider's owner and another collider
     //called from the scene  
-    bool checkMovement(Entity*, Math::Vector2D&);
-    bool overlap(Collider* c);
-    //the methods that corrects
-    void correctColliderCollision(Collider* c, const Math::Vector2D &v, bool isMoving);
+    int checkMovement(Entity*, Math::Vector2D&);
     //checks if it's being clicked or hovered
     void mouseCheck();
     Collider* clone();

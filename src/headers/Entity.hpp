@@ -80,12 +80,12 @@ public:
     //get the rigidBody
     RigidBody* getRigidBody();
     //when a collision happens
-    void onCollision(Entity* e);
+    void onCollision(Entity* e, int direction);
 
     void onWorldCollision(int direction);
     //when a click happens
     void onClick(int mouseButton);
-
+    
     void onDestroy();
     //when it's being hovered
     void onHover();

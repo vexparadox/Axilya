@@ -62,13 +62,15 @@ void Scene::update() {
 void Scene::collideCheck(Entity* e, Math::Vector2D& proposedMovement){
     //check this entity against the rest with the proposedMovement
     for(int i = 0; i < entities.size(); i++){
-        if(entities[i]->getCollider() && entities[i]->isActive()){
+        if(entities[i]->getCollider() && entities[i]->isActive() && !entities[i]->isDead()){
             //don't compare against the proposed
             if(entities[i] != e){
                 //if there is a collision then allow it to correct and loop again
-                while(entities[i]->getCollider()->checkMovement(e, proposedMovement)){
-                    entities[i]->onCollision(e);
-                    e->onCollision(entities[i]);
+                int dir = entities[i]->getCollider()->checkMovement(e, proposedMovement);
+                while(dir != 0){
+                    entities[i]->onCollision(e, dir);
+                    e->onCollision(entities[i], dir);
+                    dir = entities[i]->getCollider()->checkMovement(e, proposedMovement);
                 }
             }
         }

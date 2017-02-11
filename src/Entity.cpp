@@ -102,20 +102,20 @@ void Entity::moveEntity(float x, float y){
 }
 
 void Entity::moveEntity(Math::Vector2D v){
+    Math::Vector2D newPos = transform->getPos() + v;
     if(collider){
+        collider->getBounds()->set(newPos, collider->getBounds()->getSize());
+        transform->set(newPos);
         if(collider->screenBound){
             int dir = collider->worldCollideCheck(v);
-            if(dir){
+            while(dir){
                 this->onWorldCollision(dir);
+                dir = collider->worldCollideCheck(v);
             }
         }
-        v += transform->getPos();
-        collider->getBounds()->set(v, collider->getBounds()->getSize());
-        transform->set(v);
         scene->collideCheck(this, v);
     }else{
-        v += transform->getPos();
-        transform->set(v);
+        transform->set(newPos);
     }
 }
 
@@ -159,12 +159,15 @@ void Entity::onWorldCollision(int direction){
 
 }
 
-void Entity::onCollision(Entity* e){
+
+void Entity::onCollision(Entity* e, int direction){
     //when a collision happens
     for(auto& c : components){
+        c->onCollision(e, direction);
         c->onCollision(e);
     }
 }
+
 
 void Entity::onClick(int mouseButton){
     for(auto& c : components){

@@ -38,6 +38,7 @@ public:
     //a virutal update method that Component's can use
     virtual void update(){};
     virtual void onCollision(Entity* e){};
+    virtual void onCollision(Entity* e, int direction){};
     virtual void onWorldCollision(int direction){};
     virtual void onClick(int mouseButton){};
     virtual void onHover(){};
