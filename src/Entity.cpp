@@ -104,16 +104,28 @@ void Entity::moveEntity(float x, float y){
 void Entity::moveEntity(Math::Vector2D v){
     Math::Vector2D newPos = transform->getPos() + v;
     if(collider){
+        //reset the current Collisions
+        memset(currentCollisions, 0, 18);
         collider->getBounds()->set(newPos, collider->getBounds()->getSize());
         transform->set(newPos);
+        //if the collider is screen bound
         if(collider->screenBound){
-            int dir = collider->worldCollideCheck(v);
-            while(dir){
-                this->onWorldCollision(dir);
-                dir = collider->worldCollideCheck(v);
+            // allow only two sceen collisions at once
+            for(int i = 0; i < 2; i++){
+                //get the result of the world collide
+                currentCollisions[i] = collider->worldCollideCheck(v);
+                //if the collision didn't happen, it means they've all been resolved
+                if(currentCollisions[i] == 0){
+                    break;
+                } 
             }
         }
-        scene->collideCheck(this, v);
+        // check the collisions against other entities
+        // the results will be written to the currentCollisions array
+        scene->collideCheck(this, v, currentCollisions+2);
+        //copy the collision data to the lastCollisions array
+        memcpy(lastCollisions, currentCollisions, 18);
+
     }else{
         transform->set(newPos);
     }
@@ -273,6 +285,21 @@ Collider* Entity::getCollider(){
 
 bool Entity::isDead(){
     return dead;
+}
+
+bool Entity::isGrounded(){
+    //first check if it's touched the bottom of the screen at all
+    if(lastCollisions[0] == AX_COLLIDE_DOWN || lastCollisions[1] == AX_COLLIDE_DOWN){
+        return true;
+    }else{
+        //loop through the last set of collisions and check for a top hit (aka the bottom of this hit the top of something)
+        for(int i = 0; i < 16; i++){
+            if(lastCollisions[i] == AX_COLLIDE_UP){
+                return true;
+            }
+        }
+    }
+    return false;
 }
 
 std::string& Entity::getName(){

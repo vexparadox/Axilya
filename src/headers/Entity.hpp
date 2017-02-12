@@ -17,26 +17,42 @@
 //components
 #include "Components.h"
 #include "Renderer.hpp"
+#include "CollideDirections.hpp"
 class Scene;
 class Entity{
     //get an instance of the resourcemanager
     ResourceManager* resourceManager = ResourceManager::getInstance();
+
     //save the name of the entity
     std::string name;
+
     //if the entity is listed to be removed
     bool dead = false;
+
     //if the entity is active
     bool active = true;
+
     //the scene this entity belongs to
     Scene* scene = 0;
+
     //a list of standard components, these are presets
     Transform* transform = 0;
     Collider* collider = 0;
     RigidBody* rigidBody = 0;
+
+    //the last collisions
+    //the first two bytes are the screen bounds
+    //the last 16 bytes are of entity collisions
+    unsigned char lastCollisions[18];
+    //used to temp store the current collisions
+    unsigned char currentCollisions[18];
+
     //a list of custom components
     std::vector<Component*> components;
+
     //Renderer holds all of the drawing capabilities of the Entitity
     Renderer* renderer = 0;
+
     void handle_eptr(std::exception_ptr);
     //default to drawing rect
     int drawType = AX_DRAW_RECT;
@@ -74,6 +90,8 @@ public:
     bool isActive();
     //check if the enitity should die
     bool isDead();
+    //returns if the last thing it touched was the ground
+    bool isGrounded();
     //add RigidBody
     void addRigidBody(RigidBody*);
     void addRigidBody(bool);

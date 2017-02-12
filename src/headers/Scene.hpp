@@ -60,7 +60,7 @@ public:
 
     Entity* findEntity(const std::string& name);
 
-    void collideCheck(Entity* e, Math::Vector2D& proposedMovement);
+    void collideCheck(Entity* e, Math::Vector2D& proposedMovement, unsigned char* colls);
 
     void parseSceneFile(const std::string& path);
     /*!

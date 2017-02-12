@@ -8,8 +8,6 @@
 #include "headers/Entity.hpp"
 
 RigidBody::RigidBody(bool gravity): velocity(0, 0), drag(0.5, 0.5), gravity(gravity){
-    wasGrounded = false;
-    isGrounded = false;
     maxVelocityY = 8;
     maxVelocityX = 7;
 }
@@ -17,7 +15,6 @@ RigidBody::RigidBody(bool gravity): velocity(0, 0), drag(0.5, 0.5), gravity(grav
 void RigidBody::update(){
     //get the last frame
     previousVelocity = velocity;
-    wasGrounded = isGrounded;
     this->applyDrag();
     this->applyGravity();
     this->terminalVelocity();
@@ -92,10 +89,6 @@ void RigidBody::setDrag(float x, float y){
 
 void RigidBody::setDrag(const Math::Vector2D& drag){
     this->drag = drag;
-}
-
-bool RigidBody::isOnGround(){
-    return isGrounded;
 }
 
 void RigidBody::setForce(float x, float y){

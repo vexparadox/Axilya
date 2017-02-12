@@ -19,4 +19,11 @@ void PlayerMove::update(){
 			rb->addForce(0, -5);
 		}	
 	}
+
+	//if the player is touching the ground, make them red
+	if(owner->isGrounded()){
+		owner->setColour(255, 0, 0);
+	}else{
+		owner->setColour(0, 0, 0);
+	}
 }

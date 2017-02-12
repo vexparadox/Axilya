@@ -59,18 +59,34 @@ void Scene::update() {
     }
 }
 
-void Scene::collideCheck(Entity* e, Math::Vector2D& proposedMovement){
-    //check this entity against the rest with the proposedMovement
+void Scene::collideCheck(Entity* e, Math::Vector2D& proposedMovement, unsigned char* colls){
+    //a collision counter to make sure it doesn't check past 4 entities 
+    char collisions = 0;
+    memset(colls, 0, 16);
     for(int i = 0; i < entities.size(); i++){
+        //if it's collided 4 times, stop
+        if(collisions >= 4){
+            break;
+        }
         if(entities[i]->getCollider() && entities[i]->isActive() && !entities[i]->isDead()){
             //don't compare against the proposed
             if(entities[i] != e){
-                //if there is a collision then allow it to correct and loop again
-                int dir = entities[i]->getCollider()->checkMovement(e, proposedMovement);
-                while(dir != 0){
-                    entities[i]->onCollision(e, dir);
-                    e->onCollision(entities[i], dir);
-                    dir = entities[i]->getCollider()->checkMovement(e, proposedMovement);
+                
+                int j;
+                for(j = 0; j < 4; j++){
+                    //get the result of the collision and save it
+                    colls[j+(j*collisions)] = entities[i]->getCollider()->checkMovement(e, proposedMovement);
+                    //if it's dead 
+                    if(colls[j*collisions] != 0){
+                        entities[i]->onCollision(e, colls[j+(j*collisions)]);
+                        e->onCollision(entities[i], colls[j+(j*collisions)]);
+                    }else{
+                        break;
+                    }
+                }
+                //if there was any collisions at all, move the counter fowards
+                if(j > 0){
+                    collisions++;
                 }
             }
         }

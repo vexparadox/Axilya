@@ -15,7 +15,6 @@
 class RigidBody : public Component{
     bool gravity;
     Math::Vector2D velocity, drag, previousVelocity;
-    bool wasGrounded, isGrounded;
     float maxVelocityY, maxVelocityX;
     void applyDrag();
     void applyGravity();
@@ -47,8 +46,6 @@ public:
     * returns if this rigidbody is moving
     */
     bool isMoving();
-
-    bool isOnGround();
     /*!
     * Called every game loop
     * Called from the Entity which owns this component

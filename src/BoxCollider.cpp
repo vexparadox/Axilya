@@ -9,8 +9,6 @@ int BoxCollider::worldCollideCheck(Math::Vector2D& v){
     Math::Vector2D position = bounds->getPosition();
     Math::Vector2D size = bounds->getSize();
     //  get the offset between the collider and the entity
-    // float xOffset = position.x - owner->getTransform()->getPos().x;
-    //  float yOffset = position.y - owner->getTransform()->getPos().y;
     int screenWidth = AXWindow::getWidth()-owner->getScene()->getRenderOffset().x;
     int screenHeight = AXWindow::getHeight()-owner->getScene()->getRenderOffset().y;
     int screenWidthOrigin = owner->getScene()->getRenderOffset().x;
