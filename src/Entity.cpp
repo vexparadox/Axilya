@@ -294,7 +294,7 @@ bool Entity::isGrounded(){
     }else{
         //loop through the last set of collisions and check for a top hit (aka the bottom of this hit the top of something)
         for(int i = 0; i < 16; i++){
-            if(lastCollisions[i] == AX_COLLIDE_UP){
+            if(lastCollisions[i+2] == AX_COLLIDE_UP){
                 return true;
             }
         }
