@@ -23,7 +23,6 @@ void BallController::onCollision(Entity* e){
 			velocity.y += 0.5;
 		}
 	}
-
 	if(owner->getTransform()->getPos().x+(owner->getTransform()->getSize().x/2) > e->getTransform()->getPos().x+(e->getTransform()->getSize().x/2)){
 		//if it's on the right half of the paddle
 		//knock it left

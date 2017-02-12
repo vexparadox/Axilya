@@ -71,13 +71,12 @@ void Scene::collideCheck(Entity* e, Math::Vector2D& proposedMovement, unsigned c
         if(entities[i]->getCollider() && entities[i]->isActive() && !entities[i]->isDead()){
             //don't compare against the proposed
             if(entities[i] != e){
-                
                 int j;
                 for(j = 0; j < 4; j++){
                     //get the result of the collision and save it
                     colls[j+(j*collisions)] = entities[i]->getCollider()->checkMovement(e, proposedMovement);
                     //if it's dead 
-                    if(colls[j*collisions] != 0){
+                    if(colls[j+(j*collisions)] != 0){
                         entities[i]->onCollision(e, colls[j+(j*collisions)]);
                         e->onCollision(entities[i], colls[j+(j*collisions)]);
                     }else{

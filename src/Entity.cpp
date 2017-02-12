@@ -115,9 +115,11 @@ void Entity::moveEntity(Math::Vector2D v){
                 //get the result of the world collide
                 currentCollisions[i] = collider->worldCollideCheck(v);
                 //if the collision didn't happen, it means they've all been resolved
-                if(currentCollisions[i] == 0){
+                if(currentCollisions[i] != 0){
+                    this->onWorldCollision(currentCollisions[i]);
+                }else{
                     break;
-                } 
+                }
             }
         }
         // check the collisions against other entities
@@ -220,6 +222,21 @@ void Entity::addRigidBody(bool gravity){
     this->rigidBody->setOwner(this);
 }
 
+bool Entity::isGrounded(){
+    //first check if it's touched the bottom of the screen at all
+    if(lastCollisions[0] == AX_COLLIDE_DOWN || lastCollisions[1] == AX_COLLIDE_DOWN){
+        return true;
+    }else{
+        //loop through the last set of collisions and check for a top hit (aka the bottom of this hit the top of something)
+        for(int i = 0; i < 16; i++){
+            if(lastCollisions[i+2] == AX_COLLIDE_UP){
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
 RigidBody* Entity::getRigidBody(){
     return rigidBody;
 }
@@ -285,21 +302,6 @@ Collider* Entity::getCollider(){
 
 bool Entity::isDead(){
     return dead;
-}
-
-bool Entity::isGrounded(){
-    //first check if it's touched the bottom of the screen at all
-    if(lastCollisions[0] == AX_COLLIDE_DOWN || lastCollisions[1] == AX_COLLIDE_DOWN){
-        return true;
-    }else{
-        //loop through the last set of collisions and check for a top hit (aka the bottom of this hit the top of something)
-        for(int i = 0; i < 16; i++){
-            if(lastCollisions[i+2] == AX_COLLIDE_UP){
-                return true;
-            }
-        }
-    }
-    return false;
 }
 
 std::string& Entity::getName(){
