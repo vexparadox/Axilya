@@ -15,7 +15,7 @@
 class RigidBody : public Component{
     bool gravity;
     Math::Vector2D velocity, drag, previousVelocity;
-    float maxVelocityY, maxVelocityX;
+    float maxVelocityY, maxVelocityX, maxFallingVelocity;
     void applyDrag();
     void applyGravity();
     void terminalVelocity();

@@ -8,8 +8,9 @@
 #include "headers/Entity.hpp"
 
 RigidBody::RigidBody(bool gravity): velocity(0, 0), drag(0.5, 0.5), gravity(gravity){
-    maxVelocityY = 8;
+    maxVelocityY = 30;
     maxVelocityX = 7;
+    maxFallingVelocity = 9;
 }
 
 void RigidBody::update(){
@@ -33,9 +34,10 @@ void RigidBody::terminalVelocity(){
     }else if(velocity.x < - maxVelocityX){
         velocity.x = -maxVelocityX;
     }
-    if(velocity.y > maxVelocityY){
-        velocity.y = maxVelocityY;
-    }else if(velocity.y < -maxVelocityY){
+    if(velocity.y > maxFallingVelocity){
+        velocity.y = maxFallingVelocity;
+    }
+    if(velocity.y < -maxVelocityY){
         velocity.y = -maxVelocityY;
     }
 }

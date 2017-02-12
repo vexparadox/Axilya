@@ -65,7 +65,7 @@ void Scene::collideCheck(Entity* e, Math::Vector2D& proposedMovement, unsigned c
     memset(colls, 0, 16);
     for(int i = 0; i < entities.size(); i++){
         //if it's collided 4 times, stop
-        if(collisions >= 4){
+        if(collisions >= 3){
             break;
         }
         if(entities[i]->getCollider() && entities[i]->isActive() && !entities[i]->isDead()){
@@ -74,11 +74,12 @@ void Scene::collideCheck(Entity* e, Math::Vector2D& proposedMovement, unsigned c
                 int j;
                 for(j = 0; j < 4; j++){
                     //get the result of the collision and save it
-                    colls[j+(j*collisions)] = entities[i]->getCollider()->checkMovement(e, proposedMovement);
+                    colls[j+(4*collisions)] = entities[i]->getCollider()->checkMovement(e, proposedMovement);
                     //if it's dead 
-                    if(colls[j+(j*collisions)] != 0){
-                        entities[i]->onCollision(e, colls[j+(j*collisions)]);
-                        e->onCollision(entities[i], colls[j+(j*collisions)]);
+                    if(colls[j+(4*collisions)] != 0){
+                        entities[i]->onCollision(e, colls[j+(4*collisions)]);
+                        e->onCollision(entities[i], colls[j+(4*collisions)]);
+                        std::cout << "writing to " << j+(4*collisions) << std::endl;
                     }else{
                         break;
                     }

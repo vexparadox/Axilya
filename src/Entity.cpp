@@ -127,7 +127,6 @@ void Entity::moveEntity(Math::Vector2D v){
         scene->collideCheck(this, v, currentCollisions+2);
         //copy the collision data to the lastCollisions array
         memcpy(lastCollisions, currentCollisions, 18);
-
     }else{
         transform->set(newPos);
     }

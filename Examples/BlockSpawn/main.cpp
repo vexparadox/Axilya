@@ -7,16 +7,37 @@
 //
 #include <Axilya/AXMain.h>
 #include "PlayerMove.hpp"
+bool down = false;
+
+Scene* s;
+int blockCount = 0;
+
+void update(){
+    if(Input::mouseIsPressed && !down){
+        down = true;
+        s->instantiate("box" + std::to_string(blockCount++),
+            PrefabManager::getInstance()->getPrefab("block"),
+            new Transform(Input::mouseX - 10, 
+                          Input::mouseY - 10,
+                          20,
+                          20)
+            );
+    }
+
+    if(!Input::mouseIsPressed && down){
+        down = false;
+    }
+}
 
 int main(int argc, char *argv[])
 {
     //initialise the window
-    if(!AXWindow::init(720, 480, AX_WINDOWED, "BasicComponent Example")){
+    if(!AXWindow::init(720, 480, AX_WINDOWED, "BlockSpawn Example", update, 0)){
     	std::cout << "AXWindow failed to initialise" << std::endl;
     	return -1;
     }
     //create a Scene
-    Scene* s = new Scene();
+    s = new Scene();
     //set the Window to draw and update the current Scene
     AXWindow::setCurrentScene(s);
     //make a new Entity
@@ -30,9 +51,9 @@ int main(int argc, char *argv[])
     //add the entity to the scene
     s->addEntity(e);
 
-    e = new Entity("block", 600, 400, 100, 80);
+    e = new Entity("block", 0, 0, 20, 20);
     e->addCollider(new BoxCollider());
-    s->addEntity(e);
+    PrefabManager::getInstance()->addPrefab(e);
     //return the window run
     return AXWindow::run();
 }

@@ -1,6 +1,7 @@
 all:
 	@cd ./Basic && make
 	@cd ./BasicComponent && make
+	@cd ./BlockSpawn && make
 	@cd ./CustomUpdateDraw && make
 	@cd ./PongGame && make
 	@cd ./SpaceInvaders && make
@@ -9,6 +10,7 @@ clean:
 	@cd ./Basic && make clean
 	@cd ./BasicComponent && make clean
 	@cd ./CustomUpdateDraw && make clean
+	@cd ./BlockSpawn && make clean
 	@cd ./xCodeExample && make clean
 	@cd ./PongGame && make clean
 	@cd ./SpaceInvaders && make clean
