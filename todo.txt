@@ -12,6 +12,9 @@ add mouseClicked calls to basecore again
 ## colours
 Entity colours arn't filling out properly
 
+##collisions
+fix via closest entity, collect them all and evaluate
+
 ##axwindow
 add mouse curse disable
 REMEMBER

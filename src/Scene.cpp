@@ -79,7 +79,6 @@ void Scene::collideCheck(Entity* e, Math::Vector2D& proposedMovement, unsigned c
                     if(colls[j+(4*collisions)] != 0){
                         entities[i]->onCollision(e, colls[j+(4*collisions)]);
                         e->onCollision(entities[i], colls[j+(4*collisions)]);
-                        std::cout << "writing to " << j+(4*collisions) << std::endl;
                     }else{
                         break;
                     }
