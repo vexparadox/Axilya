@@ -9,6 +9,7 @@
 #ifndef CoreMain_h
 #define CoreMain_h
 
+#include "AXText.hpp"
 #include "Math.h"
 #include "Types.h"
 #include "Graphics.hpp"

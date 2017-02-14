@@ -472,11 +472,11 @@ typedef struct
 // If you use this API, you only have to call two functions ever.
 //
 
-typedef struct
+struct stbtt_bakedchar
 {
    unsigned short x0,y0,x1,y1; // coordinates of bbox in bitmap
    float xoff,yoff,xadvance;
-} stbtt_bakedchar;
+};
 
 STBTT_DEF int stbtt_BakeFontBitmap(const unsigned char *data, int offset,  // font location (use offset=0 for plain .ttf)
                                 float pixel_height,                     // height of font in pixels
