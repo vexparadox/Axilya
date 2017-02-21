@@ -9,24 +9,24 @@ See the examples and wiki for a better idea of what's happening.
 You can either run the make script, this will build the library and all examples.
 
 ```Shell
-	make all
+	sudo make all
 ```
 
 To just install use:
 
 ```Shell
-	make install
+	sudo make install
 ```
 
 To just build the library use:
 ```Shell
-	make lib
+	sudo make lib
 ```
 
 To remove the install use:
 
 ```Shell
-	make cleaninstall
+	sudo make cleaninstall
 ```
 
 You can also build just the library using xCode using the project file included.

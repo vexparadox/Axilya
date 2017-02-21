@@ -4,12 +4,11 @@
 #include "Component.hpp"
 #include <stdio.h>
 #include "AXWindow.hpp"
-struct stbtt_bakedchar;
 class AXText : public Component{
 	unsigned char* ttfBuffer; // the file buffer
-	stbtt_bakedchar* charData; // char asciis
 	SDL_Surface* glyphData; // the whole font data
 	std::string path;	
+	bool hasLoaded;
 public:
 	AXText(const std::string& s);
 	void init(std::string& s);

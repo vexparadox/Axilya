@@ -25,6 +25,7 @@ lib:
 install: lib
 	@echo "Starting install"
 	@echo "Copying static library to /usr/local/lib/"
+	@mkdir -p /usr/local/lib/
 	@cp ./Build/libAxilya.a /usr/local/lib/
 	@echo "Copy complete"
 	@echo "Removing old headers"
