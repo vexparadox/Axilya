@@ -23,17 +23,19 @@ void BallController::onCollision(Entity* e){
 			velocity.y += 0.5;
 		}
 	}
-	if(owner->getTransform()->getPos().x+(owner->getTransform()->getSize().x/2) > e->getTransform()->getPos().x+(e->getTransform()->getSize().x/2)){
-		//if it's on the right half of the paddle
-		//knock it left
-		velocity.x = 2;
-	}else{
-		//if it's on the bottom half of the paddle
-		//knock it right
-		velocity.x = -2;
-	}
+
 	if(e->getName() != "player"){
 		e->destroy();
+	}else{
+		if(owner->getTransform()->getPos().x+(owner->getTransform()->getSize().x/2) > e->getTransform()->getPos().x+(e->getTransform()->getSize().x/2)){
+			//if it's on the right half of the paddle
+			//knock it left
+			velocity.x = 2;
+		}else{
+			//if it's on the bottom half of the paddle
+			//knock it right
+			velocity.x = -2;
+		}
 	}
 }
 

@@ -2,7 +2,7 @@
 #define AXStaticText_hpp
 #include "AXText.hpp"
 class AXStaticText : public AXText{
-	std::string& text;
+	std::string text;
 	void bakeText();
 	SDL_Texture* texture;
 public:
