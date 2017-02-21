@@ -16,7 +16,7 @@ public:
 	bool isLoaded();
 	const std::string& getPath();
 	SDL_Surface* getSurface();
-	void draw(float x, float y, char* text);
+	stbtt_bakedchar* getCharData();
 	int getID();
 };
 #endif

@@ -1,6 +1,4 @@
 #include "headers/ResourceManager.hpp"
-#include "headers/AXFont.hpp"
-
 ResourceManager* ResourceManager::instance = new ResourceManager();
 
 ResourceManager* ResourceManager::getInstance(){

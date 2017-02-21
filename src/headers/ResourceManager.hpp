@@ -10,6 +10,7 @@
 #define ResourceManager_h
 
 #include "AXTexture.h"
+#include "AXFont.hpp"
 #include <vector>
 #include <unordered_map>
 class AXTexture;

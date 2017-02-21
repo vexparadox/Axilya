@@ -18,4 +18,4 @@ public:
     Scene* getScene();
     void addComponent(TileComponent* tileComponent);
 };
-#endif // !Tile_hpp
+#endif

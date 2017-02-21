@@ -1,18 +1,15 @@
 #ifndef AXText_hpp
 #define AXText_hpp
-
 #include "Component.hpp"
 #include <stdio.h>
-#include "AXWindow.hpp"
+#include "ResourceManager.hpp"
 class AXText : public Component{
-	unsigned char* ttfBuffer; // the file buffer
-	SDL_Surface* glyphData; // the whole font data
-	std::string path;	
-	bool hasLoaded;
+protected:
+	AXFont* font;
+	ResourceManager* resourceManager = ResourceManager::getInstance();
 public:
-	AXText(const std::string& s);
-	void init(std::string& s);
-	void draw(float x, float y, char* text);
-	Component* clone();
+	virtual void setFont(AXFont* font) = 0;
+	virtual void setFont(int id) = 0;
+	virtual void draw(float x, float y, char* text) = 0;
 };
 #endif
