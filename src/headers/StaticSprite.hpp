@@ -7,14 +7,14 @@
 
 #include "Sprite.hpp"
 class StaticSprite : public Sprite{
-    Texture* texture = 0;
+    AXTexture* texture = 0;
 public:
     StaticSprite(const std::string& name);
     StaticSprite(const std::string& name, const std::string& filename);
     ~StaticSprite();
     void draw(float x, float y, float w, float h);
     void setTexture(int textureID);
-    Texture* getTexture();
+    AXTexture* getTexture();
     Sprite* clone();
 };
 

@@ -15,7 +15,7 @@ void StaticWorld::loadTexture(int textureID) {
     }
 }
 
-void StaticWorld::loadTexture(Texture *t) {
+void StaticWorld::loadTexture(AXTexture *t) {
     if(t){
         texture = t;
     }

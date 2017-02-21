@@ -9,7 +9,7 @@
 class AnimatedSprite : public Sprite {
     //the amount of frames per image
     int frameLength;
-    std::vector<Texture*> textures;
+    std::vector<AXTexture*> textures;
     //current frame we're on
     int frameCount;
     //the current texture being drawn

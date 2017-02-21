@@ -24,7 +24,7 @@ void StaticSprite::draw(float x, float y, float w, float h) {
 
 }
 
-Texture* StaticSprite::getTexture(){
+AXTexture* StaticSprite::getTexture(){
 	return texture;
 }
 

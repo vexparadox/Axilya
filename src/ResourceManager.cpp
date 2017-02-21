@@ -15,24 +15,30 @@ ResourceManager::~ResourceManager() {
         delete t;
         t = 0;
     }
+    for(auto& f : fonts){
+        delete f;
+        f = 0;
+    }
     textures.clear();
     textureMap.clear();
+    fonts.clear();
+    fontMap.clear();
 }
 
 int ResourceManager::addTexture(const std::string& s){
     if(isTextureLoaded(s)){
         return textureMap.at(s)->getID();
     }
-    Graphics::Image* tempImg = new Graphics::Image(); // create a new image
+    AXImage* tempImg = new AXImage(); // create a new image
     //attempt to load the file given
     if(tempImg->loadImage(s)){
         int id = textures.size(); // get the new id
-        Texture* tempTex = new Texture(id, tempImg); // create the texture
+        AXTexture* tempTex = new AXTexture(id, tempImg); // create the AXTexture
         textures.push_back(tempTex); // push it back
-        textureMap.insert(std::pair<std::string, Texture*>(s, tempTex));
+        textureMap.insert(std::pair<std::string, AXTexture*>(s, tempTex));
         return id; // return the new id
     }
-    std::cout << "Texture data failed to load." << std::endl;
+    std::cout << "AXTexture data failed to load." << std::endl;
     return -1;
 }
 
@@ -42,7 +48,7 @@ int ResourceManager::addFont(const std::string& s){
     }
     //attempt to load the file given
     int id = fonts.size(); // get the new id
-    AXFont* tempFont = new AXFont(id); // create the texture
+    AXFont* tempFont = new AXFont(id); // create the AXTexture
     if(tempFont->loadFont(s)){
         fonts.push_back(tempFont); // push it back
         fontMap.insert(std::pair<std::string, AXFont*>(s, tempFont));
@@ -50,7 +56,7 @@ int ResourceManager::addFont(const std::string& s){
     }else{
         delete tempFont;
     }
-    std::cout << "Texture data failed to load." << std::endl;
+    std::cout << "AXTexture data failed to load." << std::endl;
     return -1;
 }
 
@@ -68,20 +74,20 @@ bool ResourceManager::isFontLoaded(const std::string &s) {
     return false;
 }
 
-Texture* ResourceManager::getTexture(int i){
+AXTexture* ResourceManager::getTexture(int i){
     if(i >= 0 && i < textures.size()){
         return textures[i];
     }else{
-        std::cout << "No texture with this id. Has it been loaded?" << std::endl;
+        std::cout << "No AXTexture with this id. Has it been loaded?" << std::endl;
         return 0;
     }
 }
 
-Texture* ResourceManager::getTexture(const std::string &s) {
+AXTexture* ResourceManager::getTexture(const std::string &s) {
     if(isTextureLoaded(s)){
         return textureMap.at(s);
     }else{
-        std::cout << "No texture with this path. Has it been loaded?" << std::endl;
+        std::cout << "No AXTexture with this path. Has it been loaded?" << std::endl;
         return 0;
     }
 }

@@ -5,7 +5,7 @@ Tile::Tile(int textureID) : texture(0), scene(0) {
     texture = resourceManager->getTexture(textureID);
 }
 
-Tile::Tile(Texture* texture) : texture(0), scene(0){
+Tile::Tile(AXTexture* texture) : texture(0), scene(0){
     resourceManager = ResourceManager::getInstance();
     if(texture){
         this->texture = texture;

@@ -3,15 +3,15 @@
 
 #include "ResourceManager.hpp"
 #include "TileComponent.hpp"
-class Texture;
+class AXTexture;
 class Tile{
     ResourceManager* resourceManager;
-    Texture* texture;
+    AXTexture* texture;
     Scene* scene;
     std::vector<TileComponent*> components;
 public:
     Tile(int textureID);
-    Tile(Texture* texture);
+    Tile(AXTexture* texture);
     void draw(float x, float y, int w, int h);
     void update();
     void setScene(Scene* scene);

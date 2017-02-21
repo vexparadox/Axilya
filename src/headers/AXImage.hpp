@@ -1,13 +1,13 @@
 //
-//  Image.hpp
+//  AXImage.hpp
 //  Axilya
 //
 //  Created by William Meaton on 10/12/2015.
 //  Copyright © 2015 WillMeaton.uk. All rights reserved.
 //
 
-#ifndef Image_hpp
-#define Image_hpp
+#ifndef AXImage_hpp
+#define AXImage_hpp
 #include <SDL2/SDL.h>
 #include "glad.h"
 #include "Vector2D.h"
@@ -16,8 +16,7 @@
 #include <unistd.h>
 
 class Runner;
-namespace Graphics{
-class Image{
+class AXImage{
 private:
     SDL_Surface* surface;
     SDL_Texture* texture;
@@ -27,10 +26,10 @@ private:
     bool sdlLoad(const char* name);
     unsigned char* imageDataPtr = 0;
 public:
-    Image(){};
-    ~Image();
-    Image(std::string nameInput);
-    //load the image
+    AXImage(){};
+    ~AXImage();
+    AXImage(std::string nameInput);
+    //load the AXImage
     bool loadImage(std::string nameInput);
     
     //checks if files exists
@@ -42,17 +41,16 @@ public:
     void draw(const Math::Vector2D &v);
     void draw(float x, float y);
     
-    //gets the width and height of the image
+    //gets the width and height of the AXImage
     int getWidth();
     int getHeight();
     
     //attempts to grab the screen, not really working
     bool grabScreen(float x, float y, float w, float h);
-    //returns if the image is loaded
+    //returns if the AXImage is loaded
     bool isLoaded();
     //returns the path the file was loaded from
     std::string getPath();
 };
-}
 
-#endif /* Image_hpp */
+#endif /* AXImage_hpp */

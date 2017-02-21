@@ -9,12 +9,12 @@
 #include "World.hpp"
 
 class StaticWorld : public World {
-    Texture* texture;
+    AXTexture* texture;
     ResourceManager* resourceManager = ResourceManager::getInstance();
 public:
     StaticWorld();
     void loadTexture(int textureID);
-    void loadTexture(Texture* t);
+    void loadTexture(AXTexture* t);
     void draw();
     void update();
 };

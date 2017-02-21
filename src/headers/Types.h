@@ -14,9 +14,8 @@
 #include "Shape.h"
 #include "Rect.h"
 #include "Poly.h"
-#include "Image.hpp"
+#include "AXImage.hpp"
 #include "Colour.h"
 #include "AXString.hpp"
-// #include "Text.hpp"
 
 #endif /* Types_h */
