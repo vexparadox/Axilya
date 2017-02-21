@@ -1,4 +1,5 @@
 #include "headers/ResourceManager.hpp"
+#include "headers/AXFont.hpp"
 
 ResourceManager* ResourceManager::instance = new ResourceManager();
 
@@ -18,21 +19,6 @@ ResourceManager::~ResourceManager() {
     textureMap.clear();
 }
 
-int ResourceManager::addTexture(Graphics::Image* i){
-    if(isTextureLoaded(i->getPath())){
-        return textureMap.at(i->getPath())->getID();
-    }
-    if(i){
-        int id = textures.size(); // get the next id
-        Texture* tempTex = new Texture(id, i); // create the new texture
-        textures.push_back(tempTex); // push it back
-        textureMap.insert(std::pair<std::string, Texture*>(i->getPath(), tempTex));
-        return id; //return the new id
-    }
-    std::cout << "Texture data was invalid." << std::endl;
-    return -1;
-}
-
 int ResourceManager::addTexture(const std::string& s){
     if(isTextureLoaded(s)){
         return textureMap.at(s)->getID();
@@ -50,8 +36,33 @@ int ResourceManager::addTexture(const std::string& s){
     return -1;
 }
 
+int ResourceManager::addFont(const std::string& s){
+    if(isFontLoaded(s)){
+        return fontMap.at(s)->getID();
+    }
+    //attempt to load the file given
+    int id = fonts.size(); // get the new id
+    AXFont* tempFont = new AXFont(id); // create the texture
+    if(tempFont->loadFont(s)){
+        fonts.push_back(tempFont); // push it back
+        fontMap.insert(std::pair<std::string, AXFont*>(s, tempFont));
+        return id; // return the new id
+    }else{
+        delete tempFont;
+    }
+    std::cout << "Texture data failed to load." << std::endl;
+    return -1;
+}
+
 bool ResourceManager::isTextureLoaded(const std::string &s) {
     if (textureMap.find(s) != textureMap.end()){
+        return true;
+    }
+    return false;
+}
+
+bool ResourceManager::isFontLoaded(const std::string &s) {
+    if (fontMap.find(s) != fontMap.end()){
         return true;
     }
     return false;
@@ -74,3 +85,22 @@ Texture* ResourceManager::getTexture(const std::string &s) {
         return 0;
     }
 }
+
+AXFont* ResourceManager::getFont(int i){
+    if(i >= 0 && i < fonts.size()){
+        return fonts[i];
+    }else{
+        std::cout << "No font with this id. Has it been loaded?" << std::endl;
+        return 0;
+    }
+}
+
+AXFont* ResourceManager::getFont(const std::string &s) {
+    if(isFontLoaded(s)){
+        return fontMap.at(s);
+    }else{
+        std::cout << "No font with this path. Has it been loaded?" << std::endl;
+        return 0;
+    }
+}
+

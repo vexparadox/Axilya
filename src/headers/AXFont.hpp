@@ -7,13 +7,16 @@ class AXFont{
 	std::string path, name;
 	SDL_Surface* surface;
 	stbtt_bakedchar* charData;
+	int id;
 	static const int charDataSize;
 public:
-	AXFont(std::string& name, std::string& path);
-	bool loadFont(std::string& path);
+	AXFont(int id);
+	~AXFont();
+	bool loadFont(const std::string& path);
 	bool isLoaded();
 	const std::string& getPath();
 	SDL_Surface* getSurface();
 	void draw(float x, float y, char* text);
+	int getID();
 };
 #endif

@@ -12,22 +12,25 @@
 #include "Texture.h"
 #include <vector>
 #include <unordered_map>
-
 class Texture;
+class AXFont;
 class ResourceManager{
     ResourceManager(){}
     std::vector<Texture*> textures;
+    std::vector<AXFont*> fonts;
     std::unordered_map<std::string, Texture*> textureMap;
+    std::unordered_map<std::string, AXFont*> fontMap;
     static ResourceManager* instance;
     ~ResourceManager();
 public:
     static ResourceManager* getInstance();
     //add a new texture, will return -1 or new id
     int addTexture(const std::string&);
-    int addTexture(Graphics::Image*);
+    int addFont(const std::string&);
     bool isTextureLoaded(const std::string&);
-    //gets a texture based on an id, allows 1 step access
-
+    bool isFontLoaded(const std::string&);
+    AXFont* getFont(int);
+    AXFont* getFont(const std::string&);
     Texture* getTexture(int);
     Texture* getTexture(const std::string&);
 };

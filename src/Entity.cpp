@@ -55,7 +55,9 @@ void Entity::start(){
 }
 
 void Entity::draw(const Math::Vector2D& renderOffset){
-    renderer->draw(renderOffset);
+    if(renderer){
+        renderer->draw(renderOffset);
+    }
 }
 void Entity::update(){
     if(rigidBody){
