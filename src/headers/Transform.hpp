@@ -53,6 +53,9 @@ public:
     */
     Math::Vector2D& getSize();
 
+    float getWidth();
+    float getHeight();
+
     Component* clone();
 };
 #endif /* Transform_hpp */

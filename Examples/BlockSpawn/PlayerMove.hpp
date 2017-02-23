@@ -7,7 +7,6 @@ class PlayerMove : public CustomComponent<PlayerMove>{
 public:
 	void start();
 	void update();
-	void onCollision(Entity* e, int direction);
 };
 
 #endif

@@ -46,6 +46,14 @@ Math::Vector2D& Transform::getPosition(){
     return position;
 }
 
+float Transform::getWidth(){
+    return this->size.x;
+}
+
+float Transform::getHeight(){
+    return this->size.y;    
+}
+
 Math::Vector2D& Transform::getSize(){
     return size;
 }

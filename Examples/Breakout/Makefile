@@ -8,7 +8,7 @@ endif
 endif
 all:
 	@echo "Compiling Breakout example"
-	@g++ *.cpp -std=c++11 -o Axilya -lAxilya $(FLAGS) -g
+	@g++ *.cpp -std=c++11 -o Axilya -lAxilya $(FLAGS)
 	@echo "Complete."
 run: all
 	./Axilya

@@ -27,7 +27,7 @@ void BallController::onCollision(Entity* e){
 	if(e->getName() != "player"){
 		e->destroy();
 	}else{
-		if(transform->getPosition().x+(transform->getSize().x/2) > e->getTransform()->getPosition().x+(e->getTransform()->getSize().x/2)){
+		if(transform->getPosition().x+(transform->getWidth()/2) > e->getTransform()->getPosition().x+(e->getTransform()->getWidth()/2)){
 			//if it's on the right half of the paddle
 			//knock it left
 			velocity.x = 2;
@@ -43,7 +43,7 @@ void BallController::onWorldCollision(int direction){
 	switch(direction){
 		case AX_COLLIDE_DOWN:
 			hasStarted = false;
-			owner->getTransform()->set(50, AXWindow::getHeight()/2);
+			transform->set(50, AXWindow::getHeight()/2);
 			break;
 		case AX_COLLIDE_UP:
 			velocity.y *= -1;

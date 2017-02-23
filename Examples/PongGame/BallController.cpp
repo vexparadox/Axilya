@@ -26,7 +26,7 @@ void BallController::onCollision(Entity* e){
 		}
 	}
 	//if the middle of the ball is greater than the middle of the paddle it hit
-	if(transform->getPosition().y+(transform->getSize().y/2) > e->getTransform()->getPosition().y+(e->getTransform()->getSize().y/2)){
+	if(transform->getPosition().y+(transform->getHeight()/2) > e->getTransform()->getPosition().y+(e->getTransform()->getHeight()/2)){
 		//if it's on the top half of the paddle
 		//knock it downwards
 		velocity.y = 1.5;

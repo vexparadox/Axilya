@@ -27,7 +27,3 @@ void PlayerMove::update(){
 		owner->setColour(0, 0, 0);
 	}
 }
-
-void PlayerMove::onCollision(Entity* e, int direction){
-	std::cout << "Direction: " << direction << std::endl;
-}
