@@ -27,7 +27,7 @@ void BallController::onCollision(Entity* e){
 	if(e->getName() != "player"){
 		e->destroy();
 	}else{
-		if(owner->getTransform()->getPos().x+(owner->getTransform()->getSize().x/2) > e->getTransform()->getPos().x+(e->getTransform()->getSize().x/2)){
+		if(transform->getPosition().x+(transform->getSize().x/2) > e->getTransform()->getPosition().x+(e->getTransform()->getSize().x/2)){
 			//if it's on the right half of the paddle
 			//knock it left
 			velocity.x = 2;

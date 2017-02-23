@@ -46,7 +46,7 @@ public:
     * Returns the position
     * @return the position of the Entity
     */
-    Math::Vector2D& getPos();
+    Math::Vector2D& getPosition();
     /*!
     * Returns the size
     * @return the size of the Entity

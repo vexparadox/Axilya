@@ -12,8 +12,8 @@ void PlayerController::update(){
 		Entity* e = getScene()->instantiate("bullet", 
 			prefabManager->getPrefab("bullet"),
 			new Transform(
-				owner->getTransform()->getPos().x+owner->getTransform()->getSize().x/2,
-				owner->getTransform()->getPos().y, 16, 32));
+				transform->getPosition().x+owner->getTransform()->getSize().x/2,
+				transform->getPosition().y, 16, 32));
 		if(e != 0){
 			bullet = e->getComponent<Bullet>();
 			bullet->pc = this;

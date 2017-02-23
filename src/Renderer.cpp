@@ -39,7 +39,7 @@ Sprite* Renderer::getCurrentSprite(){
 }
 
 void Renderer::draw(const Math::Vector2D& renderOffset) {
-    Math::Vector2D position = owner->getTransform()->getPos()+renderOffset;
+    Math::Vector2D position = owner->getTransform()->getPosition()+renderOffset;
     Math::Vector2D size = owner->getTransform()->getSize();
     if(currentSprite){
         //make sure the colour is transparent

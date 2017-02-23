@@ -104,7 +104,7 @@ void Entity::moveEntity(float x, float y){
 }
 
 void Entity::moveEntity(Math::Vector2D v){
-    Math::Vector2D newPos = transform->getPos() + v;
+    Math::Vector2D newPos = transform->getPosition() + v;
     if(collider){
         //reset the current Collisions
         memset(currentCollisions, 0, 18);
@@ -135,7 +135,7 @@ void Entity::moveEntity(Math::Vector2D v){
 }
 
 Entity* Entity::clone(){
-    Entity* e = new Entity(this->name, transform->getPos(), transform->getSize());
+    Entity* e = new Entity(this->name, transform->getPosition(), transform->getSize());
     if(collider){
        e->addCollider(collider->clone());
        e->getCollider()->setOwner(e);
@@ -255,8 +255,8 @@ void Entity::addCollider(Collider* c){
         c->setOwner(this);
         //this is temporary, it was causing a seg fault if set in the BoxCollider constructor 
         //because owner was not set until after the creation of the collider
-        c->bounds = new AXGraphics::Rect(transform->getPos(), transform->getSize());
-        c->center = Math::Vector2D(transform->getPos()+(transform->getSize()/2));
+        c->bounds = new AXGraphics::Rect(transform->getPosition(), transform->getSize());
+        c->center = Math::Vector2D(transform->getPosition()+(transform->getSize()/2));
         c->halfSize = transform->getSize()/2;
         this->collider = c;
     }

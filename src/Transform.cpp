@@ -42,7 +42,7 @@ void Transform::moveTransform(const Math::Vector2D &v){
     this->position += v;
 }
 
-Math::Vector2D& Transform::getPos(){
+Math::Vector2D& Transform::getPosition(){
     return position;
 }
 

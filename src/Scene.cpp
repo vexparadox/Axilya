@@ -150,9 +150,9 @@ void Scene::parseSceneFile(const std::string &path) {
 Entity* Scene::instantiate(const std::string& name, Entity* e, Transform* t){
     if(e && t && name != ""){
         Entity* temp = e->clone();
-        temp->getTransform()->set(t->getPos(), t->getSize());
+        temp->getTransform()->set(t->getPosition(), t->getSize());
         if(temp->getCollider()){
-            temp->getCollider()->getBounds()->set(t->getPos(), t->getSize());
+            temp->getCollider()->getBounds()->set(t->getPosition(), t->getSize());
         }
         temp->setName(name);
         if(this->addEntity(temp)){

@@ -22,6 +22,7 @@ protected:
     ResourceManager* resourceManager = ResourceManager::getInstance();
     PrefabManager* prefabManager = PrefabManager::getInstance();
     Entity* owner = 0;
+    Transform* transform = 0;
     Component();
 public:  
     virtual ~Component();

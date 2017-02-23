@@ -25,4 +25,5 @@ Scene* Component::getScene() {
 
 void Component::setOwner(Entity* o){
     this->owner = o;
+    this->transform = owner->getTransform();
 }

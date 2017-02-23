@@ -26,7 +26,7 @@ void BallController::onCollision(Entity* e){
 		}
 	}
 	//if the middle of the ball is greater than the middle of the paddle it hit
-	if(owner->getTransform()->getPos().y+(owner->getTransform()->getSize().y/2) > e->getTransform()->getPos().y+(e->getTransform()->getSize().y/2)){
+	if(transform->getPosition().y+(transform->getSize().y/2) > e->getTransform()->getPosition().y+(e->getTransform()->getSize().y/2)){
 		//if it's on the top half of the paddle
 		//knock it downwards
 		velocity.y = 1.5;
@@ -51,7 +51,7 @@ void BallController::onWorldCollision(int direction){
 			getScene()->getGameMaster()->getComponent<GameMaster>()->addScore(1, 1);
 		}
 		//else reset the ball
-		owner->getTransform()->set(AXWindow::getWidth()/2, AXWindow::getHeight()/2);
+		transform->set(AXWindow::getWidth()/2, AXWindow::getHeight()/2);
 		hasStarted = false;
 		velocity.x = 0;
 		velocity.y = 0;
