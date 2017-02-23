@@ -1,11 +1,11 @@
 OS = $(shell uname)
 ifeq ($(OS), Linux)
 	CPFLAGS += 
-	SDLRUN := @echo "Unpacking SDL2.0.5"; unzip ./SDL/SDL2.zip; echo "Copying SDL Framework"; cp -rf ./SDL2.framework /Library/Frameworks/; echo "Cleaning up..."; rm -rf ./SDL2.framework; echo "Install Complete";
+	SDLRUN := @echo "Unpacking SDL2.0.5"; cd ./SDL && unzip ./SDL2-src.zip; echo "Configuring SDL2.0.5"; cd ./SDL2-2.0.5 && ./configure ; echo "Building..."; sudo make && sudo make install; echo "Cleaning up..."; cd ../ && rm -rf ./SDL2-2.0.5; echo "Install complete"
 else
 ifeq ($(OS), Darwin)
 	CPFLAGS += -mmacosx-version-min=10.9 -F/Library/Frameworks/
-	SDLRUN := @echo "Unpacking SDL2.0.5"; unzip ./SDL/SDL2-osx.zip; echo "Copying SDL Framework"; cp -rf ./SDL2.framework /Library/Frameworks/; echo "Cleaning up..."; rm -rf ./SDL2.framework; echo "Install Complete";
+	SDLRUN := @echo "Unpacking SDL2.0.5"; cd ./SDL && unzip ./SDL2-osx.zip; echo "Copying SDL Framework";  cp -rf ./SDL2.framework /Library/Frameworks/; echo "Cleaning up..."; rm -rf ./SDL2.framework; echo "Install complete";
 endif
 endif
 temp = $(wildcard ./src/*.cpp)
