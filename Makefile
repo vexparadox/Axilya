@@ -1,9 +1,11 @@
 OS = $(shell uname)
 ifeq ($(OS), Linux)
 	CPFLAGS += 
+	SDLRUN := @echo "Unpacking SDL2.0.5"; unzip ./SDL/SDL2.zip; echo "Copying SDL Framework"; cp -rf ./SDL2.framework /Library/Frameworks/; echo "Cleaning up..."; rm -rf ./SDL2.framework; echo "Install Complete";
 else
 ifeq ($(OS), Darwin)
 	CPFLAGS += -mmacosx-version-min=10.9 -F/Library/Frameworks/
+	SDLRUN := @echo "Unpacking SDL2.0.5"; unzip ./SDL/SDL2-osx.zip; echo "Copying SDL Framework"; cp -rf ./SDL2.framework /Library/Frameworks/; echo "Cleaning up..."; rm -rf ./SDL2.framework; echo "Install Complete";
 endif
 endif
 temp = $(wildcard ./src/*.cpp)
@@ -13,11 +15,11 @@ objFiles = $(patsubst %.cpp, %.o, $(tempObjs))
 headers = $(wildcard ./src/headers/*.hpp)
 headers += $(wildcard ./src/headers/*.h)
 
-all: install examples
+all: sdl install examples
 
 lib: 
 	@mkdir -p ./Build/objs/
-	@echo "Compiling Axilya library, this may take a while..."
+	@echo "Compiling the Axilya library, this may take a while..."
 	@cd ./Build/objs/ && g++ $(cppFiles) -c $(CPFLAGS) -std=c++11 -O3; 
 	@ar rcs ./Build/libAxilya.a $(objFiles)
 	@echo "Library compiled"
@@ -36,7 +38,7 @@ install: lib
 	@echo "Copy complete"
 	@echo "Install complete"
 
-.PHONY: clean cleaninstall examples
+.PHONY: clean cleaninstall examples sdl
 examples:
 	@echo "Building examples..."
 	@cd ./Examples/ && make
@@ -51,3 +53,5 @@ cleaninstall:
 	@rm -rf /usr/local/include/Axilya 2> /dev/null
 	@rm -f /usr/local/lib/libAxilya.a 2> /dev/null
 	@echo "Install removed."
+sdl:
+	$(SDLRUN)
