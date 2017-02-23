@@ -10,6 +10,6 @@ protected:
 public:
 	virtual void setFont(AXFont* font) = 0;
 	virtual void setFont(int id) = 0;
-	virtual void draw(float x, float y, char* text) = 0;
+	virtual void draw(float x, float y) = 0;
 };
 #endif

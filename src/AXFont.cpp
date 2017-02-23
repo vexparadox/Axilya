@@ -14,11 +14,9 @@ AXFont::~AXFont(){
 }
 
 bool AXFont::loadFont(const std::string& p){
-	if(surface){
+	if(hasLoaded){
 		//freeup the surface
 		SDL_FreeSurface(surface);
-	}
-	if(charData){
 		//set the chardata to 0s
 		memset(charData, 0, sizeof(stbtt_bakedchar)*charDataSize);
 	}
@@ -71,6 +69,7 @@ bool AXFont::isLoaded(){
 const std::string& AXFont::getPath(){
 	return path;
 }
+
 SDL_Surface* AXFont::getSurface(){
 	return surface;
 }

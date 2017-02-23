@@ -9,9 +9,9 @@
 #ifndef CoreMain_h
 #define CoreMain_h
 
-#include "AXFont.hpp"
 #include "Math.h"
 #include "Types.h"
+#include "AXStaticText.hpp"
 #include "Graphics.hpp"
 #include "Components.h"
 #include "Entity.hpp"
