@@ -6,16 +6,25 @@ See the examples and wiki for a better idea of what's happening.
 
 ## Compiling
 
-You can either run the make script, this will build the library and all examples.
+You can either run the make script, this will install SDL2.0.5, build the library and all examples.
 
 ```Shell
 	sudo make all
 ```
 
+To just install SDL2:
+```Shell
+	sudo make sdl
+
 To just install use:
 
 ```Shell
 	sudo make install
+```
+
+To just make the examples:
+```Shell
+	make examples
 ```
 
 To just build the library use:
@@ -28,6 +37,7 @@ To remove the install use:
 ```Shell
 	sudo make cleaninstall
 ```
+
 
 You can also build just the library using xCode using the project file included.
 
