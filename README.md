@@ -15,6 +15,7 @@ You can either run the make script, this will install SDL2.0.5, build the librar
 To just install SDL2:
 ```Shell
 	sudo make sdl
+```
 
 To just install use:
 
