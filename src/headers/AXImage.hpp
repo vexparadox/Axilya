@@ -40,6 +40,9 @@
 #include <unistd.h>
 
 class Runner;
+/*!
+* AXIMAGE
+*/
 class AXImage{
 private:
     SDL_Surface* surface;
@@ -50,30 +53,89 @@ private:
     bool sdlLoad(const char* name);
     unsigned char* imageDataPtr = 0;
 public:
+    /*!
+   * The constructor of an AXImage with no image loaded
+   */
     AXImage(){};
+    /*!
+   * The destructor of the AXImage
+   *
+   * This will destroy any image data loaded and the associated SDL structs
+   */
     ~AXImage();
+    /*!
+   * The constructor of an AXImage which will load in an image
+   * @param nameInput the path of an image file to load
+   */
     AXImage(std::string nameInput);
-    //load the AXImage
+    /*!
+   * A method to load an image file
+   * @param nameInput the path of an image file to load
+   * @return If the image was loaded successfully
+   */
     bool loadImage(std::string nameInput);
-    
-    //checks if files exists
-    bool fileExists(const std::string& name);
-    
-    //various different draw methods
+    /*!
+   * A method to check if a file exists
+   * @param name the path of the file to be checked
+   * @return If the file exists on the system
+   */    
+   bool fileExists(const std::string& name);
+    /*!
+   * A method to draw the AXImage
+   * @param v a 2D vector that holds the draw position (x, y)
+   * @param w the width to draw the image
+   * @param h the height to draw the image
+   */        
     void draw(const Math::Vector2D &v, float w, float h);
+    /*!
+   * A method to draw the AXImage
+   * @param x the x position to draw the image
+   * @param y the y position to draw the image
+   * @param w the width to draw the image
+   * @param h the height to draw the image
+   */        
     void draw(float x, float y, float w, float h);
+    /*!
+   * A method to draw the AXImage
+   *
+   * When no width and height are specified the image will be drawn at it's native resolution
+   * @param v a 2D vector that holds the draw position (x, y)
+   */   
     void draw(const Math::Vector2D &v);
+    /*!
+   * A method to draw the AXImage
+   *
+   * When no width and height are specified the image will be drawn at it's native resolution
+   * @param x the x position to draw the image
+   * @param y the y position to draw the image
+   */   
     void draw(float x, float y);
     
-    //gets the width and height of the AXImage
+    /*!
+   * A method to get the width of the AXImage
+   * @return the width of the loaded image
+   */  
     int getWidth();
+    /*!
+   * A method to get the height of the AXImage
+   * @return the height of the loaded image
+   */  
     int getHeight();
     
-    //attempts to grab the screen, not really working
+    /*!
+   * A method to grab the pixel data from the screen
+   * This is not working
+   */  
     bool grabScreen(float x, float y, float w, float h);
-    //returns if the AXImage is loaded
+    /*!
+   * A method to check if the AXImage has been loaded
+   * @return If the image has been loaded
+   */      
     bool isLoaded();
-    //returns the path the file was loaded from
+    /*!
+   * A method to get the path of the loaded AXImage
+   * @return The path of the loaded image
+   */      
     std::string getPath();
 };
 

@@ -29,7 +29,7 @@
  * @section DESCRIPTION
  *
  * This class is used to hold font data and the instructions to load from TTF files.
- * It also holds the ID given by the Resource Manager. It's not recomended to use this without the RM.
+ * It also holds the ID given by the Resource Manager. It's not recomended to use this without the ResourceManager.
  */
 #ifndef AXFont_hpp
 #define AXFont_hpp
@@ -43,13 +43,51 @@ class AXFont{
 	int id;
 	static const int charDataSize;
 public:
+	/*!
+   * The constructor of an AXFont
+   *
+   * It's not recommended that you construct your own AXFont, see the ResourceManager.
+   * @param id this ID will be given by the ResourceManager when it's created
+   */
 	AXFont(int id);
+	/*!
+   * The destructor of an AXFont
+   *
+   * This will release the glyph map and character data stored.
+   */
 	~AXFont();
+	/*!
+   * A method to load a font file
+   *
+   * If this font is already loaded the previous font data will be overwritten.
+   * @param path the path of the .ttf file to be loaded into this AXFont
+   * @return Whether the font file successfully loaded
+   */
 	bool loadFont(const std::string& path);
+	/*!
+   * A method to check if the AXFont has been loaded
+   * @return Whether the font is loaded
+   */
 	bool isLoaded();
+	/*!
+   * A method to get the path of the loaded font file
+   * @return The path of the loaded font file
+   */
 	const std::string& getPath();
+	/*!
+   * A method to get the SDL_Surface that the glyph map is loaded onto
+   * @return The SDL_Surface
+   */
 	SDL_Surface* getSurface();
+	/*!
+   * A method to get the stbtt_bakedchar array that contains the char data
+   * @return The the character data
+   */
 	stbtt_bakedchar* getCharData();
+	/*!
+   * A method to get the AXFont's ID given by the ResourceManager
+   * @return The AXFont's ID
+   */
 	int getID();
 };
 #endif

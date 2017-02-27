@@ -39,13 +39,8 @@
 namespace AXGraphics{
     class Rect : public Shape{
     public:
-        Rect(const Math::Vector2D &v1, float w, float h): Shape(v1, Math::Vector2D(w, h)){
-        }
-        Rect(const Math::Vector2D &v1, const Math::Vector2D& size): Shape(v1, size){
-        }
-
         ~Rect(){};
-        /*!
+      /*!
        * The constructor of a Rect
        * @param x a float to set the x position
        * @param y a float to set the y position
@@ -55,13 +50,22 @@ namespace AXGraphics{
        */
         Rect(float x, float y, float w, float h) : Shape(Math::Vector2D(x, y), Math::Vector2D(w, h)){
         }
-        
-        void set(const Math::Vector2D &v, const Math::Vector2D &size){
-            this->set(v.x, v.y, size.x, size.y);
+      /*!
+       * The constructor of a Rect
+       * @param v1 2D vector to set the position
+       * @param w a float to set the width to
+       * @param h a float to set the height to
+       * @see Shape constructor
+       */
+        Rect(const Math::Vector2D &v1, float w, float h): Shape(v1, Math::Vector2D(w, h)){
         }
-
-        void set(const Math::Vector2D &v, float r){
-            this->set(v.x, v.y, r, r);
+      /*!
+       * The constructor of a Rect
+       * @param v1 2D vector to set the position (x, y)
+       * @param size 2D vector to set the size (w, h)
+       * @see Shape constructor
+       */
+        Rect(const Math::Vector2D &v1, const Math::Vector2D& size): Shape(v1, size){
         }
        /*!
        * A method to set the Rect's parameters
@@ -69,7 +73,7 @@ namespace AXGraphics{
        * @param y a float to set the y value to
        * @param w a float to set the width to
        * @param h a float to set the height to
-       * @see Rect::set(const Math::Vector2D &v, float w, float h)
+       * @see Other Rect::set methods
        */
         void set(float x, float y, float w, float h){
             this->position.x = x;
@@ -77,6 +81,25 @@ namespace AXGraphics{
             this->size.x = w;
             this->size.y = h;
         }
+       /*!
+       * A method to set the Rect's parameters
+       * @param v a 2D vector to set the position (x, y)
+       * @param size a 2D vector to set the size (w, h)
+       * @see Other Rect::set methods
+       */
+        void set(const Math::Vector2D &v, const Math::Vector2D &size){
+            this->set(v.x, v.y, size.x, size.y);
+        }
+       /*!
+       * A method to set the Rect's parameters
+       * @param v a 2D vector to set the position (x, y)
+       * @param r a float to set both the width and height
+       * @see Other Rect::set methods
+       */
+        void set(const Math::Vector2D &v, float r){
+            this->set(v.x, v.y, r, r);
+        }
+
         /*!
        * A method to get the Rect's position
        */
@@ -113,10 +136,13 @@ namespace AXGraphics{
         const float getHeight() const{
             return size.y;
         }
+       /*!
+       * A method that clones the shape
+       * @return A clone of this Rect
+       */
         virtual Shape* clone(){
           return new Rect(this->position, this->size);
         }
     };
 }
-
 #endif /* Rect_h */
