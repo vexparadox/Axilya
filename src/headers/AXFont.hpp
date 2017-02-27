@@ -53,7 +53,7 @@ public:
 	/*!
    * The destructor of an AXFont
    *
-   * This will release the glyph map and character data stored.
+   * This will release the glyph map and character data stored. Do not manually delete resources loaded by the ResourceManger
    */
 	~AXFont();
 	/*!

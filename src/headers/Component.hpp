@@ -42,31 +42,86 @@ class Entity;
 class Scene;
 class Component{
 protected:
-    //get an instance of the resourcemanager
     ResourceManager* resourceManager = ResourceManager::getInstance();
     PrefabManager* prefabManager = PrefabManager::getInstance();
+    /*!
+    * The Entity that owns this Component
+    */ 
     Entity* owner = 0;
+    /*!
+    * The Transform that's attached to the Entity that owns this Component
+    */ 
     Transform* transform = 0;
     Component();
-public:  
+public:
+    /*!
+    * The virtual deconstructor of this Component.
+    *
+    * Implement your own in the CustomComponent<custom>
+    */ 
     virtual ~Component();
-    //change what entity owns this component
+    /*!
+    * A method to get the Entity that owns this Component.
+    *
+    * @return the owner of this Component
+    */ 
     Entity* getOwner();
-    //returns the owner's scene
+    /*!
+    * A method to get the Scene that the owner of this Component is in.
+    *
+    * @return the the scene that the owner of this Component is in 
+    */ 
     Scene* getScene();
-    //returns what entity owns this component
-    void setOwner(Entity*);
-    //lets the components be cloned
+    /*!
+    * A method to set the Entity that owns this Component.
+    *
+    * This is called when the Component is added to an Entity
+    * @param e the entity to set
+    */ 
+    void setOwner(Entity* e);
+    /*!
+    * A virtual method that returns a clone of this Component.
+    *
+    * Implement your own when inheriting from Component, this is done automatically if you use CustomComponent<custom> 
+    * @return a clone of this Component
+    */ 
     virtual Component* clone() = 0;
-    //called at the begining of the program
+    /*!
+    * A virtual method that is called at the start of the game loop.
+    */ 
     virtual void start(){};
-    //a virutal update method that Component's can use
+    /*!
+    * A virtual method that is called every frame in the game loop.
+    */    
     virtual void update(){};
+    /*!
+    * A virtual method that is called if a Collider is present and a collision happens with another Entity.
+    * @param e the Entity that has collided with this one
+    */    
     virtual void onCollision(Entity* e){};
+    /*!
+    * A virtual method that is called if a Collider is present and a collision happens with another Entity.
+    * @param e the Entity that has collided with this one
+    * @param direction the direction that the collision occured AX_COLLIDE_UP/DOWN/RIGHT/LEFT
+    */
     virtual void onCollision(Entity* e, int direction){};
+    /*!
+    * A virtual method that is called if a Collider is present and a collision happens with the World or Screen.
+    * @param direction the direction that the collision occured AX_COLLIDE_UP/DOWN/RIGHT/LEFT
+    */
     virtual void onWorldCollision(int direction){};
+    /*!
+    * A virtual method that is called if a Collider is present the Entity is clicked on.
+    * @param mouseButton the mouse button that's pressed 0, 1, 2
+    */
     virtual void onClick(int mouseButton){};
+    /*!
+    * A virtual method that is called if a Collider is present the Entity is hovered over.
+    */
     virtual void onHover(){};
+    /*!
+    * A virtual method that is called just before the Entity this Component is attached to is destroyed.
+    */
     virtual void onDestroy(){};
 };
 

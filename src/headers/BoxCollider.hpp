@@ -39,14 +39,40 @@
 class Entity;
 class BoxCollider : public Collider{
 public:
+    /*!
+    * The constructor of a BoxCollider
+    *
+    * The bounds of this Collider will default to those defined by the Entity's Transform Component.
+    */
     BoxCollider();
-    //checks and corrects against the world boundries
+	/*!
+    * A method to check this Collider's bounds against the screen (if screen bound) and the World and correct collisions that occur.
+    *
+    * This method will be called repeatedly until it returns 0.
+    * @param v the proposed movement of this Entity, the values will be set to 0 if a collision occurs.
+    * @return Will return the direction of the collision that happened AX_COLLIDE_UP/DOWN/RIGHT/LEFT or 0 if none occurred.
+    */
     int worldCollideCheck(Math::Vector2D& v);
-    //checks and corrects against collision with this Collider's owner and another collider
-    //called from the scene  
-    int checkMovement(Entity*, Math::Vector2D&);
-    //checks if it's being clicked or hovered
+	/*!
+    * A method to check this Collider's bounds against the  and correct collisions that occur.
+    *
+    * This method will be called repeatedly until it returns 0 and will only be called if e has a Collider.
+    * @param e the Entity that is checked against this Collider's bounds
+    * @param v the proposed movement of e, the values will be set to 0 if a collision occurs.
+    * @return Will return the direction of the collision that happened AX_COLLIDE_UP/DOWN/RIGHT/LEFT or 0 if none occurred.
+    */
+    int checkMovement(Entity* e, Math::Vector2D& v);
+	/*!
+    * A method to check the mouse position is over this Collider's bounds.
+    *
+    * This method will call onClick() and onHover() on this Collider's Entity
+    */
     void mouseCheck();
+	/*!
+    * A method to clone this Collider.
+    *
+    * @return A clone of this BoxCollider
+    */
     Collider* clone();
 };
 

@@ -42,32 +42,135 @@ namespace Math {
         Math::Vector2D v1, v2;
         lineCollide(const Math::Vector2D &v1, const Math::Vector2D &v2);
     };
-    //this method checks a proposed position and returns a corrected position
+
     Math::Vector2D lineCollisionCheckX(const Math::Vector2D &originalPosition, const Math::Vector2D &proposedMovement, const lineCollide &lc);
     
     Math::Vector2D lineCollisionCheckY(const Math::Vector2D &originalPosition, const Math::Vector2D &proposedMovement, const lineCollide &lc);
-    
-    //returns if v3 is inside of v1-v2
-    bool isInsideQuad(const Vector2D &v1, const Vector2D &v2, const Vector2D &v3);
+
+    /*!
+    * A function that will return if the poing is inside the quad created by v1 and v2.
+    *
+    * @param point 
+    * @param v1 the first point of the quad 
+    * @param v2 the second point of the quad 
+    * @return if the point is inside the quad created by v1 and v2
+    */
+    bool isInsideQuad(const Vector2D &point, const Vector2D &v1, const Vector2D &v2);
+    /*!
+    * A function that will return if the point is inside the quad created by v and w,h.
+    *
+    * @param point the point to be checked 
+    * @param v the position of the quad
+    * @param w the width of the quad
+    * @param h the height of the quad
+    * @return if the point is inside the quad created by v and w,h
+    */
     bool isInsideQuad(const Vector2D &point, const Vector2D &v, float w, float h);
+    /*!
+    * A function that will return if x1,y1 is inside the quad created by x2,y2 and x3,y3
+    *
+    * @param x1 the x position of the point
+    * @param y1 the y position of the point
+    * @param x2 the x position of the quad
+    * @param y2 the y position of the quad
+    * @param x3 the second x position of the quad
+    * @param y3 the second y position of the quad
+    * @return if x1,y1 is inside the quad created by x2,y2 and x3,y3
+    */
     bool isInsideQuad(const float &x1, const float &y1, const float &x2, const float &y2, const float &x3, const float &y3);
     
-    //returns the sign of the vectors
-    float signVector(float x1, float y1, float x2, float y2, float x3, float y3);
-    float signVector(const Vector2D &v1, const Vector2D &v2, const Vector2D &v3);
-    float signVector(const AXGraphics::Triangle &t);
-    
-    //returns if point is inside of the triangle v1, v2, v3
+    /*!
+    * A function that will the area of a Triangle
+    *
+    * @param x1 the first x position of the triangle
+    * @param y1 the first y position of the triangle
+    * @param x2 the second x position of the triangle
+    * @param y2 the second y position of the triangle
+    * @param x3 the third x position of the triangle
+    * @param y3 the third y position of the triangle
+    * @return the area of the triangle given
+    */
+    float areaTriangle(float x1, float y1, float x2, float y2, float x3, float y3);
+    /*!
+    * A function that will the area of a Triangle
+    *
+    * @param v1 the first vertex of the triangle
+    * @param v2 the second vertex of the triangle
+    * @param v3 the third vertex of the triangle
+    * @return the area of the triangle given
+    */
+    float areaTriangle(const Vector2D &v1, const Vector2D &v2, const Vector2D &v3);
+    /*!
+    * A function that will the area of a Triangle
+    *
+    * @param t the triangle to be calculated
+    * @return the area of the triangle given
+    */
+    float areaTriangle(const AXGraphics::Triangle &t);
+    /*!
+    * A function that will return if a point is inside of the Triangle given
+    *
+    * @param point the point to be checked
+    * @param v1 the first vertex of the triangle
+    * @param v2 the second vertex of the triangle
+    * @param v3 the third vertex of the triangle
+    * @return if the point is inside of the triangle
+    */
     bool isInsideTriangle(const Vector2D &point, const Vector2D &v1, const Vector2D &v2, const Vector2D &v3);
+    /*!
+    * A function that will return if a point is inside of the Triangle given
+    *
+    * @param point the point to be checked
+    * @param t the triangle to be calculated
+    * @return if the point is inside of the triangle
+    */
     bool isInsideTriangle(const Vector2D &point, const AXGraphics::Triangle &t);
     
-    //returns if point is inside of the circles
+    /*!
+    * A function that will return if a point is inside of an Ellipse
+    *
+    * @param point the point to be checked
+    * @param cp the center point of the Ellipse
+    * @param xR the radius in the x direction
+    * @param yR the radius in the y direction
+    * @return if the point is inside of the ellipse
+    */    
     bool isInsideEllipse(const Vector2D &point, const Vector2D &cp, float xR, float yR);
+    /*!
+    * A function that will return if a point is inside of an Ellipse
+    *
+    * @param point the point to be checked
+    * @param cp the center point of the ellipse
+    * @param r the radius of the  ellpise
+    * @return if the point is inside of the ellipse
+    */  
     bool isInsideEllipse(const Vector2D &point, const Vector2D &cp, float r);
+    /*!
+    * A function that will return if a point is inside of an Ellipse
+    *
+    * @param point the point to be checked
+    * @param e the Ellipse to be calculated
+    * @return if the point is inside of the ellipse
+    */ 
     bool isInsideEllipse(const Vector2D &point, const AXGraphics::Ellipse &e);
     
-    //returns the distance between v1 and v2
+    /*!
+    * A function that will return a distance between two vectors
+    *
+    * @param v1 the first vector
+    * @param v2 the second vector
+    * @return the distance between the two vectors
+    */ 
     float vectorDistance(const Vector2D& v1, const Vector2D& v2);
+    /*!
+    * A function that will return a distance between two vectors
+    *
+    * @param x1 the x position of the first vector
+    * @param y1 the y position of the first vector
+    * @param x2 the x position of the second vector
+    * @param y2 the y position of the second vector
+    * @return the distance between the two vectors
+    */ 
     float vectorDistance(float x1, float y1, float x2, float y2);
 }
 

@@ -37,54 +37,80 @@ namespace AXGraphics{
         //#todo add static presets
         float r, g, b, a;
     public:
+        /*!
+        * The constructor for this Colour
+        *
+        * Note that values will be clamped to 0-255
+        * @param r the red value of this Colour (0-255)
+        * @param g the green value of this Colour (0-255)
+        * @param b the blue value of this Colour (0-255)
+        * @param a the alpha value of this Colour (0-255)
+        */ 
+
         Colour(float r, float g, float b, float a) {
             colourAssign(this->r, r);
             colourAssign(this->g, g);
             colourAssign(this->b, b);
             colourAssign(this->a, a);
         }
+        /*!
+        * The constructor for this Colour
+        *
+        * The r, g, b, a values will be set to 0 by default
+        */ 
         Colour(){
             r = 0;
             g = 0;
             b = 0;
             a = 0;
         }
-
+        /*!
+        * A method to set this Colour's values
+        *
+        * Note that values will be clamped to 0-255
+        * @param r the red value to set this Colour (0-255)
+        * @param g the green value to set this Colour (0-255)
+        * @param b the blue value to set this Colour (0-255)
+        * @param a the alpha value to set this Colour (0-255)
+        */ 
         void set(float r, float g, float b, float a){
             colourAssign(this->r, r);
             colourAssign(this->g, g);
             colourAssign(this->b, b);
             colourAssign(this->a, a);
         }
-
+        /*!
+        * A method to get the red value
+        *
+        * @return The red value of this Colour
+        */ 
         float getR() const{
             return r;
         }
-        
+        /*!
+        * A method to get the red value
+        *
+        * @return The red value of this Colour
+        */ 
         float getG() const{
             return g;
         }
-        
+        /*!
+        * A method to get the green value
+        *
+        * @return The red value of this Colour
+        */ 
         float getB() const{
             return b;
         }
-        
+        /*!
+        * A method to get the alpha value
+        *
+        * @return The red value of this Colour
+        */ 
         float getA() const{
             return a;
         }
-    private:
-        inline void colourAssign(float &c, float input){
-            if(input >= 255){
-                c = 255;
-                return;
-            }
-            if(input <= 0){
-                c = 0;
-                return;
-            }
-            c = input;
-        }
-        
         inline Colour& operator- (const Colour& c){
             colourAssign(this->r, (this->r - c.r));
             colourAssign(this->g, (this->g - c.g));
@@ -109,6 +135,18 @@ namespace AXGraphics{
         friend inline void operator+= (Colour& c1, const Colour& c2){
             c1 = c1+c2;
             return;
+        }
+    private:
+        inline void colourAssign(float &c, float input){
+            if(input >= 255){
+                c = 255;
+                return;
+            }
+            if(input <= 0){
+                c = 0;
+                return;
+            }
+            c = input;
         }
     };
 }

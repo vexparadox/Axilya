@@ -39,13 +39,54 @@ class AXStaticText : public AXText{
 	bool bakeText();
 	SDL_Texture* texture;
 	bool isBaked;
-public:
+public:    
+	/*!
+   * The constructor of an AXStaticText
+   *
+   * This method will bake the string you provide, this makes it fast to draw but slow to update.
+   * @param text the text that will be drawn
+   * @param font the AXFont that will be used to draw the text
+   */    
 	AXStaticText(const std::string& text, AXFont* font);
+	/*!
+   * The constructor of an AXStaticText
+   *
+   * This method will bake the string you provide, this makes it fast to draw but slow to update.
+   * @param text the text that will be drawn
+   * @param id the ID of the AXFont (given by the ResourceManager) that will be used to draw the text
+   */    
 	AXStaticText(const std::string& text, int fontID);
+	/*!
+   * A method to update the text this AXStaticText will draw
+   *
+   * This method will re-bake the string you provide, this makes it fast to draw but slow to use every frame.
+   * @param text the text that will be drawn
+   */    
 	void setText(const std::string& text);
+	/*!
+   * A method to update the AXFont this AXStaticText will use to draw
+   *
+   * This method will re-bake the string you have set.
+   * @param font the AXFont that will be used to draw the text
+   */  
 	void setFont(AXFont* font);
+	/*!
+   * A method to update the AXFont this AXStaticText will use to draw
+   *
+   * This method will re-bake the string you have set.
+   * @param id the ID of the AXFont (given by the ResourceManager) that will be used to draw the text
+   */  
 	void setFont(int id);
+	/*!
+   * A method to draw the AXStaticText
+   * @param x the x position that the text will be drawn at
+   * @param y the y position that the text will be drawn at
+   */  
 	void draw(float x, float y);
+   /*!
+   * A method to clone this AXText
+   * @return a clone of this AXStaticText
+   */
 	Component* clone();
 };
 #endif

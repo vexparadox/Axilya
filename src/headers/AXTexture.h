@@ -38,9 +38,29 @@ class AXTexture{
 	AXImage* img = 0;
     int id = -1;
 public:
+	/*!
+   * The constructor of an AXTexture 
+   * @param id the ID provided when created by the ResourceManager
+   * @param img the AXImage data that's loaded by the ResourceManager
+   */  
     AXTexture(int id, AXImage* img) : id(id), img(img){}
+    /*!
+   * The deconstructor of an AXTexture 
+   * 
+   * This will free the image data, do not manually delete resources loaded by the ResourceManger
+   */  
     ~AXTexture(){ delete img; img = 0;}
+  /*!
+   * A method to get the ID of this AXTexture 
+   * 
+   * @return The ID of this texture
+   */  
     int getID(){ return id; }
+  /*!
+   * A method to get the AXImage data of this AXTexture 
+   * 
+   * @return The image data of this texture
+   */  
 	AXImage* getImage(){ if(img) {return img;} else {return 0;} }
 };
 #endif

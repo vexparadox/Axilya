@@ -40,8 +40,21 @@ protected:
 	AXFont* font;
 	ResourceManager* resourceManager = ResourceManager::getInstance();
 public:
+   /*!
+   * A method to set the font of the AXText
+   * @param font the AXFont that will be used to draw the text
+   */
 	virtual void setFont(AXFont* font) = 0;
+   /*!
+   * A method to set the font of the AXText
+   * @param id the ID of the AXFont (given by the ResourceManager) that will be used to draw the text
+   */
 	virtual void setFont(int id) = 0;
+	/*!
+   * A method to draw the AXText
+   * @param x the x position that the text will be drawn at
+   * @param y the y position that the text will be drawn at
+   */  
 	virtual void draw(float x, float y) = 0;
 };
 #endif

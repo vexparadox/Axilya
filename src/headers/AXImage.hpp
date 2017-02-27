@@ -40,9 +40,6 @@
 #include <unistd.h>
 
 class Runner;
-/*!
-* AXIMAGE
-*/
 class AXImage{
 private:
     SDL_Surface* surface;

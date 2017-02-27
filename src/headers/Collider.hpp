@@ -42,15 +42,52 @@ public:
     Shape* bounds;
     Entity* owner = 0;
     bool screenBound;
-    //take the owner and bounds of the collider 
+    /*!
+    * The constuctor of the base class Collider.
+    *
+    * The bounds of this Collider will default to those defined by the Entity's Transform Component.
+    */    
     Collider();
     virtual ~Collider();
+    /*!
+    * A method to get the bounds of this Collider.
+    *
+    * @return The Shape of this Collider's bounds
+    */    
     Shape* getBounds();
+    /*!
+    * A method to set the Entity that owns this Collider.
+    *
+    * @param e The owner of this Collider
+    */   
     void setOwner(Entity* e);
+    /*!
+    * A method to get the Entity that owns this Collider.
+    *
+    * @return The owner of this Collider
+    */   
     Entity* getOwner();
+    /*!
+    * A virtual method to check the mouse position against this Collider's bounds.
+    */
     virtual void mouseCheck() = 0;
+    /*!
+    * A virtual method to check this Collider's bounds against the screen and World.
+    *
+    * @return Will return the direction of the collision that happened AX_COLLIDE_UP/DOWN/RIGHT/LEFT or 0 if none occurred.
+    */
     virtual int worldCollideCheck(Math::Vector2D&) = 0;
+    /*!
+    * A virtual method to check this Collider's bounds against another Entity's Collider.
+    *
+    * @return Will return the direction of the collision that happened AX_COLLIDE_UP/DOWN/RIGHT/LEFT or 0 if none occurred.
+    */
     virtual int checkMovement(Entity*, Math::Vector2D&) = 0;
+    /*!
+    * A virtual method to clone this Collider.
+    *
+    * @return a clone of this Collider.
+    */
     virtual Collider* clone() = 0;
 };	
 

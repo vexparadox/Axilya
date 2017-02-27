@@ -17,8 +17,6 @@ int AXWindow::displayWidth = 0;
 int AXWindow::displayHeight = 0;
 //the active scene
 Scene* AXWindow::activeScene = 0;
-//the run path
-std::string AXWindow::runPath = "";
 //store the SDL window and renderer
 SDL_Renderer* AXWindow::renderer = 0;
 SDL_Window* AXWindow::window = 0;

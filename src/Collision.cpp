@@ -28,7 +28,6 @@ namespace Math {
         return proposedMovement;
     }
     
-    //returns if v3 is inside of v1-v2
     bool isInsideQuad(const Vector2D &point, const Vector2D &v1, const Vector2D &v2){
         return Math::isInsideQuad(point.x, point.y, v1.x, v1.y, v2.x, v2.y);
     }
@@ -45,18 +44,18 @@ namespace Math {
         return (x1 > x2 && x1 < x3) && (y1 > y2 && y1 < y3);
     }
     
-    float signVector(float x1, float y1, float x2, float y2, float x3, float y3){
+    float areaTriangle(float x1, float y1, float x2, float y2, float x3, float y3){
         return signVector(Vector2D(x1, y1), Vector2D(x2, y2), Vector2D(x3, y3));
     }
     
-    float signVector(const Vector2D &v1, const Vector2D &v2, const Vector2D &v3){
+    float areaTriangle(const Vector2D &v1, const Vector2D &v2, const Vector2D &v3){
         float det = 0.0f;
         det = ((v1.x - v3.x) * (v2.y - v3.y)) - ((v2.x - v3.x) * (v1.y - v3.y));
         return (det / 2.0f);
     }
     
-    float signVector(const AXGraphics::Triangle &t){
-        return signVector(t.getV1(), t.getV2(), t.getV3());
+    float areaTriangle(const AXGraphics::Triangle &t){
+        return areaTriangle(t.getV1(), t.getV2(), t.getV3());
     }
     
     bool isInsideTriangle(const Vector2D &point, const Vector2D &v1, const Vector2D &v2, const Vector2D &v3){

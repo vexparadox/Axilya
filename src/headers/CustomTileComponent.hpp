@@ -37,6 +37,11 @@
 template <typename custom>
 class CustomTileComponent : public TileComponent{
 public:
+    /*!
+    * This method returns a clone of the TileComponent that was given in the template of CustomTileComponent<custom>
+    * It will return a clone of your TileComponent but will not keep values, it will be reconstructed.
+    * Inherit from TileComponent and implement your own clone method to keep values over clone.
+    */ 
 	virtual TileComponent* clone(){
         return new custom(static_cast<custom const&>(*this));
 	}

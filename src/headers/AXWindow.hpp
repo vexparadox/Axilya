@@ -50,36 +50,98 @@ class AXWindow{
     AXWindow(){};
     ~AXWindow(){};
 public:
+    /*!    
+    * A static SDL_Renderer that is used to draw throughout Axilya
+    */
     static SDL_Renderer* renderer;
-    static std::string runPath;
-
-    //the RGBA of the next screen flush IE the background
+    /*!
+    * A static Colour variable that defines the background colour of the AXWindow
+    * @see AXGraphics::setBackground()
+    */
     static AXGraphics::Colour backgroundColour;
+    /*!
+    * A static Colour variable that defines the colour that shapes will be rendered in
+    * @see AXGraphics::fill()
+    */
     static AXGraphics::Colour renderColour;
     
-    //the creation of the AXWindow
-    static int init(float wWidth, float wHeight, int windowStyle, const char* title);
-    static int init(float windowWidth, float windowHeight, int windowType, const char* title, UDFunction update, UDFunction draw);
-    static int run();
-    //get window size
-    
     /*!
-    * Returns the window width
-    * @return window width 
+    * A static method initialise the AXWindow
+    *
+    * The AXWindow is the back bone of Axilya, you need to initialise everything before using the run method.
+    * @param windowWidth the requested width of the window
+    * @param windowHeight the requested height of the window
+    * @param windowStyle the style of the window, can be AX_WINDOWED or AX_FULLSCREEN
+    * @param title the title that's shown in the top bar of the window
+    * @return Returns 1 on success and -1 on failure
+    */
+    static int init(float windowWidth, float windowHeight, int windowStyle, const char* title);
+    /*!
+    * A static method initialise the AXWindow
+    *
+    * The AXWindow is the back bone of Axilya, you need to initialise everything before using the run method.
+    * @param windowWidth the requested width of the window
+    * @param windowHeight the requested height of the window
+    * @param windowStyle the style of the window, can be AX_WINDOWED or AX_FULLSCREEN
+    * @param title the title that's shown in the top bar of the window
+    * @param update the function pointer to an update method, this will be called in the game loop along side the current Scene being updated
+    * @param draw the function pointer to an draw method, this will be called in the game loop along side the current Scene being updated
+    * @return Returns 1 on success and -1 on failure
+    */
+    static int init(float windowWidth, float windowHeight, int windowType, const char* title, UDFunction update, UDFunction draw);
+    /*!
+    * A static method to start and maintain the game loop
+    *
+    * This method should be returned by your `int main()` method. It will update the set Scene and draw the AXWindow.  
+    * @return Will return 0 on a successfull game loop when AXWindow::shutdown() is called
+    */
+    static int run();
+    /*!
+    * A static method to get the window width
+    * @return The window width 
     */
     static int getWidth();
-    
     /*!
-    * Returns the window height
-    * @return window height 
+    * A static method to get the window height
+    * @return The window height 
     */
     static int getHeight();
-    static void hideCursor(bool);
-    static void lockCursor(bool);
+    /*!
+    * A static method to set if the cursor should be hidden or not
+    * @param value if the cursor should be hidden or not 
+    */
+    static void hideCursor(bool value);
+    /*!
+    * A static method to set if the cursor should be locked to the AXWindow bounds or not
+    * @param value if the cursor should be locked or not 
+    */
+    static void lockCursor(bool value);
+    /*!
+    * A static method to get the current display width
+    * @return The current display width 
+    */
     static int getDisplayWidth();
+    /*!
+    * A static method to get the current display height
+    * @return The current display height 
+    */
     static int getDisplayHeight();
+    /*!
+    * A static method to get the SDL_Window 
+    * @return The SDL_Window
+    */
     static SDL_Window* getWindow();
+    /*!
+    * A static method to set the current Scene that should be drawn and updated 
+    * @param s the scene that should be updated and drawn
+    */
     static void setCurrentScene(Scene* s);
+    /*!
+    * A static method to safely shut down the AXWindow's game loop
+    * 
+    * This releases all resources and makes AXWindow::run() return 0.
+    * Note that this method will only release the current set Scene
+    */
     static void shutdown();
 };
 
