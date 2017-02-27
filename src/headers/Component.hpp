@@ -82,7 +82,7 @@ public:
     /*!
     * A virtual method that returns a clone of this Component.
     *
-    * Implement your own when inheriting from Component, this is done automatically if you use CustomComponent<custom> 
+    * Implement your own when inheriting from Component, this is done automatically if you use CustomComponent< custom > 
     * @return a clone of this Component
     */ 
     virtual Component* clone() = 0;

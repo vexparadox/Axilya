@@ -38,7 +38,7 @@ template <typename custom>
 class CustomComponent : public Component{
 public:
     /*!
-    * This method returns a clone of the Component that was given in the template of CustomComponent<custom>
+    * This method returns a clone of the Component that was given in the template of CustomComponent< custom >
     * It will return a clone of your Component but will not keep values, it will be reconstructed.
     * Inherit from Component and implement your own clone method to keep values over clone.
     */ 
