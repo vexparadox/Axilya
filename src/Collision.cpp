@@ -45,7 +45,7 @@ namespace Math {
     }
     
     float areaTriangle(float x1, float y1, float x2, float y2, float x3, float y3){
-        return signVector(Vector2D(x1, y1), Vector2D(x2, y2), Vector2D(x3, y3));
+        return areaTriangle(Vector2D(x1, y1), Vector2D(x2, y2), Vector2D(x3, y3));
     }
     
     float areaTriangle(const Vector2D &v1, const Vector2D &v2, const Vector2D &v3){
@@ -60,9 +60,9 @@ namespace Math {
     
     bool isInsideTriangle(const Vector2D &point, const Vector2D &v1, const Vector2D &v2, const Vector2D &v3){
         bool b1, b2, b3;
-        b1 = signVector(point, v1, v2) < 0.0f;
-        b2 = signVector(point, v2, v3) < 0.0f;
-        b3 = signVector(point, v3, v1) < 0.0f;
+        b1 = areaTriangle(point, v1, v2) < 0.0f;
+        b2 = areaTriangle(point, v2, v3) < 0.0f;
+        b3 = areaTriangle(point, v3, v1) < 0.0f;
         return ((b1 == b2) && (b2 == b3));
     }
     
@@ -78,7 +78,7 @@ namespace Math {
     bool isInsideEllipse(const Vector2D &point, const AXGraphics::Ellipse &e)
     {
         //(((x-cp.x)^2)/rX^2 + ((y-cp.y)^2)/rY^2) <= 1
-        return  ( (pow((point.x-e.getVec().x),2)/pow(e.getSize().x,2)) + (pow((point.y-e.getVec().y),2)/pow(e.getSize().y,2)) ) <=1;
+        return  ( (pow((point.x-e.getPosition().x),2)/pow(e.getSize().x,2)) + (pow((point.y-e.getPosition().y),2)/pow(e.getSize().y,2)) ) <=1;
     }
     
     bool isInsideEllipse(const Vector2D &point, const Vector2D &cp, float r)

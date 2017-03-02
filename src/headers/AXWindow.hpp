@@ -51,6 +51,10 @@ class AXWindow{
     ~AXWindow(){};
 public:
     /*!    
+    * the runpath of the Axilya application
+    */
+    static std::string runPath;
+    /*!    
     * A static SDL_Renderer that is used to draw throughout Axilya
     */
     static SDL_Renderer* renderer;

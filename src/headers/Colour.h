@@ -88,17 +88,17 @@ namespace AXGraphics{
             return r;
         }
         /*!
-        * A method to get the red value
+        * A method to get the green value
         *
-        * @return The red value of this Colour
+        * @return The green value of this Colour
         */ 
         float getG() const{
             return g;
         }
         /*!
-        * A method to get the green value
+        * A method to get the blue value
         *
-        * @return The red value of this Colour
+        * @return The blue value of this Colour
         */ 
         float getB() const{
             return b;
@@ -106,7 +106,7 @@ namespace AXGraphics{
         /*!
         * A method to get the alpha value
         *
-        * @return The red value of this Colour
+        * @return The alpha value of this Colour
         */ 
         float getA() const{
             return a;

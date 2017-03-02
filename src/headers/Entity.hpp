@@ -131,6 +131,7 @@ public:
     * A method that calls draw on the Renderer attached to this Entity
     *
     * This method is called by the Scene every frame of the game loop 
+    *
     * What the Renderer will draw is defined by the draw type and if there are any Sprites attached
     * @param renderOffset passed by the Scene to tell if Renderer if there's any offset applied to the drawing positions
     */ 
@@ -176,7 +177,9 @@ public:
     * A method that sets the Colour that this Entity should be drawn at
     *
     * This doesn't take affect if there's a Sprite being drawn
+    *
     * This method is calling another in the Renderer
+    *
     * These values will be passed into a Colour object so will be clamped from 0-255
     * @param r the red value
     * @param g the green value
@@ -188,8 +191,11 @@ public:
     * A method that sets the Colour that this Entity should be drawn at
     *
     * This doesn't take affect if there's a Sprite being drawn
+    *
     * This method is calling another in the Renderer
+    *
     * These values will be passed into a Colour object so will be clamped from 0-255
+    *
     * This method assumes the alpha value is 255
     * @param r the red value
     * @param g the green value
@@ -200,6 +206,7 @@ public:
     * A method that sets the Colour that this Entity should be drawn at
     *
     * This doesn't take affect if there's a Sprite being drawn
+    *
     * This method is calling another in the Renderer
     * @param c the Colour object this will draw at 
     */ 
@@ -249,6 +256,7 @@ public:
     * A method to get if this Entity is grounded
     *
     * An Entity is grounded if the attached Collider has reported a bottom collision in the last frame
+    *
     * Will return false if there's no Collider attached
     * @return if this Entity is grounded
     */ 
@@ -264,6 +272,7 @@ public:
     * A method to add a RigidBody to this Entity
     *
     * This method will create a RigidBody for you
+    *
     * This method will set the owner in the RigidBody
     * @param gravity the created RigidBody's gravity value
     */
@@ -279,6 +288,7 @@ public:
     * A method that calls onCollision on all Components attached to this Enitity
     *
     * This is called by the Scene when a collision occurs with another Entity
+    *
     * Catch this call inside of a Component
     * @param e the Entity that collided with this one
     * @param direction the direction of which the collision happened
@@ -288,6 +298,7 @@ public:
     * A method that calls onWorldCollision on all Components attached to this Enitity
     *
     * This is called by the Scene when a collision occurs with the World or screen
+    *
     * Catch this call inside of a Component
     * @param direction the direction of which the collision happened
     */
@@ -296,6 +307,7 @@ public:
     * A method that calls onClick on all Components attached to this Enitity
     *
     * This is called by the Collider when the it's clicked on
+    *
     * Catch this call inside of a Component
     * @param mouseButton the mouse button that was pressed
     */
@@ -304,6 +316,7 @@ public:
     * A method that calls onDestroy on all Components attached to this Enitity
     *
     * This is called by the Scene just before the Collider is destroyed
+    * 
     * Catch this call inside of a Component
     */
     void onDestroy();

@@ -22,6 +22,7 @@ SDL_Renderer* AXWindow::renderer = 0;
 SDL_Window* AXWindow::window = 0;
 //the running variable
 int AXWindow::go = 1;
+std::string AXWindow::runPath = "";
 
 //if it's already been initated
 bool AXWindow::initiated = false;
