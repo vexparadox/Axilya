@@ -34,14 +34,13 @@
 #ifndef AXFont_hpp
 #define AXFont_hpp
 #include "AXWindow.hpp"
-struct stbtt_bakedchar;
+#include <SDL2_ttf/SDL_ttf.h>
 class AXFont{
 	bool hasLoaded;
-	std::string path, name;
-	SDL_Surface* surface;
-	stbtt_bakedchar* charData;
+	std::string path;
+   TTF_Font* fontData;
+   int fontHeight;
 	int id;
-	static const int charDataSize;
 public:
 	/*!
    * The constructor of an AXFont
@@ -61,29 +60,26 @@ public:
    *
    * If this font is already loaded the previous font data will be overwritten.
    * @param path the path of the .ttf file to be loaded into this AXFont
+   * @param size the point size of the font to load
    * @return Whether the font file successfully loaded
    */
-	bool loadFont(const std::string& path);
+	bool loadFont(const std::string& path, int size);
 	/*!
    * A method to check if the AXFont has been loaded
    * @return Whether the font is loaded
    */
 	bool isLoaded();
+   /*!
+   * A method to get the font data
+   * @return the loaded font data
+   */
+
+   TTF_Font* getFontData();
 	/*!
    * A method to get the path of the loaded font file
    * @return The path of the loaded font file
    */
 	const std::string& getPath();
-	/*!
-   * A method to get the SDL_Surface that the glyph map is loaded onto
-   * @return The SDL_Surface
-   */
-	SDL_Surface* getSurface();
-	/*!
-   * A method to get the stbtt_bakedchar array that contains the char data
-   * @return The the character data
-   */
-	stbtt_bakedchar* getCharData();
 	/*!
    * A method to get the AXFont's ID given by the ResourceManager
    * @return The AXFont's ID

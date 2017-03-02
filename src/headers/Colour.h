@@ -32,6 +32,7 @@
  */
 #ifndef Colour_h
 #define Colour_h
+#include <SDL2/SDL.h>
 namespace AXGraphics{
     class Colour{
         //#todo add static presets
@@ -110,6 +111,15 @@ namespace AXGraphics{
         */ 
         float getA() const{
             return a;
+        }
+        /*!
+        * A method to get an SDL_Color from this Colour
+        *
+        * @return a SDL_Color
+        */
+        SDL_Color toSDL(){
+            SDL_Color color = {(Uint8)r, (Uint8)g, (Uint8)b, (Uint8)a};
+            return color;
         }
         inline Colour& operator- (const Colour& c){
             colourAssign(this->r, (this->r - c.r));

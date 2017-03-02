@@ -35,11 +35,26 @@
 #include "Component.hpp"
 #include <stdio.h>
 #include "ResourceManager.hpp"
-class AXText : public Component{
+#include "Entity.hpp"
+class AXText {
 protected:
 	AXFont* font;
 	ResourceManager* resourceManager = ResourceManager::getInstance();
+   int height, width;
+   Entity* owner;
+   SDL_Color colour = {0, 0, 0, 255}; 
 public:
+   /*!
+   * A method to sets the owner of this AXText
+   * @param e the owner of this AXText
+   */
+   void setOwner(Entity* e){
+      this->owner = e;
+   }
+   /*!
+   * The virtual destructor of this AXText
+   */
+   virtual ~AXText(){};
    /*!
    * A method to set the font of the AXText
    * @param font the AXFont that will be used to draw the text
@@ -50,11 +65,27 @@ public:
    * @param id the ID of the AXFont (given by the ResourceManager) that will be used to draw the text
    */
 	virtual void setFont(int id) = 0;
+   virtual bool bakeText() = 0;
+   /*!
+   * A method to set the Colour of this text
+   * @param r the red value of the colour
+   * @param g the green value of the colour
+   * @param b the blue value of the colour
+   * @param a the alpha value of the colour
+   */
+   void setColour(int r, int g, int b, int a){
+      colour.r = (Uint8)r;
+      colour.g = (Uint8)g;
+      colour.b = (Uint8)b;
+      colour.a = (Uint8)a;
+   }
+
 	/*!
    * A method to draw the AXText
    * @param x the x position that the text will be drawn at
    * @param y the y position that the text will be drawn at
    */  
 	virtual void draw(float x, float y) = 0;
+   virtual AXText* clone() = 0;
 };
 #endif

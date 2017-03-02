@@ -40,21 +40,21 @@ int ResourceManager::addTexture(const std::string& s){
     return -1;
 }
 
-int ResourceManager::addFont(const std::string& s){
+int ResourceManager::addFont(const std::string& s, int size){
     if(isFontLoaded(s)){
         return fontMap.at(s)->getID();
     }
     //attempt to load the file given
     int id = fonts.size(); // get the new id
     AXFont* tempFont = new AXFont(id); // create the AXTexture
-    if(tempFont->loadFont(s)){
+    if(tempFont->loadFont(s, size)){
         fonts.push_back(tempFont); // push it back
         fontMap.insert(std::pair<std::string, AXFont*>(s, tempFont));
         return id; // return the new id
     }else{
         delete tempFont;
     }
-    std::cout << "AXTexture data failed to load." << std::endl;
+    std::cout << "AXFont data failed to load." << std::endl;
     return -1;
 }
 

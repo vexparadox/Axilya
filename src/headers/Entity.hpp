@@ -80,8 +80,6 @@ class Entity{
     Renderer* renderer = 0;
 
     void handle_eptr(std::exception_ptr);
-    //default to drawing rect
-    int drawType = AX_DRAW_RECT;
 public:
     /*!
     * The constructor of an Entity
@@ -174,6 +172,15 @@ public:
     */ 
     void moveEntity(float x, float y);
     /*!
+    * A method that resizes the Entity by a set amount
+    *
+    * This method also resizes any Colliders attached
+    * @param w the width value that the size will be set to
+    * @param h the height value that the size will be set to
+    */ 
+    void resizeEntity(float w, float h);
+
+    /*!
     * A method that sets the Colour that this Entity should be drawn at
     *
     * This doesn't take affect if there's a Sprite being drawn
@@ -217,7 +224,7 @@ public:
     * This method is calling another in the Renderer
     * @return the Colour object this Entity is being drawn at
     */ 
-    const AXGraphics::Colour& getColour();
+    AXGraphics::Colour& getColour();
     /*!
     * A method to set the Scene that this Entity is in
     *

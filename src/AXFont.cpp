@@ -1,77 +1,38 @@
 #include "headers/AXFont.hpp"
-#define STB_TRUETYPE_IMPLEMENTATION 
-#include "headers/stb_truetype.hpp"
-
-const int AXFont::charDataSize = 96;
-
 AXFont::AXFont(int id) : id(id){
-	charData = (stbtt_bakedchar*)malloc(sizeof(stbtt_bakedchar)*charDataSize);
 }
 
 AXFont::~AXFont(){
-	SDL_FreeSurface(surface);
-	delete charData;
+	TTF_CloseFont(fontData);
 }
 
-bool AXFont::loadFont(const std::string& p){
+bool AXFont::loadFont(const std::string& p, int size){
 	if(hasLoaded){
 		//freeup the surface
-		SDL_FreeSurface(surface);
-		//set the chardata to 0s
-		memset(charData, 0, sizeof(stbtt_bakedchar)*charDataSize);
+		TTF_CloseFont(fontData);
 	}
-	surface = SDL_CreateRGBSurface(SDL_SWSURFACE, 512, 512, 8, 0, 0, 0, 0);
-	if(!surface){
+	std::cout << p << std::endl;
+	fontData = TTF_OpenFont(p.c_str(), size);
+	if(!fontData){
+		std::cout << "Font failed load at: " << p << std::endl;
+		std::cout << TTF_GetError() << std::endl;
 		return false;
 	}
-	this->path.insert(0, "data/");
-	this->path.append(p);
-	FILE* file = fopen(this->path.c_str(), "rb"); // load the file
-	if(file != NULL){
-		//find how big the file is
-		fseek(file, 0, SEEK_END);
-		//get the size
-		long size = ftell(file);
-		//reset the pointer
-		fseek(file, 0, SEEK_SET);
-		//allocate the buffer
-		unsigned char* ttfBuffer = (unsigned char*)malloc(size);
-		//read the file
-	    fread(ttfBuffer, 1, size, file);
-	    //close the file
-	    fclose(file);
-	    SDL_Color colors[256];
-    	for(int i = 0; i < 256; i++){
-        	colors[i].r = i;
-        	colors[i].g = i;
-        	colors[i].b = i;
-    	}
-    	SDL_SetPaletteColors(surface->format->palette, colors, 0, 256);
-	    //bake all the glyphs into the sdl surface
-	    if(stbtt_BakeFontBitmap(ttfBuffer, stbtt_GetFontOffsetForIndex(ttfBuffer, 0), 32.0, (unsigned char*)surface->pixels, 512, 512, 32, 96, charData) == 0){
-	    	free(ttfBuffer); // free the buffer
-	    	return false;	
-	    }
-	    free(ttfBuffer); // free the buffer
-		return true;
-	}else{
-		return false;
-	}
+	fontHeight = TTF_FontHeight(fontData);
+	hasLoaded = true;
+	return true;
 }
 
-stbtt_bakedchar* AXFont::getCharData(){
-	return charData;
-}
 
+TTF_Font* AXFont::getFontData(){
+	return fontData;
+}
 bool AXFont::isLoaded(){
 	return hasLoaded;
 }
+
 const std::string& AXFont::getPath(){
 	return path;
-}
-
-SDL_Surface* AXFont::getSurface(){
-	return surface;
 }
 
 int AXFont::getID(){

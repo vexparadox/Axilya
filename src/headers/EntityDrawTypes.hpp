@@ -35,5 +35,7 @@
 
 #define AX_DRAW_RECT 0
 #define AX_DRAW_ELLIPSE 1
-#define AX_DRAW_NONE 2
+#define AX_DRAW_TEXT 2
+#define AX_DRAW_SPRITE 3
+#define AX_DRAW_NONE 4
 #endif

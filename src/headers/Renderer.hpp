@@ -34,17 +34,24 @@
 #define Renderer_hpp
 
 #include <unordered_map>
-#include "Sprite.hpp"
+
 #include "Graphics.hpp"
+
 #include <SDL2/SDL.h>
 #include "EntityDrawTypes.hpp"
+#include "Sprite.hpp"
+
 class Entity;
+class AXText;
 class Renderer {
     std::unordered_map<std::string, Sprite*> sprites;
     Sprite* currentSprite = 0;
+    AXText* currentText = 0;
     Entity* owner = 0;
     //set a colour to be used in place of a sprite
     AXGraphics::Colour colour;
+    //default to drawing a rect
+    int drawType = AX_DRAW_RECT;
 public:
     Renderer();
     ~Renderer();
@@ -52,11 +59,14 @@ public:
     void addSprite(Sprite*);
     void setSprite(Sprite*);
     void setSprite(const std::string&);
+    void addText(AXText*);
     Sprite* getCurrentSprite();
     AXGraphics::Colour& getColour();
     void setColour(float, float, float, float);
     void setColour(float, float, float);
     void setColour(const AXGraphics::Colour&);
+    int getDrawType();
+    void setDrawType(int type);
     void draw(const Math::Vector2D&);
     Renderer* clone();
 };

@@ -17,7 +17,7 @@ objFiles = $(patsubst %.cpp, %.o, $(tempObjs))
 headers = $(wildcard ./src/headers/*.hpp)
 headers += $(wildcard ./src/headers/*.h)
 
-all: sdl install examples
+all: install examples
 
 lib: 
 	@mkdir -p ./Build/objs/

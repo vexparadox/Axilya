@@ -36,7 +36,6 @@
 #include "AXText.hpp"
 class AXStaticText : public AXText{
 	std::string text;
-	bool bakeText();
 	SDL_Texture* texture;
 	bool isBaked;
 public:    
@@ -62,7 +61,13 @@ public:
    * This method will re-bake the string you provide, this makes it fast to draw but slow to use every frame.
    * @param text the text that will be drawn
    */    
-	void setText(const std::string& text);
+   void setText(const std::string& text);
+
+   /*!
+   * A method to update the Texture that's drawn by this font
+   */    
+   bool bakeText();
+
 	/*!
    * A method to update the AXFont this AXStaticText will use to draw
    *
@@ -87,6 +92,6 @@ public:
    * A method to clone this AXText
    * @return a clone of this AXStaticText
    */
-	Component* clone();
+	AXText* clone();
 };
 #endif

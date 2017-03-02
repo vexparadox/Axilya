@@ -28,7 +28,7 @@ Entity::Entity(const std::string& name): name(name){
     transform->setOwner(this);
     renderer = new Renderer();
     renderer->setOwner(this);
-    setDrawType(AX_DRAW_NONE);
+    renderer->setDrawType(AX_DRAW_NONE);
 }
 
 Entity::~Entity(){
@@ -103,6 +103,14 @@ void Entity::moveEntity(float x, float y){
     this->moveEntity(Math::Vector2D(x, y));
 }
 
+void Entity::resizeEntity(float w, float h){
+    this->transform->getSize().x = w;
+    this->transform->getSize().y = h;
+    if(collider){
+        collider->getBounds()->set(collider->getBounds()->getPosition().x, collider->getBounds()->getPosition().y, w, h);
+    }
+}
+
 void Entity::moveEntity(Math::Vector2D v){
     Math::Vector2D newPos = transform->getPosition() + v;
     if(collider){
@@ -158,7 +166,6 @@ Entity* Entity::clone(){
     e->renderer->setOwner(e);
     e->active = this->active;
     e->dead = this->dead;
-    e->setDrawType(this->drawType);
     return e;
 }
 
@@ -270,11 +277,11 @@ void Entity::onDestroy(){
 }
 
 void Entity::setDrawType(int type){
-    this->drawType = type;
+    this->renderer->setDrawType(type);
 }
 
 int Entity::getDrawType(){
-    return this->drawType;
+    return this->renderer->getDrawType();
 }
 
 void Entity::setName(const std::string& name){
@@ -324,6 +331,6 @@ void Entity::setColour(const AXGraphics::Colour& c){
     renderer->setColour(c.getR(), c.getG(), c.getB(), c.getA());
 }
 
-const AXGraphics::Colour& Entity::getColour(){
+AXGraphics::Colour& Entity::getColour(){
     return renderer->getColour();
 }

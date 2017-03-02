@@ -51,7 +51,7 @@ public:
     static ResourceManager* getInstance();
     //add a new AXTexture, will return -1 or new id
     int addTexture(const std::string&);
-    int addFont(const std::string&);
+    int addFont(const std::string&, int size);
     bool isTextureLoaded(const std::string&);
     bool isFontLoaded(const std::string&);
     AXFont* getFont(int);

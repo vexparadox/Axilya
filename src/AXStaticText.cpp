@@ -2,54 +2,43 @@
 #include "headers/AXStaticText.hpp"
 
 AXStaticText::AXStaticText(const std::string& text, AXFont* font) : text(text){
-	this->font = font;
-	if(font){
-		isBaked = bakeText();
-	}
+	setFont(font);
 }
 
 AXStaticText::AXStaticText(const std::string& text, int fontID) : text(text){
 	setFont(fontID);
-	if(this->font){
-		isBaked = bakeText();
-	}
 }
 
 bool AXStaticText::bakeText(){
 	//bake the string
-	if(this->font->isLoaded()){
-		if(this->isBaked){
-			SDL_DestroyTexture(this->texture);
-		}
-		SDL_Surface* glyphSurface = font->getSurface();
-		SDL_Surface* tempSurface = SDL_CreateRGBSurface(SDL_SWSURFACE, 512, 512, 8, 0, 0, 0, 0);
-	    SDL_Color colors[256];
-    	for(int i = 0; i < 256; i++){
-        	colors[i].r = i;
-        	colors[i].g = i;
-        	colors[i].b = i;
-    	}
-    	if(SDL_SetPaletteColors(tempSurface->format->palette, colors, 0, 256) != 0){
-			SDL_FreeSurface(tempSurface);
-    		return false;
-    	}
-	    for (char* c = (char*)this->text.c_str(); *c; c++) {
-	    	stbtt_aligned_quad q;
-		    float x = 0, y = 0;
-		    stbtt_GetBakedQuad(font->getCharData(), 512, 512, *c-32, &x, &y, &q, 1);	
-	    	int w = q.x1-q.x0;
-    		int h = q.y1-q.y0;
-    		SDL_Rect src  = {.x = (int)(q.s0*512), .y = (int)(q.t0*512), .w = w, .h = h};
-	        SDL_Rect dest = {.x = (int)(q.x0), .y = (int)(32+q.y0), .w = w, .h = h};
-			if(SDL_BlitSurface(glyphSurface, &src, tempSurface, &dest) != 0) {
-				SDL_FreeSurface(tempSurface);
+	if(this->font){
+		if(this->font->isLoaded()){
+			if(this->isBaked && this->texture){
+				SDL_DestroyTexture(this->texture);
+			}
+			SDL_Surface* temp = TTF_RenderUTF8_Blended(this->font->getFontData(), text.c_str(), this->colour);
+			if(!temp){
+				std::cout << "Font failed to bake! SDL Error: " << TTF_GetError() << std::endl;
 				return false;
 			}
-	    }
-	    this->texture = SDL_CreateTextureFromSurface(AXWindow::renderer, tempSurface);
-		SDL_FreeSurface(tempSurface);
-		return true;
+			if(TTF_SizeText(this->font->getFontData(), text.c_str(), &this->width, &this->height) == -1){
+				if(owner){
+					//resize the entity to this text
+					owner->resizeEntity(width, height);
+				}
+				std::cout << "Font failed to bake! SDL Error: " << TTF_GetError() << std::endl;
+				return false;
+			}
+			this->texture = SDL_CreateTextureFromSurface(AXWindow::renderer, temp);
+			if(!texture){
+				std::cout << "Font failed to bake! SDL Error: " << SDL_GetError() << std::endl;
+				return false;
+			}
+			SDL_FreeSurface(temp);
+			return true;
+		}
 	}
+	std::cout << "The font isn't loaded, this can't be baked." << std::endl;
 	return false;
 }
 
@@ -60,25 +49,22 @@ void AXStaticText::setText(const std::string& text){
 
 void AXStaticText::setFont(AXFont* font){
 	this->font = font;
-	if(this->font){
-		isBaked = bakeText();
-	}
 }
 
 void AXStaticText::setFont(int id){
 	this->font = resourceManager->getFont(id);
-	if(this->font){
-		isBaked = bakeText();
-	}
 }
 
 void AXStaticText::draw(float x, float y){
-	if(texture){
-		SDL_Rect dest = {.x = (int)(x), .y = (int)(y), .w = 512, .h = 512};
+	if(texture && isBaked){
+		SDL_Rect dest = {.x = (int)x, .y = (int)y, .w = this->width, .h = this->height};
 		SDL_RenderCopy(AXWindow::renderer, texture, NULL, &dest);
 	}
 }
 
-Component* AXStaticText::clone(){
-	return NULL;
+AXText* AXStaticText::clone(){
+	AXText* a = new AXStaticText(this->text, this->font);
+	a->setOwner(this->owner);
+	a->bakeText();
+	return a;
 }

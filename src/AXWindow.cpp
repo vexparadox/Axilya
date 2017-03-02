@@ -51,6 +51,11 @@ int AXWindow::init(float wWidth, float wHeight, int windowStyle, const char* tit
         return -1;
     }
 
+    if (TTF_Init() < 0) {
+        printf("SDLTTF could not initialise! SDL_Error: %s\n", TTF_GetError());
+        return -1;
+    }
+
     //get the display size
     SDL_DisplayMode mode;
     if(SDL_GetCurrentDisplayMode(0, &mode) == 0){

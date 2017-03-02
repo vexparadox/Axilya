@@ -36,6 +36,8 @@
 #include "Scene.hpp"
 #include "Input.hpp"
 #include "WindowTypes.hpp"
+#include <SDL2/SDL.h>
+#include <SDL2_ttf/SDL_ttf.h>
 using UDFunction = void(*)();
 //this class controls the main game loop, calls BaseCore update and render
 class AXWindow{

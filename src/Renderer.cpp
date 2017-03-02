@@ -4,6 +4,8 @@
 
 #include "headers/Renderer.hpp"
 #include "headers/Entity.hpp"
+#include "headers/AXText.hpp"
+
 
 Renderer::Renderer(){
      this->colour = AXGraphics::Colour(0, 0, 0, 255);
@@ -19,18 +21,41 @@ void Renderer::addSprite(Sprite *s) {
     if(s) {
         sprites.insert(std::pair<std::string, Sprite *>(s->getName(), s));
         currentSprite = s;
+        this->setDrawType(AX_DRAW_SPRITE);
     }
+}
+
+void Renderer::addText(AXText* text){
+    if(currentText){
+        delete currentText;
+    }
+    if(text){
+        this->currentText = text;
+        currentText->setOwner(owner);
+        currentText->bakeText();
+        this->setDrawType(AX_DRAW_TEXT);
+    }
+}
+
+int Renderer::getDrawType(){
+    return drawType;
+}
+
+void Renderer::setDrawType(int type){
+    this->drawType = type;
 }
 
 void Renderer::setSprite(const std::string &name) {
     if(sprites.find(name) != sprites.end()){
         this->currentSprite = sprites.at(name);
+        this->setDrawType(AX_DRAW_SPRITE);
     }
 }
 
 void Renderer::setSprite(Sprite *s) {
     if(s){
         this->currentSprite = s;
+        this->setDrawType(AX_DRAW_SPRITE);
     }
 }
 
@@ -41,15 +66,21 @@ Sprite* Renderer::getCurrentSprite(){
 void Renderer::draw(const Math::Vector2D& renderOffset) {
     Math::Vector2D position = owner->getTransform()->getPosition()+renderOffset;
     Math::Vector2D size = owner->getTransform()->getSize();
-    if(currentSprite){
+    //if there's a sprite
+    int drawType = owner->getDrawType();
+    if(drawType == AX_DRAW_SPRITE && currentSprite){
         //make sure the colour is transparent
         AXGraphics::fill(255,255,255, 0);
         currentSprite->draw(position.x, position.y, size.x, size.y);
+    }else if(drawType == AX_DRAW_TEXT && currentText){
+        //if there's a text
+        currentText->draw(position.x, position.y);
     }else{
+        //if it's set to shapes
         AXGraphics::fill(colour);
-        if(owner->getDrawType() == AX_DRAW_RECT){
+        if(drawType == AX_DRAW_RECT){
             AXGraphics::drawRect(position.x, position.y, size.x, size.y);
-        }else if(owner->getDrawType() == AX_DRAW_ELLIPSE){
+        }else if(drawType == AX_DRAW_ELLIPSE){
             AXGraphics::drawEllipse(position.x+size.x/2, position.y+size.y/2, size.x/2, size.y/2);
         }
     }
@@ -85,6 +116,10 @@ Renderer* Renderer::clone(){
     if(this->currentSprite){
         a->setSprite(this->currentSprite->getName());
     }
+    if(this->currentText){
+        a->addText(currentText->clone());
+    }
+    a->setDrawType(this->drawType);
     a->colour = this->colour;
     return a;
 }
