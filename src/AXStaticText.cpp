@@ -3,10 +3,12 @@
 
 AXStaticText::AXStaticText(const std::string& text, AXFont* font) : text(text){
 	setFont(font);
+	isBaked = false;
 }
 
 AXStaticText::AXStaticText(const std::string& text, int fontID) : text(text){
 	setFont(fontID);
+	isBaked = false;
 }
 
 bool AXStaticText::bakeText(){
@@ -19,32 +21,37 @@ bool AXStaticText::bakeText(){
 			SDL_Surface* temp = TTF_RenderUTF8_Blended(this->font->getFontData(), text.c_str(), this->colour);
 			if(!temp){
 				std::cout << "Font failed to bake! SDL Error: " << TTF_GetError() << std::endl;
+				isBaked = false;
 				return false;
 			}
 			if(TTF_SizeText(this->font->getFontData(), text.c_str(), &this->width, &this->height) == -1){
-				if(owner){
-					//resize the entity to this text
-					owner->resizeEntity(width, height);
-				}
 				std::cout << "Font failed to bake! SDL Error: " << TTF_GetError() << std::endl;
+				isBaked = false;
 				return false;
+			}
+			if(owner){
+				//resize the entity to the size of this text
+				owner->resizeEntity(width, height);
 			}
 			this->texture = SDL_CreateTextureFromSurface(AXWindow::renderer, temp);
 			if(!texture){
 				std::cout << "Font failed to bake! SDL Error: " << SDL_GetError() << std::endl;
+				isBaked = false;
 				return false;
 			}
 			SDL_FreeSurface(temp);
+			isBaked = true;
 			return true;
 		}
 	}
 	std::cout << "The font isn't loaded, this can't be baked." << std::endl;
+	isBaked = false;
 	return false;
 }
 
 void AXStaticText::setText(const std::string& text){
 	this->text = text;
-	isBaked = bakeText();
+	bakeText();
 }
 
 void AXStaticText::setFont(AXFont* font){

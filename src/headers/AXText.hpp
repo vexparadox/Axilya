@@ -38,10 +38,10 @@
 #include "Entity.hpp"
 class AXText {
 protected:
-	AXFont* font;
+	AXFont* font = 0;
 	ResourceManager* resourceManager = ResourceManager::getInstance();
    int height, width;
-   Entity* owner;
+   Entity* owner = 0;
    SDL_Color colour = {0, 0, 0, 255}; 
 public:
    /*!
@@ -49,7 +49,9 @@ public:
    * @param e the owner of this AXText
    */
    void setOwner(Entity* e){
-      this->owner = e;
+      if(e){
+         this->owner = e;
+      }
    }
    /*!
    * The virtual destructor of this AXText
