@@ -41,6 +41,7 @@
 typedef std::pair<std::string, std::string> AXNetworkPair;
 class AXNetwork{
 	static bool hasInit;
+	static size_t eatOutput(void *ptr, size_t size, size_t nmemb, void *data);
 	~AXNetwork();
 public:
     /*!
@@ -54,8 +55,9 @@ public:
     *
     * @param url the URL to send the POST request
     * @param pair a set of <key, value> pairs to send as parameters
+    * @param shouldPrint if the result should be printed to stdout
     * @return if the POSTRequest completed successfully
     */ 
-	static bool POSTRequestSimple(const std::string& url, const std::vector<AXNetworkPair>& pair);
+	static bool POSTRequestSimple(const std::string& url, const std::vector<AXNetworkPair>& pair, bool shouldPrint);
 };
 #endif

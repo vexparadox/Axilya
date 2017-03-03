@@ -6,7 +6,7 @@ See the examples and wiki for a better idea of what's happening.
 
 ## Compiling
 
-You'll need: g++, make and unzip
+You'll need: g++, make, libcurl(comes with all OSX and most Linux) and unzip
 
 You can either run the make script, this will install SDL2.0.5, build the library and all examples.
 
