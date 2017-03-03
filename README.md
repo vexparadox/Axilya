@@ -4,6 +4,8 @@ A 2D Game Engine Library written in C++ by William Meaton.
 
 See the examples and wiki for a better idea of what's happening.
 
+Docs: http://axilya.com/docs
+
 ## Compiling
 
 You'll need: g++, make, libcurl(comes with all OSX and most Linux) and unzip
