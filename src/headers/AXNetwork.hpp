@@ -38,7 +38,9 @@
 #include <vector>
 #include <utility>
 #include <string>
+#include <thread>
 typedef std::pair<std::string, std::string> AXNetworkPair;
+typedef size_t(*AXNetworkCallback)(void *ptr, size_t size, size_t nmemb, void *data);
 class AXNetwork{
 	static bool hasInit;
 	static size_t eatOutput(void *ptr, size_t size, size_t nmemb, void *data);
@@ -51,13 +53,43 @@ public:
     */ 
 	static void init();
     /*!
-    * A method to send a simple HTTP POST with no callback.
+    * A method to send a simple HTTP POST with no callback method.
     *
     * @param url the URL to send the POST request
-    * @param pair a set of <key, value> pairs to send as parameters
+    * @param pair a vector of <key, value> pairs to send as parameters
     * @param shouldPrint if the result should be printed to stdout
     * @return if the POSTRequest completed successfully
     */ 
 	static bool POSTRequestSimple(const std::string& url, const std::vector<AXNetworkPair>& pair, bool shouldPrint);
+    /*!
+    * A method to send a simple HTTP POST on a seperate thread with no callback method.
+    *
+    * @param url the URL to send the POST request
+    * @param pair a vector of <key, value> pairs to send as parameters
+    * @param shouldPrint if the result should be printed to stdout
+    */ 
+	static void MTPOSTRequestSimple(const std::string& url, const std::vector<AXNetworkPair>& pair, bool shouldPrint);
+    /*!
+    * A method to send a simple HTTP POST with a callback.
+    *
+    * @param url the URL to send the POST request
+    * @param pair a vector of <key, value> pairs to send as parameters
+    * @param callback the method that will be called with the data received
+    * @return if the POSTRequest completed successfully
+	*
+	* @p callback should take the form of `void func(void *ptr, size_t size, size_t nmemb, void *data);`
+    */ 
+	static bool POSTRequest(const std::string& url, const std::vector<AXNetworkPair>& pair, AXNetworkCallback callback);
+    /*!
+    * A method to send a simple HTTP POST on a seperate thread with a callback.
+    *
+    * @param url the URL to send the POST request
+    * @param pair a vector of <key, value> pairs to send as parameters
+    * @param callback the method that will be called with the data received
+    * @return if the POSTRequest completed successfully
+	*
+	* @p callback should take the form of `size_t func(void *ptr, size_t size, size_t nmemb, void *data);`
+    */ 
+	static void MTPOSTRequest(const std::string& url, const std::vector<AXNetworkPair>& pair, AXNetworkCallback callback);
 };
 #endif

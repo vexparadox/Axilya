@@ -28,15 +28,15 @@ std::string AXWindow::runPath = "";
 bool AXWindow::initiated = false;
 
 //the update and draw methods
-UDFunction AXWindow::draw = 0;
-UDFunction AXWindow::update = 0;
+AXFunction AXWindow::draw = 0;
+AXFunction AXWindow::update = 0;
 
 int AXWindow::init(float wWidth, float wHeight, int windowStyle, const char* title){
     return AXWindow::init(wWidth, wHeight, windowStyle, title, nullptr, nullptr);
 }
 
 
-int AXWindow::init(float wWidth, float wHeight, int windowStyle, const char* title, UDFunction update, UDFunction draw){
+int AXWindow::init(float wWidth, float wHeight, int windowStyle, const char* title, AXFunction update, AXFunction draw){
     if(initiated){
         return -1;
     }

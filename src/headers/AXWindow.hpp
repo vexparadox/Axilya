@@ -39,7 +39,7 @@
 #include "AXNetwork.hpp"
 #include <SDL2/SDL.h>
 #include <SDL2_ttf/SDL_ttf.h>
-using UDFunction = void(*)();
+typedef void (*AXFunction)();
 //this class controls the main game loop, calls BaseCore update and render
 class AXWindow{
     double currentTime, lastTime;
@@ -48,7 +48,7 @@ class AXWindow{
     static int windowWidth, windowHeight;
     static int displayWidth, displayHeight;
     static SDL_Window* window;
-    static UDFunction draw, update;
+    static AXFunction draw, update;
     static bool initiated;
     AXWindow(){};
     ~AXWindow(){};
@@ -95,7 +95,7 @@ public:
     * @param draw the function pointer to an draw method, this will be called in the game loop along side the current Scene being updated
     * @return Returns 1 on success and -1 on failure
     */
-    static int init(float windowWidth, float windowHeight, int windowType, const char* title, UDFunction update, UDFunction draw);
+    static int init(float windowWidth, float windowHeight, int windowType, const char* title, AXFunction update, AXFunction draw);
     /*!
     * A static method to start and maintain the game loop
     *

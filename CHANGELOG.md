@@ -1,3 +1,11 @@
+## v0.8.4
+
+- Font rendering
+- AXNetwork class - allows for HTTP requests
+- General tidying
+- New Doxy documentation
+- More classes converted to AX
+
 ## v0.8.2
 
 - Fully updated BoxCollider (half as complex, much more accurate)
