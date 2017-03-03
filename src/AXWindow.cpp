@@ -105,6 +105,7 @@ int AXWindow::init(float wWidth, float wHeight, int windowStyle, const char* tit
     //set blend mode
     SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
     Input::init();
+    AXNetwork::init();
     initiated = true;
     return 1;
 }

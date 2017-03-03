@@ -36,6 +36,7 @@
 #include "Scene.hpp"
 #include "Input.hpp"
 #include "WindowTypes.hpp"
+#include "AXNetwork.hpp"
 #include <SDL2/SDL.h>
 #include <SDL2_ttf/SDL_ttf.h>
 using UDFunction = void(*)();
