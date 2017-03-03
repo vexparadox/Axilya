@@ -41,6 +41,7 @@ protected:
 	AXFont* font = 0;
 	ResourceManager* resourceManager = ResourceManager::getInstance();
    int height, width;
+   std::string name;
    Entity* owner = 0;
    SDL_Color colour = {0, 0, 0, 255}; 
 public:
