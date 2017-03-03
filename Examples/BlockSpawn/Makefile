@@ -8,7 +8,7 @@ endif
 endif
 all:
 	@echo "Compiling BlockSpawn example"
-	@g++ *.cpp -std=c++11 -o Axilya -lAxilya $(FLAGS)
+	@g++ *.cpp -std=c++11 -o Axilya -lAxilya -lcurl $(FLAGS)
 	@echo "Complete."
 run: all
 	./Axilya

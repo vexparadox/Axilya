@@ -28,29 +28,14 @@
  *
  * @section DESCRIPTION
  *
- * This is the main header file for Axilya, include it to gain access to the libraries full functionality.
- */
-#ifndef AXMain_h
-#define AXMain_h
+ * This class allows users to use HTTP network requests.
+ *
+*/
 
-#include "Math.h"
-#include "Types.h"
-#include "AXStaticText.hpp"
-#include "AXNetwork.hpp"
-#include "Graphics.hpp"
-#include "Components.h"
-#include "Entity.hpp"
-#include "Scene.hpp"
-#include "TiledWorld.hpp"
-#include "StaticWorld.hpp"
-#include "CustomTileComponent.hpp"
-#include "StaticSprite.hpp"
-#include "AnimatedSprite.hpp"
-#include "Tile.hpp"
-#include "Input.hpp"
-#include "ResourceManager.hpp"
-#include "PrefabManager.hpp"
-#include "EntityDrawTypes.hpp"
-#include "WindowTypes.hpp"
+#ifndef AXNetwork_hpp
+#define AXNetwork_hpp
+#include <curl/curl.h>
+class AXNetwork{
 
-#endif /* AXMain_h */
+};
+#endif

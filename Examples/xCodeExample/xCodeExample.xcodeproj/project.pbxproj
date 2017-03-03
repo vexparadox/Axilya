@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		C22AE19A1E41F8F20098DBEC /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C22AE1991E41F8F20098DBEC /* main.cpp */; };
 		C22AE19D1E41FA660098DBEC /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C22AE19C1E41FA660098DBEC /* SDL2.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		C265901A1E69982300A9E7CE /* SDL2_ttf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C26590191E69982300A9E7CE /* SDL2_ttf.framework */; };
+		C265901C1E69985600A9E7CE /* libcurl.4.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C265901B1E69985600A9E7CE /* libcurl.4.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,6 +29,8 @@
 		C22AE18F1E41F8D60098DBEC /* xCodeExample */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = xCodeExample; sourceTree = BUILT_PRODUCTS_DIR; };
 		C22AE1991E41F8F20098DBEC /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		C22AE19C1E41FA660098DBEC /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = ../../../../../../../Library/Frameworks/SDL2.framework; sourceTree = "<group>"; };
+		C26590191E69982300A9E7CE /* SDL2_ttf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_ttf.framework; path = ../../../../../../../Library/Frameworks/SDL2_ttf.framework; sourceTree = "<group>"; };
+		C265901B1E69985600A9E7CE /* libcurl.4.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcurl.4.dylib; path = ../../../../../../../usr/lib/libcurl.4.dylib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,6 +38,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C265901C1E69985600A9E7CE /* libcurl.4.dylib in Frameworks */,
+				C265901A1E69982300A9E7CE /* SDL2_ttf.framework in Frameworks */,
 				C22AE19D1E41FA660098DBEC /* SDL2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -61,6 +67,8 @@
 		C22AE19B1E41FA660098DBEC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C265901B1E69985600A9E7CE /* libcurl.4.dylib */,
+				C26590191E69982300A9E7CE /* SDL2_ttf.framework */,
 				C22AE19C1E41FA660098DBEC /* SDL2.framework */,
 			);
 			name = Frameworks;
