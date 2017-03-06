@@ -26,9 +26,22 @@ void Renderer::addSprite(Sprite *s) {
 }
 
 void Renderer::addText(AXText* text){
-    if(currentText){
-        delete currentText;
+    if(text){
+        this->currentText = text;
+        currentText->setOwner(owner);
+        currentText->bakeText();
+        this->setDrawType(AX_DRAW_TEXT);
+        this->texts.insert(std::pair<std::string, AXText*>(text->getName(), text));
     }
+}
+
+void Renderer::setText(const std::string& name){
+    if(texts.find(name) != texts.end()){
+        this->currentText = texts.at(name);
+        this->setDrawType(AX_DRAW_TEXT);
+    }
+}
+void Renderer::setText(AXText* text){
     if(text){
         this->currentText = text;
         currentText->setOwner(owner);

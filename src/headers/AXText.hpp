@@ -57,17 +57,21 @@ public:
    /*!
    * The virtual destructor of this AXText
    */
-   virtual ~AXText(){};
+   virtual ~AXText(){}
    /*!
    * A method to set the font of the AXText
    * @param font the AXFont that will be used to draw the text
    */
 	virtual void setFont(AXFont* font) = 0;
    /*!
-   * A method to set the font of the AXText
+   * A virtual method to set the font of the AXText
    * @param id the ID of the AXFont (given by the ResourceManager) that will be used to draw the text
    */
 	virtual void setFont(int id) = 0;
+   /*!
+   * A virtual method to bake the text of this AXText to a SDL_Texture
+   * @return if the bake was successful 
+   */
    virtual bool bakeText() = 0;
    /*!
    * A method to set the Colour of this text
@@ -82,13 +86,22 @@ public:
       colour.b = (Uint8)b;
       colour.a = (Uint8)a;
    }
-
+      /*!
+   * A method to get the name of this AXText
+   * @return the name of this AXText
+   */  
+   std::string getName(){ return this->name; }
 	/*!
-   * A method to draw the AXText
+   * A virtual method to draw the AXText
    * @param x the x position that the text will be drawn at
    * @param y the y position that the text will be drawn at
    */  
 	virtual void draw(float x, float y) = 0;
+
+   /*!
+   * A virtual method to clone this AXText
+   * @return a clone of this AXText
+   */  
    virtual AXText* clone() = 0;
 };
 #endif

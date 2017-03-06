@@ -45,6 +45,7 @@ class Entity;
 class AXText;
 class Renderer {
     std::unordered_map<std::string, Sprite*> sprites;
+    std::unordered_map<std::string, AXText*> texts;
     Sprite* currentSprite = 0;
     AXText* currentText = 0;
     Entity* owner = 0;
@@ -55,19 +56,21 @@ class Renderer {
 public:
     Renderer();
     ~Renderer();
-    void setOwner(Entity*);
-    void addSprite(Sprite*);
-    void setSprite(Sprite*);
-    void setSprite(const std::string&);
-    void addText(AXText*);
+    void setOwner(Entity* entity);
+    void addSprite(Sprite* sprite);
+    void setSprite(Sprite* sprite);
+    void setSprite(const std::string& name);
+    void addText(AXText* text);
+    void setText(const std::string& name);
+    void setText(AXText* text);
     Sprite* getCurrentSprite();
     AXGraphics::Colour& getColour();
-    void setColour(float, float, float, float);
-    void setColour(float, float, float);
+    void setColour(float r, float g, float b, float a);
+    void setColour(float r, float g, float b);
     void setColour(const AXGraphics::Colour&);
     int getDrawType();
     void setDrawType(int type);
-    void draw(const Math::Vector2D&);
+    void draw(const Math::Vector2D& offset);
     Renderer* clone();
 };
 
