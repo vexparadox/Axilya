@@ -54,23 +54,125 @@ class Renderer {
     //default to drawing a rect
     int drawType = AX_DRAW_RECT;
 public:
+   /*!
+   * The constructor of a Renderer
+   * 
+   * This is called when an Entity is created
+   */
     Renderer();
+   /*!
+   * The deconstructor of a Renderer
+   * 
+   * This will delete all the Sprites and AXText stored in this Renderer, it won't delete resources
+   */
     ~Renderer();
+   /*!
+   * A method to set which Entity owns this Renderer
+   * 
+   * @param entity The Entity that owns this Renderer
+   */
     void setOwner(Entity* entity);
+   /*!
+   * A method to add a new Sprite
+   * 
+   * This Sprite will be set to the current one to be drawn and added to the list, you can use this Sprite's name in setSprite()
+   *
+   * This method will also set the draw type
+   * @param sprite the new sprite
+   */
     void addSprite(Sprite* sprite);
-    void setSprite(Sprite* sprite);
+   /*!
+   * A method to set the current Sprite
+   * 
+   * The Sprite must be first added with addSprite()
+   * @param name the name of the Sprite to set
+   */
     void setSprite(const std::string& name);
+   /*!
+   * A method to add a new AXText
+   * 
+   * This AXText will be set to the current one to be drawn and added to the list, you can use this AXText's name in setText()
+   *
+   * This method will also set the draw type
+   * @param text the next AXText
+   */
     void addText(AXText* text);
+   /*!
+   * A method to set the current AXText
+   * 
+   * The AXText must be first added with addText()
+   * @param name the name of the AXText to set
+   */
     void setText(const std::string& name);
-    void setText(AXText* text);
+   /*!
+   * A method to get the current Sprite
+   * 
+   * @return the current Sprite
+   */
     Sprite* getCurrentSprite();
+   /*!
+   * A method to get the Colour of this Renderer
+   * 
+   * Note that colours only take place when drawing basic shapes, AXText and Sprite's have their own Colour methods
+   * @return the current Colour of this Renderer
+   */
     AXGraphics::Colour& getColour();
+   /*!
+   * A method to set the Colour of this Renderer
+   * 
+   * Note that colours only take place when drawing basic shapes, AXText and Sprite's have their own Colour methods
+   *
+   * Colour values are clamped (0-255)
+   * @param r the red value of this Colour
+   * @param g the green value of this Colour
+   * @param b the blue value of this Colour
+   * @param a the alpha value of this Colour
+   */
     void setColour(float r, float g, float b, float a);
+   /*!
+   * A method to set the Colour of this Renderer
+   * 
+   * Note that colours only take place when drawing basic shapes, AXText and Sprite's have their own Colour methods
+   *
+   * Colour values are clamped (0-255)
+   * @param r the red value of this Colour
+   * @param g the green value of this Colour
+   * @param b the blue value of this Colour
+   *
+   * The alpha value will default to 255
+   */
     void setColour(float r, float g, float b);
-    void setColour(const AXGraphics::Colour&);
+   /*!
+   * A method to set the Colour of this Renderer
+   * 
+   * Note that colours only take place when drawing basic shapes, AXText and Sprite's have their own Colour methods
+   * @param c the Colour object to set this Renderer to
+   */
+    void setColour(const AXGraphics::Colour& c);
+   /*!
+   * A method to get the DrawType of this Renderer
+   * 
+   * @return the DrawType of this Renderer (AX_DRAW_RECT/AX_DRAW_ELLIPSE/AX_DRAW_TEXT/AX_DRAW_SPRITE/AX_DRAW_NONE)
+   */
     int getDrawType();
+   /*!
+   * A method to set the DrawType of this Renderer
+   * 
+   * @param type the DrawType of this Renderer (AX_DRAW_RECT/AX_DRAW_ELLIPSE/AX_DRAW_TEXT/AX_DRAW_SPRITE/AX_DRAW_NONE)
+   */
     void setDrawType(int type);
+   /*!
+   * A method to draw this Renderer
+   * 
+   * This method is called by the Entity and Scene class, don't call it yourself
+   * @param offset the offset to draw by
+   */
     void draw(const Math::Vector2D& offset);
+   /*!
+   * A method to clone this Renderer
+   * 
+   * @return a clone of this Renderer
+   */
     Renderer* clone();
 };
 

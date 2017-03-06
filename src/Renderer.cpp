@@ -15,6 +15,9 @@ Renderer::~Renderer(){
     for(auto it = sprites.begin(); it != sprites.end(); it++){
        delete it->second;
     }
+    for(auto it = texts.begin(); it != texts.end(); it++){
+       delete it->second;
+    }
 }
 
 void Renderer::addSprite(Sprite *s) {
@@ -41,14 +44,6 @@ void Renderer::setText(const std::string& name){
         this->setDrawType(AX_DRAW_TEXT);
     }
 }
-void Renderer::setText(AXText* text){
-    if(text){
-        this->currentText = text;
-        currentText->setOwner(owner);
-        currentText->bakeText();
-        this->setDrawType(AX_DRAW_TEXT);
-    }
-}
 
 int Renderer::getDrawType(){
     return drawType;
@@ -61,13 +56,6 @@ void Renderer::setDrawType(int type){
 void Renderer::setSprite(const std::string &name) {
     if(sprites.find(name) != sprites.end()){
         this->currentSprite = sprites.at(name);
-        this->setDrawType(AX_DRAW_SPRITE);
-    }
-}
-
-void Renderer::setSprite(Sprite *s) {
-    if(s){
-        this->currentSprite = s;
         this->setDrawType(AX_DRAW_SPRITE);
     }
 }

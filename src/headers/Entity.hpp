@@ -144,7 +144,7 @@ public:
     /*!
     * A method that sets a flag how this Entity should be drawn
     *
-    * @param type can be AX_DRAW_RECT, AX_DRAW_ELLIPSE, AX_DRAW_NONE
+    * @param type can be AX_DRAW_RECT/AX_DRAW_ELLIPSE/AX_DRAW_TEXT/AX_DRAW_SPRITE/AX_DRAW_NONE
     * @see EntityDrawTypes.hpp
     */ 
     void setDrawType(int type);
@@ -153,7 +153,8 @@ public:
     * A method that gets the flag how this Entity is being drawn
     *
     * @return The current draw type of this Entity
-    * @see EntityDrawTypes.hpp
+    * 
+    * DrawTypes are: AX_DRAW_RECT/AX_DRAW_ELLIPSE/AX_DRAW_TEXT/AX_DRAW_SPRITE/AX_DRAW_NONE
     */ 
     int getDrawType();
     /*!
