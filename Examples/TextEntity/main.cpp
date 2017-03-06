@@ -10,7 +10,9 @@ int main(int argc, char const *argv[])
 	int fontID = ResourceManager::getInstance()->addFont("Arial.ttf", 18);
 	//lets make an Entity
 	Entity* e = new Entity("text_entity", 0, 0, 0, 0); // The size of an Entity will be changed to fit the text you attach to it
-	e->getRenderer()->addText(new AXStaticText("example_text", "This is some example text.", fontID));
+	e->addCollider(new BoxCollider()); // Entities that display text can also have Colliders and Rigidbodies
+	e->addRigidBody(true);
+	e->getRenderer()->addText(new AXStaticText("example_text", "This is an object with gravity and a collider!", fontID));
 	scene->addEntity(e);
 	return AXWindow::run();
 }
