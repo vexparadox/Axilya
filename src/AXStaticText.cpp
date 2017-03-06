@@ -13,6 +13,10 @@ AXStaticText::AXStaticText(const std::string& name, const std::string& text, int
 	isBaked = false;
 }
 
+AXStaticText::~AXStaticText(){
+	SDL_DestroyTexture(this->texture);
+}
+
 bool AXStaticText::bakeText(){
 	//bake the string
 	if(this->font){

@@ -37,12 +37,51 @@
 class StaticSprite : public Sprite{
     AXTexture* texture = 0;
 public:
+    /*!
+    * The constructor of a StaticSprite
+    *
+    * @param name the name of this StaticSprite
+    */
     StaticSprite(const std::string& name);
+    /*!
+    * The constructor of a StaticSprite
+    *
+    * @param name the name of this StaticSprite
+    * @param filename the image file to load for this StaticSprite (will go through the ResourceManager)
+    */
     StaticSprite(const std::string& name, const std::string& filename);
+    /*!
+    * The deconstructor of a StaticSprite
+    *
+    * This won't release resources used by this StaticSprite
+    */
     ~StaticSprite();
+    /*!
+    * A method to draw this StaticSprite, this is called by the Renderer
+    *
+    * @param x the x position to draw this StaticSprite 
+    * @param y the y position to draw this StaticSprite
+    * @param w the width to draw this StaticSprite
+    * @param h the height to draw this StaticSprite
+    */
     void draw(float x, float y, float w, float h);
+    /*!
+    * A method to set the AXTexture this StaticSprite will draw
+    *
+    * @param textureID the ID of the AXTexture given by the ResourceManager
+    */
     void setTexture(int textureID);
+    /*!
+    * A method to get the AXTexture this StaticSprite is drawing
+    *
+    * @return the AXTexture this StaticSprite is drawing
+    */
     AXTexture* getTexture();
+    /*!
+    * A method to clone this Sprite
+    *
+    * @return a clone of this StaticSprite
+    */
     Sprite* clone();
 };
 

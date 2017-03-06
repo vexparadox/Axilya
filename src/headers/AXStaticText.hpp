@@ -55,6 +55,12 @@ public:
    * @param id the ID of the AXFont (given by the ResourceManager) that will be used to draw the text
    */    
 	AXStaticText(const std::string& name, const std::string& text, int fontID);
+   /*!
+   * The deconstructor of an AXStaticText
+   *
+   * This will release any baked textures but not any AXFonts used
+   */ 
+   ~AXStaticText();
 	/*!
    * A method to update the text this AXStaticText will draw
    *

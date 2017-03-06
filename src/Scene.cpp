@@ -169,7 +169,7 @@ Entity* Scene::instantiate(const std::string& name, Entity* e){
     return this->instantiate(name, e, e->getTransform());
 }
 
-void Scene::addWorld(World *w) {
+void Scene::setWorld(World *w) {
     if(w){
         world = w;
     }
