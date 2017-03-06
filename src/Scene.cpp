@@ -51,7 +51,7 @@ void Scene::update() {
     }
     for(auto it = entities.begin(); it != entities.end(); it++){
         if((*it)->isDead()){
-            uMap.erase((*it)->getName());
+            entityMap.erase((*it)->getName());
             (*it)->onDestroy();
             entities.erase(it);
             break;
@@ -107,10 +107,10 @@ Entity* Scene::getGameMaster(){
 
 bool Scene::addEntity(Entity* e){
     if(e) {
-        if(uMap.find(e->getName()) == uMap.end()) {
+        if(entityMap.find(e->getName()) == entityMap.end()) {
             e->setScene(this);
             this->entities.push_back(e);
-            this->uMap[e->getName()] = e;
+            this->entityMap[e->getName()] = e;
             return true;
         }else{
             std::cout << "Entity with the name: " << e->getName() << " already in this scene." << std::endl;
@@ -179,18 +179,18 @@ void Scene::removeEntity(Entity* e){
     for(auto it = entities.begin(); it != entities.end(); it++){
         if(*it == e){
             entities.erase(it);
-            uMap.erase(e->getName());
+            entityMap.erase(e->getName());
             break;
         }
     }
 }
 
 Entity* Scene::findEntity(const std::string &name) {
-    if(uMap.find(name) == uMap.end()){
+    if(entityMap.find(name) == entityMap.end()){
         std::cout << "Entity not found with name: " << name << ". Returning null" << std::endl;
         return 0;
     }else{
-        return uMap.at(name);
+        return entityMap.at(name);
     }
 }
 

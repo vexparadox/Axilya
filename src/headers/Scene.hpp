@@ -47,7 +47,7 @@ class Scene{
     World* world;
     Entity* gameMaster;
     Math::Vector2D renderOffset;
-    std::unordered_map<std::string, Entity*> uMap;
+    std::unordered_map<std::string, Entity*> entityMap;
 public:
     /*!
     * The constructor of a Scene

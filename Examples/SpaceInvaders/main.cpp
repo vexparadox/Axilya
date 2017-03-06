@@ -17,7 +17,6 @@ void SpawnPlayer(Scene* scene){
     //create a sprite
     StaticSprite* ss = new StaticSprite("player_static", "player_1.jpg");
     player->getRenderer()->addSprite(ss);
-    player->getRenderer()->setSprite(ss);
     scene->addEntity(player);
 
     Entity* bullet = new Entity("bullet", 0, 0, 32, 64);
@@ -25,7 +24,6 @@ void SpawnPlayer(Scene* scene){
     bullet->addComponent(new Bullet());
     ss = new StaticSprite("bullet", "bullet.jpg");
     bullet->getRenderer()->addSprite(ss);
-    bullet->getRenderer()->setSprite(ss);
     PrefabManager::getInstance()->addPrefab(bullet);
 }
 
@@ -40,9 +38,8 @@ void SpawnInvaders(Scene* scene){
     as->addTexture("enemy_1.jpg");
     as->addTexture("enemy_2.jpg");
     //add the sprite to the enemy
+    //this will also set it to the current one
     enemy->getRenderer()->addSprite(as);
-    //set it to the current one
-    enemy->getRenderer()->setSprite(as);
 
     //make the enemy a prefab so we can make copies easily
     prefabManager->addPrefab(enemy);
