@@ -20,9 +20,9 @@ Renderer::~Renderer(){
     }
 }
 
-void Renderer::addSprite(Sprite *s) {
+void Renderer::addSprite(AXSprite *s) {
     if(s) {
-        sprites.insert(std::pair<std::string, Sprite *>(s->getName(), s));
+        sprites.insert(std::pair<std::string, AXSprite *>(s->getName(), s));
         currentSprite = s;
         this->setDrawType(AX_DRAW_SPRITE);
     }
@@ -60,7 +60,7 @@ void Renderer::setSprite(const std::string &name) {
     }
 }
 
-Sprite* Renderer::getCurrentSprite(){
+AXSprite* Renderer::getCurrentSprite(){
     return currentSprite;
 }
 

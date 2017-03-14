@@ -28,13 +28,13 @@
  *
  * @section DESCRIPTION
  *
- * This class describes an AnimatedSprite, it loops through textures at a set frame count.
+ * This class describes an AXAnimatedSprite, it loops through textures at a set frame count.
  *
  */
 #ifndef AnimatedSprite_hpp
 #define AnimatedSprite_hpp
-#include "Sprite.hpp"
-class AnimatedSprite : public Sprite {
+#include "AXSprite.hpp"
+class AXAnimatedSprite : public AXSprite {
     //the amount of frames per image
     int frameLength;
     std::vector<AXTexture*> textures;
@@ -44,19 +44,19 @@ class AnimatedSprite : public Sprite {
     int texturePosition;
 public:
    /*!
-   * The destructor of an AnimatedSprite
+   * The destructor of an AXAnimatedSprite
    *
    * This will destruct the current class but will not delete the AXTexture's attached.
    */
-    ~AnimatedSprite();
+    ~AXAnimatedSprite();
    /*!
-   * The constructor of an AnimatedSprite
-   * @param name the name of this AnimatedSprite
+   * The constructor of an AXAnimatedSprite
+   * @param name the name of this AXAnimatedSprite
    * @param frameLength how many frames each AXTexture will be displayed for
    */
-    AnimatedSprite(const std::string& name, int frameLength);
+    AXAnimatedSprite(const std::string& name, int frameLength);
    /*!
-   * A method to draw the AnimatedSprite
+   * A method to draw the AXAnimatedSprite
    * @param x the x position to draw the sprite
    * @param y the y position to draw the sprite
    * @param w the width to draw the sprite
@@ -64,21 +64,21 @@ public:
    */
     void draw(float x, float y, float w, float h);
    /*!
-   * A method to add another frame to the AnimatedSprite
+   * A method to add another frame to the AXAnimatedSprite
    * @param textureID the ID of a texture given by the ResourceManager
    */
     void addTexture(int textureID);
    /*!
-   * A method to add another frame to the AnimatedSprite
+   * A method to add another frame to the AXAnimatedSprite
    * @param filename the filename of an image to be loaded by the ResourceManager
    * @return the ID of the AXTexture loaded by the ResourceManager
    */
     int addTexture(const std::string& filename);
    /*!
-   * A method to clone this Sprite
-   * @return a clone of this AnimatedSprite
+   * A method to clone this AXSprite
+   * @return a clone of this AXAnimatedSprite
    */
-    Sprite* clone();
+    AXSprite* clone();
 };
 
 

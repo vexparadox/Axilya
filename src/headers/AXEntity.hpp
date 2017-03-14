@@ -184,7 +184,7 @@ public:
     /*!
     * A method that sets the Colour that this AXEntity should be drawn at
     *
-    * This doesn't take affect if there's a Sprite being drawn
+    * This doesn't take affect if there's a AXSprite being drawn
     *
     * This method is calling another in the Renderer
     *
@@ -198,7 +198,7 @@ public:
     /*!
     * A method that sets the Colour that this AXEntity should be drawn at
     *
-    * This doesn't take affect if there's a Sprite being drawn
+    * This doesn't take affect if there's a AXSprite being drawn
     *
     * This method is calling another in the Renderer
     *
@@ -213,7 +213,7 @@ public:
     /*!
     * A method that sets the Colour that this AXEntity should be drawn at
     *
-    * This doesn't take affect if there's a Sprite being drawn
+    * This doesn't take affect if there's a AXSprite being drawn
     *
     * This method is calling another in the Renderer
     * @param c the Colour object this will draw at 

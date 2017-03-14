@@ -36,14 +36,14 @@
 #include <unordered_map>
 #include <SDL2/SDL.h>
 #include "EntityDrawTypes.hpp"
-#include "Sprite.hpp"
+#include "AXSprite.hpp"
 #include "Component.hpp"
 class AXEntity;
 class AXText;
 class Renderer : public Component{
-    std::unordered_map<std::string, Sprite*> sprites;
+    std::unordered_map<std::string, AXSprite*> sprites;
     std::unordered_map<std::string, AXText*> texts;
-    Sprite* currentSprite = 0;
+    AXSprite* currentSprite = 0;
     AXText* currentText = 0;
     AXEntity* owner = 0;
     //set a colour to be used in place of a sprite
@@ -70,19 +70,19 @@ public:
    */
     void setOwner(AXEntity* entity);
    /*!
-   * A method to add a new Sprite
+   * A method to add a new AXSprite
    * 
-   * This Sprite will be set to the current one to be drawn and added to the list, you can use this Sprite's name in setSprite()
+   * This AXSprite will be set to the current one to be drawn and added to the list, you can use this AXSprite's name in setSprite()
    *
    * This method will also set the draw type
    * @param sprite the new sprite
    */
-    void addSprite(Sprite* sprite);
+    void addSprite(AXSprite* sprite);
    /*!
-   * A method to set the current Sprite
+   * A method to set the current AXSprite
    * 
-   * The Sprite must be first added with addSprite()
-   * @param name the name of the Sprite to set
+   * The AXSprite must be first added with addSprite()
+   * @param name the name of the AXSprite to set
    */
     void setSprite(const std::string& name);
    /*!
@@ -102,22 +102,22 @@ public:
    */
     void setText(const std::string& name);
    /*!
-   * A method to get the current Sprite
+   * A method to get the current AXSprite
    * 
-   * @return the current Sprite
+   * @return the current AXSprite
    */
-    Sprite* getCurrentSprite();
+    AXSprite* getCurrentSprite();
    /*!
    * A method to get the Colour of this Renderer
    * 
-   * Note that colours only take place when drawing basic shapes, AXText and Sprite's have their own Colour methods
+   * Note that colours only take place when drawing basic shapes, AXText and AXSprite's have their own Colour methods
    * @return the current Colour of this Renderer
    */
     AXGraphics::Colour& getColour();
    /*!
    * A method to set the Colour of this Renderer
    * 
-   * Note that colours only take place when drawing basic shapes, AXText and Sprite's have their own Colour methods
+   * Note that colours only take place when drawing basic shapes, AXText and AXSprite's have their own Colour methods
    *
    * Colour values are clamped (0-255)
    * @param r the red value of this Colour
@@ -129,7 +129,7 @@ public:
    /*!
    * A method to set the Colour of this Renderer
    * 
-   * Note that colours only take place when drawing basic shapes, AXText and Sprite's have their own Colour methods
+   * Note that colours only take place when drawing basic shapes, AXText and AXSprite's have their own Colour methods
    *
    * Colour values are clamped (0-255)
    * @param r the red value of this Colour
@@ -142,7 +142,7 @@ public:
    /*!
    * A method to set the Colour of this Renderer
    * 
-   * Note that colours only take place when drawing basic shapes, AXText and Sprite's have their own Colour methods
+   * Note that colours only take place when drawing basic shapes, AXText and AXSprite's have their own Colour methods
    * @param c the Colour object to set this Renderer to
    */
     void setColour(const AXGraphics::Colour& c);

@@ -35,16 +35,16 @@
 
 #include "ResourceManager.hpp"
 #include "AXGraphics.hpp"
-class Sprite {
+class AXSprite {
     std::string name;
 protected:
     ResourceManager* resourceManager = ResourceManager::getInstance();
 public:
-	virtual ~Sprite(){};
-    Sprite(const std::string& name);
+	virtual ~AXSprite(){};
+    AXSprite(const std::string& name);
     virtual void draw(float x, float y, float w, float h) = 0;
     std::string getName();
-    virtual Sprite* clone() = 0;
+    virtual AXSprite* clone() = 0;
 };
 
 #endif

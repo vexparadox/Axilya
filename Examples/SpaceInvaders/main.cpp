@@ -15,14 +15,14 @@ void SpawnPlayer(Scene* scene){
     AXEntity* player = new AXEntity("player", 0, AXWindow::getHeight()-64, 64, 64);
     player->addComponent(new PlayerController());
     //create a sprite
-    StaticSprite* ss = new StaticSprite("player_static", "player_1.jpg");
+    AXStaticSprite* ss = new AXStaticSprite("player_static", "player_1.jpg");
     player->getRenderer()->addSprite(ss);
     scene->addEntity(player);
 
     AXEntity* bullet = new AXEntity("bullet", 0, 0, 32, 64);
     bullet->addCollider(new AXBoxCollider());
     bullet->addComponent(new Bullet());
-    ss = new StaticSprite("bullet", "bullet.jpg");
+    ss = new AXStaticSprite("bullet", "bullet.jpg");
     bullet->getRenderer()->addSprite(ss);
     PrefabManager::getInstance()->addPrefab(bullet);
 }
@@ -34,7 +34,7 @@ void SpawnInvaders(Scene* scene){
     enemy->addCollider(new AXBoxCollider());
     enemy->addComponent(new Invader());
     //create a new animated sprite
-    AnimatedSprite* as = new AnimatedSprite("enemy_move", 30);
+    AXAnimatedSprite* as = new AXAnimatedSprite("enemy_move", 30);
     as->addTexture("enemy_1.jpg");
     as->addTexture("enemy_2.jpg");
     //add the sprite to the enemy

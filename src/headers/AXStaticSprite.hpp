@@ -28,61 +28,61 @@
  *
  * @section DESCRIPTION
  *
- * This class describes a StaticSprite, it holds and draws a single texture.
+ * This class describes a AXStaticSprite, it holds and draws a single texture.
  */
 #ifndef StaticSprite_hpp
 #define StaticSprite_hpp
 
-#include "Sprite.hpp"
-class StaticSprite : public Sprite{
+#include "AXSprite.hpp"
+class AXStaticSprite : public AXSprite{
     AXTexture* texture = 0;
 public:
     /*!
-    * The constructor of a StaticSprite
+    * The constructor of a AXStaticSprite
     *
-    * @param name the name of this StaticSprite
+    * @param name the name of this AXStaticSprite
     */
-    StaticSprite(const std::string& name);
+    AXStaticSprite(const std::string& name);
     /*!
-    * The constructor of a StaticSprite
+    * The constructor of a AXStaticSprite
     *
-    * @param name the name of this StaticSprite
-    * @param filename the image file to load for this StaticSprite (will go through the ResourceManager)
+    * @param name the name of this AXStaticSprite
+    * @param filename the image file to load for this AXStaticSprite (will go through the ResourceManager)
     */
-    StaticSprite(const std::string& name, const std::string& filename);
+    AXStaticSprite(const std::string& name, const std::string& filename);
     /*!
-    * The deconstructor of a StaticSprite
+    * The deconstructor of a AXStaticSprite
     *
-    * This won't release resources used by this StaticSprite
+    * This won't release resources used by this AXStaticSprite
     */
-    ~StaticSprite();
+    ~AXStaticSprite();
     /*!
-    * A method to draw this StaticSprite, this is called by the Renderer
+    * A method to draw this AXStaticSprite, this is called by the Renderer
     *
-    * @param x the x position to draw this StaticSprite 
-    * @param y the y position to draw this StaticSprite
-    * @param w the width to draw this StaticSprite
-    * @param h the height to draw this StaticSprite
+    * @param x the x position to draw this AXStaticSprite 
+    * @param y the y position to draw this AXStaticSprite
+    * @param w the width to draw this AXStaticSprite
+    * @param h the height to draw this AXStaticSprite
     */
     void draw(float x, float y, float w, float h);
     /*!
-    * A method to set the AXTexture this StaticSprite will draw
+    * A method to set the AXTexture this AXStaticSprite will draw
     *
     * @param textureID the ID of the AXTexture given by the ResourceManager
     */
     void setTexture(int textureID);
     /*!
-    * A method to get the AXTexture this StaticSprite is drawing
+    * A method to get the AXTexture this AXStaticSprite is drawing
     *
-    * @return the AXTexture this StaticSprite is drawing
+    * @return the AXTexture this AXStaticSprite is drawing
     */
     AXTexture* getTexture();
     /*!
-    * A method to clone this Sprite
+    * A method to clone this AXSprite
     *
-    * @return a clone of this StaticSprite
+    * @return a clone of this AXStaticSprite
     */
-    Sprite* clone();
+    AXSprite* clone();
 };
 
 

@@ -2,17 +2,17 @@
 // Created by William Meaton on 02/09/2016.
 //
 
-#include "headers/AnimatedSprite.hpp"
+#include "headers/AXAnimatedSprite.hpp"
 
-AnimatedSprite::~AnimatedSprite(){
+AXAnimatedSprite::~AXAnimatedSprite(){
     
 }
 
-AnimatedSprite::AnimatedSprite(const std::string &name, int frameLength) : Sprite(name), frameLength(frameLength), frameCount(0), texturePosition(0){
+AXAnimatedSprite::AXAnimatedSprite(const std::string &name, int frameLength) : AXSprite(name), frameLength(frameLength), frameCount(0), texturePosition(0){
 
 }
 
-void AnimatedSprite::draw(float x, float y, float w, float h){
+void AXAnimatedSprite::draw(float x, float y, float w, float h){
     AXGraphics::drawTexture(textures.at(texturePosition), x, y, w, h);
     frameCount++;
     if(frameCount > frameLength){
@@ -25,7 +25,7 @@ void AnimatedSprite::draw(float x, float y, float w, float h){
     }
 }
 
-int AnimatedSprite::addTexture(const std::string &filename) {
+int AXAnimatedSprite::addTexture(const std::string &filename) {
     int id = resourceManager->addTexture(filename);
     if(id >= 0){
         textures.push_back(resourceManager->getTexture(id));
@@ -34,12 +34,12 @@ int AnimatedSprite::addTexture(const std::string &filename) {
 }
 
 
-void AnimatedSprite::addTexture(int textureID) {
+void AXAnimatedSprite::addTexture(int textureID) {
     textures.push_back(resourceManager->getTexture(textureID));
 }
 
-Sprite* AnimatedSprite::clone(){
-    AnimatedSprite* as = new AnimatedSprite(this->getName(), this->frameLength);
+AXSprite* AXAnimatedSprite::clone(){
+    AXAnimatedSprite* as = new AXAnimatedSprite(this->getName(), this->frameLength);
     for(auto& t : textures){
         as->addTexture(t->getID());
     }
