@@ -33,11 +33,10 @@
 #ifndef AXMain_h
 #define AXMain_h
 
-#include "Math.h"
+#include "AXMath.hpp"
 #include "Types.h"
-#include "AXStaticText.hpp"
 #include "AXNetwork.hpp"
-#include "Graphics.hpp"
+#include "AXGraphics.hpp"
 #include "Components.h"
 #include "Entity.hpp"
 #include "Scene.hpp"

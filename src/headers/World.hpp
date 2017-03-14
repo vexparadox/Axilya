@@ -33,6 +33,7 @@
  */
 #ifndef World_hpp
 #define World_hpp
+#include "AXGraphics.hpp"
 class Scene;
 class World{
     Scene* scene = 0;

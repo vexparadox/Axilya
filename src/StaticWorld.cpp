@@ -23,7 +23,7 @@ void StaticWorld::loadTexture(AXTexture *t) {
 
 void StaticWorld::draw() {
     if(texture) {
-        texture->getImage()->draw(0, 0, AXWindow::getWidth(), AXWindow::getHeight());
+        AXGraphics::drawTexture(texture, 0, 0, AXWindow::getWidth(), AXWindow::getHeight());
     }
 }
 

@@ -37,7 +37,7 @@
 #include <algorithm>
 #include "World.hpp"
 #include "pugixml.hpp"
-#include "Math.h"
+#include "AXMath.hpp"
 
 class Entity;
 class Transform;

@@ -33,7 +33,7 @@
 #ifndef ResourceManager_h
 #define ResourceManager_h
 
-#include "AXTexture.h"
+#include "AXTexture.hpp"
 #include "AXFont.hpp"
 #include <vector>
 #include <unordered_map>

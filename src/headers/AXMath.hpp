@@ -30,12 +30,12 @@
  *
  * A collection of Math related classes and function
  */
-#ifndef Math_h
-#define Math_h
+#ifndef AXMath_hpp
+#define AXMath_hpp
 
 #include "Vector2D.h"
 #include "Collision.h"
 #include "Vector3D.h"
 #include "Utils.h"
 #include "Timer.hpp"
-#endif /* Math_h */
+#endif /* AXMath_hpp */

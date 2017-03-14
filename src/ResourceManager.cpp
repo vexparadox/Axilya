@@ -27,13 +27,12 @@ int ResourceManager::addTexture(const std::string& s){
     if(isTextureLoaded(s)){
         return textureMap.at(s)->getID();
     }
-    AXImage* tempImg = new AXImage(); // create a new image
-    //attempt to load the file given
-    if(tempImg->loadImage(s)){
-        int id = textures.size(); // get the new id
-        AXTexture* tempTex = new AXTexture(id, tempImg); // create the AXTexture
-        textures.push_back(tempTex); // push it back
-        textureMap.insert(std::pair<std::string, AXTexture*>(s, tempTex));
+    int id = textures.size(); // get the new id
+    AXTexture* tempTexture = new AXTexture(id, s); // create a new image
+    //check if it loaded correctly
+    if(tempTexture->isLoaded()){
+        textures.push_back(tempTexture); // push it back
+        textureMap.insert(std::pair<std::string, AXTexture*>(s, tempTexture));
         return id; // return the new id
     }
     std::cout << "AXTexture data failed to load." << std::endl;

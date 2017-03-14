@@ -40,4 +40,5 @@
 #include "CustomComponent.hpp"
 #include "CollideDirections.hpp"
 #include "EntityDrawTypes.hpp"
+#include "AXStaticText.hpp"
 #endif /* Components_h */

@@ -4,8 +4,6 @@
 
 #include "headers/StaticSprite.hpp"
 
-
-
 StaticSprite::~StaticSprite(){
 	
 }
@@ -19,7 +17,7 @@ StaticSprite::StaticSprite(const std::string &name, const std::string &filename)
 
 void StaticSprite::draw(float x, float y, float w, float h) {
     if(texture){
-        texture->getImage()->draw(x, y, w, h);
+    	AXGraphics::drawTexture(texture, x, y, w, h);
     }
 
 }

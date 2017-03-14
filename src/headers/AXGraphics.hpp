@@ -41,6 +41,22 @@
 #include "glad.h"
 namespace AXGraphics{
     /*!
+    * A function that draws an AXTexture
+    * @param t the loaded AXTexture
+    * @param x the x position to draw the texture
+    * @param y the y position to draw the texture
+    * @param w the width to draw this texture
+    * @param h the height to draw this texture
+    */
+    void drawTexture(AXTexture* t, float x, float y, float w, float h);
+    /*!
+    * A function that draws an AXTexture
+    * @param t the loaded AXTexture
+    * @param x the x position to draw the texture
+    * @param y the y position to draw the texture
+    */
+    void drawTexture(AXTexture* t, float x, float y);
+    /*!
     * A function that draws a Triangle
     * @param t the Triangle to be drawn
     */

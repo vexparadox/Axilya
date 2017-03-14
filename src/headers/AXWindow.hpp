@@ -38,6 +38,7 @@
 #include "WindowTypes.hpp"
 #include "AXNetwork.hpp"
 #include <SDL2/SDL.h>
+#include "glad.h"
 #include <SDL2_ttf/SDL_ttf.h>
 typedef void (*AXFunction)();
 //this class controls the main game loop, calls BaseCore update and render

@@ -34,13 +34,9 @@
 #define Renderer_hpp
 
 #include <unordered_map>
-
-#include "Graphics.hpp"
-
 #include <SDL2/SDL.h>
 #include "EntityDrawTypes.hpp"
 #include "Sprite.hpp"
-
 class Entity;
 class AXText;
 class Renderer {

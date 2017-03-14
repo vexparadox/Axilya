@@ -39,8 +39,9 @@
 #include "Shape.h"
 #include "Rect.h"
 #include "Poly.h"
-#include "AXImage.hpp"
 #include "Colour.h"
 #include "AXString.hpp"
+
+#include "AXTexture.hpp"
 
 #endif /* Types_h */

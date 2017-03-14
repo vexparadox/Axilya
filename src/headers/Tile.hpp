@@ -36,6 +36,7 @@
 
 #include "ResourceManager.hpp"
 #include "TileComponent.hpp"
+#include "AXGraphics.hpp"
 class AXTexture;
 class Tile{
     ResourceManager* resourceManager;

@@ -13,7 +13,7 @@ AnimatedSprite::AnimatedSprite(const std::string &name, int frameLength) : Sprit
 }
 
 void AnimatedSprite::draw(float x, float y, float w, float h){
-    textures.at(texturePosition)->getImage()->draw(x, y, w, h);
+    AXGraphics::drawTexture(textures.at(texturePosition), x, y, w, h);
     frameCount++;
     if(frameCount > frameLength){
         frameCount = 0;

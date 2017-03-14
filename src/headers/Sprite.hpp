@@ -34,6 +34,7 @@
 #define Sprite_hpp
 
 #include "ResourceManager.hpp"
+#include "AXGraphics.hpp"
 class Sprite {
     std::string name;
 protected:
