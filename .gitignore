@@ -1,6 +1,7 @@
 .DS_STORE
 *.o
 Axilya
+Axilya.dSYM
 *.swp
 Build/
 Examples/xCodeExamples/Build/
