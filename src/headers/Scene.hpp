@@ -36,7 +36,6 @@
 #include <unordered_map>
 #include <algorithm>
 #include "World.hpp"
-#include "pugixml.hpp"
 #include "AXMath.hpp"
 
 class Entity;
@@ -181,12 +180,6 @@ public:
     * @param colls an array of collision directions that will be filled by the Collider's
     */
     void collideCheck(Entity* e, Math::Vector2D& proposedMovement, unsigned char* colls);
-    /*!
-    * A method to parse a Scene XML file 
-    *
-    * This method is deprecated and isn't functional
-    */
-    void parseSceneFile(const std::string& path);
     /*!
     * Returns the number of Entities in this Scene
     * @return number of Entities in the Scene vector

@@ -30,9 +30,11 @@ bool AXStaticText::bakeText(){
 				return false;
 			}
 			Math::Vector2D t = this->font->getStringSize(this->text);
+			width = t.x;
+			height = t.y;
 			if(owner){
 				//resize the entity to the size of this text
-				owner->resizeEntity(t.x, t.y);
+				owner->resizeEntity(width, height);
 			}
 			isBaked = true;
 			return true;

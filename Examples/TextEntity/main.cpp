@@ -1,10 +1,10 @@
 #include <Axilya/AXMain.h>
 int main(int argc, char const *argv[])
 {
-	AXWindow::init(720, 480, AX_WINDOWED, "Text Example");
+	AXWindow::init(720, 480, AX_WINDOWED, "Text Example", update, draw);
 	Scene* scene = new Scene();
 	AXWindow::setCurrentScene(scene);
-	AXGraphics::setBackground(0, 0, 0, 255);
+	// AXGraphics::setBackground(0, 0, 0, 255);
 	//we can add a font file with the size 18
 	//remember that all files are prefixed with the runpath + data/
 	int fontID = ResourceManager::getInstance()->addFont("Arial.ttf", 18);

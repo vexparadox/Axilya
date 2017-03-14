@@ -19,6 +19,7 @@ headers += $(wildcard ./src/headers/*.h)
 
 all: install examples
 
+
 lib: 
 	@mkdir -p ./Build/objs/
 	@echo "Compiling the Axilya library, this may take a while..."
