@@ -6,7 +6,7 @@ all:
 	@cd ./PongGame && make
 	@cd ./SpaceInvaders && make
 	@cd ./Breakout && make
-	@cd ./TextEntity && make
+	@cd ./TextRaw && make
 clean:
 	@cd ./Basic && make clean
 	@cd ./BasicComponent && make clean
@@ -17,3 +17,4 @@ clean:
 	@cd ./SpaceInvaders && make clean
 	@cd ./Breakout && make clean
 	@cd ./TextEntity && make clean
+	@cd ./TextRaw && make clean

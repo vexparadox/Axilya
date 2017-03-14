@@ -35,12 +35,12 @@
 #define AXFont_hpp
 #include <SDL2_ttf/SDL_ttf.h>
 #include "AXGraphics.hpp"
-class AXFont{
+#include "AXResource.hpp"
+class AXFont : public AXResource{
 	bool hasLoaded;
 	std::string path;
    TTF_Font* fontData;
    int fontHeight;
-	int id;
 public:
 	/*!
    * The constructor of an AXFont
@@ -49,6 +49,15 @@ public:
    * @param id this ID will be given by the ResourceManager when it's created
    */
 	AXFont(int id);
+   /*!
+   * The constructor of an AXFont
+   *
+   * It's not recommended that you construct your own AXFont as it's more complex to manually render.
+   * Use this constructor when not using the ECS
+   * @param p the path of the font data
+   * @param size the size of the font to load
+   */
+   AXFont(const std::string& p, int size);
 	/*!
    * The destructor of an AXFont
    *
@@ -96,10 +105,5 @@ public:
    * @return The path of the loaded font file
    */
 	const std::string& getPath();
-	/*!
-   * A method to get the AXFont's ID given by the ResourceManager
-   * @return The AXFont's ID
-   */
-	int getID();
 };
 #endif

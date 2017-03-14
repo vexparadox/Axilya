@@ -1,6 +1,10 @@
 #include "headers/AXFont.hpp"
 #include "headers/AXWindow.hpp"
-AXFont::AXFont(int id) : id(id){
+AXFont::AXFont(int id) : AXResource(id){
+}
+
+AXFont::AXFont(const std::string& p, int size) : AXResource(-1){
+	loadFont(p, size);
 }
 
 AXFont::~AXFont(){
@@ -64,8 +68,4 @@ bool AXFont::isLoaded(){
 
 const std::string& AXFont::getPath(){
 	return path;
-}
-
-int AXFont::getID(){
-	return id;
 }

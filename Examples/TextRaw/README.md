@@ -1,0 +1,1 @@
+This example is showing how to render text without using the Resource Manager or Entity Component System
