@@ -39,59 +39,59 @@
 #include "AXMath.hpp"
 
 class AXEntity;
-class Scene;
-class Transform;
+class AXScene;
+class AXTransform;
 class AXRenderer;
-class Component{
+class AXComponent{
 protected:
     ResourceManager* resourceManager = ResourceManager::getInstance();
     PrefabManager* prefabManager = PrefabManager::getInstance();
     /*!
-    * The AXEntity that owns this Component
+    * The AXEntity that owns this AXComponent
     */ 
     AXEntity* owner = 0;
     /*!
-    * The Transform that's attached to the AXEntity that owns this Component
+    * The AXTransform that's attached to the AXEntity that owns this AXComponent
     */ 
-    Transform* transform = 0;
+    AXTransform* transform = 0;
     /*!
-    * The AXRenderer that's attached to the AXEntity that owns this Component
+    * The AXRenderer that's attached to the AXEntity that owns this AXComponent
     */ 
     AXRenderer* renderer = 0;
-    Component();
+    AXComponent();
 public:
     /*!
-    * The virtual deconstructor of this Component.
+    * The virtual deconstructor of this AXComponent.
     *
     * Implement your own in the CustomComponent<custom>
     */ 
-    virtual ~Component();
+    virtual ~AXComponent();
     /*!
-    * A method to get the AXEntity that owns this Component.
+    * A method to get the AXEntity that owns this AXComponent.
     *
-    * @return the owner of this Component
+    * @return the owner of this AXComponent
     */ 
     AXEntity* getOwner();
     /*!
-    * A method to get the Scene that the owner of this Component is in.
+    * A method to get the AXScene that the owner of this AXComponent is in.
     *
-    * @return the the scene that the owner of this Component is in 
+    * @return the the scene that the owner of this AXComponent is in 
     */ 
-    Scene* getScene();
+    AXScene* getScene();
     /*!
-    * A method to set the AXEntity that owns this Component.
+    * A method to set the AXEntity that owns this AXComponent.
     *
-    * This is called when the Component is added to an AXEntity
+    * This is called when the AXComponent is added to an AXEntity
     * @param e the entity to set
     */ 
     void setOwner(AXEntity* e);
     /*!
-    * A virtual method that returns a clone of this Component.
+    * A virtual method that returns a clone of this AXComponent.
     *
-    * Implement your own when inheriting from Component, this is done automatically if you use CustomComponent< custom > 
-    * @return a clone of this Component
+    * Implement your own when inheriting from AXComponent, this is done automatically if you use CustomComponent< custom > 
+    * @return a clone of this AXComponent
     */ 
-    virtual Component* clone() = 0;
+    virtual AXComponent* clone() = 0;
     /*!
     * A virtual method that is called at the start of the game loop.
     */ 
@@ -126,7 +126,7 @@ public:
     */
     virtual void onHover(){};
     /*!
-    * A virtual method that is called just before the AXEntity this Component is attached to is destroyed.
+    * A virtual method that is called just before the AXEntity this AXComponent is attached to is destroyed.
     */
     virtual void onDestroy(){};
 };

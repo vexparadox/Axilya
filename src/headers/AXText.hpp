@@ -32,7 +32,7 @@
  */
 #ifndef AXText_hpp
 #define AXText_hpp
-#include "Component.hpp"
+#include "AXComponent.hpp"
 #include <stdio.h>
 #include "ResourceManager.hpp"
 #include "AXEntity.hpp"

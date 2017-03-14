@@ -16,7 +16,7 @@ int AXWindow::windowHeight = 0;
 int AXWindow::displayWidth = 0;
 int AXWindow::displayHeight = 0;
 //the active scene
-Scene* AXWindow::activeScene = 0;
+AXScene* AXWindow::activeScene = 0;
 //store the SDL window and renderer
 SDL_Renderer* AXWindow::renderer = 0;
 SDL_Window* AXWindow::window = 0;
@@ -186,7 +186,7 @@ int AXWindow::run(){
     return 0;
 }
 
-void AXWindow::setCurrentScene(Scene *s) {
+void AXWindow::setCurrentScene(AXScene *s) {
     if(s) {
         activeScene = s;
     }

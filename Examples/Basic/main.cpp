@@ -15,10 +15,10 @@ int main(int argc, char *argv[])
     	std::cout << "AXWindow failed to initialise" << std::endl;
     	return -1;
     }
-    //create a Scene
+    //create a AXScene
     //Scenes are where all your entities live
-    //the Scene will update all your variables
-    Scene* s = new Scene();
+    //the AXScene will update all your variables
+    AXScene* s = new AXScene();
     
     //Give the window the scene to manage
     AXWindow::setCurrentScene(s);

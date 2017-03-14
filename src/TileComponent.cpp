@@ -15,7 +15,7 @@ Tile* TileComponent::getOwner() {
     return owner;
 }
 
-Scene* TileComponent::getScene() {
+AXScene* TileComponent::getScene() {
     if(owner){
         return owner->getScene();
     }

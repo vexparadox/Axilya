@@ -45,7 +45,7 @@ public:
     /*!
     * The constuctor of the base class AXCollider.
     *
-    * The bounds of this AXCollider will default to those defined by the AXEntity's Transform Component.
+    * The bounds of this AXCollider will default to those defined by the AXEntity's AXTransform AXComponent.
     */    
     AXCollider();
     virtual ~AXCollider();

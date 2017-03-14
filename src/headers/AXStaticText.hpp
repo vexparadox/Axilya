@@ -28,7 +28,7 @@
  *
  * @section DESCRIPTION
  *
- * This class describes an AXStaticText object, this is a Component used to render text to the screen.
+ * This class describes an AXStaticText object, this is a AXComponent used to render text to the screen.
  * It uses font data from the AXFont class.
  */
 #ifndef AXStaticText_hpp

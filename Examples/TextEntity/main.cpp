@@ -9,7 +9,7 @@
 int main(int argc, char const *argv[])
 {
 	AXWindow::init(720, 480, AX_WINDOWED, "Text Example");
-	Scene* scene = new Scene();
+	AXScene* scene = new AXScene();
 	AXWindow::setCurrentScene(scene);
 	// AXGraphics::setBackground(0, 0, 0, 255);
 	//we can add a font file with the size 18

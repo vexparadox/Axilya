@@ -11,7 +11,7 @@
 #include "Bullet.hpp"
 
 
-void SpawnPlayer(Scene* scene){
+void SpawnPlayer(AXScene* scene){
     AXEntity* player = new AXEntity("player", 0, AXWindow::getHeight()-64, 64, 64);
     player->addComponent(new PlayerController());
     //create a sprite
@@ -27,7 +27,7 @@ void SpawnPlayer(Scene* scene){
     PrefabManager::getInstance()->addPrefab(bullet);
 }
 
-void SpawnInvaders(Scene* scene){
+void SpawnInvaders(AXScene* scene){
     PrefabManager* prefabManager = PrefabManager::getInstance();
     //A prefab of the invaders
     AXEntity* enemy = new AXEntity("enemy", 0, 0, 64, 64);
@@ -54,7 +54,7 @@ void SpawnInvaders(Scene* scene){
             scene->instantiate(
                 "enemy_"+std::to_string(i)+"_"+std::to_string(j), 
                 prefabManager->getPrefab("enemy"),
-                new Transform((i*64)+10, j*64, 64, 64));
+                new AXTransform((i*64)+10, j*64, 64, 64));
         }
     }
 }
@@ -67,7 +67,7 @@ int main(int argc, char *argv[])
     	return -1;
     }
     //create the scene
-    Scene* scene = new Scene();
+    AXScene* scene = new AXScene();
     AXWindow::setCurrentScene(scene);
     AXGraphics::setBackground(16, 16, 16, 255);
 

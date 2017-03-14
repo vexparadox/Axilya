@@ -1,19 +1,19 @@
-//  RigidBody.cpp
+//  AXRigidBody.cpp
 //  Axilya
 //
 //  Created by William Meaton on 12/05/2016.
 //  Copyright © 2016 WillMeaton.uk. All rights reserved.
 //
-#include "headers/RigidBody.hpp"
+#include "headers/AXRigidBody.hpp"
 #include "headers/AXEntity.hpp"
 
-RigidBody::RigidBody(bool gravity): velocity(0, 0), drag(0.5, 0.5), gravity(gravity){
+AXRigidBody::AXRigidBody(bool gravity): velocity(0, 0), drag(0.5, 0.5), gravity(gravity){
     maxVelocityY = 30;
     maxVelocityX = 7;
     maxFallingVelocity = 9;
 }
 
-void RigidBody::update(){
+void AXRigidBody::update(){
     //get the last frame
     previousVelocity = velocity;
     this->applyDrag();
@@ -22,13 +22,13 @@ void RigidBody::update(){
     this->owner->moveEntity(velocity);
 }
 
-void RigidBody::applyGravity(){
+void AXRigidBody::applyGravity(){
     if(gravity){
         velocity.y += 1;
     }
 }
 
-void RigidBody::terminalVelocity(){
+void AXRigidBody::terminalVelocity(){
     if(velocity.x > maxVelocityX){
         velocity.x = maxVelocityX;
     }else if(velocity.x < - maxVelocityX){
@@ -42,7 +42,7 @@ void RigidBody::terminalVelocity(){
     }
 }
 
-void RigidBody::applyDrag(){
+void AXRigidBody::applyDrag(){
     if(velocity.x < drag.x && velocity.x > drag.x){
         velocity.x = 0;
     }else if(velocity.y > 0){
@@ -59,48 +59,48 @@ void RigidBody::applyDrag(){
     }
 }
 
-bool RigidBody::isMoving(){
+bool AXRigidBody::isMoving(){
     return (velocity.x != 0 && velocity.y != 0);
 }
 
-void RigidBody::setGravity(bool g){
+void AXRigidBody::setGravity(bool g){
     this->gravity = g;
 }
 
-bool RigidBody::getGravity(){
+bool AXRigidBody::getGravity(){
     return this->gravity;
 }
 
-void RigidBody::addForce(float x, float y){
+void AXRigidBody::addForce(float x, float y){
     this->velocity.x += x;
     this->velocity.y += y;
 }
 
-void RigidBody::addForce(const Math::Vector2D& f){
+void AXRigidBody::addForce(const Math::Vector2D& f){
     velocity += f;
 }
 
-const Math::Vector2D& RigidBody::getForce(){
+const Math::Vector2D& AXRigidBody::getForce(){
     return velocity;
 }
 
-void RigidBody::setDrag(float x, float y){
+void AXRigidBody::setDrag(float x, float y){
     this->drag.x = x;
     this->drag.y = y;
 }
 
-void RigidBody::setDrag(const Math::Vector2D& drag){
+void AXRigidBody::setDrag(const Math::Vector2D& drag){
     this->drag = drag;
 }
 
-void RigidBody::setForce(float x, float y){
+void AXRigidBody::setForce(float x, float y){
     this->velocity.x = x;
     this->velocity.y = y;
 }
 
-void RigidBody::setForce(const Math::Vector2D& force){
+void AXRigidBody::setForce(const Math::Vector2D& force){
     this->setForce(force.x, force.y);
 }
-Component* RigidBody::clone(){
-    return new RigidBody(this->gravity);
+AXComponent* AXRigidBody::clone(){
+    return new AXRigidBody(this->gravity);
 }

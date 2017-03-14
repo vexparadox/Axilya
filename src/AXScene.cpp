@@ -1,12 +1,12 @@
 #include "headers/AXEntity.hpp"
 #include "headers/AXWindow.hpp"
-#include "headers/Scene.hpp"
-#include "headers/Transform.hpp"
+#include "headers/AXScene.hpp"
+#include "headers/AXTransform.hpp"
 
-Scene::Scene() : world(0), gameMaster(0){
+AXScene::AXScene() : world(0), gameMaster(0){
 }
 
-Scene::~Scene(){
+AXScene::~AXScene(){
    for(auto e : entities){
        delete e;
        e = 0;
@@ -14,7 +14,7 @@ Scene::~Scene(){
    entities.clear();
 }
 
-void Scene::start(){
+void AXScene::start(){
     if(gameMaster){
         gameMaster->start();
     }
@@ -26,7 +26,7 @@ void Scene::start(){
     }
 }
 
-void Scene::draw(){
+void AXScene::draw(){
     if(world) {
         this->world->draw();
     }
@@ -37,7 +37,7 @@ void Scene::draw(){
     }
 }
 
-void Scene::update() {
+void AXScene::update() {
     if(gameMaster){
         gameMaster->update();
     }
@@ -59,7 +59,7 @@ void Scene::update() {
     }
 }
 
-void Scene::collideCheck(AXEntity* e, Math::Vector2D& proposedMovement, unsigned char* colls){
+void AXScene::collideCheck(AXEntity* e, Math::Vector2D& proposedMovement, unsigned char* colls){
     //a collision counter to make sure it doesn't check past 4 entities 
     char collisions = 0;
     memset(colls, 0, 16);
@@ -92,7 +92,7 @@ void Scene::collideCheck(AXEntity* e, Math::Vector2D& proposedMovement, unsigned
     }
 }
 
-bool Scene::setGameMaster(AXEntity* e){
+bool AXScene::setGameMaster(AXEntity* e){
     if(e){
         this->gameMaster = e;
         return true;
@@ -101,11 +101,11 @@ bool Scene::setGameMaster(AXEntity* e){
     }
 }
 
-AXEntity* Scene::getGameMaster(){
+AXEntity* AXScene::getGameMaster(){
     return this->gameMaster;
 }
 
-bool Scene::addEntity(AXEntity* e){
+bool AXScene::addEntity(AXEntity* e){
     if(e) {
         if(entityMap.find(e->getName()) == entityMap.end()) {
             e->setScene(this);
@@ -120,7 +120,7 @@ bool Scene::addEntity(AXEntity* e){
         return false;
     }
 }
-AXEntity* Scene::instantiate(const std::string& name, AXEntity* e, Transform* t){
+AXEntity* AXScene::instantiate(const std::string& name, AXEntity* e, AXTransform* t){
     if(e && t && name != ""){
         AXEntity* temp = e->clone();
         temp->getTransform()->set(t->getPosition(), t->getSize());
@@ -138,17 +138,17 @@ AXEntity* Scene::instantiate(const std::string& name, AXEntity* e, Transform* t)
     }
 }
 
-AXEntity* Scene::instantiate(const std::string& name, AXEntity* e){
+AXEntity* AXScene::instantiate(const std::string& name, AXEntity* e){
     return this->instantiate(name, e, e->getTransform());
 }
 
-void Scene::setWorld(World *w) {
+void AXScene::setWorld(World *w) {
     if(w){
         world = w;
     }
 }
 
-void Scene::removeEntity(AXEntity* e){
+void AXScene::removeEntity(AXEntity* e){
     for(auto it = entities.begin(); it != entities.end(); it++){
         if(*it == e){
             entities.erase(it);
@@ -158,7 +158,7 @@ void Scene::removeEntity(AXEntity* e){
     }
 }
 
-AXEntity* Scene::findEntity(const std::string &name) {
+AXEntity* AXScene::findEntity(const std::string &name) {
     if(entityMap.find(name) == entityMap.end()){
         std::cout << "AXEntity not found with name: " << name << ". Returning null" << std::endl;
         return 0;
@@ -167,29 +167,29 @@ AXEntity* Scene::findEntity(const std::string &name) {
     }
 }
 
-std::vector<AXEntity*>& Scene::getEntities(){
+std::vector<AXEntity*>& AXScene::getEntities(){
     return this->entities;
 }
 
-int Scene::numEntities(){
+int AXScene::numEntities(){
     return this->entities.size();
 }
 
-Math::Vector2D& Scene::getRenderOffset(){
+Math::Vector2D& AXScene::getRenderOffset(){
     return renderOffset;
 }
-void Scene::offsetRenderer(float x, float y){
+void AXScene::offsetRenderer(float x, float y){
     renderOffset.x += x;
     renderOffset.y += y;
 }
 
-void Scene::offsetRenderer(Math::Vector2D& v){
+void AXScene::offsetRenderer(Math::Vector2D& v){
     renderOffset += v;
 }
-void Scene::setRenderOffset(float x, float y){
+void AXScene::setRenderOffset(float x, float y){
     renderOffset.x = x;
     renderOffset.y = y;
 }
-void Scene::setRenderOffset(Math::Vector2D& v){
+void AXScene::setRenderOffset(Math::Vector2D& v){
     renderOffset = v;
 }

@@ -33,7 +33,7 @@
 #ifndef AXWindow_hpp
 #define AXWindow_hpp
 #include <vector>
-#include "Scene.hpp"
+#include "AXScene.hpp"
 #include "AXInput.hpp"
 #include "WindowTypes.hpp"
 #include "AXNetwork.hpp"
@@ -44,7 +44,7 @@ typedef void (*AXFunction)();
 //this class controls the main game loop, calls BaseCore update and render
 class AXWindow{
     double currentTime, lastTime;
-    static Scene* activeScene;
+    static AXScene* activeScene;
     static int go;
     static int windowWidth, windowHeight;
     static int displayWidth, displayHeight;
@@ -92,15 +92,15 @@ public:
     * @param windowHeight the requested height of the window
     * @param windowStyle the style of the window, can be AX_WINDOWED or AX_FULLSCREEN
     * @param title the title that's shown in the top bar of the window
-    * @param update the function pointer to an update method, this will be called in the game loop along side the current Scene being updated
-    * @param draw the function pointer to an draw method, this will be called in the game loop along side the current Scene being updated
+    * @param update the function pointer to an update method, this will be called in the game loop along side the current AXScene being updated
+    * @param draw the function pointer to an draw method, this will be called in the game loop along side the current AXScene being updated
     * @return Returns 1 on success and -1 on failure
     */
     static int init(float windowWidth, float windowHeight, int windowType, const char* title, AXFunction update, AXFunction draw);
     /*!
     * A static method to start and maintain the game loop
     *
-    * This method should be returned by your `int main()` method. It will update the set Scene and draw the AXWindow.  
+    * This method should be returned by your `int main()` method. It will update the set AXScene and draw the AXWindow.  
     * @return Will return 0 on a successfull game loop when AXWindow::shutdown() is called
     */
     static int run();
@@ -140,15 +140,15 @@ public:
     */
     static SDL_Window* getWindow();
     /*!
-    * A static method to set the current Scene that should be drawn and updated 
+    * A static method to set the current AXScene that should be drawn and updated 
     * @param s the scene that should be updated and drawn
     */
-    static void setCurrentScene(Scene* s);
+    static void setCurrentScene(AXScene* s);
     /*!
     * A static method to safely shut down the AXWindow's game loop
     * 
     * This releases all resources and makes AXWindow::run() return 0.
-    * Note that this method will only release the current set Scene
+    * Note that this method will only release the current set AXScene
     */
     static void shutdown();
 };

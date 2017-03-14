@@ -39,7 +39,7 @@
 #include "AXGraphics.hpp"
 #include "Components.h"
 #include "AXEntity.hpp"
-#include "Scene.hpp"
+#include "AXScene.hpp"
 #include "TiledWorld.hpp"
 #include "StaticWorld.hpp"
 #include "CustomTileComponent.hpp"

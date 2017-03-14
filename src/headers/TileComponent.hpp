@@ -34,7 +34,7 @@
 #define TileComponent_hpp
 
 class Tile;
-class Scene;
+class AXScene;
 class TileComponent {
     Tile* owner;
 protected:
@@ -45,7 +45,7 @@ public:
     //returns the owner of this component
     Tile* getOwner();
     //returns the scene that the owner belongs to
-    Scene* getScene();
+    AXScene* getScene();
 
     virtual void start(){};
     virtual void update(){};

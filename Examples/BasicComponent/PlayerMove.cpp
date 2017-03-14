@@ -1,7 +1,7 @@
 #include "PlayerMove.hpp"
 
 void PlayerMove::start(){
-	//get the RigidBody attached to the owner object
+	//get the AXRigidBody attached to the owner object
 	rb = owner->getRigidBody();
 }
 void PlayerMove::update(){

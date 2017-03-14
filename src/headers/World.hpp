@@ -34,14 +34,14 @@
 #ifndef World_hpp
 #define World_hpp
 #include "AXGraphics.hpp"
-class Scene;
+class AXScene;
 class World{
-    Scene* scene = 0;
+    AXScene* scene = 0;
 public:
     virtual void draw() = 0;
     virtual void update() = 0;
-    void setScene(Scene* scene);
-    Scene* getScene();
+    void setScene(AXScene* scene);
+    AXScene* getScene();
 };
 
 #endif

@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
     }
 
     //create the scene
-    Scene* scene = new Scene();
+    AXScene* scene = new AXScene();
     AXWindow::setCurrentScene(scene);
     AXGraphics::setBackground(200, 200, 200);
 

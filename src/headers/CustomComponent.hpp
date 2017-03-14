@@ -33,18 +33,18 @@
 #ifndef CustomComponent_hpp
 #define CustomComponent_hpp
 
-#include "Component.hpp"
+#include "AXComponent.hpp"
 template <typename custom>
-class CustomComponent : public Component{
+class CustomComponent : public AXComponent{
 public:
     /*!
-    * This method returns a clone of the Component that was given in the template of CustomComponent< custom >
+    * This method returns a clone of the AXComponent that was given in the template of CustomComponent< custom >
     *
-    * It will return a clone of your Component but will not keep values, it will be reconstructed.
+    * It will return a clone of your AXComponent but will not keep values, it will be reconstructed.
     *
-    * Inherit from Component and implement your own clone method to keep values over clone.
+    * Inherit from AXComponent and implement your own clone method to keep values over clone.
     */ 
-	virtual Component* clone(){
+	virtual AXComponent* clone(){
         return new custom(static_cast<custom const&>(*this));
 	}
 };

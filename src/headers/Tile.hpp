@@ -41,15 +41,15 @@ class AXTexture;
 class Tile{
     ResourceManager* resourceManager;
     AXTexture* texture;
-    Scene* scene;
+    AXScene* scene;
     std::vector<TileComponent*> components;
 public:
     Tile(int textureID);
     Tile(AXTexture* texture);
     void draw(float x, float y, int w, int h);
     void update();
-    void setScene(Scene* scene);
-    Scene* getScene();
+    void setScene(AXScene* scene);
+    AXScene* getScene();
     void addComponent(TileComponent* tileComponent);
 };
 #endif

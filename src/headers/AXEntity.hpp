@@ -29,7 +29,7 @@
  * @section DESCRIPTION
  *
  * This class describes an Axilya AXEntity, all game objects are Entities in Axilya.
- * Entities are a collection of Components that update and draw, Transform and AXRenderer are attached by default.
+ * Entities are a collection of Components that update and draw, AXTransform and AXRenderer are attached by default.
  */
 
 #ifndef Entity_hpp
@@ -44,7 +44,7 @@
 #include "Components.h"
 #include "AXRenderer.hpp"
 #include "CollideDirections.hpp"
-class Scene;
+class AXScene;
 class AXEntity{
     //get an instance of the resourcemanager
     ResourceManager* resourceManager = ResourceManager::getInstance();
@@ -59,12 +59,12 @@ class AXEntity{
     bool active = true;
 
     //the scene this entity belongs to
-    Scene* scene = 0;
+    AXScene* scene = 0;
 
     //a list of standard components, these are presets
-    Transform* transform = 0;
+    AXTransform* transform = 0;
     AXCollider* collider = 0;
-    RigidBody* rigidBody = 0;
+    AXRigidBody* rigidBody = 0;
 
     //the last collisions
     //the first two bytes are the screen bounds
@@ -74,7 +74,7 @@ class AXEntity{
     unsigned char currentCollisions[18];
 
     //a list of custom components
-    std::vector<Component*> components;
+    std::vector<AXComponent*> components;
 
     //AXRenderer holds all of the drawing capabilities of the Entitity
     AXRenderer* renderer = 0;
@@ -84,7 +84,7 @@ public:
     /*!
     * The constructor of an AXEntity
     *
-    * @param name the name of this AXEntity, must be unique inside of it's Scene
+    * @param name the name of this AXEntity, must be unique inside of it's AXScene
     * @param pos a 2D vector defining the AXEntity's position (x, y)
     * @param size a 2D vector defining the AXEntity's size (w, h) 
     */ 
@@ -92,7 +92,7 @@ public:
     /*!
     * The constructor of an AXEntity
     *
-    * @param name the name of this AXEntity, must be unique inside of it's Scene
+    * @param name the name of this AXEntity, must be unique inside of it's AXScene
     * @param x the x position of the AXEntity
     * @param y the y position of the AXEntity
     * @param w the width of the AXEntity
@@ -103,42 +103,42 @@ public:
     * The constructor of an AXEntity that isn't going to be drawn
     *
     * This constructor will set the draw type to AX_DRAW_NONE
-    * @param name the name of this AXEntity, must be unique inside of it's Scene
+    * @param name the name of this AXEntity, must be unique inside of it's AXScene
     */ 
     AXEntity(const std::string& name);
     /*!
     * The deconstructor of an AXEntity 
     *
-    * This will destroy all Component's attached to this AXEntity including the default Transform and AXRenderer
+    * This will destroy all AXComponent's attached to this AXEntity including the default AXTransform and AXRenderer
     */ 
     ~AXEntity();
 
     /*!
     * A method that calls start() on all the Components attached to this AXEntity
     *
-    * This method is called by the Scene at the start of the game loop 
+    * This method is called by the AXScene at the start of the game loop 
     */ 
     void start();
     /*!
     * A method that calls update() on all the Components attached to this AXEntity
     *
-    * This method is called by the Scene every frame of the game loop 
+    * This method is called by the AXScene every frame of the game loop 
     */ 
     void update();
     /*!
     * A method that calls draw on the AXRenderer attached to this AXEntity
     *
-    * This method is called by the Scene every frame of the game loop 
+    * This method is called by the AXScene every frame of the game loop 
     *
     * What the AXRenderer will draw is defined by the draw type and if there are any Sprites attached
-    * @param renderOffset passed by the Scene to tell if AXRenderer if there's any offset applied to the drawing positions
+    * @param renderOffset passed by the AXScene to tell if AXRenderer if there's any offset applied to the drawing positions
     */ 
     void draw(const Math::Vector2D& renderOffset);
 
     /*!
     * A method that sets a flag for this AXEntity to be destroyed
     *
-    * At the end of the frame that this method is called, the Scene will destroy this AXEntity 
+    * At the end of the frame that this method is called, the AXScene will destroy this AXEntity 
     */ 
     void destroy();
     /*!
@@ -227,18 +227,18 @@ public:
     */ 
     AXGraphics::Colour& getColour();
     /*!
-    * A method to set the Scene that this AXEntity is in
+    * A method to set the AXScene that this AXEntity is in
     *
-    * This method doesn't inform the Scene, it's called when you add an AXEntity to a Scene using Scene::addEntity()
-    * @param s the Scene this AXEntity is being attached to
+    * This method doesn't inform the AXScene, it's called when you add an AXEntity to a AXScene using AXScene::addEntity()
+    * @param s the AXScene this AXEntity is being attached to
     */ 
-    void setScene(Scene* s);
+    void setScene(AXScene* s);
     /*!
-    * A method to get the Scene that this AXEntity is in
+    * A method to get the AXScene that this AXEntity is in
     *
-    * @return the Scene this AXEntity is attached to
+    * @return the AXScene this AXEntity is attached to
     */ 
-    Scene* getScene();
+    AXScene* getScene();
     /*!
     * A method to set if this AXEntity is active or not
     *
@@ -270,34 +270,34 @@ public:
     */ 
     bool isGrounded();
     /*!
-    * A method to add a RigidBody to this AXEntity
+    * A method to add a AXRigidBody to this AXEntity
     *
-    * This method will set the owner in the RigidBody
-    * @param rb the RigidBody to attach
+    * This method will set the owner in the AXRigidBody
+    * @param rb the AXRigidBody to attach
     */     
-    void addRigidBody(RigidBody* rb);
+    void addRigidBody(AXRigidBody* rb);
     /*!
-    * A method to add a RigidBody to this AXEntity
+    * A method to add a AXRigidBody to this AXEntity
     *
-    * This method will create a RigidBody for you
+    * This method will create a AXRigidBody for you
     *
-    * This method will set the owner in the RigidBody
-    * @param gravity the created RigidBody's gravity value
+    * This method will set the owner in the AXRigidBody
+    * @param gravity the created AXRigidBody's gravity value
     */
     void addRigidBody(bool gravity);
     /*!
-    * A method to get the RigidBody attached to this AXEntity
+    * A method to get the AXRigidBody attached to this AXEntity
     *
-    * This method will return nullptr if there's not a RigidBody present
-    * @return the attached RigidBody
+    * This method will return nullptr if there's not a AXRigidBody present
+    * @return the attached AXRigidBody
     */
-    RigidBody* getRigidBody();
+    AXRigidBody* getRigidBody();
     /*!
     * A method that calls onCollision on all Components attached to this Enitity
     *
-    * This is called by the Scene when a collision occurs with another AXEntity
+    * This is called by the AXScene when a collision occurs with another AXEntity
     *
-    * Catch this call inside of a Component
+    * Catch this call inside of a AXComponent
     * @param e the AXEntity that collided with this one
     * @param direction the direction of which the collision happened
     */
@@ -305,9 +305,9 @@ public:
     /*!
     * A method that calls onWorldCollision on all Components attached to this Enitity
     *
-    * This is called by the Scene when a collision occurs with the World or screen
+    * This is called by the AXScene when a collision occurs with the World or screen
     *
-    * Catch this call inside of a Component
+    * Catch this call inside of a AXComponent
     * @param direction the direction of which the collision happened
     */
     void onWorldCollision(int direction);
@@ -316,23 +316,23 @@ public:
     *
     * This is called by the AXCollider when the it's clicked on
     *
-    * Catch this call inside of a Component
+    * Catch this call inside of a AXComponent
     * @param mouseButton the mouse button that was pressed
     */
     void onClick(int mouseButton);
     /*!
     * A method that calls onDestroy on all Components attached to this Enitity
     *
-    * This is called by the Scene just before the AXCollider is destroyed
+    * This is called by the AXScene just before the AXCollider is destroyed
     * 
-    * Catch this call inside of a Component
+    * Catch this call inside of a AXComponent
     */
     void onDestroy();
     /*!
     * A method that calls onHover on all Components attached to this Enitity
     *
     * This is called by the AXCollider when the mouse is over the AXEntity
-    * Catch this call inside of a Component
+    * Catch this call inside of a AXComponent
     */
     void onHover();
     /*!
@@ -350,18 +350,18 @@ public:
     */
     AXCollider* getCollider();
     /*!
-    * A method that attaches a Component to this AXEntity
+    * A method that attaches a AXComponent to this AXEntity
     *
     * The Components will be updated and called in the order that they're added
-    * @param comp the Component to be attached
+    * @param comp the AXComponent to be attached
     */
-    void addComponent(Component* comp);
+    void addComponent(AXComponent* comp);
     /*!
-    * A method that gets the Transform attached to this AXEntity
+    * A method that gets the AXTransform attached to this AXEntity
     *
-    * @return the Transform attache do this AXEntity
+    * @return the AXTransform attache do this AXEntity
     */
-    Transform* getTransform();
+    AXTransform* getTransform();
     /*!
     * A method that gets the AXRenderer attached to this AXEntity
     *
@@ -389,10 +389,10 @@ public:
     AXEntity* clone();
 
     /*!
-    * A method to get a typed Component that's attached to this AXEntity
+    * A method to get a typed AXComponent that's attached to this AXEntity
     *
     * This can be slow, store the result if using every frame
-    * @return either nullptr or the found Component of the given Type
+    * @return either nullptr or the found AXComponent of the given Type
     */
     template<typename T>
     T* getComponent(){

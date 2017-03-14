@@ -9,7 +9,7 @@
 #include "PlayerMove.hpp"
 bool down = false;
 
-Scene* s;
+AXScene* s;
 int blockCount = 0;
 
 void update(){
@@ -17,7 +17,7 @@ void update(){
         down = true;
         s->instantiate("box" + std::to_string(blockCount++),
             PrefabManager::getInstance()->getPrefab("block"),
-            new Transform(AXInput::mouseX - 10, 
+            new AXTransform(AXInput::mouseX - 10, 
                           AXInput::mouseY - 10,
                           20,
                           20)
@@ -36,9 +36,9 @@ int main(int argc, char *argv[])
     	std::cout << "AXWindow failed to initialise" << std::endl;
     	return -1;
     }
-    //create a Scene
-    s = new Scene();
-    //set the Window to draw and update the current Scene
+    //create a AXScene
+    s = new AXScene();
+    //set the Window to draw and update the current AXScene
     AXWindow::setCurrentScene(s);
     //make a new AXEntity
     AXEntity* e = new AXEntity("player", 10, 10, 30, 30);

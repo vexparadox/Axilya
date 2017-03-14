@@ -39,8 +39,8 @@
 #include "AXMath.hpp"
 
 class AXEntity;
-class Transform;
-class Scene{
+class AXTransform;
+class AXScene{
     //the vector of entities
     std::vector<AXEntity*> entities;
     World* world;
@@ -49,30 +49,30 @@ class Scene{
     std::unordered_map<std::string, AXEntity*> entityMap;
 public:
     /*!
-    * The constructor of a Scene
+    * The constructor of a AXScene
     */
-    Scene();
+    AXScene();
     /*!
-    * The deconstructor of a Scene
+    * The deconstructor of a AXScene
     *
     * This will release all Entities in the scene
     */
-    ~Scene();
+    ~AXScene();
     /*!
-    * A method to start all AXEntity's and therefore Component's in the Scene
+    * A method to start all AXEntity's and therefore AXComponent's in the AXScene
     *
     * This method is called once by the AXWindow
     */
     void start();
     /*!
-    * A method to update all AXEntity's and therefore Component's in the Scene
+    * A method to update all AXEntity's and therefore AXComponent's in the AXScene
     *
     * This method is called every frame by the AXWindow
     */
     void update();
     
     /*!
-    * A method to draw all AXEntity's and therefore AXRenderer's in the Scene
+    * A method to draw all AXEntity's and therefore AXRenderer's in the AXScene
     *
     * This method is called every frame by the AXWindow
     */
@@ -110,14 +110,14 @@ public:
     */
     void setRenderOffset(Math::Vector2D& v);
     /*!
-    * A method to add an AXEntity to this Scene
+    * A method to add an AXEntity to this AXScene
     *
     * @param e the AXEntity to add
     * @return if the AXEntity was added successfully
     */
     bool addEntity(AXEntity* e);
     /*!
-    * A method to set the GameMaster in this Scene
+    * A method to set the GameMaster in this AXScene
     *
     * The GameMaster is a special AXEntity that isn't drawn and is only updated, it's used to control game states.
     * @param e the AXEntity to set the GameMaster
@@ -125,14 +125,14 @@ public:
     */
     bool setGameMaster(AXEntity* e);
     /*!
-    * A method to get the GameMaster in this Scene
+    * A method to get the GameMaster in this AXScene
     *
     * The GameMaster is a special AXEntity that isn't drawn and is only updated, it's used to control game states.
     * @return the GameMaster
     */
     AXEntity* getGameMaster();
     /*!
-    * A method to set the World of this Scene
+    * A method to set the World of this AXScene
     *
     * @param w the world to set
     */
@@ -145,24 +145,24 @@ public:
     */
     void removeEntity(AXEntity* e);
     /*!
-    * A method to instantiate a new AXEntity in this Scene
+    * A method to instantiate a new AXEntity in this AXScene
     *
-    * Instatniated AXEntity's will be put straight into the Scene
+    * Instatniated AXEntity's will be put straight into the AXScene
     * @param name the name of this new AXEntity
     * @param e the AXEntity this new one will copy
-    * @param t a new Transform for this new AXEntity to be given
+    * @param t a new AXTransform for this new AXEntity to be given
     * @return a pointer to the new AXEntity
     */
-    AXEntity* instantiate(const std::string& name, AXEntity* e, Transform* t);
+    AXEntity* instantiate(const std::string& name, AXEntity* e, AXTransform* t);
     /*!
-    * A method to instantiate a new AXEntity in this Scene
+    * A method to instantiate a new AXEntity in this AXScene
     *
-    * Instatniated AXEntity's will be put straight into the Scene
+    * Instatniated AXEntity's will be put straight into the AXScene
     * @param name the name of this new AXEntity
     * @param e the AXEntity this new one will copy
     * @return a pointer to the new AXEntity
     *
-    * Without a seperate Transform this new AXEntity will get a copy of @param e's
+    * Without a seperate AXTransform this new AXEntity will get a copy of @param e's
     */
     AXEntity* instantiate(const std::string& name, AXEntity* e);
     /*!
@@ -173,7 +173,7 @@ public:
     */
     AXEntity* findEntity(const std::string& name);
     /*!
-    * A method to check collisions of an AXEntity against all over in this Scene
+    * A method to check collisions of an AXEntity against all over in this AXScene
     *
     * @param e the AXEntity to check
     * @param proposedMovement the vector of movement being attempted by @param e
@@ -181,8 +181,8 @@ public:
     */
     void collideCheck(AXEntity* e, Math::Vector2D& proposedMovement, unsigned char* colls);
     /*!
-    * Returns the number of Entities in this Scene
-    * @return number of Entities in the Scene vector
+    * Returns the number of Entities in this AXScene
+    * @return number of Entities in the AXScene vector
     */
     std::vector<AXEntity*>& getEntities();
     int numEntities();

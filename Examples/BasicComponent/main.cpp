@@ -15,9 +15,9 @@ int main(int argc, char *argv[])
     	std::cout << "AXWindow failed to initialise" << std::endl;
     	return -1;
     }
-    //create a Scene
-    Scene* s = new Scene();
-    //set the Window to draw and update the current Scene
+    //create a AXScene
+    AXScene* s = new AXScene();
+    //set the Window to draw and update the current AXScene
     AXWindow::setCurrentScene(s);
     //make a new AXEntity
     AXEntity* e = new AXEntity("player", 10, 10, 30, 30);

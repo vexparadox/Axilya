@@ -33,8 +33,8 @@
 #ifndef Components_h
 #define Components_h
 
-#include "RigidBody.hpp"
-#include "Transform.hpp"
+#include "AXRigidBody.hpp"
+#include "AXTransform.hpp"
 #include "AXCollider.hpp"
 #include "AXBoxCollider.hpp"
 #include "CustomComponent.hpp"

@@ -7,24 +7,24 @@
 //
 
 #include "headers/AXEntity.hpp"
-#include "headers/Scene.hpp"
+#include "headers/AXScene.hpp"
 
 AXEntity::AXEntity(const std::string& name, float x, float y, float w, float h) : name(name){
-    transform = new Transform(x, y, w, h);
+    transform = new AXTransform(x, y, w, h);
     transform->setOwner(this);
     renderer = new AXRenderer();
     renderer->setOwner(this);
 }
 
 AXEntity::AXEntity(const std::string& name, const Math::Vector2D& pos, const Math::Vector2D& size) : name(name){
-    transform = new Transform(pos, size);
+    transform = new AXTransform(pos, size);
     transform->setOwner(this);
     renderer = new AXRenderer();
     renderer->setOwner(this);
 }
 
 AXEntity::AXEntity(const std::string& name): name(name){
-    transform = new Transform(0, 0, 0, 0);
+    transform = new AXTransform(0, 0, 0, 0);
     transform->setOwner(this);
     renderer = new AXRenderer();
     renderer->setOwner(this);
@@ -154,7 +154,7 @@ AXEntity* AXEntity::clone(){
         e->getRigidBody()->setOwner(e);
     }
     for(auto& c : components){
-        Component* comp = c->clone();
+        AXComponent* comp = c->clone();
         comp->setOwner(e);
         e->addComponent(comp);
     }
@@ -203,14 +203,14 @@ void AXEntity::onHover(){
     }
 }
 
-void AXEntity::addComponent(Component* c){
+void AXEntity::addComponent(AXComponent* c){
     if(c) {
         c->setOwner(this);
         components.push_back(c);
     }
 }
 
-void AXEntity::addRigidBody(RigidBody* r) {
+void AXEntity::addRigidBody(AXRigidBody* r) {
     if (r) {
         if(rigidBody){
             delete rigidBody;
@@ -226,7 +226,7 @@ void AXEntity::addRigidBody(bool gravity){
         delete rigidBody;
         rigidBody = 0;
     }
-    this->rigidBody = new RigidBody(gravity);
+    this->rigidBody = new AXRigidBody(gravity);
     this->rigidBody->setOwner(this);
 }
 
@@ -245,11 +245,11 @@ bool AXEntity::isGrounded(){
     return false;
 }
 
-RigidBody* AXEntity::getRigidBody(){
+AXRigidBody* AXEntity::getRigidBody(){
     return rigidBody;
 }
 
-Transform* AXEntity::getTransform(){
+AXTransform* AXEntity::getTransform(){
     return transform;
 }
 
@@ -288,11 +288,11 @@ void AXEntity::setName(const std::string& name){
     this->name = name;
 }
 
-Scene* AXEntity::getScene(){
+AXScene* AXEntity::getScene(){
     return scene;
 }
 
-void AXEntity::setScene(Scene* s){
+void AXEntity::setScene(AXScene* s){
     this->scene = s;
 }
 

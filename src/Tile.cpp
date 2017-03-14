@@ -30,12 +30,12 @@ void Tile::addComponent(TileComponent* tileComponent) {
     }
 }
 
-void Tile::setScene(Scene *scene) {
+void Tile::setScene(AXScene *scene) {
     if(scene){
         this->scene = scene;
     }
 }
 
-Scene* Tile::getScene() {
+AXScene* Tile::getScene() {
     return scene;
 }

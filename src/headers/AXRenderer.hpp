@@ -37,10 +37,10 @@
 #include <SDL2/SDL.h>
 #include "EntityDrawTypes.hpp"
 #include "AXSprite.hpp"
-#include "Component.hpp"
+#include "AXComponent.hpp"
 class AXEntity;
 class AXText;
-class AXRenderer : public Component{
+class AXRenderer : public AXComponent{
     std::unordered_map<std::string, AXSprite*> sprites;
     std::unordered_map<std::string, AXText*> texts;
     AXSprite* currentSprite = 0;
@@ -161,7 +161,7 @@ public:
    /*!
    * A method to draw this AXRenderer
    * 
-   * This method is called by the AXEntity and Scene class, don't call it yourself
+   * This method is called by the AXEntity and AXScene class, don't call it yourself
    * @param offset the offset to draw by
    */
     void draw(const Math::Vector2D& offset);

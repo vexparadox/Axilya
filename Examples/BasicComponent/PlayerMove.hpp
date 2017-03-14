@@ -3,7 +3,7 @@
 #include <Axilya/AXMain.h>
 
 class PlayerMove : public CustomComponent<PlayerMove>{
-	RigidBody* rb;
+	AXRigidBody* rb;
 public:
 	void start();
 	void update();

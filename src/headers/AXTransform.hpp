@@ -28,60 +28,59 @@
  *
  * @section DESCRIPTION
  *
- * This is a pre-built Entity Component that gives the simulation of gravity and mass.
+ * This is a pre-built Entity AXComponent that describes the position and size of an AXEntity.
+ * This is created by default for all Entities.
  */
-#ifndef RigidBody_hpp
-#define RigidBody_hpp
+#ifndef Transform_hpp
+#define Transform_hpp
 
 #include <stdio.h>
-#include "Component.hpp"
-
-class RigidBody : public Component{
-    bool gravity;
-    Math::Vector2D velocity, drag, previousVelocity;
-    float maxVelocityY, maxVelocityX, maxFallingVelocity;
-    void applyDrag();
-    void applyGravity();
-    void terminalVelocity();
+#include "AXComponent.hpp"
+class AXEntity;
+class AXTransform : public AXComponent{
+    Math::Vector2D position, size, lastPosition;
 public:
     /*!
-    * Adds a force to the rigid body 
-    * @param gravity wheather this RigidBody has gravity
+    * Constructor of the AXTransform
+    * This is called automatically by the AXEntity constructor
+    * @param pos the Entities position
+    * @param size the Entities size
+    * @see AXEntity constructor
     */
-    RigidBody(bool gravity);
+    AXTransform(const Math::Vector2D& pos, const Math::Vector2D& size);
+    AXTransform(float x, float y, float w, float h);
     /*!
-    * Adds a force to the rigid body 
-    * @param x directional force
-    * @param y directional force
-    * @see RigidBody::addForce(cont Math::Vector2D& force)
+    * Sets the transforms parameters
     */
-    void addForce(float x, float y);
-    void addForce(const Math::Vector2D& force);
-    const Math::Vector2D& getForce();
-    /*!
-    * Sets the force on an object
-    */
-    void setForce(const Math::Vector2D& force);
-    void setForce(float x, float y);
+    void set(const Math::Vector2D &v, const Math::Vector2D &s);
 
-    void setDrag(const Math::Vector2D& drag);
-    void setDrag(float x, float y);
+    void set(float x, float y, float w, float h);
     /*!
-    * returns if this rigidbody is moving
+    * Sets the transforms position only
     */
-    bool isMoving();
+    void set(const Math::Vector2D &v);
     /*!
-    * Called every game loop
-    * Called from the AXEntity which owns this component
+    * Sets the transforms position only
     */
-    void update();
+    void set(float x, float y);
     /*!
-    * A method to set the gravity value
+    * Moves the transform
     */
-    void setGravity(bool);
-    bool getGravity();
-    Component* clone();
+    void moveTransform(const Math::Vector2D &v);
+    /*!
+    * Returns the position
+    * @return the position of the AXEntity
+    */
+    Math::Vector2D& getPosition();
+    /*!
+    * Returns the size
+    * @return the size of the AXEntity
+    */
+    Math::Vector2D& getSize();
+
+    float getWidth();
+    float getHeight();
+
+    AXComponent* clone();
 };
-
-
-#endif /* RigidBody_hpp */
+#endif /* Transform_hpp */

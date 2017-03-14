@@ -1,11 +1,11 @@
 #include "headers/World.hpp"
 
-void World::setScene(Scene *scene) {
+void World::setScene(AXScene *scene) {
     if(scene) {
         this->scene = scene;
     }
 }
 
-Scene* World::getScene() {
+AXScene* World::getScene() {
     return scene;
 }

@@ -1,31 +1,31 @@
 //
-//  Component.cpp
+//  AXComponent.cpp
 //  Axilya
 //
 //  Created by William Meaton on 12/05/2016.
 //  Copyright © 2016 WillMeaton.uk. All rights reserved.
 //
 
-#include "headers/Component.hpp"
+#include "headers/AXComponent.hpp"
 #include "headers/AXEntity.hpp"
-#include "headers/Transform.hpp"
+#include "headers/AXTransform.hpp"
 #include "headers/AXRenderer.hpp"
 
-Component::Component(){
+AXComponent::AXComponent(){
 }
 
-Component::~Component(){
+AXComponent::~AXComponent(){
 }
 
-AXEntity* Component::getOwner(){
+AXEntity* AXComponent::getOwner(){
     return owner;
 }
 
-Scene* Component::getScene() {
+AXScene* AXComponent::getScene() {
     return owner->getScene();
 }
 
-void Component::setOwner(AXEntity* o){
+void AXComponent::setOwner(AXEntity* o){
     this->owner = o;
     this->transform = owner->getTransform();
     this->renderer = owner->getRenderer();

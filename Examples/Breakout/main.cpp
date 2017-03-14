@@ -10,7 +10,7 @@
 #include "PlayerController.hpp"
 #include "BallController.hpp"
 
-void MakeBlocks(Scene* scene){
+void MakeBlocks(AXScene* scene){
     AXEntity* block = new AXEntity(std::string("block1"), 0, 0, 40, 20);
     SDL_assert(block);
     block->setColour(230, 230, 230);
@@ -20,12 +20,12 @@ void MakeBlocks(Scene* scene){
         for(int i = 0; i < 15; i++){
             scene->instantiate("block_"+std::to_string(i)+"_"+std::to_string(j), 
             PrefabManager::getInstance()->getPrefab("block1"),
-            new Transform((i*80)+60, (j*40)+30, 40, 10));
+            new AXTransform((i*80)+60, (j*40)+30, 40, 10));
         }
     }
 }
 
-void SpawnPlayer(Scene* scene){
+void SpawnPlayer(AXScene* scene){
     AXEntity* player = new AXEntity("player", AXWindow::getWidth()/2, AXWindow::getHeight()-25, 80, 20);
     player->setColour(200, 200, 200);
     player->addCollider(new AXBoxCollider());
@@ -33,7 +33,7 @@ void SpawnPlayer(Scene* scene){
     scene->addEntity(player);
 }
 
-void SpawnBall(Scene* scene){
+void SpawnBall(AXScene* scene){
     AXEntity* ball = new AXEntity("ball", 50, AXWindow::getHeight()/2, 20, 20);
     ball->setColour(255, 255, 255);
     ball->addCollider(new AXBoxCollider());
@@ -52,7 +52,7 @@ int main(int argc, char *argv[])
     AXWindow::lockCursor(true);
 
     //create the scene
-    Scene* scene = new Scene();
+    AXScene* scene = new AXScene();
     AXWindow::setCurrentScene(scene);
     AXGraphics::setBackground(20, 20, 20);
 
