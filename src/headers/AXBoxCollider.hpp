@@ -28,7 +28,7 @@
  *
  * @section DESCRIPTION
  *
- * This class describes a BoxCollider, it holds instructions for detecting and resolving collisions using rectangle bounds.
+ * This class describes a AXBoxCollider, it holds instructions for detecting and resolving collisions using rectangle bounds.
  */
 #ifndef BoxCollider_h
 #define BoxCollider_h
@@ -37,14 +37,14 @@
 #include "AXWindow.hpp"
 #include "CollideDirections.hpp"
 class Entity;
-class BoxCollider : public AXCollider{
+class AXBoxCollider : public AXCollider{
 public:
     /*!
-    * The constructor of a BoxCollider
+    * The constructor of a AXBoxCollider
     *
     * The bounds of this AXCollider will default to those defined by the Entity's Transform Component.
     */
-    BoxCollider();
+    AXBoxCollider();
 	/*!
     * A method to check this AXCollider's bounds against the screen (if screen bound) and the World and correct collisions that occur.
     *
@@ -71,7 +71,7 @@ public:
 	/*!
     * A method to clone this AXCollider.
     *
-    * @return A clone of this BoxCollider
+    * @return A clone of this AXBoxCollider
     */
     AXCollider* clone();
 };

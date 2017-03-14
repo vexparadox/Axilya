@@ -14,7 +14,7 @@ void MakeBlocks(Scene* scene){
     Entity* block = new Entity(std::string("block1"), 0, 0, 40, 20);
     SDL_assert(block);
     block->setColour(230, 230, 230);
-    block->addCollider(new BoxCollider());
+    block->addCollider(new AXBoxCollider());
     PrefabManager::getInstance()->addPrefab(block);
     for(int j = 0; j < 6; j++){
         for(int i = 0; i < 15; i++){
@@ -28,7 +28,7 @@ void MakeBlocks(Scene* scene){
 void SpawnPlayer(Scene* scene){
     Entity* player = new Entity("player", AXWindow::getWidth()/2, AXWindow::getHeight()-25, 80, 20);
     player->setColour(200, 200, 200);
-    player->addCollider(new BoxCollider());
+    player->addCollider(new AXBoxCollider());
     player->addComponent(new PlayerController());
     scene->addEntity(player);
 }
@@ -36,7 +36,7 @@ void SpawnPlayer(Scene* scene){
 void SpawnBall(Scene* scene){
     Entity* ball = new Entity("ball", 50, AXWindow::getHeight()/2, 20, 20);
     ball->setColour(255, 255, 255);
-    ball->addCollider(new BoxCollider());
+    ball->addCollider(new AXBoxCollider());
     ball->addComponent(new BallController());
     scene->addEntity(ball);
 }

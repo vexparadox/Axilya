@@ -1,10 +1,10 @@
-#include "headers/BoxCollider.hpp"
+#include "headers/AXBoxCollider.hpp"
 #include "headers/Entity.hpp"
 
-BoxCollider::BoxCollider(){
+AXBoxCollider::AXBoxCollider(){
 }
 
-int BoxCollider::worldCollideCheck(Math::Vector2D& v){
+int AXBoxCollider::worldCollideCheck(Math::Vector2D& v){
     //get the bounds
     Math::Vector2D position = bounds->getPosition();
     Math::Vector2D size = bounds->getSize();
@@ -40,7 +40,7 @@ int BoxCollider::worldCollideCheck(Math::Vector2D& v){
     return 0;
 }
 
-int BoxCollider::checkMovement(Entity* e, Math::Vector2D& proposedMovement){
+int AXBoxCollider::checkMovement(Entity* e, Math::Vector2D& proposedMovement){
     //the entities
     Shape* box1 = e->getCollider()->getBounds();
     //these bounds
@@ -83,7 +83,7 @@ int BoxCollider::checkMovement(Entity* e, Math::Vector2D& proposedMovement){
     return 0;
 }
 
-void BoxCollider::mouseCheck(){
+void AXBoxCollider::mouseCheck(){
     if(Math::isInsideQuad(Input::mouseX, Input::mouseY, bounds->getPosition().x+owner->getScene()->getRenderOffset().x, bounds->getPosition().y+owner->getScene()->getRenderOffset().y, bounds->getPosition().x+bounds->getSize().x+owner->getScene()->getRenderOffset().x, bounds->getPosition().y+bounds->getSize().y+owner->getScene()->getRenderOffset().y)){
         owner->onHover();
         if(Input::mouseIsPressed){
@@ -92,8 +92,8 @@ void BoxCollider::mouseCheck(){
     }
 }
 
-AXCollider* BoxCollider::clone(){
-    BoxCollider* bc = new BoxCollider();
+AXCollider* AXBoxCollider::clone(){
+    AXBoxCollider* bc = new AXBoxCollider();
     bc->bounds = bounds->clone();
     bc->center = this->center;
     bc->halfSize = this->halfSize;

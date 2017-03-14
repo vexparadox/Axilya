@@ -26,20 +26,20 @@ int main(int argc, char *argv[])
 
     //player1's paddle
     Entity* player1 = new Entity("Player1", 0, 0, 25, 80);
-    player1->addCollider(new BoxCollider());
+    player1->addCollider(new AXBoxCollider());
     player1->addComponent(new PlayerOneController());
     scene->addEntity(player1);
 
     //player2's paddle
     Entity* player2 = new Entity("Player2", AXWindow::getWidth()-25, 0, 25, 80);
-    player2->addCollider(new BoxCollider());
+    player2->addCollider(new AXBoxCollider());
     player2->addComponent(new PlayerTwoController());
     scene->addEntity(player2);
 
     //the ball
     Entity* ball = new Entity("ball", AXWindow::getWidth()/2, AXWindow::getHeight()/2, 20, 20);
     ball->setColour(200, 70, 0);
-    ball->addCollider(new BoxCollider());
+    ball->addCollider(new AXBoxCollider());
     ball->addComponent(new BallController());
     ball->setDrawType(AX_DRAW_ELLIPSE);
     scene->addEntity(ball);

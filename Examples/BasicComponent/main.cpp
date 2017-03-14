@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
     //make a new Entity
     Entity* e = new Entity("player", 10, 10, 30, 30);
     //attach a box collider
-    e->addCollider(new BoxCollider);
+    e->addCollider(new AXBoxCollider);
     //attach a rigidbody with gravity
     e->addRigidBody(true);
     //attach our custom component written in PlayerMove.hpp
@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
     s->addEntity(e);
 
     e = new Entity("block", 600, 400, 100, 80);
-    e->addCollider(new BoxCollider());
+    e->addCollider(new AXBoxCollider());
     s->addEntity(e);
     //return the window run
     return AXWindow::run();

@@ -20,7 +20,7 @@ void SpawnPlayer(Scene* scene){
     scene->addEntity(player);
 
     Entity* bullet = new Entity("bullet", 0, 0, 32, 64);
-    bullet->addCollider(new BoxCollider());
+    bullet->addCollider(new AXBoxCollider());
     bullet->addComponent(new Bullet());
     ss = new StaticSprite("bullet", "bullet.jpg");
     bullet->getRenderer()->addSprite(ss);
@@ -31,7 +31,7 @@ void SpawnInvaders(Scene* scene){
     PrefabManager* prefabManager = PrefabManager::getInstance();
     //A prefab of the invaders
     Entity* enemy = new Entity("enemy", 0, 0, 64, 64);
-    enemy->addCollider(new BoxCollider());
+    enemy->addCollider(new AXBoxCollider());
     enemy->addComponent(new Invader());
     //create a new animated sprite
     AnimatedSprite* as = new AnimatedSprite("enemy_move", 30);

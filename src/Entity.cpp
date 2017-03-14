@@ -260,7 +260,7 @@ void Entity::addCollider(AXCollider* c){
             collider = 0;
         }
         c->setOwner(this);
-        //this is temporary, it was causing a seg fault if set in the BoxCollider constructor 
+        //this is temporary, it was causing a seg fault if set in the AXBoxCollider constructor 
         //because owner was not set until after the creation of the collider
         c->bounds = new AXGraphics::Rect(transform->getPosition(), transform->getSize());
         c->center = Math::Vector2D(transform->getPosition()+(transform->getSize()/2));

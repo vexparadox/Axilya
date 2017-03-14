@@ -36,7 +36,7 @@
 #include "RigidBody.hpp"
 #include "Transform.hpp"
 #include "AXCollider.hpp"
-#include "BoxCollider.hpp"
+#include "AXBoxCollider.hpp"
 #include "CustomComponent.hpp"
 #include "CollideDirections.hpp"
 #include "EntityDrawTypes.hpp"
