@@ -1,3 +1,10 @@
+//
+//  main.cpp
+//  Axilya
+//
+//  Created by William Meaton on 31/01/2017.
+//  Copyright © 2017 willmeaton.com. All rights reserved.
+//
 #include <Axilya/AXMain.h>
 
 SDL_Texture* texture; // let's save the texture
