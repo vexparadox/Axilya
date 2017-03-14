@@ -40,8 +40,8 @@ int main(int argc, char *argv[])
     s = new Scene();
     //set the Window to draw and update the current Scene
     AXWindow::setCurrentScene(s);
-    //make a new Entity
-    Entity* e = new Entity("player", 10, 10, 30, 30);
+    //make a new AXEntity
+    AXEntity* e = new AXEntity("player", 10, 10, 30, 30);
     //attach a box collider
     e->addCollider(new AXBoxCollider);
     //attach a rigidbody with gravity
@@ -51,7 +51,7 @@ int main(int argc, char *argv[])
     //add the entity to the scene
     s->addEntity(e);
 
-    e = new Entity("block", 0, 0, 20, 20);
+    e = new AXEntity("block", 0, 0, 20, 20);
     e->addCollider(new AXBoxCollider());
     PrefabManager::getInstance()->addPrefab(e);
     //return the window run

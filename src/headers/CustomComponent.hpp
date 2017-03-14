@@ -28,7 +28,7 @@
  *
  * @section DESCRIPTION
  *
- * The base class used when users define their own Entity Components, this follows a CRTP paradigm and allows classes to be auto-cloned.
+ * The base class used when users define their own AXEntity Components, this follows a CRTP paradigm and allows classes to be auto-cloned.
  */
 #ifndef CustomComponent_hpp
 #define CustomComponent_hpp

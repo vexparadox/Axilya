@@ -35,17 +35,17 @@
 
 #include <stdio.h>
 #include "Types.h"
-class Entity;
+class AXEntity;
 class AXCollider{
 public:
     Math::Vector2D center, halfSize;
     Shape* bounds;
-    Entity* owner = 0;
+    AXEntity* owner = 0;
     bool screenBound;
     /*!
     * The constuctor of the base class AXCollider.
     *
-    * The bounds of this AXCollider will default to those defined by the Entity's Transform Component.
+    * The bounds of this AXCollider will default to those defined by the AXEntity's Transform Component.
     */    
     AXCollider();
     virtual ~AXCollider();
@@ -56,17 +56,17 @@ public:
     */    
     Shape* getBounds();
     /*!
-    * A method to set the Entity that owns this AXCollider.
+    * A method to set the AXEntity that owns this AXCollider.
     *
     * @param e The owner of this AXCollider
     */   
-    void setOwner(Entity* e);
+    void setOwner(AXEntity* e);
     /*!
-    * A method to get the Entity that owns this AXCollider.
+    * A method to get the AXEntity that owns this AXCollider.
     *
     * @return The owner of this AXCollider
     */   
-    Entity* getOwner();
+    AXEntity* getOwner();
     /*!
     * A virtual method to check the mouse position against this AXCollider's bounds.
     */
@@ -78,11 +78,11 @@ public:
     */
     virtual int worldCollideCheck(Math::Vector2D&) = 0;
     /*!
-    * A virtual method to check this AXCollider's bounds against another Entity's AXCollider.
+    * A virtual method to check this AXCollider's bounds against another AXEntity's AXCollider.
     *
     * @return Will return the direction of the collision that happened AX_COLLIDE_UP/DOWN/RIGHT/LEFT or 0 if none occurred.
     */
-    virtual int checkMovement(Entity*, Math::Vector2D&) = 0;
+    virtual int checkMovement(AXEntity*, Math::Vector2D&) = 0;
     /*!
     * A virtual method to clone this AXCollider.
     *

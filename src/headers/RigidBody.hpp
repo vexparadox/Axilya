@@ -72,7 +72,7 @@ public:
     bool isMoving();
     /*!
     * Called every game loop
-    * Called from the Entity which owns this component
+    * Called from the AXEntity which owns this component
     */
     void update();
     /*!

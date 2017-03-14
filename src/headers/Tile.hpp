@@ -28,7 +28,7 @@
  *
  * @section DESCRIPTION
  *
- * This class describes a Tile, it acts like an Entity inside of a TiledWorld.
+ * This class describes a Tile, it acts like an AXEntity inside of a TiledWorld.
  * Tiles can have TileComponents.
  */
 #ifndef Tile_hpp

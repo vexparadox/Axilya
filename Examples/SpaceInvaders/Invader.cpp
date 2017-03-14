@@ -1,5 +1,5 @@
 #include "Invader.hpp"
 
-void Invader::onCollision(Entity* e){
+void Invader::onCollision(AXEntity* e){
 
 }

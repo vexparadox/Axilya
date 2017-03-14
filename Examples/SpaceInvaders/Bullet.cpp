@@ -4,7 +4,7 @@ void Bullet::update(){
 	owner->moveEntity(0, -5);
 }
 
-void Bullet::onCollision(Entity* e){
+void Bullet::onCollision(AXEntity* e){
 	e->destroy();
 	owner->destroy();
 }

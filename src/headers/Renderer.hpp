@@ -38,14 +38,14 @@
 #include "EntityDrawTypes.hpp"
 #include "Sprite.hpp"
 #include "Component.hpp"
-class Entity;
+class AXEntity;
 class AXText;
 class Renderer : public Component{
     std::unordered_map<std::string, Sprite*> sprites;
     std::unordered_map<std::string, AXText*> texts;
     Sprite* currentSprite = 0;
     AXText* currentText = 0;
-    Entity* owner = 0;
+    AXEntity* owner = 0;
     //set a colour to be used in place of a sprite
     AXGraphics::Colour colour;
     //default to drawing a rect
@@ -54,7 +54,7 @@ public:
    /*!
    * The constructor of a Renderer
    * 
-   * This is called when an Entity is created
+   * This is called when an AXEntity is created
    */
     Renderer();
    /*!
@@ -64,11 +64,11 @@ public:
    */
     ~Renderer();
    /*!
-   * A method to set which Entity owns this Renderer
+   * A method to set which AXEntity owns this Renderer
    * 
-   * @param entity The Entity that owns this Renderer
+   * @param entity The AXEntity that owns this Renderer
    */
-    void setOwner(Entity* entity);
+    void setOwner(AXEntity* entity);
    /*!
    * A method to add a new Sprite
    * 
@@ -161,7 +161,7 @@ public:
    /*!
    * A method to draw this Renderer
    * 
-   * This method is called by the Entity and Scene class, don't call it yourself
+   * This method is called by the AXEntity and Scene class, don't call it yourself
    * @param offset the offset to draw by
    */
     void draw(const Math::Vector2D& offset);

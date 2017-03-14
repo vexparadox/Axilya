@@ -9,7 +9,7 @@ void PlayerController::update(){
 	}
 
 	if(AXInput::getValue("SPACE") && bullet == 0){
-		Entity* e = getScene()->instantiate("bullet", 
+		AXEntity* e = getScene()->instantiate("bullet", 
 			prefabManager->getPrefab("bullet"),
 			new Transform(
 				transform->getPosition().x+owner->getTransform()->getSize().x/2,

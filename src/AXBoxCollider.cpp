@@ -1,5 +1,5 @@
 #include "headers/AXBoxCollider.hpp"
-#include "headers/Entity.hpp"
+#include "headers/AXEntity.hpp"
 
 AXBoxCollider::AXBoxCollider(){
 }
@@ -40,7 +40,7 @@ int AXBoxCollider::worldCollideCheck(Math::Vector2D& v){
     return 0;
 }
 
-int AXBoxCollider::checkMovement(Entity* e, Math::Vector2D& proposedMovement){
+int AXBoxCollider::checkMovement(AXEntity* e, Math::Vector2D& proposedMovement){
     //the entities
     Shape* box1 = e->getCollider()->getBounds();
     //these bounds

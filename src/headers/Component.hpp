@@ -28,7 +28,7 @@
  *
  * @section DESCRIPTION
  *
- * This is the base class of all Entity Components, it allows for event call backs and the game loop..
+ * This is the base class of all AXEntity Components, it allows for event call backs and the game loop..
  */
 #ifndef Component_hpp
 #define Component_hpp
@@ -38,7 +38,7 @@
 #include <stdio.h>
 #include "AXMath.hpp"
 
-class Entity;
+class AXEntity;
 class Scene;
 class Transform;
 class Renderer;
@@ -47,15 +47,15 @@ protected:
     ResourceManager* resourceManager = ResourceManager::getInstance();
     PrefabManager* prefabManager = PrefabManager::getInstance();
     /*!
-    * The Entity that owns this Component
+    * The AXEntity that owns this Component
     */ 
-    Entity* owner = 0;
+    AXEntity* owner = 0;
     /*!
-    * The Transform that's attached to the Entity that owns this Component
+    * The Transform that's attached to the AXEntity that owns this Component
     */ 
     Transform* transform = 0;
     /*!
-    * The Renderer that's attached to the Entity that owns this Component
+    * The Renderer that's attached to the AXEntity that owns this Component
     */ 
     Renderer* renderer = 0;
     Component();
@@ -67,11 +67,11 @@ public:
     */ 
     virtual ~Component();
     /*!
-    * A method to get the Entity that owns this Component.
+    * A method to get the AXEntity that owns this Component.
     *
     * @return the owner of this Component
     */ 
-    Entity* getOwner();
+    AXEntity* getOwner();
     /*!
     * A method to get the Scene that the owner of this Component is in.
     *
@@ -79,12 +79,12 @@ public:
     */ 
     Scene* getScene();
     /*!
-    * A method to set the Entity that owns this Component.
+    * A method to set the AXEntity that owns this Component.
     *
-    * This is called when the Component is added to an Entity
+    * This is called when the Component is added to an AXEntity
     * @param e the entity to set
     */ 
-    void setOwner(Entity* e);
+    void setOwner(AXEntity* e);
     /*!
     * A virtual method that returns a clone of this Component.
     *
@@ -101,32 +101,32 @@ public:
     */    
     virtual void update(){};
     /*!
-    * A virtual method that is called if a Collider is present and a collision happens with another Entity.
-    * @param e the Entity that has collided with this one
+    * A virtual method that is called if a Collider is present and a collision happens with another AXEntity.
+    * @param e the AXEntity that has collided with this one
     */    
-    virtual void onCollision(Entity* e){};
+    virtual void onCollision(AXEntity* e){};
     /*!
-    * A virtual method that is called if a Collider is present and a collision happens with another Entity.
-    * @param e the Entity that has collided with this one
+    * A virtual method that is called if a Collider is present and a collision happens with another AXEntity.
+    * @param e the AXEntity that has collided with this one
     * @param direction the direction that the collision occured AX_COLLIDE_UP/DOWN/RIGHT/LEFT
     */
-    virtual void onCollision(Entity* e, int direction){};
+    virtual void onCollision(AXEntity* e, int direction){};
     /*!
     * A virtual method that is called if a Collider is present and a collision happens with the World or Screen.
     * @param direction the direction that the collision occured AX_COLLIDE_UP/DOWN/RIGHT/LEFT
     */
     virtual void onWorldCollision(int direction){};
     /*!
-    * A virtual method that is called if a Collider is present the Entity is clicked on.
+    * A virtual method that is called if a Collider is present the AXEntity is clicked on.
     * @param mouseButton the mouse button that's pressed 0, 1, 2
     */
     virtual void onClick(int mouseButton){};
     /*!
-    * A virtual method that is called if a Collider is present the Entity is hovered over.
+    * A virtual method that is called if a Collider is present the AXEntity is hovered over.
     */
     virtual void onHover(){};
     /*!
-    * A virtual method that is called just before the Entity this Component is attached to is destroyed.
+    * A virtual method that is called just before the AXEntity this Component is attached to is destroyed.
     */
     virtual void onDestroy(){};
 };

@@ -28,7 +28,7 @@
  *
  * @section DESCRIPTION
  *
- * This class describes an Axilya Entity, all game objects are Entities in Axilya.
+ * This class describes an Axilya AXEntity, all game objects are Entities in Axilya.
  * Entities are a collection of Components that update and draw, Transform and Renderer are attached by default.
  */
 
@@ -45,7 +45,7 @@
 #include "Renderer.hpp"
 #include "CollideDirections.hpp"
 class Scene;
-class Entity{
+class AXEntity{
     //get an instance of the resourcemanager
     ResourceManager* resourceManager = ResourceManager::getInstance();
 
@@ -82,51 +82,51 @@ class Entity{
     void handle_eptr(std::exception_ptr);
 public:
     /*!
-    * The constructor of an Entity
+    * The constructor of an AXEntity
     *
-    * @param name the name of this Entity, must be unique inside of it's Scene
-    * @param pos a 2D vector defining the Entity's position (x, y)
-    * @param size a 2D vector defining the Entity's size (w, h) 
+    * @param name the name of this AXEntity, must be unique inside of it's Scene
+    * @param pos a 2D vector defining the AXEntity's position (x, y)
+    * @param size a 2D vector defining the AXEntity's size (w, h) 
     */ 
-    Entity(const std::string& name, const Math::Vector2D& pos, const Math::Vector2D& size);
+    AXEntity(const std::string& name, const Math::Vector2D& pos, const Math::Vector2D& size);
     /*!
-    * The constructor of an Entity
+    * The constructor of an AXEntity
     *
-    * @param name the name of this Entity, must be unique inside of it's Scene
-    * @param x the x position of the Entity
-    * @param y the y position of the Entity
-    * @param w the width of the Entity
-    * @param h the height position of the Entity
+    * @param name the name of this AXEntity, must be unique inside of it's Scene
+    * @param x the x position of the AXEntity
+    * @param y the y position of the AXEntity
+    * @param w the width of the AXEntity
+    * @param h the height position of the AXEntity
     */ 
-    Entity(const std::string& name, float x, float y, float w, float h);
+    AXEntity(const std::string& name, float x, float y, float w, float h);
     /*!
-    * The constructor of an Entity that isn't going to be drawn
+    * The constructor of an AXEntity that isn't going to be drawn
     *
     * This constructor will set the draw type to AX_DRAW_NONE
-    * @param name the name of this Entity, must be unique inside of it's Scene
+    * @param name the name of this AXEntity, must be unique inside of it's Scene
     */ 
-    Entity(const std::string& name);
+    AXEntity(const std::string& name);
     /*!
-    * The deconstructor of an Entity 
+    * The deconstructor of an AXEntity 
     *
-    * This will destroy all Component's attached to this Entity including the default Transform and Renderer
+    * This will destroy all Component's attached to this AXEntity including the default Transform and Renderer
     */ 
-    ~Entity();
+    ~AXEntity();
 
     /*!
-    * A method that calls start() on all the Components attached to this Entity
+    * A method that calls start() on all the Components attached to this AXEntity
     *
     * This method is called by the Scene at the start of the game loop 
     */ 
     void start();
     /*!
-    * A method that calls update() on all the Components attached to this Entity
+    * A method that calls update() on all the Components attached to this AXEntity
     *
     * This method is called by the Scene every frame of the game loop 
     */ 
     void update();
     /*!
-    * A method that calls draw on the Renderer attached to this Entity
+    * A method that calls draw on the Renderer attached to this AXEntity
     *
     * This method is called by the Scene every frame of the game loop 
     *
@@ -136,13 +136,13 @@ public:
     void draw(const Math::Vector2D& renderOffset);
 
     /*!
-    * A method that sets a flag for this Entity to be destroyed
+    * A method that sets a flag for this AXEntity to be destroyed
     *
-    * At the end of the frame that this method is called, the Scene will destroy this Entity 
+    * At the end of the frame that this method is called, the Scene will destroy this AXEntity 
     */ 
     void destroy();
     /*!
-    * A method that sets a flag how this Entity should be drawn
+    * A method that sets a flag how this AXEntity should be drawn
     *
     * @param type can be AX_DRAW_RECT/AX_DRAW_ELLIPSE/AX_DRAW_TEXT/AX_DRAW_SPRITE/AX_DRAW_NONE
     * @see EntityDrawTypes.hpp
@@ -150,22 +150,22 @@ public:
     void setDrawType(int type);
 
     /*!
-    * A method that gets the flag how this Entity is being drawn
+    * A method that gets the flag how this AXEntity is being drawn
     *
-    * @return The current draw type of this Entity
+    * @return The current draw type of this AXEntity
     * 
     * DrawTypes are: AX_DRAW_RECT/AX_DRAW_ELLIPSE/AX_DRAW_TEXT/AX_DRAW_SPRITE/AX_DRAW_NONE
     */ 
     int getDrawType();
     /*!
-    * A method that moves the Entity by a set amount
+    * A method that moves the AXEntity by a set amount
     *
     * This method also moves any Colliders attached
     * @param v the vector of movement that should be summed to the current position
     */ 
     void moveEntity(Math::Vector2D v);
     /*!
-    * A method that moves the Entity by a set amount
+    * A method that moves the AXEntity by a set amount
     *
     * This method also moves any Colliders attached
     * @param x the x value of movement that should be summed to the current position
@@ -173,7 +173,7 @@ public:
     */ 
     void moveEntity(float x, float y);
     /*!
-    * A method that resizes the Entity by a set amount
+    * A method that resizes the AXEntity by a set amount
     *
     * This method also resizes any Colliders attached
     * @param w the width value that the size will be set to
@@ -182,7 +182,7 @@ public:
     void resizeEntity(float w, float h);
 
     /*!
-    * A method that sets the Colour that this Entity should be drawn at
+    * A method that sets the Colour that this AXEntity should be drawn at
     *
     * This doesn't take affect if there's a Sprite being drawn
     *
@@ -196,7 +196,7 @@ public:
     */ 
     void setColour(float r, float g, float b, float a);
     /*!
-    * A method that sets the Colour that this Entity should be drawn at
+    * A method that sets the Colour that this AXEntity should be drawn at
     *
     * This doesn't take affect if there's a Sprite being drawn
     *
@@ -211,7 +211,7 @@ public:
     */ 
     void setColour(float r, float g, float b);
     /*!
-    * A method that sets the Colour that this Entity should be drawn at
+    * A method that sets the Colour that this AXEntity should be drawn at
     *
     * This doesn't take affect if there's a Sprite being drawn
     *
@@ -220,64 +220,64 @@ public:
     */ 
     void setColour(const AXGraphics::Colour &c);
     /*!
-    * A method that gets the Colour that this Entity is being drawn at
+    * A method that gets the Colour that this AXEntity is being drawn at
     *
     * This method is calling another in the Renderer
-    * @return the Colour object this Entity is being drawn at
+    * @return the Colour object this AXEntity is being drawn at
     */ 
     AXGraphics::Colour& getColour();
     /*!
-    * A method to set the Scene that this Entity is in
+    * A method to set the Scene that this AXEntity is in
     *
-    * This method doesn't inform the Scene, it's called when you add an Entity to a Scene using Scene::addEntity()
-    * @param s the Scene this Entity is being attached to
+    * This method doesn't inform the Scene, it's called when you add an AXEntity to a Scene using Scene::addEntity()
+    * @param s the Scene this AXEntity is being attached to
     */ 
     void setScene(Scene* s);
     /*!
-    * A method to get the Scene that this Entity is in
+    * A method to get the Scene that this AXEntity is in
     *
-    * @return the Scene this Entity is attached to
+    * @return the Scene this AXEntity is attached to
     */ 
     Scene* getScene();
     /*!
-    * A method to set if this Entity is active or not
+    * A method to set if this AXEntity is active or not
     *
-    * If an Entity isn't active it won't be drawn, updated or collidable
-    * @param value if the Entity is active or not
+    * If an AXEntity isn't active it won't be drawn, updated or collidable
+    * @param value if the AXEntity is active or not
     */ 
     void setActive(bool value);
     /*!
-    * A method to get if this Entity is active or not
+    * A method to get if this AXEntity is active or not
     *
-    * If an Entity isn't active it won't be drawn, updated or collidable
-    * @return if the Entity is active or not
+    * If an AXEntity isn't active it won't be drawn, updated or collidable
+    * @return if the AXEntity is active or not
     */ 
     bool isActive();
     /*!
-    * A method to set if this Entity is marked to be destroyed or not
+    * A method to set if this AXEntity is marked to be destroyed or not
     *
-    * This is set by the Entity::destroy()
-    * @return if the Entity is going to be destroyed at the end of this frame
+    * This is set by the AXEntity::destroy()
+    * @return if the AXEntity is going to be destroyed at the end of this frame
     */     
     bool isDead();
     /*!
-    * A method to get if this Entity is grounded
+    * A method to get if this AXEntity is grounded
     *
-    * An Entity is grounded if the attached AXCollider has reported a bottom collision in the last frame
+    * An AXEntity is grounded if the attached AXCollider has reported a bottom collision in the last frame
     *
     * Will return false if there's no AXCollider attached
-    * @return if this Entity is grounded
+    * @return if this AXEntity is grounded
     */ 
     bool isGrounded();
     /*!
-    * A method to add a RigidBody to this Entity
+    * A method to add a RigidBody to this AXEntity
     *
     * This method will set the owner in the RigidBody
     * @param rb the RigidBody to attach
     */     
     void addRigidBody(RigidBody* rb);
     /*!
-    * A method to add a RigidBody to this Entity
+    * A method to add a RigidBody to this AXEntity
     *
     * This method will create a RigidBody for you
     *
@@ -286,7 +286,7 @@ public:
     */
     void addRigidBody(bool gravity);
     /*!
-    * A method to get the RigidBody attached to this Entity
+    * A method to get the RigidBody attached to this AXEntity
     *
     * This method will return nullptr if there's not a RigidBody present
     * @return the attached RigidBody
@@ -295,13 +295,13 @@ public:
     /*!
     * A method that calls onCollision on all Components attached to this Enitity
     *
-    * This is called by the Scene when a collision occurs with another Entity
+    * This is called by the Scene when a collision occurs with another AXEntity
     *
     * Catch this call inside of a Component
-    * @param e the Entity that collided with this one
+    * @param e the AXEntity that collided with this one
     * @param direction the direction of which the collision happened
     */
-    void onCollision(Entity* e, int direction);
+    void onCollision(AXEntity* e, int direction);
     /*!
     * A method that calls onWorldCollision on all Components attached to this Enitity
     *
@@ -331,12 +331,12 @@ public:
     /*!
     * A method that calls onHover on all Components attached to this Enitity
     *
-    * This is called by the AXCollider when the mouse is over the Entity
+    * This is called by the AXCollider when the mouse is over the AXEntity
     * Catch this call inside of a Component
     */
     void onHover();
     /*!
-    * A method that adds a AXCollider to this Entity
+    * A method that adds a AXCollider to this AXEntity
     *
     * This method will set the owner in the AXCollider
     * @param coll the AXCollider to be attached
@@ -344,52 +344,52 @@ public:
     void addCollider(AXCollider* coll);
 
     /*!
-    * A method that gets the AXCollider on this Entity
+    * A method that gets the AXCollider on this AXEntity
     *
     * @return the AXCollider that's attached
     */
     AXCollider* getCollider();
     /*!
-    * A method that attaches a Component to this Entity
+    * A method that attaches a Component to this AXEntity
     *
     * The Components will be updated and called in the order that they're added
     * @param comp the Component to be attached
     */
     void addComponent(Component* comp);
     /*!
-    * A method that gets the Transform attached to this Entity
+    * A method that gets the Transform attached to this AXEntity
     *
-    * @return the Transform attache do this Entity
+    * @return the Transform attache do this AXEntity
     */
     Transform* getTransform();
     /*!
-    * A method that gets the Renderer attached to this Entity
+    * A method that gets the Renderer attached to this AXEntity
     *
-    * @return the Renderer attache do this Entity
+    * @return the Renderer attache do this AXEntity
     */
     Renderer* getRenderer();
     /*!
-    * A method that gets the name of this Entity
+    * A method that gets the name of this AXEntity
     *
-    * @return the name of this Entity
+    * @return the name of this AXEntity
     */
     std::string& getName();
     /*!
-    * A method that sets the name of this Entity
+    * A method that sets the name of this AXEntity
     *
     * @param name the name to set
     */
     void setName(const std::string& name);
     /*!
-    * A method that returns a clone of this Entity
+    * A method that returns a clone of this AXEntity
     *
     * This will call clone on all Components attached
-    * @return a clone of this Entity
+    * @return a clone of this AXEntity
     */
-    Entity* clone();
+    AXEntity* clone();
 
     /*!
-    * A method to get a typed Component that's attached to this Entity
+    * A method to get a typed Component that's attached to this AXEntity
     *
     * This can be slow, store the result if using every frame
     * @return either nullptr or the found Component of the given Type

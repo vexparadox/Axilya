@@ -7,7 +7,7 @@ ifeq ($(OS), Darwin)
 endif
 endif
 all:
-	@echo "Compiling Text Entity example"
+	@echo "Compiling Text AXEntity example"
 	@g++ *.cpp -std=c++11 -o Axilya -lAxilya -lcurl $(FLAGS)
 	@echo "Complete."
 run: all

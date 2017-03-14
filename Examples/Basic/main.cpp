@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
     
     //Create a new entity called "blob"
     //(name, x, y, width, height)
-    Entity* e = new Entity("blob", 10, 10, 10, 10);
+    AXEntity* e = new AXEntity("blob", 10, 10, 10, 10);
 
     //add the entity to the scene
     s->addEntity(e);

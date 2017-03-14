@@ -3,7 +3,7 @@
 //
 
 #include "headers/Renderer.hpp"
-#include "headers/Entity.hpp"
+#include "headers/AXEntity.hpp"
 #include "headers/AXText.hpp"
 
 
@@ -87,7 +87,7 @@ void Renderer::draw(const Math::Vector2D& renderOffset) {
     }
 }
 
-void Renderer::setOwner(Entity *owner) {
+void Renderer::setOwner(AXEntity *owner) {
     if(owner){
         this->owner = owner;
     }

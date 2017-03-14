@@ -5,7 +5,7 @@
 //  Copyright © 2016 WillMeaton.uk. All rights reserved.
 //
 #include "headers/RigidBody.hpp"
-#include "headers/Entity.hpp"
+#include "headers/AXEntity.hpp"
 
 RigidBody::RigidBody(bool gravity): velocity(0, 0), drag(0.5, 0.5), gravity(gravity){
     maxVelocityY = 30;

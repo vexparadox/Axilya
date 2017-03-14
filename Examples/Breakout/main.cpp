@@ -11,7 +11,7 @@
 #include "BallController.hpp"
 
 void MakeBlocks(Scene* scene){
-    Entity* block = new Entity(std::string("block1"), 0, 0, 40, 20);
+    AXEntity* block = new AXEntity(std::string("block1"), 0, 0, 40, 20);
     SDL_assert(block);
     block->setColour(230, 230, 230);
     block->addCollider(new AXBoxCollider());
@@ -26,7 +26,7 @@ void MakeBlocks(Scene* scene){
 }
 
 void SpawnPlayer(Scene* scene){
-    Entity* player = new Entity("player", AXWindow::getWidth()/2, AXWindow::getHeight()-25, 80, 20);
+    AXEntity* player = new AXEntity("player", AXWindow::getWidth()/2, AXWindow::getHeight()-25, 80, 20);
     player->setColour(200, 200, 200);
     player->addCollider(new AXBoxCollider());
     player->addComponent(new PlayerController());
@@ -34,7 +34,7 @@ void SpawnPlayer(Scene* scene){
 }
 
 void SpawnBall(Scene* scene){
-    Entity* ball = new Entity("ball", 50, AXWindow::getHeight()/2, 20, 20);
+    AXEntity* ball = new AXEntity("ball", 50, AXWindow::getHeight()/2, 20, 20);
     ball->setColour(255, 255, 255);
     ball->addCollider(new AXBoxCollider());
     ball->addComponent(new BallController());
@@ -61,7 +61,7 @@ int main(int argc, char *argv[])
     MakeBlocks(scene);
 
     //the game master (keeps track of score)
-    Entity* gameMaster = new Entity("GM");
+    AXEntity* gameMaster = new AXEntity("GM");
     gameMaster->addComponent(new GameMaster());
     scene->setGameMaster(gameMaster);
 

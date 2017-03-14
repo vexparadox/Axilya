@@ -28,7 +28,7 @@
  *
  * @section DESCRIPTION
  *
- * This is a pre-built Entity Component that describes the position and size of an Entity.
+ * This is a pre-built Entity Component that describes the position and size of an AXEntity.
  * This is created by default for all Entities.
  */
 #ifndef Transform_hpp
@@ -36,16 +36,16 @@
 
 #include <stdio.h>
 #include "Component.hpp"
-class Entity;
+class AXEntity;
 class Transform : public Component{
     Math::Vector2D position, size, lastPosition;
 public:
     /*!
     * Constructor of the Transform
-    * This is called automatically by the Entity constructor
+    * This is called automatically by the AXEntity constructor
     * @param pos the Entities position
     * @param size the Entities size
-    * @see Entity constructor
+    * @see AXEntity constructor
     */
     Transform(const Math::Vector2D& pos, const Math::Vector2D& size);
     Transform(float x, float y, float w, float h);
@@ -69,12 +69,12 @@ public:
     void moveTransform(const Math::Vector2D &v);
     /*!
     * Returns the position
-    * @return the position of the Entity
+    * @return the position of the AXEntity
     */
     Math::Vector2D& getPosition();
     /*!
     * Returns the size
-    * @return the size of the Entity
+    * @return the size of the AXEntity
     */
     Math::Vector2D& getSize();
 

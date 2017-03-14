@@ -5,6 +5,6 @@
 
 class Invader : public CustomComponent<Invader>{
 public:
-	void onCollision(Entity* e);
+	void onCollision(AXEntity* e);
 };
 #endif

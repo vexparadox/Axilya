@@ -1,5 +1,5 @@
 #include "headers/PrefabManager.hpp"
-#include "headers/Entity.hpp"
+#include "headers/AXEntity.hpp"
 
 PrefabManager* PrefabManager::instance = new PrefabManager();
 
@@ -17,15 +17,15 @@ PrefabManager* PrefabManager::getInstance(){
 	return instance;
 }
 
-bool PrefabManager::addPrefab(Entity* e){
+bool PrefabManager::addPrefab(AXEntity* e){
     if (entityMap.find(e->getName()) == entityMap.end() && e){
-	    entityMap.insert(std::pair<std::string, Entity*>(e->getName(), e));
+	    entityMap.insert(std::pair<std::string, AXEntity*>(e->getName(), e));
     	return true;
     }
     return false;
 }
 
-Entity* PrefabManager::getPrefab(const std::string& name){
+AXEntity* PrefabManager::getPrefab(const std::string& name){
 	if (entityMap.find(name) != entityMap.end()){
 		return entityMap.at(name);
     }

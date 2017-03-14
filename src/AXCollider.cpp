@@ -1,5 +1,5 @@
 #include "headers/AXCollider.hpp"
-#include "headers/Entity.hpp"
+#include "headers/AXEntity.hpp"
 AXCollider::AXCollider(){
     screenBound = true;
 }
@@ -12,12 +12,12 @@ Shape* AXCollider::getBounds(){
     return bounds;
 }
 
-void AXCollider::setOwner(Entity* e){
+void AXCollider::setOwner(AXEntity* e){
 	this->owner = e;
 }
 
 
 
-Entity* AXCollider::getOwner(){
+AXEntity* AXCollider::getOwner(){
 	return owner;
 }

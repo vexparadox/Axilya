@@ -38,15 +38,15 @@
 #include "World.hpp"
 #include "AXMath.hpp"
 
-class Entity;
+class AXEntity;
 class Transform;
 class Scene{
     //the vector of entities
-    std::vector<Entity*> entities;
+    std::vector<AXEntity*> entities;
     World* world;
-    Entity* gameMaster;
+    AXEntity* gameMaster;
     Math::Vector2D renderOffset;
-    std::unordered_map<std::string, Entity*> entityMap;
+    std::unordered_map<std::string, AXEntity*> entityMap;
 public:
     /*!
     * The constructor of a Scene
@@ -59,20 +59,20 @@ public:
     */
     ~Scene();
     /*!
-    * A method to start all Entity's and therefore Component's in the Scene
+    * A method to start all AXEntity's and therefore Component's in the Scene
     *
     * This method is called once by the AXWindow
     */
     void start();
     /*!
-    * A method to update all Entity's and therefore Component's in the Scene
+    * A method to update all AXEntity's and therefore Component's in the Scene
     *
     * This method is called every frame by the AXWindow
     */
     void update();
     
     /*!
-    * A method to draw all Entity's and therefore Renderer's in the Scene
+    * A method to draw all AXEntity's and therefore Renderer's in the Scene
     *
     * This method is called every frame by the AXWindow
     */
@@ -110,27 +110,27 @@ public:
     */
     void setRenderOffset(Math::Vector2D& v);
     /*!
-    * A method to add an Entity to this Scene
+    * A method to add an AXEntity to this Scene
     *
-    * @param e the Entity to add
-    * @return if the Entity was added successfully
+    * @param e the AXEntity to add
+    * @return if the AXEntity was added successfully
     */
-    bool addEntity(Entity* e);
+    bool addEntity(AXEntity* e);
     /*!
     * A method to set the GameMaster in this Scene
     *
-    * The GameMaster is a special Entity that isn't drawn and is only updated, it's used to control game states.
-    * @param e the Entity to set the GameMaster
+    * The GameMaster is a special AXEntity that isn't drawn and is only updated, it's used to control game states.
+    * @param e the AXEntity to set the GameMaster
     * @return if the GameMaster was set successfully
     */
-    bool setGameMaster(Entity* e);
+    bool setGameMaster(AXEntity* e);
     /*!
     * A method to get the GameMaster in this Scene
     *
-    * The GameMaster is a special Entity that isn't drawn and is only updated, it's used to control game states.
+    * The GameMaster is a special AXEntity that isn't drawn and is only updated, it's used to control game states.
     * @return the GameMaster
     */
-    Entity* getGameMaster();
+    AXEntity* getGameMaster();
     /*!
     * A method to set the World of this Scene
     *
@@ -138,53 +138,53 @@ public:
     */
     void setWorld(World* w);
     /*!
-    * A method to remove a specific Entity
+    * A method to remove a specific AXEntity
     *
-    * It's better to use the destroy() method on an Entity
+    * It's better to use the destroy() method on an AXEntity
     * @param e the entity to destroy
     */
-    void removeEntity(Entity* e);
+    void removeEntity(AXEntity* e);
     /*!
-    * A method to instantiate a new Entity in this Scene
+    * A method to instantiate a new AXEntity in this Scene
     *
-    * Instatniated Entity's will be put straight into the Scene
-    * @param name the name of this new Entity
-    * @param e the Entity this new one will copy
-    * @param t a new Transform for this new Entity to be given
-    * @return a pointer to the new Entity
+    * Instatniated AXEntity's will be put straight into the Scene
+    * @param name the name of this new AXEntity
+    * @param e the AXEntity this new one will copy
+    * @param t a new Transform for this new AXEntity to be given
+    * @return a pointer to the new AXEntity
     */
-    Entity* instantiate(const std::string& name, Entity* e, Transform* t);
+    AXEntity* instantiate(const std::string& name, AXEntity* e, Transform* t);
     /*!
-    * A method to instantiate a new Entity in this Scene
+    * A method to instantiate a new AXEntity in this Scene
     *
-    * Instatniated Entity's will be put straight into the Scene
-    * @param name the name of this new Entity
-    * @param e the Entity this new one will copy
-    * @return a pointer to the new Entity
+    * Instatniated AXEntity's will be put straight into the Scene
+    * @param name the name of this new AXEntity
+    * @param e the AXEntity this new one will copy
+    * @return a pointer to the new AXEntity
     *
-    * Without a seperate Transform this new Entity will get a copy of @param e's
+    * Without a seperate Transform this new AXEntity will get a copy of @param e's
     */
-    Entity* instantiate(const std::string& name, Entity* e);
+    AXEntity* instantiate(const std::string& name, AXEntity* e);
     /*!
-    * A method to find an Entity in this scene
+    * A method to find an AXEntity in this scene
     *
-    * @param name the name of the Entity to find
-    * @return a pointer to the found Entity or nullptr
+    * @param name the name of the AXEntity to find
+    * @return a pointer to the found AXEntity or nullptr
     */
-    Entity* findEntity(const std::string& name);
+    AXEntity* findEntity(const std::string& name);
     /*!
-    * A method to check collisions of an Entity against all over in this Scene
+    * A method to check collisions of an AXEntity against all over in this Scene
     *
-    * @param e the Entity to check
+    * @param e the AXEntity to check
     * @param proposedMovement the vector of movement being attempted by @param e
     * @param colls an array of collision directions that will be filled by the Collider's
     */
-    void collideCheck(Entity* e, Math::Vector2D& proposedMovement, unsigned char* colls);
+    void collideCheck(AXEntity* e, Math::Vector2D& proposedMovement, unsigned char* colls);
     /*!
     * Returns the number of Entities in this Scene
     * @return number of Entities in the Scene vector
     */
-    std::vector<Entity*>& getEntities();
+    std::vector<AXEntity*>& getEntities();
     int numEntities();
 };
 

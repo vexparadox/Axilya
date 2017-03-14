@@ -28,7 +28,7 @@
  *
  * @section DESCRIPTION
  *
- * A list of pre-made Entity Components.
+ * A list of pre-made AXEntity Components.
  */
 #ifndef Components_h
 #define Components_h

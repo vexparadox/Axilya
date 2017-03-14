@@ -28,7 +28,7 @@
  *
  * @section DESCRIPTION
  *
- * These ENUMS are used to describe how an Entity should be drawn
+ * These ENUMS are used to describe how an AXEntity should be drawn
  */
 #ifndef EntityDrawTypes_hpp
 #define EntityDrawTypes_hpp

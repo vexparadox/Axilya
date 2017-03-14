@@ -15,7 +15,7 @@ void BallController::update(){
 	}
 }
 
-void BallController::onCollision(Entity* e){
+void BallController::onCollision(AXEntity* e){
 	//reverse the balls direction
 	velocity.x *= -1;
 	if(Math::absolute(velocity.x) < 8){

@@ -14,7 +14,7 @@ void BallController::update(){
 	}
 }
 
-void BallController::onCollision(Entity* e){
+void BallController::onCollision(AXEntity* e){
 	velocity.y *= -1;
 	if(Math::absolute(velocity.y) < 8){
 		if(velocity.y < 0){

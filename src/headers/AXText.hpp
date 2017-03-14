@@ -35,21 +35,21 @@
 #include "Component.hpp"
 #include <stdio.h>
 #include "ResourceManager.hpp"
-#include "Entity.hpp"
+#include "AXEntity.hpp"
 class AXText {
 protected:
 	AXFont* font = 0;
 	ResourceManager* resourceManager = ResourceManager::getInstance();
    int height, width;
    std::string name;
-   Entity* owner = 0;
+   AXEntity* owner = 0;
    AXGraphics::Colour colour;
 public:
    /*!
    * A method to sets the owner of this AXText
    * @param e the owner of this AXText
    */
-   void setOwner(Entity* e){
+   void setOwner(AXEntity* e){
       if(e){
          this->owner = e;
       }

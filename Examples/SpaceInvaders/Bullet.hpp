@@ -7,7 +7,7 @@ class Bullet : public CustomComponent<Bullet>{
 public:
 	PlayerController* pc;
 	void update();
-	void onCollision(Entity* e);
+	void onCollision(AXEntity* e);
 	void onWorldCollision(int direction);
 	void onDestroy();
 };

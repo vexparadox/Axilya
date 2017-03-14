@@ -1,29 +1,29 @@
 //
 //  Axilya
-//  Entity.cpp
+//  AXEntity.cpp
 //
 //  Created by William Meaton on 12/05/2016.
 //  Copyright © 2016 WillMeaton.uk. All rights reserved.
 //
 
-#include "headers/Entity.hpp"
+#include "headers/AXEntity.hpp"
 #include "headers/Scene.hpp"
 
-Entity::Entity(const std::string& name, float x, float y, float w, float h) : name(name){
+AXEntity::AXEntity(const std::string& name, float x, float y, float w, float h) : name(name){
     transform = new Transform(x, y, w, h);
     transform->setOwner(this);
     renderer = new Renderer();
     renderer->setOwner(this);
 }
 
-Entity::Entity(const std::string& name, const Math::Vector2D& pos, const Math::Vector2D& size) : name(name){
+AXEntity::AXEntity(const std::string& name, const Math::Vector2D& pos, const Math::Vector2D& size) : name(name){
     transform = new Transform(pos, size);
     transform->setOwner(this);
     renderer = new Renderer();
     renderer->setOwner(this);
 }
 
-Entity::Entity(const std::string& name): name(name){
+AXEntity::AXEntity(const std::string& name): name(name){
     transform = new Transform(0, 0, 0, 0);
     transform->setOwner(this);
     renderer = new Renderer();
@@ -31,7 +31,7 @@ Entity::Entity(const std::string& name): name(name){
     renderer->setDrawType(AX_DRAW_NONE);
 }
 
-Entity::~Entity(){
+AXEntity::~AXEntity(){
     //Do not delete the texture, it's not handled by this object
     //remove all the components
     delete transform;
@@ -48,18 +48,18 @@ Entity::~Entity(){
     }
 }
 
-void Entity::start(){
+void AXEntity::start(){
     for(auto& c : components){
         c->start();
     }
 }
 
-void Entity::draw(const Math::Vector2D& renderOffset){
+void AXEntity::draw(const Math::Vector2D& renderOffset){
     if(renderer){
         renderer->draw(renderOffset);
     }
 }
-void Entity::update(){
+void AXEntity::update(){
     if(rigidBody){
         rigidBody->update();
     }
@@ -89,7 +89,7 @@ void Entity::update(){
     }
 }
 
-void Entity::handle_eptr(std::exception_ptr eptr){
+void AXEntity::handle_eptr(std::exception_ptr eptr){
     try {
         if (eptr) {
             std::rethrow_exception(eptr);
@@ -99,11 +99,11 @@ void Entity::handle_eptr(std::exception_ptr eptr){
     }
 }
 
-void Entity::moveEntity(float x, float y){
+void AXEntity::moveEntity(float x, float y){
     this->moveEntity(Math::Vector2D(x, y));
 }
 
-void Entity::resizeEntity(float w, float h){
+void AXEntity::resizeEntity(float w, float h){
     this->transform->getSize().x = w;
     this->transform->getSize().y = h;
     if(collider){
@@ -111,7 +111,7 @@ void Entity::resizeEntity(float w, float h){
     }
 }
 
-void Entity::moveEntity(Math::Vector2D v){
+void AXEntity::moveEntity(Math::Vector2D v){
     Math::Vector2D newPos = transform->getPosition() + v;
     if(collider){
         //reset the current Collisions
@@ -142,8 +142,8 @@ void Entity::moveEntity(Math::Vector2D v){
     }
 }
 
-Entity* Entity::clone(){
-    Entity* e = new Entity(this->name, transform->getPosition(), transform->getSize());
+AXEntity* AXEntity::clone(){
+    AXEntity* e = new AXEntity(this->name, transform->getPosition(), transform->getSize());
     if(collider){
        e->addCollider(collider->clone());
        e->getCollider()->setOwner(e);
@@ -169,11 +169,11 @@ Entity* Entity::clone(){
     return e;
 }
 
-void Entity::destroy(){
+void AXEntity::destroy(){
     this->dead = true;
 }
 
-void Entity::onWorldCollision(int direction){
+void AXEntity::onWorldCollision(int direction){
     //When a collision with the world happens
     for(auto& c : components){
         c->onWorldCollision(direction);
@@ -182,7 +182,7 @@ void Entity::onWorldCollision(int direction){
 }
 
 
-void Entity::onCollision(Entity* e, int direction){
+void AXEntity::onCollision(AXEntity* e, int direction){
     //when a collision happens
     for(auto& c : components){
         c->onCollision(e, direction);
@@ -191,26 +191,26 @@ void Entity::onCollision(Entity* e, int direction){
 }
 
 
-void Entity::onClick(int mouseButton){
+void AXEntity::onClick(int mouseButton){
     for(auto& c : components){
         c->onClick(mouseButton);
     }
 }
 
-void Entity::onHover(){
+void AXEntity::onHover(){
     for(auto& c : components){
         c->onHover();
     }
 }
 
-void Entity::addComponent(Component* c){
+void AXEntity::addComponent(Component* c){
     if(c) {
         c->setOwner(this);
         components.push_back(c);
     }
 }
 
-void Entity::addRigidBody(RigidBody* r) {
+void AXEntity::addRigidBody(RigidBody* r) {
     if (r) {
         if(rigidBody){
             delete rigidBody;
@@ -221,7 +221,7 @@ void Entity::addRigidBody(RigidBody* r) {
     }
 }
 
-void Entity::addRigidBody(bool gravity){
+void AXEntity::addRigidBody(bool gravity){
     if(rigidBody){
         delete rigidBody;
         rigidBody = 0;
@@ -230,7 +230,7 @@ void Entity::addRigidBody(bool gravity){
     this->rigidBody->setOwner(this);
 }
 
-bool Entity::isGrounded(){
+bool AXEntity::isGrounded(){
     //first check if it's touched the bottom of the screen at all
     if(lastCollisions[0] == AX_COLLIDE_DOWN || lastCollisions[1] == AX_COLLIDE_DOWN){
         return true;
@@ -245,15 +245,15 @@ bool Entity::isGrounded(){
     return false;
 }
 
-RigidBody* Entity::getRigidBody(){
+RigidBody* AXEntity::getRigidBody(){
     return rigidBody;
 }
 
-Transform* Entity::getTransform(){
+Transform* AXEntity::getTransform(){
     return transform;
 }
 
-void Entity::addCollider(AXCollider* c){
+void AXEntity::addCollider(AXCollider* c){
     if(c){
         if(collider){
             delete collider;
@@ -269,68 +269,68 @@ void Entity::addCollider(AXCollider* c){
     }
 }
 
-void Entity::onDestroy(){
+void AXEntity::onDestroy(){
     for(auto& c : components){
         c->onDestroy();
     }
     delete this;
 }
 
-void Entity::setDrawType(int type){
+void AXEntity::setDrawType(int type){
     this->renderer->setDrawType(type);
 }
 
-int Entity::getDrawType(){
+int AXEntity::getDrawType(){
     return this->renderer->getDrawType();
 }
 
-void Entity::setName(const std::string& name){
+void AXEntity::setName(const std::string& name){
     this->name = name;
 }
 
-Scene* Entity::getScene(){
+Scene* AXEntity::getScene(){
     return scene;
 }
 
-void Entity::setScene(Scene* s){
+void AXEntity::setScene(Scene* s){
     this->scene = s;
 }
 
-void Entity::setActive(bool a){
+void AXEntity::setActive(bool a){
     this->active = a;
 }
 
-bool Entity::isActive(){
+bool AXEntity::isActive(){
     return this->active;
 }
 
-AXCollider* Entity::getCollider(){
+AXCollider* AXEntity::getCollider(){
     return collider;
 }
 
-bool Entity::isDead(){
+bool AXEntity::isDead(){
     return dead;
 }
 
-std::string& Entity::getName(){
+std::string& AXEntity::getName(){
     return this->name;
 }
 
-Renderer* Entity::getRenderer() {
+Renderer* AXEntity::getRenderer() {
     return renderer;
 }
-void Entity::setColour(float r, float g, float b, float a){
+void AXEntity::setColour(float r, float g, float b, float a){
     renderer->setColour(r, g, b, a);
 }
 
-void Entity::setColour(float r, float g, float b){
+void AXEntity::setColour(float r, float g, float b){
     renderer->setColour(r, g, b, 255);
 }
 
-void Entity::setColour(const AXGraphics::Colour& c){
+void AXEntity::setColour(const AXGraphics::Colour& c){
     renderer->setColour(c.getR(), c.getG(), c.getB(), c.getA());
 }
 
-AXGraphics::Colour& Entity::getColour(){
+AXGraphics::Colour& AXEntity::getColour(){
     return renderer->getColour();
 }

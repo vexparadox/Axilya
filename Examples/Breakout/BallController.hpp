@@ -8,7 +8,7 @@ class BallController : public CustomComponent<BallController>{
 public:
 	void start();
 	void update();
-	void onCollision(Entity* e);
+	void onCollision(AXEntity* e);
 	void onWorldCollision(int direction);
 };
 #endif

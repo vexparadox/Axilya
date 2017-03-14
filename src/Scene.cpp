@@ -1,4 +1,4 @@
-#include "headers/Entity.hpp"
+#include "headers/AXEntity.hpp"
 #include "headers/AXWindow.hpp"
 #include "headers/Scene.hpp"
 #include "headers/Transform.hpp"
@@ -59,7 +59,7 @@ void Scene::update() {
     }
 }
 
-void Scene::collideCheck(Entity* e, Math::Vector2D& proposedMovement, unsigned char* colls){
+void Scene::collideCheck(AXEntity* e, Math::Vector2D& proposedMovement, unsigned char* colls){
     //a collision counter to make sure it doesn't check past 4 entities 
     char collisions = 0;
     memset(colls, 0, 16);
@@ -92,7 +92,7 @@ void Scene::collideCheck(Entity* e, Math::Vector2D& proposedMovement, unsigned c
     }
 }
 
-bool Scene::setGameMaster(Entity* e){
+bool Scene::setGameMaster(AXEntity* e){
     if(e){
         this->gameMaster = e;
         return true;
@@ -101,11 +101,11 @@ bool Scene::setGameMaster(Entity* e){
     }
 }
 
-Entity* Scene::getGameMaster(){
+AXEntity* Scene::getGameMaster(){
     return this->gameMaster;
 }
 
-bool Scene::addEntity(Entity* e){
+bool Scene::addEntity(AXEntity* e){
     if(e) {
         if(entityMap.find(e->getName()) == entityMap.end()) {
             e->setScene(this);
@@ -113,16 +113,16 @@ bool Scene::addEntity(Entity* e){
             this->entityMap[e->getName()] = e;
             return true;
         }else{
-            std::cout << "Entity with the name: " << e->getName() << " already in this scene." << std::endl;
+            std::cout << "AXEntity with the name: " << e->getName() << " already in this scene." << std::endl;
             return false;
         }
     }else{
         return false;
     }
 }
-Entity* Scene::instantiate(const std::string& name, Entity* e, Transform* t){
+AXEntity* Scene::instantiate(const std::string& name, AXEntity* e, Transform* t){
     if(e && t && name != ""){
-        Entity* temp = e->clone();
+        AXEntity* temp = e->clone();
         temp->getTransform()->set(t->getPosition(), t->getSize());
         if(temp->getCollider()){
             temp->getCollider()->getBounds()->set(t->getPosition(), t->getSize());
@@ -138,7 +138,7 @@ Entity* Scene::instantiate(const std::string& name, Entity* e, Transform* t){
     }
 }
 
-Entity* Scene::instantiate(const std::string& name, Entity* e){
+AXEntity* Scene::instantiate(const std::string& name, AXEntity* e){
     return this->instantiate(name, e, e->getTransform());
 }
 
@@ -148,7 +148,7 @@ void Scene::setWorld(World *w) {
     }
 }
 
-void Scene::removeEntity(Entity* e){
+void Scene::removeEntity(AXEntity* e){
     for(auto it = entities.begin(); it != entities.end(); it++){
         if(*it == e){
             entities.erase(it);
@@ -158,16 +158,16 @@ void Scene::removeEntity(Entity* e){
     }
 }
 
-Entity* Scene::findEntity(const std::string &name) {
+AXEntity* Scene::findEntity(const std::string &name) {
     if(entityMap.find(name) == entityMap.end()){
-        std::cout << "Entity not found with name: " << name << ". Returning null" << std::endl;
+        std::cout << "AXEntity not found with name: " << name << ". Returning null" << std::endl;
         return 0;
     }else{
         return entityMap.at(name);
     }
 }
 
-std::vector<Entity*>& Scene::getEntities(){
+std::vector<AXEntity*>& Scene::getEntities(){
     return this->entities;
 }
 

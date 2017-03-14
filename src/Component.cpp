@@ -7,7 +7,7 @@
 //
 
 #include "headers/Component.hpp"
-#include "headers/Entity.hpp"
+#include "headers/AXEntity.hpp"
 #include "headers/Transform.hpp"
 #include "headers/Renderer.hpp"
 
@@ -17,7 +17,7 @@ Component::Component(){
 Component::~Component(){
 }
 
-Entity* Component::getOwner(){
+AXEntity* Component::getOwner(){
     return owner;
 }
 
@@ -25,7 +25,7 @@ Scene* Component::getScene() {
     return owner->getScene();
 }
 
-void Component::setOwner(Entity* o){
+void Component::setOwner(AXEntity* o){
     this->owner = o;
     this->transform = owner->getTransform();
     this->renderer = owner->getRenderer();

@@ -38,7 +38,7 @@
 #include "AXNetwork.hpp"
 #include "AXGraphics.hpp"
 #include "Components.h"
-#include "Entity.hpp"
+#include "AXEntity.hpp"
 #include "Scene.hpp"
 #include "TiledWorld.hpp"
 #include "StaticWorld.hpp"
