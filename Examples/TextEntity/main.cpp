@@ -1,7 +1,7 @@
 #include <Axilya/AXMain.h>
 int main(int argc, char const *argv[])
 {
-	AXWindow::init(720, 480, AX_WINDOWED, "Text Example", update, draw);
+	AXWindow::init(720, 480, AX_WINDOWED, "Text Example");
 	Scene* scene = new Scene();
 	AXWindow::setCurrentScene(scene);
 	// AXGraphics::setBackground(0, 0, 0, 255);
