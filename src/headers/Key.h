@@ -28,7 +28,7 @@
  *
  * @section DESCRIPTION
  *
- * This class is used by the Input class to store the values of individual inputs.
+ * This class is used by the AXInput class to store the values of individual inputs.
  */
 #ifndef Key_h
 #define Key_h

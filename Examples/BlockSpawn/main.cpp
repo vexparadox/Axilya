@@ -13,18 +13,18 @@ Scene* s;
 int blockCount = 0;
 
 void update(){
-    if(Input::mouseIsPressed && !down){
+    if(AXInput::mouseIsPressed && !down){
         down = true;
         s->instantiate("box" + std::to_string(blockCount++),
             PrefabManager::getInstance()->getPrefab("block"),
-            new Transform(Input::mouseX - 10, 
-                          Input::mouseY - 10,
+            new Transform(AXInput::mouseX - 10, 
+                          AXInput::mouseY - 10,
                           20,
                           20)
             );
     }
 
-    if(!Input::mouseIsPressed && down){
+    if(!AXInput::mouseIsPressed && down){
         down = false;
     }
 }

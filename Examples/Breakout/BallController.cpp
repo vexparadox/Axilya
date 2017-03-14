@@ -5,7 +5,7 @@ void BallController::start(){
 }
 
 void BallController::update(){
-	if(Input::getValue("SPACE") && !hasStarted){
+	if(AXInput::getValue("SPACE") && !hasStarted){
 		hasStarted = true;
 		velocity.y = 5;
 	}

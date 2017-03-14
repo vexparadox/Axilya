@@ -39,9 +39,9 @@
 #include <SDL2/SDL.h>
 #define AX_INPUT_CONTROLLER_OFFSET 300
 #define AX_INPUT_CONTROLLER_AXIS_OFFSET 20
-class Input{
-    Input(){};
-    ~Input(){};
+class AXInput{
+    AXInput(){};
+    ~AXInput(){};
     static std::unordered_map<int, Key*> inputCodes;
     static std::unordered_map<std::string, Key*> inputNames;
     static std::vector<Key*> inputs;

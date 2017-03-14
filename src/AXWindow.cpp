@@ -104,7 +104,7 @@ int AXWindow::init(float wWidth, float wHeight, int windowStyle, const char* tit
     renderColour.set(0, 0, 0, 255);
     //set blend mode
     SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
-    Input::init();
+    AXInput::init();
     AXNetwork::init();
     initiated = true;
     return 1;
@@ -122,33 +122,33 @@ int AXWindow::run(){
             if(event.type == SDL_QUIT){
                 go = 0;
             }else if( event.type == SDL_KEYDOWN){
-                Input::setKeyDown(event.key.keysym.scancode);
+                AXInput::setKeyDown(event.key.keysym.scancode);
             }else if(event.type == SDL_KEYUP){
                 if(event.key.keysym.scancode == SDL_SCANCODE_ESCAPE){
                     go = 0;
                     break;
                 }
-                Input::setKeyUp(event.key.keysym.scancode);
+                AXInput::setKeyUp(event.key.keysym.scancode);
             }else if(event.type == SDL_MOUSEMOTION){
-                Input::mouseX = event.motion.x;
-                Input::mouseY = event.motion.y;
+                AXInput::mouseX = event.motion.x;
+                AXInput::mouseY = event.motion.y;
             }else if(event.type == SDL_MOUSEBUTTONDOWN){
-                Input::mousePressed(event.button.button);
+                AXInput::mousePressed(event.button.button);
             }else if(event.type == SDL_MOUSEBUTTONUP){
-                Input::mouseReleased(event.button.button);
+                AXInput::mouseReleased(event.button.button);
             }else if(event.type == SDL_CONTROLLERBUTTONDOWN){
-                Input::setKeyDown((SDL_GameControllerButton)event.cbutton.button+(AX_INPUT_CONTROLLER_OFFSET*(event.cdevice.which+1)));
+                AXInput::setKeyDown((SDL_GameControllerButton)event.cbutton.button+(AX_INPUT_CONTROLLER_OFFSET*(event.cdevice.which+1)));
             }else if(event.type == SDL_CONTROLLERBUTTONUP){
-                Input::setKeyUp((SDL_GameControllerButton)event.cbutton.button+(AX_INPUT_CONTROLLER_OFFSET*(event.cdevice.which+1)));
+                AXInput::setKeyUp((SDL_GameControllerButton)event.cbutton.button+(AX_INPUT_CONTROLLER_OFFSET*(event.cdevice.which+1)));
             }else if(event.type == SDL_CONTROLLERDEVICEADDED){
-                Input::controllers[event.cdevice.which] = SDL_GameControllerOpen(event.cdevice.which);
+                AXInput::controllers[event.cdevice.which] = SDL_GameControllerOpen(event.cdevice.which);
                 std::cout << "Controller connected: " << event.cdevice.which << std::endl;
             }else if(event.type == SDL_CONTROLLERDEVICEREMOVED){
                 std::cout << "Controller disconnected: " << event.cdevice.which << std::endl;
-                SDL_GameControllerClose(Input::controllers[event.cdevice.which]);
-                Input::controllers[event.cdevice.which] = 0;
+                SDL_GameControllerClose(AXInput::controllers[event.cdevice.which]);
+                AXInput::controllers[event.cdevice.which] = 0;
             }else if(event.type == SDL_CONTROLLERAXISMOTION){
-                Input::setAxisValue(AX_INPUT_CONTROLLER_AXIS_OFFSET+event.caxis.axis+AX_INPUT_CONTROLLER_OFFSET*(event.caxis.which+1), event.caxis.value);
+                AXInput::setAxisValue(AX_INPUT_CONTROLLER_AXIS_OFFSET+event.caxis.axis+AX_INPUT_CONTROLLER_OFFSET*(event.caxis.which+1), event.caxis.value);
             }else if(event.type == SDL_WINDOWEVENT){
                 if(event.window.event == SDL_WINDOWEVENT_FOCUS_GAINED){
                     inFocus = true;

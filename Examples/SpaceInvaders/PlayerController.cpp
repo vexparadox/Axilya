@@ -2,13 +2,13 @@
 #include "Bullet.hpp"
 
 void PlayerController::update(){
-	if(Input::getValue("D") || Input::getValue("RIGHT")){
+	if(AXInput::getValue("D") || AXInput::getValue("RIGHT")){
 		owner->moveEntity(3, 0);
-	}else if(Input::getValue("A") || Input::getValue("LEFT")){
+	}else if(AXInput::getValue("A") || AXInput::getValue("LEFT")){
 		owner->moveEntity(-3, 0);
 	}
 
-	if(Input::getValue("SPACE") && bullet == 0){
+	if(AXInput::getValue("SPACE") && bullet == 0){
 		Entity* e = getScene()->instantiate("bullet", 
 			prefabManager->getPrefab("bullet"),
 			new Transform(

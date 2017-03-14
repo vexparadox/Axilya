@@ -1,20 +1,20 @@
 #include <iostream>
-#include "headers/Input.hpp"
+#include "headers/AXInput.hpp"
 
-bool Input::keyIsPressed = false;
-bool Input::mouseIsPressed = false;
-int Input::keyCode = 0;
-int Input::mouseButton = -1;
-int Input::mouseX = 0;
-int Input::mouseY = 0;
-int Input::inputsPressed = 0;
-int Input::mouseButtonsPressed = 0;
-SDL_GameController* Input::controllers[4];
-std::vector<Key*> Input::inputs;
-std::unordered_map<int, Key*> Input::inputCodes;
-std::unordered_map<std::string, Key*> Input::inputNames;
+bool AXInput::keyIsPressed = false;
+bool AXInput::mouseIsPressed = false;
+int AXInput::keyCode = 0;
+int AXInput::mouseButton = -1;
+int AXInput::mouseX = 0;
+int AXInput::mouseY = 0;
+int AXInput::inputsPressed = 0;
+int AXInput::mouseButtonsPressed = 0;
+SDL_GameController* AXInput::controllers[4];
+std::vector<Key*> AXInput::inputs;
+std::unordered_map<int, Key*> AXInput::inputCodes;
+std::unordered_map<std::string, Key*> AXInput::inputNames;
 
-void Input::init() {
+void AXInput::init() {
     inputs.reserve(111);
     inputs.push_back(new Key("SPACE", SDL_SCANCODE_SPACE));
     inputs.push_back(new Key("A", SDL_SCANCODE_A));
@@ -172,13 +172,13 @@ void Input::init() {
 }
 
 
-void Input::mousePressed(int button){
+void AXInput::mousePressed(int button){
     mouseButton = button;
     mouseIsPressed = true;
     mouseButtonsPressed++;
 }
 
-void Input::mouseReleased(int button){
+void AXInput::mouseReleased(int button){
     mouseButtonsPressed--;
     if(mouseButtonsPressed < 1){
         mouseIsPressed = false;
@@ -186,7 +186,7 @@ void Input::mouseReleased(int button){
     }
 }
 
-void Input::setKeyDown(int key){
+void AXInput::setKeyDown(int key){
     keyCode = key;
     inputsPressed++;
     keyIsPressed = true;
@@ -195,13 +195,13 @@ void Input::setKeyDown(int key){
     }
 }
 
-void Input::setAxisValue(int key, int value){
+void AXInput::setAxisValue(int key, int value){
     if(inputCodes.find(key) != inputCodes.end()){
         inputCodes.at(key)->setValue(value);
     }
 }
 
-void Input::setKeyUp(int key){
+void AXInput::setKeyUp(int key){
     inputsPressed++;
     if(inputCodes.find(key) != inputCodes.end()){
         inputCodes.at(key)->setValue(0);
@@ -212,14 +212,14 @@ void Input::setKeyUp(int key){
     }
 }
 
-int Input::getValue(const std::string& key){
+int AXInput::getValue(const std::string& key){
     if(inputNames.find(key) != inputNames.end()){
         return inputNames.at(key)->getValue();
     }
     return 0;
 }
 
-int Input::numControllers(){
+int AXInput::numControllers(){
     int i = 0;
     for(int j = 0; j < 4; j++){
         if(controllers[j]){
@@ -229,15 +229,15 @@ int Input::numControllers(){
     return i;
 }
 
-int Input::keyUp(){
+int AXInput::keyUp(){
     return getValue("UP");
 }
-int Input::keyDown(){
+int AXInput::keyDown(){
     return getValue("DOWN");
 }
-int Input::keyRight(){
+int AXInput::keyRight(){
     return getValue("RIGHT");
 }
-int Input::keyLeft(){
+int AXInput::keyLeft(){
     return getValue("LEFT");
 }

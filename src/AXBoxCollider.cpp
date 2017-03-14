@@ -84,10 +84,10 @@ int AXBoxCollider::checkMovement(Entity* e, Math::Vector2D& proposedMovement){
 }
 
 void AXBoxCollider::mouseCheck(){
-    if(Math::isInsideQuad(Input::mouseX, Input::mouseY, bounds->getPosition().x+owner->getScene()->getRenderOffset().x, bounds->getPosition().y+owner->getScene()->getRenderOffset().y, bounds->getPosition().x+bounds->getSize().x+owner->getScene()->getRenderOffset().x, bounds->getPosition().y+bounds->getSize().y+owner->getScene()->getRenderOffset().y)){
+    if(Math::isInsideQuad(AXInput::mouseX, AXInput::mouseY, bounds->getPosition().x+owner->getScene()->getRenderOffset().x, bounds->getPosition().y+owner->getScene()->getRenderOffset().y, bounds->getPosition().x+bounds->getSize().x+owner->getScene()->getRenderOffset().x, bounds->getPosition().y+bounds->getSize().y+owner->getScene()->getRenderOffset().y)){
         owner->onHover();
-        if(Input::mouseIsPressed){
-            owner->onClick(Input::mouseButton);
+        if(AXInput::mouseIsPressed){
+            owner->onClick(AXInput::mouseButton);
         }
     }
 }

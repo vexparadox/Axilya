@@ -7,15 +7,15 @@ void PlayerMove::start(){
 void PlayerMove::update(){
 	if(rb){
 		//if the D key is pressed, move to the right
-		if(Input::getValue("D")){
+		if(AXInput::getValue("D")){
 			rb->addForce(1, 0);
 		}
 		//if the A key is pressed, move to the left
-		if(Input::getValue("A")){
+		if(AXInput::getValue("A")){
 			rb->addForce(-1, 0);
 		}
 		//if the S key is pressed, move upwards
-		if(Input::getValue("W") && owner->isGrounded()){
+		if(AXInput::getValue("W") && owner->isGrounded()){
 			rb->addForce(0, -30);
 		}	
 	}

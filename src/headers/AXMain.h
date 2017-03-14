@@ -46,7 +46,7 @@
 #include "StaticSprite.hpp"
 #include "AnimatedSprite.hpp"
 #include "Tile.hpp"
-#include "Input.hpp"
+#include "AXInput.hpp"
 #include "ResourceManager.hpp"
 #include "PrefabManager.hpp"
 #include "EntityDrawTypes.hpp"

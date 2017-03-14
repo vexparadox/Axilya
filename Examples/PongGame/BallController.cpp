@@ -8,7 +8,7 @@ void BallController::start(){
 void BallController::update(){
 	if(hasStarted){
 		owner->moveEntity(velocity);
-	}else if(Input::getValue("SPACE")){
+	}else if(AXInput::getValue("SPACE")){
 		hasStarted = true;
 		velocity.x = 4;
 		velocity.y = rand()%2;

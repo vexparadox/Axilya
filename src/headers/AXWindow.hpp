@@ -34,7 +34,7 @@
 #define AXWindow_hpp
 #include <vector>
 #include "Scene.hpp"
-#include "Input.hpp"
+#include "AXInput.hpp"
 #include "WindowTypes.hpp"
 #include "AXNetwork.hpp"
 #include <SDL2/SDL.h>

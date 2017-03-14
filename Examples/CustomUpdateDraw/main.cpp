@@ -9,7 +9,7 @@
 
 int x = 0;
 void update(){
-    if(Input::getValue("D")){
+    if(AXInput::getValue("D")){
         x++;
     }
 }
