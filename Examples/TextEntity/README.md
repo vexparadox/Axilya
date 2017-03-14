@@ -1,0 +1,1 @@
+This example is showing how to load in a font.ttf file and use it to attach text to an Entity that has a collider and gravity

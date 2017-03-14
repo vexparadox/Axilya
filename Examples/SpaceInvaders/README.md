@@ -1,0 +1,1 @@
+This example is showing how to use multiple complex systems such as Animated Sprites, the Prefab Manager, the Resource Manager and Components that talk to each other. It shows you how to create animations.

@@ -1,0 +1,1 @@
+This example is uses the Prefab Manager and Game Master to reacreate a Breakout styled game, it also shows you how to lock and hide the cursor.

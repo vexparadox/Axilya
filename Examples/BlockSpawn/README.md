@@ -1,0 +1,1 @@
+This example shows you how to use the Custom Update and Draw methods with the ECS. This is a little quick and dirty, real games should use more complex methods like the Space Invaders or Breakout games.

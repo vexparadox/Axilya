@@ -1,0 +1,1 @@
+This example is the most basic of them all and simply shows you how to create a window, a Scene and Entity.
