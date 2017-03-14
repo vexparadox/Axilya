@@ -1,4 +1,5 @@
 #include "headers/AXFont.hpp"
+#include "headers/AXWindow.hpp"
 AXFont::AXFont(int id) : id(id){
 }
 
@@ -24,6 +25,35 @@ bool AXFont::loadFont(const std::string& p, int size){
 	return true;
 }
 
+SDL_Texture* AXFont::bakeTexture(const std::string string, AXGraphics::Colour& colour){
+	if(hasLoaded){
+		SDL_Surface* temp = TTF_RenderUTF8_Blended(fontData, string.c_str(), colour.toSDL());
+		if(!temp){
+			std::cout << "Font failed to bake! SDL Error: " << TTF_GetError() << std::endl;
+			return 0;
+		}
+		SDL_Texture* texture = SDL_CreateTextureFromSurface(AXWindow::renderer, temp);
+		if(!texture){
+			std::cout << "Font failed to bake! SDL Error: " << SDL_GetError() << std::endl;
+			return 0;
+		}
+		SDL_FreeSurface(temp);
+		return texture;
+	}
+	std::cout << "Font not loaded, bake failed" << std::endl;
+	return 0;
+}
+
+Math::Vector2D AXFont::getStringSize(const std::string string){
+	Math::Vector2D size;
+	if(hasLoaded){
+		int width, height;
+		TTF_SizeText(fontData, string.c_str(), &width, &height);
+		size.x = width;
+		size.y = height;
+	}
+	return size;
+}
 
 TTF_Font* AXFont::getFontData(){
 	return fontData;

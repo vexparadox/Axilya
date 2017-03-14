@@ -36,10 +36,12 @@
 #include "ResourceManager.hpp"
 #include "PrefabManager.hpp"
 #include <stdio.h>
-#include "Math.h"
+#include "AXMath.hpp"
 
 class Entity;
 class Scene;
+class Transform;
+class Renderer;
 class Component{
 protected:
     ResourceManager* resourceManager = ResourceManager::getInstance();
@@ -52,6 +54,10 @@ protected:
     * The Transform that's attached to the Entity that owns this Component
     */ 
     Transform* transform = 0;
+    /*!
+    * The Renderer that's attached to the Entity that owns this Component
+    */ 
+    Renderer* renderer = 0;
     Component();
 public:
     /*!

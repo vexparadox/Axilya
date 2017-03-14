@@ -57,13 +57,14 @@ namespace AXGraphics{
         /*!
         * The constructor for this Colour
         *
-        * The r, g, b, a values will be set to 0 by default
+        * The r, g, b values will be set to 0 by default
+        * The a value will be set to 255
         */ 
         Colour(){
             r = 0;
             g = 0;
             b = 0;
-            a = 0;
+            a = 255;
         }
         /*!
         * A method to set this Colour's values

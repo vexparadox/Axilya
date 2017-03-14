@@ -12,8 +12,13 @@
 #include "headers/AXWindow.hpp"
 #include "headers/SDL2_gfxPrimitives.h"
 namespace AXGraphics{
-
     //Textures
+    void drawSDLTexture(SDL_Texture* t, float x, float y, float w, float h){
+        SDL_Rect dest = {.x = (int)x, .y = (int)y, .w = (int)w, .h = (int)h};
+        if(SDL_RenderCopy(AXWindow::renderer, t, NULL, &dest) != 0){
+            std::cout << SDL_GetError() << std::endl;
+        }
+    }
     void drawTexture(AXTexture* t, float x, float y, float w, float h){
         if(!t->isLoaded()){
             std::cout << "The AXTexture data is empty, canceling draw." << std::endl;

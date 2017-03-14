@@ -1,5 +1,5 @@
-#include "headers/stb_truetype.hpp"
 #include "headers/AXStaticText.hpp"
+#include "headers/AXGraphics.hpp"
 
 AXStaticText::AXStaticText(const std::string& name, const std::string& text, AXFont* font) : text(text){
 	this->name = name;
@@ -24,28 +24,16 @@ bool AXStaticText::bakeText(){
 			if(this->isBaked && this->texture){
 				SDL_DestroyTexture(this->texture);
 			}
-			SDL_Surface* temp = TTF_RenderUTF8_Blended(this->font->getFontData(), text.c_str(), this->colour);
-			if(!temp){
-				std::cout << "Font failed to bake! SDL Error: " << TTF_GetError() << std::endl;
+			this->texture = this->font->bakeTexture(this->text, this->colour);
+			if(!texture){
 				isBaked = false;
 				return false;
 			}
-			if(TTF_SizeText(this->font->getFontData(), text.c_str(), &this->width, &this->height) == -1){
-				std::cout << "Font failed to bake! SDL Error: " << TTF_GetError() << std::endl;
-				isBaked = false;
-				return false;
-			}
+			Math::Vector2D t = this->font->getStringSize(this->text);
 			if(owner){
 				//resize the entity to the size of this text
-				owner->resizeEntity(width, height);
+				owner->resizeEntity(t.x, t.y);
 			}
-			this->texture = SDL_CreateTextureFromSurface(AXWindow::renderer, temp);
-			if(!texture){
-				std::cout << "Font failed to bake! SDL Error: " << SDL_GetError() << std::endl;
-				isBaked = false;
-				return false;
-			}
-			SDL_FreeSurface(temp);
 			isBaked = true;
 			return true;
 		}
@@ -70,8 +58,7 @@ void AXStaticText::setFont(int id){
 
 void AXStaticText::draw(float x, float y){
 	if(texture && isBaked){
-		SDL_Rect dest = {.x = (int)x, .y = (int)y, .w = this->width, .h = this->height};
-		SDL_RenderCopy(AXWindow::renderer, texture, NULL, &dest);
+		AXGraphics::drawSDLTexture(texture, x, y, width, height);
 	}
 }
 

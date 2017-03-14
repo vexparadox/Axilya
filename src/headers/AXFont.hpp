@@ -33,8 +33,8 @@
  */
 #ifndef AXFont_hpp
 #define AXFont_hpp
-#include "AXWindow.hpp"
 #include <SDL2_ttf/SDL_ttf.h>
+#include "AXGraphics.hpp"
 class AXFont{
 	bool hasLoaded;
 	std::string path;
@@ -55,6 +55,22 @@ public:
    * This will release the glyph map and character data stored. Do not manually delete resources loaded by the ResourceManger
    */
 	~AXFont();
+   /*!
+   * A method to bake a texture of a string using this AXFont
+   *
+   * @param string the string to bake
+   * @param colour the colour to bake
+   * @return the baked texture
+   * @see AXGraphics::drawSDLTexture to draw
+   */
+   SDL_Texture* bakeTexture(const std::string string, AXGraphics::Colour& colour);
+
+   /*!
+   * A method to get the pixel size of a baked string using this AXFont
+   *
+   * @return A 2D Vector that holds (w, h)
+   */
+   Math::Vector2D getStringSize(const std::string string);
 	/*!
    * A method to load a font file
    *

@@ -8,6 +8,8 @@
 
 #include "headers/Component.hpp"
 #include "headers/Entity.hpp"
+#include "headers/Transform.hpp"
+#include "headers/Renderer.hpp"
 
 Component::Component(){
 }
@@ -26,4 +28,5 @@ Scene* Component::getScene() {
 void Component::setOwner(Entity* o){
     this->owner = o;
     this->transform = owner->getTransform();
+    this->renderer = owner->getRenderer();
 }

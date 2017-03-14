@@ -43,7 +43,7 @@ protected:
    int height, width;
    std::string name;
    Entity* owner = 0;
-   SDL_Color colour = {0, 0, 0, 255}; 
+   AXGraphics::Colour colour;
 public:
    /*!
    * A method to sets the owner of this AXText
@@ -81,10 +81,7 @@ public:
    * @param a the alpha value of the colour
    */
    void setColour(int r, int g, int b, int a){
-      colour.r = (Uint8)r;
-      colour.g = (Uint8)g;
-      colour.b = (Uint8)b;
-      colour.a = (Uint8)a;
+      colour.set(r, g, b, a);
    }
       /*!
    * A method to get the name of this AXText
