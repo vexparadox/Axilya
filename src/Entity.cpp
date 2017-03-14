@@ -253,7 +253,7 @@ Transform* Entity::getTransform(){
     return transform;
 }
 
-void Entity::addCollider(Collider* c){
+void Entity::addCollider(AXCollider* c){
     if(c){
         if(collider){
             delete collider;
@@ -304,7 +304,7 @@ bool Entity::isActive(){
     return this->active;
 }
 
-Collider* Entity::getCollider(){
+AXCollider* Entity::getCollider(){
     return collider;
 }
 

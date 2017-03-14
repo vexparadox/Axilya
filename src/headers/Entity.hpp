@@ -63,7 +63,7 @@ class Entity{
 
     //a list of standard components, these are presets
     Transform* transform = 0;
-    Collider* collider = 0;
+    AXCollider* collider = 0;
     RigidBody* rigidBody = 0;
 
     //the last collisions
@@ -263,9 +263,9 @@ public:
     /*!
     * A method to get if this Entity is grounded
     *
-    * An Entity is grounded if the attached Collider has reported a bottom collision in the last frame
+    * An Entity is grounded if the attached AXCollider has reported a bottom collision in the last frame
     *
-    * Will return false if there's no Collider attached
+    * Will return false if there's no AXCollider attached
     * @return if this Entity is grounded
     */ 
     bool isGrounded();
@@ -314,7 +314,7 @@ public:
     /*!
     * A method that calls onClick on all Components attached to this Enitity
     *
-    * This is called by the Collider when the it's clicked on
+    * This is called by the AXCollider when the it's clicked on
     *
     * Catch this call inside of a Component
     * @param mouseButton the mouse button that was pressed
@@ -323,7 +323,7 @@ public:
     /*!
     * A method that calls onDestroy on all Components attached to this Enitity
     *
-    * This is called by the Scene just before the Collider is destroyed
+    * This is called by the Scene just before the AXCollider is destroyed
     * 
     * Catch this call inside of a Component
     */
@@ -331,24 +331,24 @@ public:
     /*!
     * A method that calls onHover on all Components attached to this Enitity
     *
-    * This is called by the Collider when the mouse is over the Entity
+    * This is called by the AXCollider when the mouse is over the Entity
     * Catch this call inside of a Component
     */
     void onHover();
     /*!
-    * A method that adds a Collider to this Entity
+    * A method that adds a AXCollider to this Entity
     *
-    * This method will set the owner in the Collider
-    * @param coll the Collider to be attached
+    * This method will set the owner in the AXCollider
+    * @param coll the AXCollider to be attached
     */
-    void addCollider(Collider* coll);
+    void addCollider(AXCollider* coll);
 
     /*!
-    * A method that gets the Collider on this Entity
+    * A method that gets the AXCollider on this Entity
     *
-    * @return the Collider that's attached
+    * @return the AXCollider that's attached
     */
-    Collider* getCollider();
+    AXCollider* getCollider();
     /*!
     * A method that attaches a Component to this Entity
     *

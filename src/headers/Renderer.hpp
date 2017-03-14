@@ -37,9 +37,10 @@
 #include <SDL2/SDL.h>
 #include "EntityDrawTypes.hpp"
 #include "Sprite.hpp"
+#include "Component.hpp"
 class Entity;
 class AXText;
-class Renderer {
+class Renderer : public Component{
     std::unordered_map<std::string, Sprite*> sprites;
     std::unordered_map<std::string, AXText*> texts;
     Sprite* currentSprite = 0;

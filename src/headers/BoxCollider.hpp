@@ -33,20 +33,20 @@
 #ifndef BoxCollider_h
 #define BoxCollider_h
 
-#include "Collider.hpp"
+#include "AXCollider.hpp"
 #include "AXWindow.hpp"
 #include "CollideDirections.hpp"
 class Entity;
-class BoxCollider : public Collider{
+class BoxCollider : public AXCollider{
 public:
     /*!
     * The constructor of a BoxCollider
     *
-    * The bounds of this Collider will default to those defined by the Entity's Transform Component.
+    * The bounds of this AXCollider will default to those defined by the Entity's Transform Component.
     */
     BoxCollider();
 	/*!
-    * A method to check this Collider's bounds against the screen (if screen bound) and the World and correct collisions that occur.
+    * A method to check this AXCollider's bounds against the screen (if screen bound) and the World and correct collisions that occur.
     *
     * This method will be called repeatedly until it returns 0.
     * @param v the proposed movement of this Entity, the values will be set to 0 if a collision occurs.
@@ -54,26 +54,26 @@ public:
     */
     int worldCollideCheck(Math::Vector2D& v);
 	/*!
-    * A method to check this Collider's bounds against the  and correct collisions that occur.
+    * A method to check this AXCollider's bounds against the  and correct collisions that occur.
     *
-    * This method will be called repeatedly until it returns 0 and will only be called if e has a Collider.
-    * @param e the Entity that is checked against this Collider's bounds
+    * This method will be called repeatedly until it returns 0 and will only be called if e has a AXCollider.
+    * @param e the Entity that is checked against this AXCollider's bounds
     * @param v the proposed movement of e, the values will be set to 0 if a collision occurs.
     * @return Will return the direction of the collision that happened AX_COLLIDE_UP/DOWN/RIGHT/LEFT or 0 if none occurred.
     */
     int checkMovement(Entity* e, Math::Vector2D& v);
 	/*!
-    * A method to check the mouse position is over this Collider's bounds.
+    * A method to check the mouse position is over this AXCollider's bounds.
     *
-    * This method will call onClick() and onHover() on this Collider's Entity
+    * This method will call onClick() and onHover() on this AXCollider's Entity
     */
     void mouseCheck();
 	/*!
-    * A method to clone this Collider.
+    * A method to clone this AXCollider.
     *
     * @return A clone of this BoxCollider
     */
-    Collider* clone();
+    AXCollider* clone();
 };
 
 #endif

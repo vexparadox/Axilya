@@ -28,67 +28,67 @@
  *
  * @section DESCRIPTION
  *
- * This is a base class for Colliders that detect and resolve collisions between Entities and Worlds.
+ * This is a base class for AXColliders that detect and resolve collisions between Entities and Worlds.
  */
-#ifndef Collider_hpp
-#define Collider_hpp
+#ifndef AXCollider_hpp
+#define AXCollider_hpp
 
 #include <stdio.h>
 #include "Types.h"
 class Entity;
-class Collider{
+class AXCollider{
 public:
     Math::Vector2D center, halfSize;
     Shape* bounds;
     Entity* owner = 0;
     bool screenBound;
     /*!
-    * The constuctor of the base class Collider.
+    * The constuctor of the base class AXCollider.
     *
-    * The bounds of this Collider will default to those defined by the Entity's Transform Component.
+    * The bounds of this AXCollider will default to those defined by the Entity's Transform Component.
     */    
-    Collider();
-    virtual ~Collider();
+    AXCollider();
+    virtual ~AXCollider();
     /*!
-    * A method to get the bounds of this Collider.
+    * A method to get the bounds of this AXCollider.
     *
-    * @return The Shape of this Collider's bounds
+    * @return The Shape of this AXCollider's bounds
     */    
     Shape* getBounds();
     /*!
-    * A method to set the Entity that owns this Collider.
+    * A method to set the Entity that owns this AXCollider.
     *
-    * @param e The owner of this Collider
+    * @param e The owner of this AXCollider
     */   
     void setOwner(Entity* e);
     /*!
-    * A method to get the Entity that owns this Collider.
+    * A method to get the Entity that owns this AXCollider.
     *
-    * @return The owner of this Collider
+    * @return The owner of this AXCollider
     */   
     Entity* getOwner();
     /*!
-    * A virtual method to check the mouse position against this Collider's bounds.
+    * A virtual method to check the mouse position against this AXCollider's bounds.
     */
     virtual void mouseCheck() = 0;
     /*!
-    * A virtual method to check this Collider's bounds against the screen and World.
+    * A virtual method to check this AXCollider's bounds against the screen and World.
     *
     * @return Will return the direction of the collision that happened AX_COLLIDE_UP/DOWN/RIGHT/LEFT or 0 if none occurred.
     */
     virtual int worldCollideCheck(Math::Vector2D&) = 0;
     /*!
-    * A virtual method to check this Collider's bounds against another Entity's Collider.
+    * A virtual method to check this AXCollider's bounds against another Entity's AXCollider.
     *
     * @return Will return the direction of the collision that happened AX_COLLIDE_UP/DOWN/RIGHT/LEFT or 0 if none occurred.
     */
     virtual int checkMovement(Entity*, Math::Vector2D&) = 0;
     /*!
-    * A virtual method to clone this Collider.
+    * A virtual method to clone this AXCollider.
     *
-    * @return a clone of this Collider.
+    * @return a clone of this AXCollider.
     */
-    virtual Collider* clone() = 0;
+    virtual AXCollider* clone() = 0;
 };	
 
 #endif

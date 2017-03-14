@@ -35,7 +35,7 @@
 
 #include "RigidBody.hpp"
 #include "Transform.hpp"
-#include "Collider.hpp"
+#include "AXCollider.hpp"
 #include "BoxCollider.hpp"
 #include "CustomComponent.hpp"
 #include "CollideDirections.hpp"
