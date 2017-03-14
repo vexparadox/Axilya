@@ -1,6 +1,7 @@
 #include "headers/AXFont.hpp"
 #include "headers/AXWindow.hpp"
-AXFont::AXFont(int id) : AXResource(id){
+AXFont::AXFont(int id, const std::string& p, int size) : AXResource(id){
+	loadFont(p, size);
 }
 
 AXFont::AXFont(const std::string& p, int size) : AXResource(-1){

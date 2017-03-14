@@ -47,14 +47,16 @@ public:
    *
    * It's not recommended that you construct your own AXFont, see the ResourceManager.
    * @param id this ID will be given by the ResourceManager when it's created
+   * @param p the path of the font file
+   * @param size the size of the font to load
    */
-	AXFont(int id);
+	AXFont(int id, const std::string& p, int size);
    /*!
    * The constructor of an AXFont
    *
    * It's not recommended that you construct your own AXFont as it's more complex to manually render.
-   * Use this constructor when not using the ECS
-   * @param p the path of the font data
+   * Use this constructor when not using the ECS, the ID is not needed to simply render text.
+   * @param p the path of the font file
    * @param size the size of the font to load
    */
    AXFont(const std::string& p, int size);

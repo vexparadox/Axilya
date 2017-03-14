@@ -45,8 +45,8 @@ int ResourceManager::addFont(const std::string& s, int size){
     }
     //attempt to load the file given
     int id = fonts.size(); // get the new id
-    AXFont* tempFont = new AXFont(id); // create the AXTexture
-    if(tempFont->loadFont(s, size)){
+    AXFont* tempFont = new AXFont(id, s, size); // create the AXTexture
+    if(tempFont->isLoaded()){
         fonts.push_back(tempFont); // push it back
         fontMap.insert(std::pair<std::string, AXFont*>(s, tempFont));
         return id; // return the new id
