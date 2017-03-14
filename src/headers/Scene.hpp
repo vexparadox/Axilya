@@ -72,39 +72,39 @@ public:
     void update();
     
     /*!
-    * A method to draw all AXEntity's and therefore Renderer's in the Scene
+    * A method to draw all AXEntity's and therefore AXRenderer's in the Scene
     *
     * This method is called every frame by the AXWindow
     */
     void draw();
     /*!
-    * A method to get the Renderer offset
+    * A method to get the AXRenderer offset
     *
-    * @return the vector of how the Renderer is being offset
+    * @return the vector of how the AXRenderer is being offset
     */
     Math::Vector2D& getRenderOffset();
     /*!
-    * A method to add to the Renderer offset
+    * A method to add to the AXRenderer offset
     *
     * @param x how much to offset in the x axis
     * @param y how much to offset in the y axis
     */
     void offsetRenderer(float x, float y);
     /*!
-    * A method to add to the Renderer offset
+    * A method to add to the AXRenderer offset
     *
-    * @param v how much to offset the Renderer (x, y)
+    * @param v how much to offset the AXRenderer (x, y)
     */
     void offsetRenderer(Math::Vector2D& v);
     /*!
-    * A method to set the Renderer offset
+    * A method to set the AXRenderer offset
     *
     * @param x the offset to set in the x axis
     * @param y the offset to set in the y axis
     */
     void setRenderOffset(float x, float y);
     /*!
-    * A method to set the Renderer offset
+    * A method to set the AXRenderer offset
     *
     * @param v a vector to set the offset to (x, y)
     */

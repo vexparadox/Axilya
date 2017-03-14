@@ -41,7 +41,7 @@
 class AXEntity;
 class Scene;
 class Transform;
-class Renderer;
+class AXRenderer;
 class Component{
 protected:
     ResourceManager* resourceManager = ResourceManager::getInstance();
@@ -55,9 +55,9 @@ protected:
     */ 
     Transform* transform = 0;
     /*!
-    * The Renderer that's attached to the AXEntity that owns this Component
+    * The AXRenderer that's attached to the AXEntity that owns this Component
     */ 
-    Renderer* renderer = 0;
+    AXRenderer* renderer = 0;
     Component();
 public:
     /*!

@@ -40,7 +40,7 @@
 #include "Component.hpp"
 class AXEntity;
 class AXText;
-class Renderer : public Component{
+class AXRenderer : public Component{
     std::unordered_map<std::string, AXSprite*> sprites;
     std::unordered_map<std::string, AXText*> texts;
     AXSprite* currentSprite = 0;
@@ -52,21 +52,21 @@ class Renderer : public Component{
     int drawType = AX_DRAW_RECT;
 public:
    /*!
-   * The constructor of a Renderer
+   * The constructor of a AXRenderer
    * 
    * This is called when an AXEntity is created
    */
-    Renderer();
+    AXRenderer();
    /*!
-   * The deconstructor of a Renderer
+   * The deconstructor of a AXRenderer
    * 
-   * This will delete all the Sprites and AXText stored in this Renderer, it won't delete resources
+   * This will delete all the Sprites and AXText stored in this AXRenderer, it won't delete resources
    */
-    ~Renderer();
+    ~AXRenderer();
    /*!
-   * A method to set which AXEntity owns this Renderer
+   * A method to set which AXEntity owns this AXRenderer
    * 
-   * @param entity The AXEntity that owns this Renderer
+   * @param entity The AXEntity that owns this AXRenderer
    */
     void setOwner(AXEntity* entity);
    /*!
@@ -108,14 +108,14 @@ public:
    */
     AXSprite* getCurrentSprite();
    /*!
-   * A method to get the Colour of this Renderer
+   * A method to get the Colour of this AXRenderer
    * 
    * Note that colours only take place when drawing basic shapes, AXText and AXSprite's have their own Colour methods
-   * @return the current Colour of this Renderer
+   * @return the current Colour of this AXRenderer
    */
     AXGraphics::Colour& getColour();
    /*!
-   * A method to set the Colour of this Renderer
+   * A method to set the Colour of this AXRenderer
    * 
    * Note that colours only take place when drawing basic shapes, AXText and AXSprite's have their own Colour methods
    *
@@ -127,7 +127,7 @@ public:
    */
     void setColour(float r, float g, float b, float a);
    /*!
-   * A method to set the Colour of this Renderer
+   * A method to set the Colour of this AXRenderer
    * 
    * Note that colours only take place when drawing basic shapes, AXText and AXSprite's have their own Colour methods
    *
@@ -140,37 +140,37 @@ public:
    */
     void setColour(float r, float g, float b);
    /*!
-   * A method to set the Colour of this Renderer
+   * A method to set the Colour of this AXRenderer
    * 
    * Note that colours only take place when drawing basic shapes, AXText and AXSprite's have their own Colour methods
-   * @param c the Colour object to set this Renderer to
+   * @param c the Colour object to set this AXRenderer to
    */
     void setColour(const AXGraphics::Colour& c);
    /*!
-   * A method to get the DrawType of this Renderer
+   * A method to get the DrawType of this AXRenderer
    * 
-   * @return the DrawType of this Renderer (AX_DRAW_RECT/AX_DRAW_ELLIPSE/AX_DRAW_TEXT/AX_DRAW_SPRITE/AX_DRAW_NONE)
+   * @return the DrawType of this AXRenderer (AX_DRAW_RECT/AX_DRAW_ELLIPSE/AX_DRAW_TEXT/AX_DRAW_SPRITE/AX_DRAW_NONE)
    */
     int getDrawType();
    /*!
-   * A method to set the DrawType of this Renderer
+   * A method to set the DrawType of this AXRenderer
    * 
-   * @param type the DrawType of this Renderer (AX_DRAW_RECT/AX_DRAW_ELLIPSE/AX_DRAW_TEXT/AX_DRAW_SPRITE/AX_DRAW_NONE)
+   * @param type the DrawType of this AXRenderer (AX_DRAW_RECT/AX_DRAW_ELLIPSE/AX_DRAW_TEXT/AX_DRAW_SPRITE/AX_DRAW_NONE)
    */
     void setDrawType(int type);
    /*!
-   * A method to draw this Renderer
+   * A method to draw this AXRenderer
    * 
    * This method is called by the AXEntity and Scene class, don't call it yourself
    * @param offset the offset to draw by
    */
     void draw(const Math::Vector2D& offset);
    /*!
-   * A method to clone this Renderer
+   * A method to clone this AXRenderer
    * 
-   * @return a clone of this Renderer
+   * @return a clone of this AXRenderer
    */
-    Renderer* clone();
+    AXRenderer* clone();
 };
 
 #endif

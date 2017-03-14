@@ -12,21 +12,21 @@
 AXEntity::AXEntity(const std::string& name, float x, float y, float w, float h) : name(name){
     transform = new Transform(x, y, w, h);
     transform->setOwner(this);
-    renderer = new Renderer();
+    renderer = new AXRenderer();
     renderer->setOwner(this);
 }
 
 AXEntity::AXEntity(const std::string& name, const Math::Vector2D& pos, const Math::Vector2D& size) : name(name){
     transform = new Transform(pos, size);
     transform->setOwner(this);
-    renderer = new Renderer();
+    renderer = new AXRenderer();
     renderer->setOwner(this);
 }
 
 AXEntity::AXEntity(const std::string& name): name(name){
     transform = new Transform(0, 0, 0, 0);
     transform->setOwner(this);
-    renderer = new Renderer();
+    renderer = new AXRenderer();
     renderer->setOwner(this);
     renderer->setDrawType(AX_DRAW_NONE);
 }
@@ -316,7 +316,7 @@ std::string& AXEntity::getName(){
     return this->name;
 }
 
-Renderer* AXEntity::getRenderer() {
+AXRenderer* AXEntity::getRenderer() {
     return renderer;
 }
 void AXEntity::setColour(float r, float g, float b, float a){

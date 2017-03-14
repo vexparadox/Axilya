@@ -57,7 +57,7 @@ public:
     */
     ~AXStaticSprite();
     /*!
-    * A method to draw this AXStaticSprite, this is called by the Renderer
+    * A method to draw this AXStaticSprite, this is called by the AXRenderer
     *
     * @param x the x position to draw this AXStaticSprite 
     * @param y the y position to draw this AXStaticSprite

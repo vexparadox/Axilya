@@ -2,16 +2,16 @@
 // Created by William Meaton on 02/09/2016.
 //
 
-#include "headers/Renderer.hpp"
+#include "headers/AXRenderer.hpp"
 #include "headers/AXEntity.hpp"
 #include "headers/AXText.hpp"
 
 
-Renderer::Renderer(){
+AXRenderer::AXRenderer(){
      this->colour = AXGraphics::Colour(0, 0, 0, 255);
 }
 
-Renderer::~Renderer(){
+AXRenderer::~AXRenderer(){
     for(auto it = sprites.begin(); it != sprites.end(); it++){
        delete it->second;
     }
@@ -20,7 +20,7 @@ Renderer::~Renderer(){
     }
 }
 
-void Renderer::addSprite(AXSprite *s) {
+void AXRenderer::addSprite(AXSprite *s) {
     if(s) {
         sprites.insert(std::pair<std::string, AXSprite *>(s->getName(), s));
         currentSprite = s;
@@ -28,7 +28,7 @@ void Renderer::addSprite(AXSprite *s) {
     }
 }
 
-void Renderer::addText(AXText* text){
+void AXRenderer::addText(AXText* text){
     if(text){
         this->currentText = text;
         currentText->setOwner(owner);
@@ -38,33 +38,33 @@ void Renderer::addText(AXText* text){
     }
 }
 
-void Renderer::setText(const std::string& name){
+void AXRenderer::setText(const std::string& name){
     if(texts.find(name) != texts.end()){
         this->currentText = texts.at(name);
         this->setDrawType(AX_DRAW_TEXT);
     }
 }
 
-int Renderer::getDrawType(){
+int AXRenderer::getDrawType(){
     return drawType;
 }
 
-void Renderer::setDrawType(int type){
+void AXRenderer::setDrawType(int type){
     this->drawType = type;
 }
 
-void Renderer::setSprite(const std::string &name) {
+void AXRenderer::setSprite(const std::string &name) {
     if(sprites.find(name) != sprites.end()){
         this->currentSprite = sprites.at(name);
         this->setDrawType(AX_DRAW_SPRITE);
     }
 }
 
-AXSprite* Renderer::getCurrentSprite(){
+AXSprite* AXRenderer::getCurrentSprite(){
     return currentSprite;
 }
 
-void Renderer::draw(const Math::Vector2D& renderOffset) {
+void AXRenderer::draw(const Math::Vector2D& renderOffset) {
     Math::Vector2D position = owner->getTransform()->getPosition()+renderOffset;
     Math::Vector2D size = owner->getTransform()->getSize();
     //if there's a sprite
@@ -87,30 +87,30 @@ void Renderer::draw(const Math::Vector2D& renderOffset) {
     }
 }
 
-void Renderer::setOwner(AXEntity *owner) {
+void AXRenderer::setOwner(AXEntity *owner) {
     if(owner){
         this->owner = owner;
     }
 }
 
-AXGraphics::Colour& Renderer::getColour() {
+AXGraphics::Colour& AXRenderer::getColour() {
     return colour;
 }
 
-void Renderer::setColour(float r, float g, float b, float a){
+void AXRenderer::setColour(float r, float g, float b, float a){
     this->colour.set(r, g, b, a);
 }
 
-void Renderer::setColour(float r, float g, float b){
+void AXRenderer::setColour(float r, float g, float b){
     this->colour.set(r, g, b, 255);
 }
 
-void Renderer::setColour(const AXGraphics::Colour& c){
+void AXRenderer::setColour(const AXGraphics::Colour& c){
     this->colour.set(c.getR(), c.getG(), c.getB(), c.getA());
 }
 
-Renderer* Renderer::clone(){
-    Renderer* a = new Renderer();
+AXRenderer* AXRenderer::clone(){
+    AXRenderer* a = new AXRenderer();
     for(auto it = sprites.begin(); it != sprites.end(); it++){
         a->addSprite(it->second->clone());
     }

@@ -9,7 +9,7 @@
 #include "headers/Component.hpp"
 #include "headers/AXEntity.hpp"
 #include "headers/Transform.hpp"
-#include "headers/Renderer.hpp"
+#include "headers/AXRenderer.hpp"
 
 Component::Component(){
 }

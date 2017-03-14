@@ -28,7 +28,7 @@
  *
  * @section DESCRIPTION
  *
- * This is a base class of all Sprites that the Renderer can draw.
+ * This is a base class of all Sprites that the AXRenderer can draw.
  */
 #ifndef Sprite_hpp
 #define Sprite_hpp

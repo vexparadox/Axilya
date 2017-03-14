@@ -29,7 +29,7 @@
  * @section DESCRIPTION
  *
  * This class describes an Axilya AXEntity, all game objects are Entities in Axilya.
- * Entities are a collection of Components that update and draw, Transform and Renderer are attached by default.
+ * Entities are a collection of Components that update and draw, Transform and AXRenderer are attached by default.
  */
 
 #ifndef Entity_hpp
@@ -42,7 +42,7 @@
 #include "PrefabManager.hpp"
 //components
 #include "Components.h"
-#include "Renderer.hpp"
+#include "AXRenderer.hpp"
 #include "CollideDirections.hpp"
 class Scene;
 class AXEntity{
@@ -76,8 +76,8 @@ class AXEntity{
     //a list of custom components
     std::vector<Component*> components;
 
-    //Renderer holds all of the drawing capabilities of the Entitity
-    Renderer* renderer = 0;
+    //AXRenderer holds all of the drawing capabilities of the Entitity
+    AXRenderer* renderer = 0;
 
     void handle_eptr(std::exception_ptr);
 public:
@@ -109,7 +109,7 @@ public:
     /*!
     * The deconstructor of an AXEntity 
     *
-    * This will destroy all Component's attached to this AXEntity including the default Transform and Renderer
+    * This will destroy all Component's attached to this AXEntity including the default Transform and AXRenderer
     */ 
     ~AXEntity();
 
@@ -126,12 +126,12 @@ public:
     */ 
     void update();
     /*!
-    * A method that calls draw on the Renderer attached to this AXEntity
+    * A method that calls draw on the AXRenderer attached to this AXEntity
     *
     * This method is called by the Scene every frame of the game loop 
     *
-    * What the Renderer will draw is defined by the draw type and if there are any Sprites attached
-    * @param renderOffset passed by the Scene to tell if Renderer if there's any offset applied to the drawing positions
+    * What the AXRenderer will draw is defined by the draw type and if there are any Sprites attached
+    * @param renderOffset passed by the Scene to tell if AXRenderer if there's any offset applied to the drawing positions
     */ 
     void draw(const Math::Vector2D& renderOffset);
 
@@ -186,7 +186,7 @@ public:
     *
     * This doesn't take affect if there's a AXSprite being drawn
     *
-    * This method is calling another in the Renderer
+    * This method is calling another in the AXRenderer
     *
     * These values will be passed into a Colour object so will be clamped from 0-255
     * @param r the red value
@@ -200,7 +200,7 @@ public:
     *
     * This doesn't take affect if there's a AXSprite being drawn
     *
-    * This method is calling another in the Renderer
+    * This method is calling another in the AXRenderer
     *
     * These values will be passed into a Colour object so will be clamped from 0-255
     *
@@ -215,14 +215,14 @@ public:
     *
     * This doesn't take affect if there's a AXSprite being drawn
     *
-    * This method is calling another in the Renderer
+    * This method is calling another in the AXRenderer
     * @param c the Colour object this will draw at 
     */ 
     void setColour(const AXGraphics::Colour &c);
     /*!
     * A method that gets the Colour that this AXEntity is being drawn at
     *
-    * This method is calling another in the Renderer
+    * This method is calling another in the AXRenderer
     * @return the Colour object this AXEntity is being drawn at
     */ 
     AXGraphics::Colour& getColour();
@@ -363,11 +363,11 @@ public:
     */
     Transform* getTransform();
     /*!
-    * A method that gets the Renderer attached to this AXEntity
+    * A method that gets the AXRenderer attached to this AXEntity
     *
-    * @return the Renderer attache do this AXEntity
+    * @return the AXRenderer attache do this AXEntity
     */
-    Renderer* getRenderer();
+    AXRenderer* getRenderer();
     /*!
     * A method that gets the name of this AXEntity
     *
