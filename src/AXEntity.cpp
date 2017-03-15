@@ -327,10 +327,10 @@ void AXEntity::setColour(float r, float g, float b){
     renderer->setColour(r, g, b, 255);
 }
 
-void AXEntity::setColour(const AXGraphics::AXColour& c){
+void AXEntity::setColour(const AXColour& c){
     renderer->setColour(c.getR(), c.getG(), c.getB(), c.getA());
 }
 
-AXGraphics::AXColour& AXEntity::getColour(){
+AXColour& AXEntity::getColour(){
     return renderer->getColour();
 }

@@ -190,7 +190,7 @@ namespace AXGraphics{
     
     
     //FILLS
-    void fill(const AXGraphics::AXColour &c){
+    void fill(const AXColour &c){
         AXWindow::renderColour.set(c.getR(), c.getG(), c.getB(), c.getA());
         SDL_SetRenderDrawColor(AXWindow::renderer, c.getR(), c.getG(), c.getB(), c.getA());
     }

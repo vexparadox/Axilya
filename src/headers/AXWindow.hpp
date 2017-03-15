@@ -66,12 +66,12 @@ public:
     * A static AXColour variable that defines the background colour of the AXWindow
     * @see AXGraphics::setBackground()
     */
-    static AXGraphics::AXColour backgroundColour;
+    static AXColour backgroundColour;
     /*!
     * A static AXColour variable that defines the colour that shapes will be rendered in
     * @see AXGraphics::fill()
     */
-    static AXGraphics::AXColour renderColour;
+    static AXColour renderColour;
     
     /*!
     * A static method initialise the AXWindow

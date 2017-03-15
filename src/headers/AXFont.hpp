@@ -74,7 +74,7 @@ public:
    * @return the baked texture
    * @see AXGraphics::drawSDLTexture to draw
    */
-   SDL_Texture* bakeTexture(const std::string string, AXGraphics::AXColour& colour);
+   SDL_Texture* bakeTexture(const std::string string, AXColour& colour);
 
    /*!
    * A method to get the pixel size of a baked string using this AXFont

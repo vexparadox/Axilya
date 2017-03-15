@@ -260,7 +260,7 @@ namespace AXGraphics{
     * 
     * @param c the AXColour object that the fill is set to
     */
-    void fill(const AXGraphics::AXColour &c);
+    void fill(const AXColour &c);
 
     /*!
     * A function that sets the fill AXColour

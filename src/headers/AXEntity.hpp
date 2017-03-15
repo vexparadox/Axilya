@@ -218,14 +218,14 @@ public:
     * This method is calling another in the AXRenderer
     * @param c the AXColour object this will draw at 
     */ 
-    void setColour(const AXGraphics::AXColour &c);
+    void setColour(const AXColour &c);
     /*!
     * A method that gets the AXColour that this AXEntity is being drawn at
     *
     * This method is calling another in the AXRenderer
     * @return the AXColour object this AXEntity is being drawn at
     */ 
-    AXGraphics::AXColour& getColour();
+    AXColour& getColour();
     /*!
     * A method to set the AXScene that this AXEntity is in
     *

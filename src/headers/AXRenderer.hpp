@@ -47,7 +47,7 @@ class AXRenderer : public AXComponent{
     AXText* currentText = 0;
     AXEntity* owner = 0;
     //set a colour to be used in place of a sprite
-    AXGraphics::AXColour colour;
+    AXColour colour;
     //default to drawing a rect
     int drawType = AX_DRAW_RECT;
 public:
@@ -113,7 +113,7 @@ public:
    * Note that colours only take place when drawing basic shapes, AXText and AXSprite's have their own AXColour methods
    * @return the current AXColour of this AXRenderer
    */
-    AXGraphics::AXColour& getColour();
+    AXColour& getColour();
    /*!
    * A method to set the AXColour of this AXRenderer
    * 
@@ -145,7 +145,7 @@ public:
    * Note that colours only take place when drawing basic shapes, AXText and AXSprite's have their own AXColour methods
    * @param c the AXColour object to set this AXRenderer to
    */
-    void setColour(const AXGraphics::AXColour& c);
+    void setColour(const AXColour& c);
    /*!
    * A method to get the DrawType of this AXRenderer
    * 

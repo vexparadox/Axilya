@@ -30,7 +30,7 @@ bool AXFont::loadFont(const std::string& p, int size){
 	return true;
 }
 
-SDL_Texture* AXFont::bakeTexture(const std::string string, AXGraphics::AXColour& colour){
+SDL_Texture* AXFont::bakeTexture(const std::string string, AXColour& colour){
 	if(hasLoaded){
 		SDL_Surface* temp = TTF_RenderUTF8_Blended(fontData, string.c_str(), colour.toSDL());
 		if(!temp){

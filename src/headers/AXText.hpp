@@ -43,7 +43,7 @@ protected:
    int height, width;
    std::string name;
    AXEntity* owner = 0;
-   AXGraphics::AXColour colour;
+   AXColour colour;
 public:
    /*!
    * A method to sets the owner of this AXText

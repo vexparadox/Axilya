@@ -8,8 +8,8 @@
 
 #include "headers/AXWindow.hpp"
 //render colours
-AXGraphics::AXColour AXWindow::backgroundColour;
-AXGraphics::AXColour AXWindow::renderColour;
+AXColour AXWindow::backgroundColour;
+AXColour AXWindow::renderColour;
 //store the display and window sizes
 int AXWindow::windowWidth = 0;
 int AXWindow::windowHeight = 0;

@@ -8,7 +8,7 @@
 
 
 AXRenderer::AXRenderer(){
-     this->colour = AXGraphics::AXColour(0, 0, 0, 255);
+     this->colour = AXColour(0, 0, 0, 255);
 }
 
 AXRenderer::~AXRenderer(){
@@ -93,7 +93,7 @@ void AXRenderer::setOwner(AXEntity *owner) {
     }
 }
 
-AXGraphics::AXColour& AXRenderer::getColour() {
+AXColour& AXRenderer::getColour() {
     return colour;
 }
 
@@ -105,7 +105,7 @@ void AXRenderer::setColour(float r, float g, float b){
     this->colour.set(r, g, b, 255);
 }
 
-void AXRenderer::setColour(const AXGraphics::AXColour& c){
+void AXRenderer::setColour(const AXColour& c){
     this->colour.set(c.getR(), c.getG(), c.getB(), c.getA());
 }
 

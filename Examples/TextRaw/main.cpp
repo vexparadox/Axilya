@@ -24,7 +24,7 @@ int main(int argc, char const *argv[]){
 	//load the font
 	AXFont font("Arial.ttf", 20);
 	//make a red colour
-	AXGraphics::AXColour colour(255, 0, 0, 255);
+	AXColour colour(255, 0, 0, 255);
 	//bake a texture
 	texture = font.bakeTexture("Hello world!", colour);
 	size = font.getStringSize("Hello world!");
