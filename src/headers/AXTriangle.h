@@ -34,44 +34,40 @@
 #ifndef Triangle_h
 #define Triangle_h
 #include "AXVector2D.h"
-
-namespace AXGraphics{
-    class AXTriangle{
-        AXVector2D v1, v2, v3;
-    public:
-        AXTriangle(const AXVector2D &v1, const AXVector2D &v2, const AXVector2D &v3){
-            this->v1=v1;
-            this->v2=v2;
-            this->v3=v3;
-        }
-        AXTriangle(float x1, float y1, float x2, float y2, float x3, float y3){
-            this->v1 = AXVector2D(x1, y1);
-            this->v2 = AXVector2D(x2, y2);
-            this->v3 = AXVector2D(x3, y3);
-        }
-        
-        void set(const AXVector2D &v1, const AXVector2D &v2, const AXVector2D &v3){
-            this->v1=v1;
-            this->v2=v2;
-            this->v3=v3;
-        }
-        
-        void set(float x1, float y1, float x2, float y2, float x3, float y3){
-            this->set(AXVector2D(x1, y1), AXVector2D(x2, y2), AXVector2D(x3, y3));
-        }
-        
-        const AXVector2D& getV1() const {
-            return v1;
-        }
-        
-        const AXVector2D& getV2() const{
-            return v2;
-        }
-        
-        const AXVector2D& getV3() const{
-            return v3;
-        }
-    };
-}
-
+class AXTriangle{
+    AXVector2D v1, v2, v3;
+public:
+    AXTriangle(const AXVector2D &v1, const AXVector2D &v2, const AXVector2D &v3){
+        this->v1=v1;
+        this->v2=v2;
+        this->v3=v3;
+    }
+    AXTriangle(float x1, float y1, float x2, float y2, float x3, float y3){
+        this->v1 = AXVector2D(x1, y1);
+        this->v2 = AXVector2D(x2, y2);
+        this->v3 = AXVector2D(x3, y3);
+    }
+    
+    void set(const AXVector2D &v1, const AXVector2D &v2, const AXVector2D &v3){
+        this->v1=v1;
+        this->v2=v2;
+        this->v3=v3;
+    }
+    
+    void set(float x1, float y1, float x2, float y2, float x3, float y3){
+        this->set(AXVector2D(x1, y1), AXVector2D(x2, y2), AXVector2D(x3, y3));
+    }
+    
+    const AXVector2D& getV1() const {
+        return v1;
+    }
+    
+    const AXVector2D& getV2() const{
+        return v2;
+    }
+    
+    const AXVector2D& getV3() const{
+        return v3;
+    }
+};
 #endif /* Triangle_h */

@@ -34,10 +34,10 @@
 #define AXMain_h
 
 #include "AXMath.hpp"
-#include "Types.h"
+#include "AXTypes.h"
 #include "AXNetwork.hpp"
 #include "AXGraphics.hpp"
-#include "Components.h"
+#include "AXComponents.h"
 #include "AXEntity.hpp"
 #include "AXScene.hpp"
 #include "AXTiledWorld.hpp"
@@ -50,6 +50,6 @@
 #include "AXResourceManager.hpp"
 #include "AXPrefabManager.hpp"
 #include "EntityDrawTypes.hpp"
-#include "WindowTypes.hpp"
+#include "AXWindowTypes.hpp"
 
 #endif /* AXMain_h */

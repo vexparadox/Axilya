@@ -35,7 +35,7 @@
 #define World_hpp
 #include "AXGraphics.hpp"
 class AXScene;
-class World{
+class AXWorld{
     AXScene* scene = 0;
 public:
     virtual void draw() = 0;

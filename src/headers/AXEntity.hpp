@@ -37,13 +37,13 @@
 
 #include <stdio.h>
 
-#include "Math.h"
+#include "AXMath.hpp"
 #include "AXResourceManager.hpp"
 #include "AXPrefabManager.hpp"
 //components
-#include "Components.h"
+#include "AXComponents.h"
 #include "AXRenderer.hpp"
-#include "CollideDirections.hpp"
+#include "AXCollideDirections.hpp"
 class AXScene;
 class AXEntity{
     //get an instance of the resourcemanager
@@ -305,7 +305,7 @@ public:
     /*!
     * A method that calls onWorldCollision on all Components attached to this Enitity
     *
-    * This is called by the AXScene when a collision occurs with the World or screen
+    * This is called by the AXScene when a collision occurs with the AXWorld or screen
     *
     * Catch this call inside of a AXComponent
     * @param direction the direction of which the collision happened

@@ -142,7 +142,7 @@ AXEntity* AXScene::instantiate(const std::string& name, AXEntity* e){
     return this->instantiate(name, e, e->getTransform());
 }
 
-void AXScene::setWorld(World *w) {
+void AXScene::setWorld(AXWorld *w) {
     if(w){
         world = w;
     }

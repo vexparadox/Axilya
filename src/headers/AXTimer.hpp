@@ -35,57 +35,52 @@
 
 #include <stdio.h>
 #include <time.h>
-
-
-namespace Math {
-    class AXTimer{
-    private:
-        //stores the begin and end time of the timer
-        unsigned long beginTime;
-        unsigned long endTime;
-        //bools state the current state of the timer
-        bool running, started;
-    public:
-        /*!
-        * Constructor of AXTimer
-        * @param startNow if the timer should start when it's created
-        */
-        AXTimer(bool startNow);
-        AXTimer();
-        /*!
-        * Starts the timer
-        */
-        void start();
-        /*!
-        * Stops the timer
-        * @see AXTimer::elapsedTime()
-        */
-        void stop();
-        /*!
-        * Resets the timer
-        * Takes the timer back to as if it were just created
-        */       
-        void reset();
-        /*!
-        * Returns if the timer is running
-        * @return current state of timer
-        */
-        bool isRunning();
-        /*!
-        * Returns if the timer has been started
-        * @return start state of the timer
-        */
-        bool isStarted();
-        
-        /*!
-        * Returns the elapsed time
-        * If the timer has been stopped it will return between start and stop calls
-        * If the timer is still running it will return between start and elapsedTime calls
-        * If the timer hasn't been started/has been reset it will return 0
-        * @return the elapsed time
-        */
-        float elapsedTime();
-    };
-}
-
+class AXTimer{
+private:
+    //stores the begin and end time of the timer
+    unsigned long beginTime;
+    unsigned long endTime;
+    //bools state the current state of the timer
+    bool running, started;
+public:
+    /*!
+    * Constructor of AXTimer
+    * @param startNow if the timer should start when it's created
+    */
+    AXTimer(bool startNow);
+    AXTimer();
+    /*!
+    * Starts the timer
+    */
+    void start();
+    /*!
+    * Stops the timer
+    * @see AXTimer::elapsedTime()
+    */
+    void stop();
+    /*!
+    * Resets the timer
+    * Takes the timer back to as if it were just created
+    */       
+    void reset();
+    /*!
+    * Returns if the timer is running
+    * @return current state of timer
+    */
+    bool isRunning();
+    /*!
+    * Returns if the timer has been started
+    * @return start state of the timer
+    */
+    bool isStarted();
+    
+    /*!
+    * Returns the elapsed time
+    * If the timer has been stopped it will return between start and stop calls
+    * If the timer is still running it will return between start and elapsedTime calls
+    * If the timer hasn't been started/has been reset it will return 0
+    * @return the elapsed time
+    */
+    float elapsedTime();
+};
 #endif /* Timer_hpp */

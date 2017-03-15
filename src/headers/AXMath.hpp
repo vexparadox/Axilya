@@ -28,7 +28,7 @@
  *
  * @section DESCRIPTION
  *
- * A collection of Math related classes and function
+ * A collection of AXMath related classes and function
  */
 #ifndef AXMath_hpp
 #define AXMath_hpp
@@ -36,6 +36,6 @@
 #include "AXVector2D.h"
 #include "AXCollision.h"
 #include "AXVector3D.h"
-#include "Utils.h"
+#include "AXUtils.h"
 #include "AXTimer.hpp"
 #endif /* AXMath_hpp */

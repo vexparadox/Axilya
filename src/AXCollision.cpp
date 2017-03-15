@@ -8,7 +8,7 @@
 
 #include "headers/AXCollision.h"
 
-namespace Math {
+namespace AXMath {
     lineCollide::lineCollide(const AXVector2D &v1, const AXVector2D &v2){
         this->v1 = v1;
         this->v2 = v2;
@@ -29,15 +29,15 @@ namespace Math {
     }
     
     bool isInsideQuad(const AXVector2D &point, const AXVector2D &v1, const AXVector2D &v2){
-        return Math::isInsideQuad(point.x, point.y, v1.x, v1.y, v2.x, v2.y);
+        return AXMath::isInsideQuad(point.x, point.y, v1.x, v1.y, v2.x, v2.y);
     }
     
     bool isInsideQuad(const AXVector2D &point, const AXVector2D &v, float w, float h){
-        return Math::isInsideQuad(point.x, point.y, v.x, v.y, w, h);
+        return AXMath::isInsideQuad(point.x, point.y, v.x, v.y, w, h);
     }
     
-    bool isInsideQuad(const AXVector2D &point, const AXGraphics::AXRect &r){
-        return Math::isInsideQuad(point.x, point.y, r.getX(), r.getY(), r.getWidth(), r.getHeight());
+    bool isInsideQuad(const AXVector2D &point, const AXRect &r){
+        return AXMath::isInsideQuad(point.x, point.y, r.getX(), r.getY(), r.getWidth(), r.getHeight());
     }
     
     bool isInsideQuad(const float &x1, const float &y1, const float &x2, const float &y2, const float &x3, const float &y3){
@@ -54,7 +54,7 @@ namespace Math {
         return (det / 2.0f);
     }
     
-    float areaTriangle(const AXGraphics::AXTriangle &t){
+    float areaTriangle(const AXTriangle &t){
         return areaTriangle(t.getV1(), t.getV2(), t.getV3());
     }
     
@@ -66,7 +66,7 @@ namespace Math {
         return ((b1 == b2) && (b2 == b3));
     }
     
-    bool isInsideTriangle(const AXVector2D &point, const AXGraphics::AXTriangle &t){
+    bool isInsideTriangle(const AXVector2D &point, const AXTriangle &t){
         return isInsideTriangle(point, t.getV1(), t.getV2(), t.getV3());
     }
     
@@ -75,7 +75,7 @@ namespace Math {
         //(((x-cp.x)^2)/rX^2 + ((y-cp.y)^2)/rY^2) <= 1
         return  ( (pow((point.x-cp.x),2)/pow(xR,2)) + (pow((point.y-cp.y),2)/pow(yR,2)) ) <=1;
     }
-    bool isInsideEllipse(const AXVector2D &point, const AXGraphics::AXEllipse &e)
+    bool isInsideEllipse(const AXVector2D &point, const AXEllipse &e)
     {
         //(((x-cp.x)^2)/rX^2 + ((y-cp.y)^2)/rY^2) <= 1
         return  ( (pow((point.x-e.getPosition().x),2)/pow(e.getSize().x,2)) + (pow((point.y-e.getPosition().y),2)/pow(e.getSize().y,2)) ) <=1;

@@ -34,9 +34,9 @@
 #define StaticWorld_hpp
 
 #include "AXResourceManager.hpp"
-#include "World.hpp"
+#include "AXWorld.hpp"
 
-class AXStaticWorld : public World {
+class AXStaticWorld : public AXWorld {
     AXTexture* texture;
     AXResourceManager* resourceManager = AXResourceManager::getInstance();
 public:

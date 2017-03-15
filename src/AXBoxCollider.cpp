@@ -49,7 +49,7 @@ int AXBoxCollider::checkMovement(AXEntity* e, AXVector2D& proposedMovement){
     float h = 0.5 * (box1->getSize().y + box2->getSize().y);
     float deltax = (box1->getPosition().x+(box1->getSize().x/2)) - (box2->getPosition().x+(box2->getSize().x/2));
     float deltay = (box1->getPosition().y+(box1->getSize().y/2)) - (box2->getPosition().y+(box2->getSize().y/2));
-    if (Math::absolute(deltax) < w && Math::absolute(deltay) < h)
+    if (AXMath::absolute(deltax) < w && AXMath::absolute(deltay) < h)
     {
         //collision!
         float wy = w * deltay;
@@ -61,7 +61,7 @@ int AXBoxCollider::checkMovement(AXEntity* e, AXVector2D& proposedMovement){
             box1->set(box1->getPosition().x, box2->getPosition().y-box1->getSize().y, box1->getSize().x, box1->getSize().y);
             return AX_COLLIDE_UP;
         }
-        if((box1->getPosition().y+Math::absolute(proposedMovement.y)) >= box2->getPosition().y+box2->getSize().y){
+        if((box1->getPosition().y+AXMath::absolute(proposedMovement.y)) >= box2->getPosition().y+box2->getSize().y){
             // collision at the bottom
             e->getTransform()->set(box1->getPosition().x, box2->getPosition().y+box2->getSize().y);
             box1->set(box1->getPosition().x, box2->getPosition().y+box2->getSize().y, box1->getSize().x, box1->getSize().y);
@@ -73,7 +73,7 @@ int AXBoxCollider::checkMovement(AXEntity* e, AXVector2D& proposedMovement){
             box1->set(box2->getPosition().x-box1->getSize().x, box1->getPosition().y, box1->getSize().x, box1->getSize().y);
             return AX_COLLIDE_LEFT;            
         }
-        if(box1->getPosition().x+Math::absolute(proposedMovement.x) >= box2->getPosition().x+box2->getSize().x){
+        if(box1->getPosition().x+AXMath::absolute(proposedMovement.x) >= box2->getPosition().x+box2->getSize().x){
             // on the right 
             e->getTransform()->set(box2->getPosition().x+box2->getSize().x, box1->getPosition().y);
             box1->set(box2->getPosition().x+box2->getSize().x, box1->getPosition().y, box1->getSize().x, box1->getSize().y);
@@ -84,7 +84,7 @@ int AXBoxCollider::checkMovement(AXEntity* e, AXVector2D& proposedMovement){
 }
 
 void AXBoxCollider::mouseCheck(){
-    if(Math::isInsideQuad(AXInput::mouseX, AXInput::mouseY, bounds->getPosition().x+owner->getScene()->getRenderOffset().x, bounds->getPosition().y+owner->getScene()->getRenderOffset().y, bounds->getPosition().x+bounds->getSize().x+owner->getScene()->getRenderOffset().x, bounds->getPosition().y+bounds->getSize().y+owner->getScene()->getRenderOffset().y)){
+    if(AXMath::isInsideQuad(AXInput::mouseX, AXInput::mouseY, bounds->getPosition().x+owner->getScene()->getRenderOffset().x, bounds->getPosition().y+owner->getScene()->getRenderOffset().y, bounds->getPosition().x+bounds->getSize().x+owner->getScene()->getRenderOffset().x, bounds->getPosition().y+bounds->getSize().y+owner->getScene()->getRenderOffset().y)){
         owner->onHover();
         if(AXInput::mouseIsPressed){
             owner->onClick(AXInput::mouseButton);

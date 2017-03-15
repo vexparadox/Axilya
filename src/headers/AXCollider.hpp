@@ -34,7 +34,7 @@
 #define AXCollider_hpp
 
 #include <stdio.h>
-#include "Types.h"
+#include "AXTypes.h"
 class AXEntity;
 class AXCollider{
 public:
@@ -72,7 +72,7 @@ public:
     */
     virtual void mouseCheck() = 0;
     /*!
-    * A virtual method to check this AXCollider's bounds against the screen and World.
+    * A virtual method to check this AXCollider's bounds against the screen and AXWorld.
     *
     * @return Will return the direction of the collision that happened AX_COLLIDE_UP/DOWN/RIGHT/LEFT or 0 if none occurred.
     */

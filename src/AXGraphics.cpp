@@ -184,7 +184,7 @@ namespace AXGraphics{
     //     glTranslatef(v.x, v.y, 0);
     // }
     
-    // void translate(const Math::AXVector3D &v){
+    // void translate(const AXVector3D &v){
     //     glTranslatef(v.x, v.y, v.z);
     // }
     

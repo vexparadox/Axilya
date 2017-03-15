@@ -35,7 +35,7 @@
 #include <vector>
 #include "AXScene.hpp"
 #include "AXInput.hpp"
-#include "WindowTypes.hpp"
+#include "AXWindowTypes.hpp"
 #include "AXNetwork.hpp"
 #include <SDL2/SDL.h>
 #include "glad.h"

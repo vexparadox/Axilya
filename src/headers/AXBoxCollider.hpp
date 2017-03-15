@@ -35,7 +35,7 @@
 
 #include "AXCollider.hpp"
 #include "AXWindow.hpp"
-#include "CollideDirections.hpp"
+#include "AXCollideDirections.hpp"
 class AXEntity;
 class AXBoxCollider : public AXCollider{
 public:
@@ -46,7 +46,7 @@ public:
     */
     AXBoxCollider();
 	/*!
-    * A method to check this AXCollider's bounds against the screen (if screen bound) and the World and correct collisions that occur.
+    * A method to check this AXCollider's bounds against the screen (if screen bound) and the AXWorld and correct collisions that occur.
     *
     * This method will be called repeatedly until it returns 0.
     * @param v the proposed movement of this AXEntity, the values will be set to 0 if a collision occurs.

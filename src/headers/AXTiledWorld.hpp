@@ -28,16 +28,16 @@
  *
  * @section DESCRIPTION
  *
- * This is a type of World that exists as a list of Tiles.
+ * This is a type of AXWorld that exists as a list of Tiles.
  */
 #ifndef TiledWorld_hpp
 #define TiledWorld_hpp
 
-#include "World.hpp"
+#include "AXWorld.hpp"
 #include "AXTile.hpp"
 #include <unordered_map>
 
-class AXTiledWorld : public World {
+class AXTiledWorld : public AXWorld {
     //tile types loaded into the world
     std::unordered_map<char, AXTile*> tileTypes;
     std::vector<AXTile*> worldMatrix;

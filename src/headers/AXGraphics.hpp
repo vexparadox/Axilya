@@ -34,10 +34,10 @@
 #ifndef AXGraphics_hpp
 #define AXGraphics_hpp
 
-#include "Types.h"
+#include "AXTypes.h"
 #include <SDL2/SDL.h>
 #include <vector>
-#include "Math.h"
+#include "AXMath.hpp"
 #include "glad.h"
 namespace AXGraphics{
     /*!

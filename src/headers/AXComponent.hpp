@@ -112,7 +112,7 @@ public:
     */
     virtual void onCollision(AXEntity* e, int direction){};
     /*!
-    * A virtual method that is called if a Collider is present and a collision happens with the World or Screen.
+    * A virtual method that is called if a Collider is present and a collision happens with the AXWorld or Screen.
     * @param direction the direction that the collision occured AX_COLLIDE_UP/DOWN/RIGHT/LEFT
     */
     virtual void onWorldCollision(int direction){};

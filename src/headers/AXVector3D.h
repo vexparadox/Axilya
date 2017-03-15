@@ -32,71 +32,67 @@
  */
 #ifndef Vector3D_h
 #define Vector3D_h
-namespace Math {
-    class AXVector3D{
-    public:
-        float x, y, z;
-        AXVector3D(float x, float y, float z){
-            this->x = x;
-            this->y = y;
-            this->z = z;
+class AXVector3D{
+public:
+    float x, y, z;
+    AXVector3D(float x, float y, float z){
+        this->x = x;
+        this->y = y;
+        this->z = z;
+    }
+    AXVector3D(){}
+    ~AXVector3D(){};
+    inline friend bool operator== (const AXVector3D& v1, const AXVector3D& v2){
+        if(v1.x == v2.x && v1.y == v2.y && v1.z == v2.z){
+            return true;
         }
-        AXVector3D(){}
-        ~AXVector3D(){};
-        inline friend bool operator== (const AXVector3D& v1, const AXVector3D& v2){
-            if(v1.x == v2.x && v1.y == v2.y && v1.z == v2.z){
-                return true;
-            }
-            return false;
-        }
-        
-        inline friend bool operator!= (const AXVector3D& v1, const AXVector3D& v2){
-            return !(v1 == v2);
-        }
-        
-        inline friend void operator+= (AXVector3D& v1, AXVector3D& v2){
-            v1.x = v1.x + v2.x;
-            v1.y = v1.y + v2.y;
-            v1.z = v1.z + v1.z;
-            return;
-        }
-        
-        inline AXVector3D& operator+ (const AXVector3D& v){
-            this->x += v.x;
-            this->y += v.y;
-            this->z += v.z;
-            return *this;
-        }
-        
-        inline AXVector3D& operator= (const AXVector3D& v){
-            this->x = v.x;
-            this->y = v.y;
-            this->z = v.z;
-            return *this;
-        }
-        
-        inline AXVector3D& operator*(const AXVector3D& v){
-            this->x *= v.x;
-            this->y *= v.y;
-            this->z *= v.z;
-            return *this;
-        }
-        
-        inline AXVector3D& operator- (const AXVector3D& v) {
-            this->x -= v.x;
-            this->y -= v.y;
-            this->z -= v.z;
-            return *this;
-        }
-        
-        inline AXVector3D& operator/ (const AXVector3D& v) {
-            this->x /= v.x;
-            this->y /= v.y;
-            this->z /= v.z;
-            return *this;
-        }
-        
-    };
-}
-
+        return false;
+    }
+    
+    inline friend bool operator!= (const AXVector3D& v1, const AXVector3D& v2){
+        return !(v1 == v2);
+    }
+    
+    inline friend void operator+= (AXVector3D& v1, AXVector3D& v2){
+        v1.x = v1.x + v2.x;
+        v1.y = v1.y + v2.y;
+        v1.z = v1.z + v1.z;
+        return;
+    }
+    
+    inline AXVector3D& operator+ (const AXVector3D& v){
+        this->x += v.x;
+        this->y += v.y;
+        this->z += v.z;
+        return *this;
+    }
+    
+    inline AXVector3D& operator= (const AXVector3D& v){
+        this->x = v.x;
+        this->y = v.y;
+        this->z = v.z;
+        return *this;
+    }
+    
+    inline AXVector3D& operator*(const AXVector3D& v){
+        this->x *= v.x;
+        this->y *= v.y;
+        this->z *= v.z;
+        return *this;
+    }
+    
+    inline AXVector3D& operator- (const AXVector3D& v) {
+        this->x -= v.x;
+        this->y -= v.y;
+        this->z -= v.z;
+        return *this;
+    }
+    
+    inline AXVector3D& operator/ (const AXVector3D& v) {
+        this->x /= v.x;
+        this->y /= v.y;
+        this->z /= v.z;
+        return *this;
+    }  
+};
 #endif /* Vector3D_h */

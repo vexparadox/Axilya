@@ -34,10 +34,10 @@
 #ifndef Collision_h
 #define Collision_h
 #include <vector>
-#include "Math.h"
-#include "Types.h"
+#include "AXMath.hpp"
+#include "AXTypes.h"
 
-namespace Math {
+namespace AXMath {
     struct lineCollide{
         AXVector2D v1, v2;
         lineCollide(const AXVector2D &v1, const AXVector2D &v2);
@@ -106,7 +106,7 @@ namespace Math {
     * @param t the triangle to be calculated
     * @return the area of the triangle given
     */
-    float areaTriangle(const AXGraphics::AXTriangle &t);
+    float areaTriangle(const AXTriangle &t);
     /*!
     * A function that will return if a point is inside of the AXTriangle given
     *
@@ -124,7 +124,7 @@ namespace Math {
     * @param t the triangle to be calculated
     * @return if the point is inside of the triangle
     */
-    bool isInsideTriangle(const AXVector2D &point, const AXGraphics::AXTriangle &t);
+    bool isInsideTriangle(const AXVector2D &point, const AXTriangle &t);
     
     /*!
     * A function that will return if a point is inside of an AXEllipse
@@ -152,7 +152,7 @@ namespace Math {
     * @param e the AXEllipse to be calculated
     * @return if the point is inside of the ellipse
     */ 
-    bool isInsideEllipse(const AXVector2D &point, const AXGraphics::AXEllipse &e);
+    bool isInsideEllipse(const AXVector2D &point, const AXEllipse &e);
     
     /*!
     * A function that will return a distance between two vectors

@@ -36,7 +36,7 @@
 
 #include <stdio.h>
 
-namespace Math {
+namespace AXMath {
     float absolute(float f);
     int absolute(int i);
 }
