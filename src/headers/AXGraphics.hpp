@@ -68,6 +68,22 @@ namespace AXGraphics{
     */
     void drawTexture(AXTexture* t, float x, float y);
     /*!
+    * A function that draws an AXTexture
+    * @param t the loaded AXTexture
+    * @param v the position to draw the texture
+    */
+    void drawTexture(AXTexture* t, AXVector2D v);
+    /*!
+    * A function that draws an AXTexture
+    * @param t the loaded AXTexture
+    * @param v the position to draw the texture
+    * @param w the width to draw the texture
+    * @param h the height to draw the texture
+    */
+    void drawTexture(AXTexture* t, AXVector2D v, float w, float h);
+
+
+    /*!
     * A function that draws a AXTriangle
     * @param t the AXTriangle to be drawn
     */

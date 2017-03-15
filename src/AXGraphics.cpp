@@ -40,6 +40,27 @@ namespace AXGraphics{
             std::cout << SDL_GetError() << std::endl;
         }
     }
+
+    void drawTexture(AXTexture* t, AXVector2D v){
+        if(!t->isLoaded()){
+            std::cout << "The AXTexture data is empty, canceling draw." << std::endl;
+            return;
+        }
+        SDL_Rect dest = {.x = (int)v.x, .y = (int)v.y, .w = t->getWidth(), .h = t->getHeight()};
+        if(SDL_RenderCopy(AXWindow::renderer, t->getTextureData(), NULL, &dest) != 0){
+            std::cout << SDL_GetError() << std::endl;
+        }
+    }
+    void drawTexture(AXTexture* t, AXVector2D v, float w, float h){
+        if(!t->isLoaded()){
+            std::cout << "The AXTexture data is empty, canceling draw." << std::endl;
+            return;
+        }
+        SDL_Rect dest = {.x = (int)v.x, .y = (int)v.y, .w = w, .h = h};
+        if(SDL_RenderCopy(AXWindow::renderer, t->getTextureData(), NULL, &dest) != 0){
+            std::cout << SDL_GetError() << std::endl;
+        }
+    }
     //TRIANGLES
     void drawTriangle(AXTriangle& t){
         drawTriangle(t.getV1(), t.getV2(), t.getV3());
