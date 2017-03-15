@@ -30,8 +30,8 @@
  *
  * This class describes a AXStaticWorld, it holds and draws a single texture as a background.
  */
-#ifndef StaticWorld_hpp
-#define StaticWorld_hpp
+#ifndef AXStaticWorld_hpp
+#define AXStaticWorld_hpp
 
 #include "AXResourceManager.hpp"
 #include "AXWorld.hpp"

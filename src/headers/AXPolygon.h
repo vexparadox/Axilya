@@ -30,8 +30,8 @@
  *
  * An unfinished polygon shape class
  */
-#ifndef Poly_h
-#define Poly_h
+#ifndef AXPolygon_h
+#define AXPolygon_h
 #include <vector>
 #include "AXVector2D.h"
 namespace AXGraphics{

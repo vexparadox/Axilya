@@ -31,8 +31,8 @@
  * A collection of Axilya types
  */
 
-#ifndef Types_h
-#define Types_h
+#ifndef AXTypes_h
+#define AXTypes_h
 
 #include "AXEllipse.h"
 #include "AXTriangle.h"

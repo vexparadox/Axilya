@@ -30,8 +30,8 @@
  *
  * This class is used by the AXInput class to store the values of individual inputs.
  */
-#ifndef Key_h
-#define Key_h
+#ifndef AXKey_h
+#define AXKey_h
 
 #include <string>
 #include <iostream>

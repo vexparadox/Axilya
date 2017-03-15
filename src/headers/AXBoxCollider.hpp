@@ -30,8 +30,8 @@
  *
  * This class describes a AXBoxCollider, it holds instructions for detecting and resolving collisions using rectangle bounds.
  */
-#ifndef BoxCollider_h
-#define BoxCollider_h
+#ifndef AXBoxCollider_h
+#define AXBoxCollider_h
 
 #include "AXCollider.hpp"
 #include "AXWindow.hpp"

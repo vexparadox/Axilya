@@ -30,8 +30,8 @@
  *
  * A list of pre-made AXEntity Components.
  */
-#ifndef Components_h
-#define Components_h
+#ifndef AXComponents_h
+#define AXComponents_h
 
 #include "AXRigidBody.hpp"
 #include "AXTransform.hpp"

@@ -30,8 +30,8 @@
  *
  * This is used as a collection of Entities and a AXWorld, AXWindow will call update and draw on this object.
  */
-#ifndef Scene_hpp
-#define Scene_hpp
+#ifndef AXScene_hpp
+#define AXScene_hpp
 #include <vector>
 #include <unordered_map>
 #include <algorithm>

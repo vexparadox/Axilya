@@ -30,8 +30,8 @@
  *
  * This is a base class of all Sprites that the AXRenderer can draw.
  */
-#ifndef Sprite_hpp
-#define Sprite_hpp
+#ifndef AXSprite_hpp
+#define AXSprite_hpp
 
 #include "AXResourceManager.hpp"
 #include "AXGraphics.hpp"

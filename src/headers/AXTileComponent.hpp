@@ -30,8 +30,8 @@
  *
  * This is the base class for all TileComponents that can be attached to a AXTile.
  */
-#ifndef TileComponent_hpp
-#define TileComponent_hpp
+#ifndef AXTileComponent_hpp
+#define AXTileComponent_hpp
 
 class AXTile;
 class AXScene;

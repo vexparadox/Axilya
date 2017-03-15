@@ -30,8 +30,8 @@
  *
  * This class describes a AXTimer, it allows you to get the elapsed time between two points.
  */
-#ifndef Timer_hpp
-#define Timer_hpp
+#ifndef AXTimer_hpp
+#define AXTimer_hpp
 
 #include <stdio.h>
 #include <time.h>

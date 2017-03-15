@@ -30,8 +30,8 @@
  *
  * These ENUMS are used to describe how a AXWindow should present itself
  */
-#ifndef WindowTypes_hpp
-#define WindowTypes_hpp
+#ifndef AXWindowTypes_hpp
+#define AXWindowTypes_hpp
 #define AX_WINDOWED 0
 #define AX_FULLSCREEN 1
 #endif

@@ -30,8 +30,8 @@
  *
  * This class manages resources like textures, fonts and sound files. It handles loading and destruction.
  */
-#ifndef ResourceManager_h
-#define ResourceManager_h
+#ifndef AXResourceManager_h
+#define AXResourceManager_h
 
 #include "AXTexture.hpp"
 #include "AXFont.hpp"

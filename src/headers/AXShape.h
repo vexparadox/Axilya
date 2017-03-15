@@ -30,8 +30,8 @@
  *
  * This is the base class for all shapes used in collision and rendering.
  */
-#ifndef Shape_H
-#define Shape_H
+#ifndef AXShape_h
+#define AXShape_h
 #include "AXVector2D.h"
 class AXShape{
 protected:

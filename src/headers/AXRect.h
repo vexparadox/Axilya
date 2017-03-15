@@ -31,8 +31,8 @@
  * This class describes a rectangluar shape.
  */
 
-#ifndef Rect_h
-#define Rect_h
+#ifndef AXRect_h
+#define AXRect_h
 
 #include "AXMath.hpp"
 #include "AXShape.h"

@@ -30,8 +30,8 @@
  *
  * This is the base class of all AXEntity Components, it allows for event call backs and the game loop..
  */
-#ifndef Component_hpp
-#define Component_hpp
+#ifndef AXComponent_hpp
+#define AXComponent_hpp
 
 #include "AXResourceManager.hpp"
 #include "AXPrefabManager.hpp"

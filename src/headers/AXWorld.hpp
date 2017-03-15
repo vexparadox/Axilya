@@ -31,8 +31,8 @@
  * This is a base class for all Worlds that can be attached to Scenes.
  * Worlds are used for the background of games, they're drawn and update first.
  */
-#ifndef World_hpp
-#define World_hpp
+#ifndef AXWorld_hpp
+#define AXWorld_hpp
 #include "AXGraphics.hpp"
 class AXScene;
 class AXWorld{

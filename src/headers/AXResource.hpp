@@ -1,5 +1,5 @@
 #ifndef AXResource_hpp
-#define AXResource_hpp value
+#define AXResource_hpp
 
 class AXResource{
 protected:

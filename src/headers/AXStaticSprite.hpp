@@ -30,8 +30,8 @@
  *
  * This class describes a AXStaticSprite, it holds and draws a single texture.
  */
-#ifndef StaticSprite_hpp
-#define StaticSprite_hpp
+#ifndef AXStaticSprite_hpp
+#define AXStaticSprite_hpp
 
 #include "AXSprite.hpp"
 class AXStaticSprite : public AXSprite{

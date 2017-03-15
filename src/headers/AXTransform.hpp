@@ -31,8 +31,8 @@
  * This is a pre-built Entity AXComponent that describes the position and size of an AXEntity.
  * This is created by default for all Entities.
  */
-#ifndef Transform_hpp
-#define Transform_hpp
+#ifndef AXTransform_hpp
+#define AXTransform_hpp
 
 #include <stdio.h>
 #include "AXComponent.hpp"

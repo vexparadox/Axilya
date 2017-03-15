@@ -30,8 +30,8 @@
  *
  * This is a pre-built Entity AXComponent that gives the simulation of gravity and mass.
  */
-#ifndef RigidBody_hpp
-#define RigidBody_hpp
+#ifndef AXRigidBody_hpp
+#define AXRigidBody_hpp
 
 #include <stdio.h>
 #include "AXComponent.hpp"

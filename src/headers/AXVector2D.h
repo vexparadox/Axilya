@@ -31,8 +31,8 @@
  * This class describes a 2D vector, it's used throught Axilya.
  */
 
-#ifndef Vector2D_h
-#define Vector2D_h
+#ifndef AXVector2D_h
+#define AXVector2D_h
 #include <math.h>
 #include <iostream>
 class AXVector2D{

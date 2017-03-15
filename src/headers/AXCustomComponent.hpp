@@ -30,8 +30,8 @@
  *
  * The base class used when users define their own AXEntity Components, this follows a CRTP paradigm and allows classes to be auto-cloned.
  */
-#ifndef CustomComponent_hpp
-#define CustomComponent_hpp
+#ifndef AXCustomComponent_hpp
+#define AXCustomComponent_hpp
 
 #include "AXComponent.hpp"
 template <typename custom>

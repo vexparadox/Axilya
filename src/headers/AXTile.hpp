@@ -31,8 +31,8 @@
  * This class describes a AXTile, it acts like an AXEntity inside of a AXTiledWorld.
  * Tiles can have TileComponents.
  */
-#ifndef Tile_hpp
-#define Tile_hpp
+#ifndef AXTile_hpp
+#define AXTile_hpp
 
 #include "AXResourceManager.hpp"
 #include "AXTileComponent.hpp"

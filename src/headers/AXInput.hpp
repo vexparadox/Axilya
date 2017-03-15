@@ -30,8 +30,8 @@
  *
  * This class allows users to get access to the state of input devices like the mouse, keyboard and game controllers.
  */
-#ifndef Input_hpp
-#define Input_hpp
+#ifndef AXInput_hpp
+#define AXInput_hpp
 
 #include <vector>
 #include <unordered_map>

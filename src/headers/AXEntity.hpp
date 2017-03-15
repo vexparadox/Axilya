@@ -32,8 +32,8 @@
  * Entities are a collection of Components that update and draw, AXTransform and AXRenderer are attached by default.
  */
 
-#ifndef Entity_hpp
-#define Entity_hpp
+#ifndef AXEntity_hpp
+#define AXEntity_hpp
 
 #include <stdio.h>
 

@@ -31,8 +31,8 @@
  * This class describes an AXAnimatedSprite, it loops through textures at a set frame count.
  *
  */
-#ifndef AnimatedSprite_hpp
-#define AnimatedSprite_hpp
+#ifndef AXAnimatedSprite_hpp
+#define AXAnimatedSprite_hpp
 #include "AXSprite.hpp"
 class AXAnimatedSprite : public AXSprite {
     //the amount of frames per image

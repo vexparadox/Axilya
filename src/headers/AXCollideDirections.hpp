@@ -30,8 +30,8 @@
  *
  * These ENUMS are used by colliders to describe in which direction a collision occurred.
  */
-#ifndef CollideDirections_hpp
-#define CollideDirections_hpp
+#ifndef AXCollideDirections_hpp
+#define AXCollideDirections_hpp
 
 #define AX_COLLIDE_DOWN 1
 #define AX_COLLIDE_UP 2

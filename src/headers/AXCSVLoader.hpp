@@ -31,8 +31,8 @@
  * A small CSV loader that will return the values in a std::vector format.
  */
 
-#ifndef CSVLoader_hpp
-#define CSVLoader_hpp
+#ifndef AXCSVLoader_hpp
+#define AXCSVLoader_hpp
 
 #include <stdio.h>
 #include <vector>

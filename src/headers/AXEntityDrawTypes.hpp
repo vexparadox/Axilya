@@ -30,8 +30,8 @@
  *
  * These ENUMS are used to describe how an AXEntity should be drawn
  */
-#ifndef EntityDrawTypes_hpp
-#define EntityDrawTypes_hpp
+#ifndef AXEntityDrawTypes_hpp
+#define AXEntityDrawTypes_hpp
 
 #define AX_DRAW_RECT 0
 #define AX_DRAW_ELLIPSE 1

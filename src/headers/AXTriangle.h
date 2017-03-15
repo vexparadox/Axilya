@@ -31,8 +31,8 @@
  * This class describes a AXTriangle shape.
  */
 
-#ifndef Triangle_h
-#define Triangle_h
+#ifndef AXTriangle_h
+#define AXTriangle_h
 #include "AXVector2D.h"
 class AXTriangle{
     AXVector2D v1, v2, v3;

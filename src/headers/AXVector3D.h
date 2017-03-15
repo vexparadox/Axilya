@@ -30,8 +30,8 @@
  *
  * This class describes a 3D vector, it's used rarely inside of Axilya.
  */
-#ifndef Vector3D_h
-#define Vector3D_h
+#ifndef AXVector3D_h
+#define AXVector3D_h
 class AXVector3D{
 public:
     float x, y, z;

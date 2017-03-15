@@ -30,8 +30,8 @@
  *
  * The base class used when users define their own AXTile Components, this follows a CRTP paradigm and allows classes to be auto-cloned.
  */
-#ifndef CustomTileComponent_hpp
-#define CustomTileComponent_hpp
+#ifndef AXCustomTileComponent_hpp
+#define AXCustomTileComponent_hpp
 #include "AXTileComponent.hpp"
 
 template <typename custom>

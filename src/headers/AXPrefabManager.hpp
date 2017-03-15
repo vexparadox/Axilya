@@ -30,8 +30,8 @@
  *
  * The AXPrefabManager allows users to store AXEntities in a template-style format and recall them later by name.
  */
-#ifndef PrefabManager_hpp
-#define PrefabManager_hpp
+#ifndef AXPrefabManager_hpp
+#define AXPrefabManager_hpp
 
 #include <unordered_map>
 #include <iostream>

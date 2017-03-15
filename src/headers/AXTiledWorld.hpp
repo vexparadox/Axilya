@@ -30,8 +30,8 @@
  *
  * This is a type of AXWorld that exists as a list of Tiles.
  */
-#ifndef TiledWorld_hpp
-#define TiledWorld_hpp
+#ifndef AXTiledWorld_hpp
+#define AXTiledWorld_hpp
 
 #include "AXWorld.hpp"
 #include "AXTile.hpp"

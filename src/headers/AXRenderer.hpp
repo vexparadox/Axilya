@@ -30,8 +30,8 @@
  *
  * This is a pre-built component that handles the drawing of Entities, it's attached by default.
  */
-#ifndef Renderer_hpp
-#define Renderer_hpp
+#ifndef AXRenderer_hpp
+#define AXRenderer_hpp
 
 #include <unordered_map>
 #include <SDL2/SDL.h>

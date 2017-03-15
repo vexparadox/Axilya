@@ -31,8 +31,8 @@
  * A collection of utility functions
  */
 
-#ifndef Utils_hpp
-#define Utils_hpp
+#ifndef AXUtils_hpp
+#define AXUtils_hpp
 
 #include <stdio.h>
 

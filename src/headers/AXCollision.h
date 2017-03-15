@@ -31,8 +31,8 @@
  * This file contains some common collision code.
  */
 
-#ifndef Collision_h
-#define Collision_h
+#ifndef AXCollision_h
+#define AXCollision_h
 #include <vector>
 #include "AXMath.hpp"
 #include "AXTypes.h"

@@ -30,8 +30,8 @@
  *
  * This class describes an ellipse shape.
  */
-#ifndef Ellipse_h
-#define Ellipse_h
+#ifndef AXEllipse_h
+#define AXEllipse_h
 #include "AXVector2D.h"
 #include "AXShape.h"
 class AXEllipse : public AXShape{
