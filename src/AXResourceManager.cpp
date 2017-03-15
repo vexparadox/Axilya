@@ -107,3 +107,7 @@ AXFont* AXResourceManager::getFont(const std::string &s) {
     }
 }
 
+AXAudioChunk* AXResourceManager::getAudioChunk(){
+    
+}
+

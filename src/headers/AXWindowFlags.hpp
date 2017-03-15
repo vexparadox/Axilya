@@ -28,10 +28,14 @@
  *
  * @section DESCRIPTION
  *
- * These ENUMS are used to describe how a AXWindow should present itself
+ * These bit flags are used to initialise the AXWindow
  */
-#ifndef AXWindowTypes_hpp
-#define AXWindowTypes_hpp
-#define AX_WINDOWED 0
-#define AX_FULLSCREEN 1
+#ifndef AXWindowFlags_hpp
+#define AXWindowFlags_hpp
+#define AX_DEFAULT		(AX_WINDOWED)
+#define AX_WINDOWED 	0x1  // for a windowed window
+#define AX_FULLSCREEN 	0x2  // for a fullscreen window
+#define AX_NOWINDOW 	0x4  // for no window at all
+#define AX_NOAUDIO	 	0x8  // for no audio
+#define AX_NOANALYTICS 	0x10 // for no analytics: see https://github.com/wiki/analytics.md
 #endif

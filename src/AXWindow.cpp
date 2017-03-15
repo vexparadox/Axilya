@@ -31,12 +31,12 @@ bool AXWindow::initiated = false;
 AXFunction AXWindow::draw = 0;
 AXFunction AXWindow::update = 0;
 
-int AXWindow::init(float wWidth, float wHeight, int windowStyle, const char* title){
+int AXWindow::init(float wWidth, float wHeight, const char* title, unsigned int flags){
     return AXWindow::init(wWidth, wHeight, windowStyle, title, nullptr, nullptr);
 }
 
 
-int AXWindow::init(float wWidth, float wHeight, int windowStyle, const char* title, AXFunction update, AXFunction draw){
+int AXWindow::init(float wWidth, float wHeight, const char* title, unsigned int flags, AXFunction update, AXFunction draw){
     if(initiated){
         return -1;
     }
@@ -45,76 +45,73 @@ int AXWindow::init(float wWidth, float wHeight, int windowStyle, const char* tit
     //The window we'll be rendering to
     runPath = SDL_GetBasePath();
     //Initialize SDL
-    if(SDL_Init(SDL_INIT_EVERYTHING) < 0 )
-    {
-        printf( "SDL could not initialize! SDL_Error: %s\n", SDL_GetError() );
-        return -1;
-    }
+    bool videoStatus = !(flags & NO_VIDEO); // will be true if there's video
+    //if the video is enabled
+    if(videoStatus){
+        if(SDL_Init(SDL_INIT_EVERYTHING) < 0)
+        {
+            printf( "SDL could not initialize! SDL_Error: %s\n", SDL_GetError() );
+            return -1;
+        }
+        if(TTF_Init() < 0){
+            printf("SDLTTF could not initialise! SDL_Error: %s\n", TTF_GetError());
+            return -1;
+        }
+        //get the display size
+        SDL_DisplayMode mode;
+        if(SDL_GetCurrentDisplayMode(0, &mode) == 0){
+            displayWidth = mode.w;
+            displayHeight = mode.h;
+        }else{
+            std::cout << SDL_GetError() << std::endl;
+            return -1;
+        }
+        //if it's <0 default to the display size
+        if(wWidth < 0){
+            wWidth = displayWidth;
+        }
+        if(wHeight < 0){
+            wHeight = displayHeight;
+        }
+        //Create a window
+        AXWindow::window = SDL_CreateWindow(title, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, wWidth, wHeight, SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN);
+        if(window == NULL ){
+            printf( "Window could not be created! SDL_Error: %s\n", SDL_GetError() );
+            return -1;
+        }
 
-    if(TTF_Init() < 0){
-        printf("SDLTTF could not initialise! SDL_Error: %s\n", TTF_GetError());
-        return -1;
-    }
-    // int mixFlags = (MIX_INIT_FLAC | MIX_INIT_MOD | MIX_INIT_MP3 | MIX_INIT_OGG);
-    // if ((Mix_Init(mixFlags)&mixFlags) != mixFlags){
-    //     printf("SDL_Mixer could not all of it's parts! SDL_Error: %s\n", Mix_GetError());
-    //     return -1;
-    // }
-
-    //open the aduio channel
-    if(Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 1024) != 0){
-        printf("Mix_OpenAudio failed: %s\n", Mix_GetError());
-        return -1;
-    }
-
-    //get the display size
-    SDL_DisplayMode mode;
-    if(SDL_GetCurrentDisplayMode(0, &mode) == 0){
-        displayWidth = mode.w;
-        displayHeight = mode.h;
-    }else{
-        std::cout << SDL_GetError() << std::endl;
-        return -1;
-    }
-    //if it's <0 default to the display size
-    if(wWidth < 0){
-        wWidth = displayWidth;
-    }
-    if(wHeight < 0){
-        wHeight = displayHeight;
-    }
-    //Create a window
-    AXWindow::window = SDL_CreateWindow(title, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, wWidth, wHeight, SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN);
-    if(window == NULL ){
-        printf( "Window could not be created! SDL_Error: %s\n", SDL_GetError() );
-        return -1;
-    }
-
-    //set the window based on it
-    switch(windowStyle){
-        case AX_WINDOWED:
+        //check the window flags
+        if(flags & AX_WINDOWED){
            SDL_SetWindowFullscreen(window, 0);
-            break;
-        case AX_FULLSCREEN:
+        }else if(flags & AX_FULLSCREEN){
            SDL_SetWindowFullscreen(window, SDL_WINDOW_FULLSCREEN);
-           break;
-        default:
+        }else{
            SDL_SetWindowFullscreen(window, 0);
-            break;
+        }
+        //save the window width and height
+
+        AXWindow::windowWidth = wWidth;
+        AXWindow::windowHeight = wHeight;
+        
+        //make a renderer
+        AXWindow::renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+        gladLoadGLLoader(SDL_GL_GetProcAddress);
+        glEnable (GL_BLEND);
+        glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+        backgroundColour.set(255, 255, 255, 255);
+        renderColour.set(0, 0, 0, 255);
+        //set blend mode
+        SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
     }
-    //save the window width and height
-    AXWindow::windowWidth = wWidth;
-    AXWindow::windowHeight = wHeight;
-    
-    //make a renderer
-    AXWindow::renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
-    gladLoadGLLoader(SDL_GL_GetProcAddress);
-    glEnable (GL_BLEND);
-    glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-    backgroundColour.set(255, 255, 255, 255);
-    renderColour.set(0, 0, 0, 255);
-    //set blend mode
-    SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
+    //check the flags for noaudio
+    if(!(flags & AX_NOAUDIO)){
+        //open the aduio channel
+        if(Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 1024) != 0){
+            printf("Mix_OpenAudio failed: %s\n", Mix_GetError());
+            return -1;
+        }
+    }
+
     AXInput::init();
     AXNetwork::init();
     initiated = true;
@@ -176,22 +173,29 @@ int AXWindow::run(){
                 activeScene->update();
             }
         }
-        //Fill the surface wshite
-        SDL_SetRenderDrawColor(AXWindow::renderer, backgroundColour.getR(), backgroundColour.getG(), backgroundColour.getB(), backgroundColour.getA());
-        SDL_RenderClear(AXWindow::renderer);
-        if(inFocus){
-            SDL_SetRenderDrawColor(AXWindow::renderer, renderColour.getR(), renderColour.getG(), renderColour.getB(), renderColour.getA());
-            if(draw){
-                draw();
+        //only clear the frame if there's video
+        if(videoStatus){
+            //Fill the surface wshite
+            SDL_SetRenderDrawColor(AXWindow::renderer, backgroundColour.getR(), backgroundColour.getG(), backgroundColour.getB(), backgroundColour.getA());
+            SDL_RenderClear(AXWindow::renderer);
+            if(inFocus){
+                SDL_SetRenderDrawColor(AXWindow::renderer, renderColour.getR(), renderColour.getG(), renderColour.getB(), renderColour.getA());
+                if(draw){
+                    draw();
+                }
+                if(activeScene) {
+                    activeScene->draw();
+                }
             }
-            if(activeScene) {
-                activeScene->draw();
-            }
+            SDL_RenderPresent(AXWindow::renderer);
         }
-        SDL_RenderPresent(AXWindow::renderer);
+        draw();
     }
-    SDL_DestroyWindow(window);
-    SDL_DestroyRenderer(renderer);
+    //only destroy them if there's video
+    if(videoStatus){
+        SDL_DestroyWindow(window);
+        SDL_DestroyRenderer(renderer);
+    }
     //quit the SDLMix
     while(Mix_Init(0)){
         Mix_Quit();

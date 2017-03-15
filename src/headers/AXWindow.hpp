@@ -35,7 +35,7 @@
 #include <vector>
 #include "AXScene.hpp"
 #include "AXInput.hpp"
-#include "AXWindowTypes.hpp"
+#include "AXWindowFlags.hpp"
 #include "AXNetwork.hpp"
 #include <SDL2/SDL.h>
 #include <SDl2_mixer/SDl_mixer.h>
@@ -80,24 +80,24 @@ public:
     * The AXWindow is the back bone of Axilya, you need to initialise everything before using the run method.
     * @param windowWidth the requested width of the window
     * @param windowHeight the requested height of the window
-    * @param windowStyle the style of the window, can be AX_WINDOWED or AX_FULLSCREEN
     * @param title the title that's shown in the top bar of the window
+    * @param flags
     * @return Returns 1 on success and -1 on failure
     */
-    static int init(float windowWidth, float windowHeight, int windowStyle, const char* title);
+    static int init(float windowWidth, float windowHeight, int windowStyle, const char* title, unsigned int flags);
     /*!
     * A static method initialise the AXWindow
     *
     * The AXWindow is the back bone of Axilya, you need to initialise everything before using the run method.
     * @param windowWidth the requested width of the window
     * @param windowHeight the requested height of the window
-    * @param windowStyle the style of the window, can be AX_WINDOWED or AX_FULLSCREEN
     * @param title the title that's shown in the top bar of the window
     * @param update the function pointer to an update method, this will be called in the game loop along side the current AXScene being updated
     * @param draw the function pointer to an draw method, this will be called in the game loop along side the current AXScene being updated
+    * @param flags
     * @return Returns 1 on success and -1 on failure
     */
-    static int init(float windowWidth, float windowHeight, int windowType, const char* title, AXFunction update, AXFunction draw);
+    static int init(float windowWidth, float windowHeight, const char* title, unsigned int flags, AXFunction update, AXFunction draw);
     /*!
     * A static method to start and maintain the game loop
     *

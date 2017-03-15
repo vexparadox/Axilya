@@ -51,6 +51,6 @@
 #include "AXResourceManager.hpp"
 #include "AXPrefabManager.hpp"
 #include "AXEntityDrawTypes.hpp"
-#include "AXWindowTypes.hpp"
+#include "AXWindowFlags.hpp"
 
 #endif /* AXMain_h */
