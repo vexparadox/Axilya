@@ -16,15 +16,16 @@ For OSX you'll need: `g++`, `make`, `libcurl`, `unzip` and `SDL`(see below). The
 
 For Linux you'll need: `g++`, `make`, `libcurl`, `unzip` and `SDL`. All but SDL are available via `apt-get`, see the [dependencies](https://github.com/vexparadox/Axilya/wiki/Dependencies) page for how to install SDL.
 
-There are a few commands you can use to compile and install
+There are a few commands you can use to compile and install.
 
-```Shell
-	make all
-```
-
-To just install SDL2 (OSX only):
+To install SDL2 (OSX only):
 ```Shell
 	sudo make sdl
+```
+
+To build the library, install and build examples (reccomended):
+```Shell
+	make all
 ```
 
 To just install use:
