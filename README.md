@@ -15,10 +15,10 @@ You'll need: g++, make, libcurl(comes with all OSX and most Linux) and unzip
 You can either run the make script, this will install SDL2.0.5, build the library and all examples.
 
 ```Shell
-	sudo make all
+	make all
 ```
 
-To just install SDL2:
+To just install SDL2 (OSX only):
 ```Shell
 	sudo make sdl
 ```
@@ -26,27 +26,27 @@ To just install SDL2:
 To just install use:
 
 ```Shell
-	sudo make install
+	make install
 ```
 
 To just make the examples:
 ```Shell
-	make examples
+	examples
 ```
 
 To just build the library use:
 ```Shell
-	sudo make lib
+	make lib
 ```
 
 To remove the install use:
 
 ```Shell
-	sudo make cleaninstall
+	make cleaninstall
 ```
 
 
-You can also build just the library using xCode using the project file included.
+If you get issues with permissions it might just be that your /usr/local/lib or /usr/local/include folders haven't been initialised, you can either run these commands in `sudo` mode or create the folders and try again.
 
 
 ## Other
