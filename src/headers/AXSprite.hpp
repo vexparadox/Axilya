@@ -33,12 +33,12 @@
 #ifndef Sprite_hpp
 #define Sprite_hpp
 
-#include "ResourceManager.hpp"
+#include "AXResourceManager.hpp"
 #include "AXGraphics.hpp"
 class AXSprite {
     std::string name;
 protected:
-    ResourceManager* resourceManager = ResourceManager::getInstance();
+    AXResourceManager* resourceManager = AXResourceManager::getInstance();
 public:
 	virtual ~AXSprite(){};
     AXSprite(const std::string& name);

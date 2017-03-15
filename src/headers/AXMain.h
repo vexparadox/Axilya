@@ -47,7 +47,7 @@
 #include "AXAnimatedSprite.hpp"
 #include "Tile.hpp"
 #include "AXInput.hpp"
-#include "ResourceManager.hpp"
+#include "AXResourceManager.hpp"
 #include "AXPrefabManager.hpp"
 #include "EntityDrawTypes.hpp"
 #include "WindowTypes.hpp"

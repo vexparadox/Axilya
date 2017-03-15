@@ -33,12 +33,12 @@
 #ifndef StaticWorld_hpp
 #define StaticWorld_hpp
 
-#include "ResourceManager.hpp"
+#include "AXResourceManager.hpp"
 #include "World.hpp"
 
 class StaticWorld : public World {
     AXTexture* texture;
-    ResourceManager* resourceManager = ResourceManager::getInstance();
+    AXResourceManager* resourceManager = AXResourceManager::getInstance();
 public:
     StaticWorld();
     void loadTexture(int textureID);

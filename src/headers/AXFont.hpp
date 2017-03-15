@@ -29,7 +29,7 @@
  * @section DESCRIPTION
  *
  * This class is used to hold font data and the instructions to load from TTF files.
- * It also holds the ID given by the Resource Manager. It's not recomended to use this without the ResourceManager.
+ * It also holds the ID given by the Resource Manager. It's not recomended to use this without the AXResourceManager.
  */
 #ifndef AXFont_hpp
 #define AXFont_hpp
@@ -45,8 +45,8 @@ public:
 	/*!
    * The constructor of an AXFont
    *
-   * It's not recommended that you construct your own AXFont, see the ResourceManager.
-   * @param id this ID will be given by the ResourceManager when it's created
+   * It's not recommended that you construct your own AXFont, see the AXResourceManager.
+   * @param id this ID will be given by the AXResourceManager when it's created
    * @param p the path of the font file
    * @param size the size of the font to load
    */

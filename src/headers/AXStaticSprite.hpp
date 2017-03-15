@@ -47,7 +47,7 @@ public:
     * The constructor of a AXStaticSprite
     *
     * @param name the name of this AXStaticSprite
-    * @param filename the image file to load for this AXStaticSprite (will go through the ResourceManager)
+    * @param filename the image file to load for this AXStaticSprite (will go through the AXResourceManager)
     */
     AXStaticSprite(const std::string& name, const std::string& filename);
     /*!
@@ -68,7 +68,7 @@ public:
     /*!
     * A method to set the AXTexture this AXStaticSprite will draw
     *
-    * @param textureID the ID of the AXTexture given by the ResourceManager
+    * @param textureID the ID of the AXTexture given by the AXResourceManager
     */
     void setTexture(int textureID);
     /*!

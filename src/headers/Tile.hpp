@@ -34,12 +34,12 @@
 #ifndef Tile_hpp
 #define Tile_hpp
 
-#include "ResourceManager.hpp"
+#include "AXResourceManager.hpp"
 #include "TileComponent.hpp"
 #include "AXGraphics.hpp"
 class AXTexture;
 class Tile{
-    ResourceManager* resourceManager;
+    AXResourceManager* resourceManager;
     AXTexture* texture;
     AXScene* scene;
     std::vector<TileComponent*> components;

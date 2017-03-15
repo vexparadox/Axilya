@@ -14,7 +14,7 @@ int main(int argc, char const *argv[])
 	// AXGraphics::setBackground(0, 0, 0, 255);
 	//we can add a font file with the size 18
 	//remember that all files are prefixed with the runpath + data/
-	int fontID = ResourceManager::getInstance()->addFont("Arial.ttf", 18);
+	int fontID = AXResourceManager::getInstance()->addFont("Arial.ttf", 18);
 	//lets make an AXEntity
 	AXEntity* e = new AXEntity("text_entity", 0, 0, 0, 0); // The size of an AXEntity will be changed to fit the text you attach to it
 	e->addCollider(new AXBoxCollider()); // Entities that display text can also have Colliders and Rigidbodies

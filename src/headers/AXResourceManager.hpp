@@ -39,16 +39,16 @@
 #include <unordered_map>
 class AXTexture;
 class AXFont;
-class ResourceManager{
-    ResourceManager(){}
+class AXResourceManager{
+    AXResourceManager(){}
     std::vector<AXTexture*> textures;
     std::vector<AXFont*> fonts;
     std::unordered_map<std::string, AXTexture*> textureMap;
     std::unordered_map<std::string, AXFont*> fontMap;
-    static ResourceManager* instance;
-    ~ResourceManager();
+    static AXResourceManager* instance;
+    ~AXResourceManager();
 public:
-    static ResourceManager* getInstance();
+    static AXResourceManager* getInstance();
     //add a new AXTexture, will return -1 or new id
     int addTexture(const std::string&);
     int addFont(const std::string&, int size);

@@ -1,12 +1,12 @@
 #include "headers/Tile.hpp"
 
 Tile::Tile(int textureID) : texture(0), scene(0) {
-    resourceManager = ResourceManager::getInstance();
+    resourceManager = AXResourceManager::getInstance();
     texture = resourceManager->getTexture(textureID);
 }
 
 Tile::Tile(AXTexture* texture) : texture(0), scene(0){
-    resourceManager = ResourceManager::getInstance();
+    resourceManager = AXResourceManager::getInstance();
     if(texture){
         this->texture = texture;
     }

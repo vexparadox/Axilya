@@ -1,14 +1,14 @@
-#include "headers/ResourceManager.hpp"
-ResourceManager* ResourceManager::instance = new ResourceManager();
+#include "headers/AXResourceManager.hpp"
+AXResourceManager* AXResourceManager::instance = new AXResourceManager();
 
-ResourceManager* ResourceManager::getInstance(){
+AXResourceManager* AXResourceManager::getInstance(){
     if(!instance){
-        instance = new ResourceManager();
+        instance = new AXResourceManager();
     }
     return instance;
 }
 
-ResourceManager::~ResourceManager() {
+AXResourceManager::~AXResourceManager() {
     for(auto& t : textures){
         delete t;
         t = 0;
@@ -23,7 +23,7 @@ ResourceManager::~ResourceManager() {
     fontMap.clear();
 }
 
-int ResourceManager::addTexture(const std::string& s){
+int AXResourceManager::addTexture(const std::string& s){
     if(isTextureLoaded(s)){
         return textureMap.at(s)->getID();
     }
@@ -39,7 +39,7 @@ int ResourceManager::addTexture(const std::string& s){
     return -1;
 }
 
-int ResourceManager::addFont(const std::string& s, int size){
+int AXResourceManager::addFont(const std::string& s, int size){
     if(isFontLoaded(s)){
         return fontMap.at(s)->getID();
     }
@@ -57,21 +57,21 @@ int ResourceManager::addFont(const std::string& s, int size){
     return -1;
 }
 
-bool ResourceManager::isTextureLoaded(const std::string &s) {
+bool AXResourceManager::isTextureLoaded(const std::string &s) {
     if (textureMap.find(s) != textureMap.end()){
         return true;
     }
     return false;
 }
 
-bool ResourceManager::isFontLoaded(const std::string &s) {
+bool AXResourceManager::isFontLoaded(const std::string &s) {
     if (fontMap.find(s) != fontMap.end()){
         return true;
     }
     return false;
 }
 
-AXTexture* ResourceManager::getTexture(int i){
+AXTexture* AXResourceManager::getTexture(int i){
     if(i >= 0 && i < textures.size()){
         return textures[i];
     }else{
@@ -80,7 +80,7 @@ AXTexture* ResourceManager::getTexture(int i){
     }
 }
 
-AXTexture* ResourceManager::getTexture(const std::string &s) {
+AXTexture* AXResourceManager::getTexture(const std::string &s) {
     if(isTextureLoaded(s)){
         return textureMap.at(s);
     }else{
@@ -89,7 +89,7 @@ AXTexture* ResourceManager::getTexture(const std::string &s) {
     }
 }
 
-AXFont* ResourceManager::getFont(int i){
+AXFont* AXResourceManager::getFont(int i){
     if(i >= 0 && i < fonts.size()){
         return fonts[i];
     }else{
@@ -98,7 +98,7 @@ AXFont* ResourceManager::getFont(int i){
     }
 }
 
-AXFont* ResourceManager::getFont(const std::string &s) {
+AXFont* AXResourceManager::getFont(const std::string &s) {
     if(isFontLoaded(s)){
         return fontMap.at(s);
     }else{

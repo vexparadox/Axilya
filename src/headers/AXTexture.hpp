@@ -45,14 +45,14 @@ class AXTexture : public AXResource{
 public:
 	/*!
    * The constructor of an AXTexture 
-   * @param id the ID provided when created by the ResourceManager
+   * @param id the ID provided when created by the AXResourceManager
    * @param path the path of the image file to load
    */  
     AXTexture(int id, const std::string& path);
   /*!
    * The constructor of an AXTexture 
    * 
-   * The id parameter is only used with the ResourceManager
+   * The id parameter is only used with the AXResourceManager
    * @param path the path of the image file to load
    */  
     AXTexture(const std::string& path);

@@ -34,12 +34,12 @@
 #define AXText_hpp
 #include "AXComponent.hpp"
 #include <stdio.h>
-#include "ResourceManager.hpp"
+#include "AXResourceManager.hpp"
 #include "AXEntity.hpp"
 class AXText {
 protected:
 	AXFont* font = 0;
-	ResourceManager* resourceManager = ResourceManager::getInstance();
+	AXResourceManager* resourceManager = AXResourceManager::getInstance();
    int height, width;
    std::string name;
    AXEntity* owner = 0;
@@ -65,7 +65,7 @@ public:
 	virtual void setFont(AXFont* font) = 0;
    /*!
    * A virtual method to set the font of the AXText
-   * @param id the ID of the AXFont (given by the ResourceManager) that will be used to draw the text
+   * @param id the ID of the AXFont (given by the AXResourceManager) that will be used to draw the text
    */
 	virtual void setFont(int id) = 0;
    /*!

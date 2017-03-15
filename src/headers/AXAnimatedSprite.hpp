@@ -65,13 +65,13 @@ public:
     void draw(float x, float y, float w, float h);
    /*!
    * A method to add another frame to the AXAnimatedSprite
-   * @param textureID the ID of a texture given by the ResourceManager
+   * @param textureID the ID of a texture given by the AXResourceManager
    */
     void addTexture(int textureID);
    /*!
    * A method to add another frame to the AXAnimatedSprite
-   * @param filename the filename of an image to be loaded by the ResourceManager
-   * @return the ID of the AXTexture loaded by the ResourceManager
+   * @param filename the filename of an image to be loaded by the AXResourceManager
+   * @return the ID of the AXTexture loaded by the AXResourceManager
    */
     int addTexture(const std::string& filename);
    /*!

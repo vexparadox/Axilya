@@ -38,7 +38,7 @@
 #include <stdio.h>
 
 #include "Math.h"
-#include "ResourceManager.hpp"
+#include "AXResourceManager.hpp"
 #include "AXPrefabManager.hpp"
 //components
 #include "Components.h"
@@ -47,7 +47,7 @@
 class AXScene;
 class AXEntity{
     //get an instance of the resourcemanager
-    ResourceManager* resourceManager = ResourceManager::getInstance();
+    AXResourceManager* resourceManager = AXResourceManager::getInstance();
 
     //save the name of the entity
     std::string name;
