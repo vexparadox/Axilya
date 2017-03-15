@@ -8,11 +8,15 @@ Note that the repo is a fair sight larger than the final install because of exam
 
 Docs: http://axilya.com/docs
 
-## Compiling
+## Compiling+installing on Linux+OSX
 
-You'll need: g++, make, libcurl(comes with all OSX and most Linux) and unzip
+A quick list of [dependencies](https://github.com/vexparadox/Axilya/wiki/Dependencies):
 
-You can either run the make script, this will install SDL2.0.5, build the library and all examples.
+For OSX you'll need: `g++`, `make`, `libcurl`, `unzip` and `SDL`(see below). These can be installed using `xcode-select --install` in your Terminal. They're also install when you install xCode.
+
+For Linux you'll need: `g++`, `make`, `libcurl`, `unzip` and `SDL`. All but SDL are available via `apt-get`, see the [dependencies](https://github.com/vexparadox/Axilya/wiki/Dependencies) page for how to install SDL.
+
+There are a few commands you can use to compile and install
 
 ```Shell
 	make all
@@ -31,7 +35,7 @@ To just install use:
 
 To just make the examples:
 ```Shell
-	examples
+	make examples
 ```
 
 To just build the library use:
