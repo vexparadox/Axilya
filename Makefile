@@ -1,8 +1,7 @@
 OS = $(shell uname)
 ifeq ($(OS), Linux)
 	CPFLAGS += 
-	SDLRUN := @echo "Unpacking SDL2.0.5"; cd ./SDL && unzip ./SDL2-src.zip; echo "Configuring SDL2.0.5"; cd ./SDL2-2.0.5 && ./configure ; echo "Building..."; sudo make && sudo make install; echo "Cleaning up..."; cd ../ && rm -rf ./SDL2-2.0.5; echo "Install complete"
-	SDLRUN += @echo "Unpacking SDL TTF"; unzip -qq ./SDL2_ttf-src.zip; echo "Configuring SDL TTF"; cd ./SDL2_ttf-2.0.14 && ./configure ; echo "Building..."; sudo make && sudo make install; echo "Cleaning up..."; cd ../ && rm -rf ./SDL2_ttf-2.0.14; echo "Install complete"
+	SDLRUN := @echo "SDL install isn't supported from makefile on Linux, got to https://github.com/vexparadox/Axilya/wiki/Dependencies to see how to install the required libraries"
 else
 ifeq ($(OS), Darwin)
 	CPFLAGS += -mmacosx-version-min=10.9 -F/Library/Frameworks/
