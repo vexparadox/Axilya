@@ -45,7 +45,7 @@ class AXScene{
     std::vector<AXEntity*> entities;
     World* world;
     AXEntity* gameMaster;
-    Math::Vector2D renderOffset;
+    AXVector2D renderOffset;
     std::unordered_map<std::string, AXEntity*> entityMap;
 public:
     /*!
@@ -82,7 +82,7 @@ public:
     *
     * @return the vector of how the AXRenderer is being offset
     */
-    Math::Vector2D& getRenderOffset();
+    AXVector2D& getRenderOffset();
     /*!
     * A method to add to the AXRenderer offset
     *
@@ -95,7 +95,7 @@ public:
     *
     * @param v how much to offset the AXRenderer (x, y)
     */
-    void offsetRenderer(Math::Vector2D& v);
+    void offsetRenderer(AXVector2D& v);
     /*!
     * A method to set the AXRenderer offset
     *
@@ -108,7 +108,7 @@ public:
     *
     * @param v a vector to set the offset to (x, y)
     */
-    void setRenderOffset(Math::Vector2D& v);
+    void setRenderOffset(AXVector2D& v);
     /*!
     * A method to add an AXEntity to this AXScene
     *
@@ -179,7 +179,7 @@ public:
     * @param proposedMovement the vector of movement being attempted by @param e
     * @param colls an array of collision directions that will be filled by the Collider's
     */
-    void collideCheck(AXEntity* e, Math::Vector2D& proposedMovement, unsigned char* colls);
+    void collideCheck(AXEntity* e, AXVector2D& proposedMovement, unsigned char* colls);
     /*!
     * Returns the number of Entities in this AXScene
     * @return number of Entities in the AXScene vector

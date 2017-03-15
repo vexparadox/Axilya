@@ -28,32 +28,29 @@
  *
  * @section DESCRIPTION
  *
- * An unfinished polygon shape class
+ * This is the base class for all TileComponents that can be attached to a AXTile.
  */
-#ifndef Poly_h
-#define Poly_h
-#include <vector>
-#include "Vector2D.h"
-namespace AXGraphics{
-class Polygon{
-private:
-    std::vector<Math::Vector2D> v;
-public:
-    Polygon();
-    ~Polygon();
-    void addVertex(const Math::Vector2D &v){
-        this->v.push_back(v);
-    }
-    
-    void clear(){
-        this->v.clear();
-    }
-    
-    std::vector<Math::Vector2D> getVerticies() const{
-        return v;
-    }
-    
-};
-}
+#ifndef TileComponent_hpp
+#define TileComponent_hpp
 
-#endif /* Poly_h */
+class AXTile;
+class AXScene;
+class AXTileComponent {
+    AXTile* owner;
+protected:
+    virtual ~AXTileComponent(){};
+public:
+    //set the owner of the component
+    void setOwner(AXTile* owner);
+    //returns the owner of this component
+    AXTile* getOwner();
+    //returns the scene that the owner belongs to
+    AXScene* getScene();
+
+    virtual void start(){};
+    virtual void update(){};
+
+};
+
+
+#endif

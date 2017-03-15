@@ -34,12 +34,12 @@
 #ifndef Types_h
 #define Types_h
 
-#include "Ellipse.h"
-#include "Triangle.h"
-#include "Shape.h"
-#include "Rect.h"
-#include "Poly.h"
-#include "Colour.h"
+#include "AXEllipse.h"
+#include "AXTriangle.h"
+#include "AXShape.h"
+#include "AXRect.h"
+#include "AXPolygon.h"
+#include "AXColour.h"
 #include "AXString.hpp"
 
 #include "AXTexture.hpp"

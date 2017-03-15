@@ -2,20 +2,20 @@
 // Created by William Meaton on 01/09/2016.
 //
 
-#include "headers/TileComponent.hpp"
-#include "headers/Tile.hpp"
+#include "headers/AXTileComponent.hpp"
+#include "headers/AXTile.hpp"
 
-void TileComponent::setOwner(Tile* owner) {
+void AXTileComponent::setOwner(AXTile* owner) {
     if(owner){
         this->owner = owner;
     }
 }
 
-Tile* TileComponent::getOwner() {
+AXTile* AXTileComponent::getOwner() {
     return owner;
 }
 
-AXScene* TileComponent::getScene() {
+AXScene* AXTileComponent::getScene() {
     if(owner){
         return owner->getScene();
     }

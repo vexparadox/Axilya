@@ -1,13 +1,13 @@
 //
 // Created by William Meaton on 01/09/2016.
 //
-#include "headers/TiledWorld.hpp"
+#include "headers/AXTiledWorld.hpp"
 
-TiledWorld::TiledWorld(int width, int height) : width(width), height(height){
+AXTiledWorld::AXTiledWorld(int width, int height) : width(width), height(height){
     isLoaded = false;
 }
 
-TiledWorld::~TiledWorld() {
+AXTiledWorld::~AXTiledWorld() {
     for(auto& t : worldMatrix){
         delete t;
         t = 0;
@@ -20,17 +20,17 @@ TiledWorld::~TiledWorld() {
     tileTypes.clear();
 }
 
-void TiledWorld::loadWorld(const std::string &path, int tileSize) {
+void AXTiledWorld::loadWorld(const std::string &path, int tileSize) {
 
 }
 
-void TiledWorld::addTileType(char key, Tile* tile){
+void AXTiledWorld::addTileType(char key, AXTile* tile){
     tile->setScene(this->getScene());
-    tileTypes.insert(std::pair<char, Tile*>(key, tile));
+    tileTypes.insert(std::pair<char, AXTile*>(key, tile));
 }
 
-Tile* TiledWorld::getTileType(char key){
-    Tile* temp = 0;
+AXTile* AXTiledWorld::getTileType(char key){
+    AXTile* temp = 0;
     auto it = tileTypes.find(key);
     if(it != tileTypes.end()){
         temp = it->second;
@@ -38,14 +38,14 @@ Tile* TiledWorld::getTileType(char key){
     return temp;
 }
 
-void TiledWorld::draw(){
+void AXTiledWorld::draw(){
 //    for(auto& t : worldMatrix){
         //need to pass the x, y to the tile to draw
        // t->draw(w, h)
 //    }
 }
 
-void TiledWorld::update(){
+void AXTiledWorld::update(){
     for(auto& t : worldMatrix){
         t->update();
     }

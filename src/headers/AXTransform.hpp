@@ -38,7 +38,7 @@
 #include "AXComponent.hpp"
 class AXEntity;
 class AXTransform : public AXComponent{
-    Math::Vector2D position, size, lastPosition;
+    AXVector2D position, size, lastPosition;
 public:
     /*!
     * Constructor of the AXTransform
@@ -47,18 +47,18 @@ public:
     * @param size the Entities size
     * @see AXEntity constructor
     */
-    AXTransform(const Math::Vector2D& pos, const Math::Vector2D& size);
+    AXTransform(const AXVector2D& pos, const AXVector2D& size);
     AXTransform(float x, float y, float w, float h);
     /*!
     * Sets the transforms parameters
     */
-    void set(const Math::Vector2D &v, const Math::Vector2D &s);
+    void set(const AXVector2D &v, const AXVector2D &s);
 
     void set(float x, float y, float w, float h);
     /*!
     * Sets the transforms position only
     */
-    void set(const Math::Vector2D &v);
+    void set(const AXVector2D &v);
     /*!
     * Sets the transforms position only
     */
@@ -66,17 +66,17 @@ public:
     /*!
     * Moves the transform
     */
-    void moveTransform(const Math::Vector2D &v);
+    void moveTransform(const AXVector2D &v);
     /*!
     * Returns the position
     * @return the position of the AXEntity
     */
-    Math::Vector2D& getPosition();
+    AXVector2D& getPosition();
     /*!
     * Returns the size
     * @return the size of the AXEntity
     */
-    Math::Vector2D& getSize();
+    AXVector2D& getSize();
 
     float getWidth();
     float getHeight();

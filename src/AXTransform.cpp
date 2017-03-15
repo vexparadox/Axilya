@@ -8,7 +8,7 @@
 
 #include "headers/AXTransform.hpp"
 
-AXTransform::AXTransform(const Math::Vector2D& pos, const Math::Vector2D& size): position(pos), size(size){
+AXTransform::AXTransform(const AXVector2D& pos, const AXVector2D& size): position(pos), size(size){
     
 }
 
@@ -23,12 +23,12 @@ void AXTransform::set(float x, float y, float w, float h){
     this->size.y = h;
 }
 
-void AXTransform::set(const Math::Vector2D &v, const Math::Vector2D &s){
+void AXTransform::set(const AXVector2D &v, const AXVector2D &s){
     this->position = v;
     this->size = s;
 }
 
-void AXTransform::set(const Math::Vector2D &v){
+void AXTransform::set(const AXVector2D &v){
     this->position = v;
 }
 
@@ -37,12 +37,12 @@ void AXTransform::set(float x, float y){
     this->position.y = y;
 }
 
-void AXTransform::moveTransform(const Math::Vector2D &v){
+void AXTransform::moveTransform(const AXVector2D &v){
     this->lastPosition = position;
     this->position += v;
 }
 
-Math::Vector2D& AXTransform::getPosition(){
+AXVector2D& AXTransform::getPosition(){
     return position;
 }
 
@@ -54,7 +54,7 @@ float AXTransform::getHeight(){
     return this->size.y;    
 }
 
-Math::Vector2D& AXTransform::getSize(){
+AXVector2D& AXTransform::getSize(){
     return size;
 }
 

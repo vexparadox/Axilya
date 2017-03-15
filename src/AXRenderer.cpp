@@ -8,7 +8,7 @@
 
 
 AXRenderer::AXRenderer(){
-     this->colour = AXGraphics::Colour(0, 0, 0, 255);
+     this->colour = AXGraphics::AXColour(0, 0, 0, 255);
 }
 
 AXRenderer::~AXRenderer(){
@@ -64,9 +64,9 @@ AXSprite* AXRenderer::getCurrentSprite(){
     return currentSprite;
 }
 
-void AXRenderer::draw(const Math::Vector2D& renderOffset) {
-    Math::Vector2D position = owner->getTransform()->getPosition()+renderOffset;
-    Math::Vector2D size = owner->getTransform()->getSize();
+void AXRenderer::draw(const AXVector2D& renderOffset) {
+    AXVector2D position = owner->getTransform()->getPosition()+renderOffset;
+    AXVector2D size = owner->getTransform()->getSize();
     //if there's a sprite
     int drawType = owner->getDrawType();
     if(drawType == AX_DRAW_SPRITE && currentSprite){
@@ -93,7 +93,7 @@ void AXRenderer::setOwner(AXEntity *owner) {
     }
 }
 
-AXGraphics::Colour& AXRenderer::getColour() {
+AXGraphics::AXColour& AXRenderer::getColour() {
     return colour;
 }
 
@@ -105,7 +105,7 @@ void AXRenderer::setColour(float r, float g, float b){
     this->colour.set(r, g, b, 255);
 }
 
-void AXRenderer::setColour(const AXGraphics::Colour& c){
+void AXRenderer::setColour(const AXGraphics::AXColour& c){
     this->colour.set(c.getR(), c.getG(), c.getB(), c.getA());
 }
 

@@ -37,7 +37,7 @@
 #include "AXTransform.hpp"
 #include "AXCollider.hpp"
 #include "AXBoxCollider.hpp"
-#include "CustomComponent.hpp"
+#include "AXCustomComponent.hpp"
 #include "CollideDirections.hpp"
 #include "EntityDrawTypes.hpp"
 #include "AXStaticText.hpp"

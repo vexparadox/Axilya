@@ -59,7 +59,7 @@ void AXScene::update() {
     }
 }
 
-void AXScene::collideCheck(AXEntity* e, Math::Vector2D& proposedMovement, unsigned char* colls){
+void AXScene::collideCheck(AXEntity* e, AXVector2D& proposedMovement, unsigned char* colls){
     //a collision counter to make sure it doesn't check past 4 entities 
     char collisions = 0;
     memset(colls, 0, 16);
@@ -175,7 +175,7 @@ int AXScene::numEntities(){
     return this->entities.size();
 }
 
-Math::Vector2D& AXScene::getRenderOffset(){
+AXVector2D& AXScene::getRenderOffset(){
     return renderOffset;
 }
 void AXScene::offsetRenderer(float x, float y){
@@ -183,13 +183,13 @@ void AXScene::offsetRenderer(float x, float y){
     renderOffset.y += y;
 }
 
-void AXScene::offsetRenderer(Math::Vector2D& v){
+void AXScene::offsetRenderer(AXVector2D& v){
     renderOffset += v;
 }
 void AXScene::setRenderOffset(float x, float y){
     renderOffset.x = x;
     renderOffset.y = y;
 }
-void AXScene::setRenderOffset(Math::Vector2D& v){
+void AXScene::setRenderOffset(AXVector2D& v){
     renderOffset = v;
 }

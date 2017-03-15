@@ -88,7 +88,7 @@ public:
     * @param pos a 2D vector defining the AXEntity's position (x, y)
     * @param size a 2D vector defining the AXEntity's size (w, h) 
     */ 
-    AXEntity(const std::string& name, const Math::Vector2D& pos, const Math::Vector2D& size);
+    AXEntity(const std::string& name, const AXVector2D& pos, const AXVector2D& size);
     /*!
     * The constructor of an AXEntity
     *
@@ -133,7 +133,7 @@ public:
     * What the AXRenderer will draw is defined by the draw type and if there are any Sprites attached
     * @param renderOffset passed by the AXScene to tell if AXRenderer if there's any offset applied to the drawing positions
     */ 
-    void draw(const Math::Vector2D& renderOffset);
+    void draw(const AXVector2D& renderOffset);
 
     /*!
     * A method that sets a flag for this AXEntity to be destroyed
@@ -163,7 +163,7 @@ public:
     * This method also moves any Colliders attached
     * @param v the vector of movement that should be summed to the current position
     */ 
-    void moveEntity(Math::Vector2D v);
+    void moveEntity(AXVector2D v);
     /*!
     * A method that moves the AXEntity by a set amount
     *
@@ -182,13 +182,13 @@ public:
     void resizeEntity(float w, float h);
 
     /*!
-    * A method that sets the Colour that this AXEntity should be drawn at
+    * A method that sets the AXColour that this AXEntity should be drawn at
     *
     * This doesn't take affect if there's a AXSprite being drawn
     *
     * This method is calling another in the AXRenderer
     *
-    * These values will be passed into a Colour object so will be clamped from 0-255
+    * These values will be passed into a AXColour object so will be clamped from 0-255
     * @param r the red value
     * @param g the green value
     * @param b the blue value
@@ -196,13 +196,13 @@ public:
     */ 
     void setColour(float r, float g, float b, float a);
     /*!
-    * A method that sets the Colour that this AXEntity should be drawn at
+    * A method that sets the AXColour that this AXEntity should be drawn at
     *
     * This doesn't take affect if there's a AXSprite being drawn
     *
     * This method is calling another in the AXRenderer
     *
-    * These values will be passed into a Colour object so will be clamped from 0-255
+    * These values will be passed into a AXColour object so will be clamped from 0-255
     *
     * This method assumes the alpha value is 255
     * @param r the red value
@@ -211,21 +211,21 @@ public:
     */ 
     void setColour(float r, float g, float b);
     /*!
-    * A method that sets the Colour that this AXEntity should be drawn at
+    * A method that sets the AXColour that this AXEntity should be drawn at
     *
     * This doesn't take affect if there's a AXSprite being drawn
     *
     * This method is calling another in the AXRenderer
-    * @param c the Colour object this will draw at 
+    * @param c the AXColour object this will draw at 
     */ 
-    void setColour(const AXGraphics::Colour &c);
+    void setColour(const AXGraphics::AXColour &c);
     /*!
-    * A method that gets the Colour that this AXEntity is being drawn at
+    * A method that gets the AXColour that this AXEntity is being drawn at
     *
     * This method is calling another in the AXRenderer
-    * @return the Colour object this AXEntity is being drawn at
+    * @return the AXColour object this AXEntity is being drawn at
     */ 
-    AXGraphics::Colour& getColour();
+    AXGraphics::AXColour& getColour();
     /*!
     * A method to set the AXScene that this AXEntity is in
     *

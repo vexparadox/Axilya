@@ -38,8 +38,8 @@
 class AXEntity;
 class AXCollider{
 public:
-    Math::Vector2D center, halfSize;
-    Shape* bounds;
+    AXVector2D center, halfSize;
+    AXShape* bounds;
     AXEntity* owner = 0;
     bool screenBound;
     /*!
@@ -52,9 +52,9 @@ public:
     /*!
     * A method to get the bounds of this AXCollider.
     *
-    * @return The Shape of this AXCollider's bounds
+    * @return The AXShape of this AXCollider's bounds
     */    
-    Shape* getBounds();
+    AXShape* getBounds();
     /*!
     * A method to set the AXEntity that owns this AXCollider.
     *
@@ -76,13 +76,13 @@ public:
     *
     * @return Will return the direction of the collision that happened AX_COLLIDE_UP/DOWN/RIGHT/LEFT or 0 if none occurred.
     */
-    virtual int worldCollideCheck(Math::Vector2D&) = 0;
+    virtual int worldCollideCheck(AXVector2D&) = 0;
     /*!
     * A virtual method to check this AXCollider's bounds against another AXEntity's AXCollider.
     *
     * @return Will return the direction of the collision that happened AX_COLLIDE_UP/DOWN/RIGHT/LEFT or 0 if none occurred.
     */
-    virtual int checkMovement(AXEntity*, Math::Vector2D&) = 0;
+    virtual int checkMovement(AXEntity*, AXVector2D&) = 0;
     /*!
     * A virtual method to clone this AXCollider.
     *

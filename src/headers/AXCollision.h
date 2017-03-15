@@ -39,13 +39,13 @@
 
 namespace Math {
     struct lineCollide{
-        Math::Vector2D v1, v2;
-        lineCollide(const Math::Vector2D &v1, const Math::Vector2D &v2);
+        AXVector2D v1, v2;
+        lineCollide(const AXVector2D &v1, const AXVector2D &v2);
     };
 
-    Math::Vector2D lineCollisionCheckX(const Math::Vector2D &originalPosition, const Math::Vector2D &proposedMovement, const lineCollide &lc);
+    AXVector2D lineCollisionCheckX(const AXVector2D &originalPosition, const AXVector2D &proposedMovement, const lineCollide &lc);
     
-    Math::Vector2D lineCollisionCheckY(const Math::Vector2D &originalPosition, const Math::Vector2D &proposedMovement, const lineCollide &lc);
+    AXVector2D lineCollisionCheckY(const AXVector2D &originalPosition, const AXVector2D &proposedMovement, const lineCollide &lc);
 
     /*!
     * A function that will return if the poing is inside the quad created by v1 and v2.
@@ -55,7 +55,7 @@ namespace Math {
     * @param v2 the second point of the quad 
     * @return if the point is inside the quad created by v1 and v2
     */
-    bool isInsideQuad(const Vector2D &point, const Vector2D &v1, const Vector2D &v2);
+    bool isInsideQuad(const AXVector2D &point, const AXVector2D &v1, const AXVector2D &v2);
     /*!
     * A function that will return if the point is inside the quad created by v and w,h.
     *
@@ -65,7 +65,7 @@ namespace Math {
     * @param h the height of the quad
     * @return if the point is inside the quad created by v and w,h
     */
-    bool isInsideQuad(const Vector2D &point, const Vector2D &v, float w, float h);
+    bool isInsideQuad(const AXVector2D &point, const AXVector2D &v, float w, float h);
     /*!
     * A function that will return if x1,y1 is inside the quad created by x2,y2 and x3,y3
     *
@@ -80,7 +80,7 @@ namespace Math {
     bool isInsideQuad(const float &x1, const float &y1, const float &x2, const float &y2, const float &x3, const float &y3);
     
     /*!
-    * A function that will the area of a Triangle
+    * A function that will the area of a AXTriangle
     *
     * @param x1 the first x position of the triangle
     * @param y1 the first y position of the triangle
@@ -92,23 +92,23 @@ namespace Math {
     */
     float areaTriangle(float x1, float y1, float x2, float y2, float x3, float y3);
     /*!
-    * A function that will the area of a Triangle
+    * A function that will the area of a AXTriangle
     *
     * @param v1 the first vertex of the triangle
     * @param v2 the second vertex of the triangle
     * @param v3 the third vertex of the triangle
     * @return the area of the triangle given
     */
-    float areaTriangle(const Vector2D &v1, const Vector2D &v2, const Vector2D &v3);
+    float areaTriangle(const AXVector2D &v1, const AXVector2D &v2, const AXVector2D &v3);
     /*!
-    * A function that will the area of a Triangle
+    * A function that will the area of a AXTriangle
     *
     * @param t the triangle to be calculated
     * @return the area of the triangle given
     */
-    float areaTriangle(const AXGraphics::Triangle &t);
+    float areaTriangle(const AXGraphics::AXTriangle &t);
     /*!
-    * A function that will return if a point is inside of the Triangle given
+    * A function that will return if a point is inside of the AXTriangle given
     *
     * @param point the point to be checked
     * @param v1 the first vertex of the triangle
@@ -116,43 +116,43 @@ namespace Math {
     * @param v3 the third vertex of the triangle
     * @return if the point is inside of the triangle
     */
-    bool isInsideTriangle(const Vector2D &point, const Vector2D &v1, const Vector2D &v2, const Vector2D &v3);
+    bool isInsideTriangle(const AXVector2D &point, const AXVector2D &v1, const AXVector2D &v2, const AXVector2D &v3);
     /*!
-    * A function that will return if a point is inside of the Triangle given
+    * A function that will return if a point is inside of the AXTriangle given
     *
     * @param point the point to be checked
     * @param t the triangle to be calculated
     * @return if the point is inside of the triangle
     */
-    bool isInsideTriangle(const Vector2D &point, const AXGraphics::Triangle &t);
+    bool isInsideTriangle(const AXVector2D &point, const AXGraphics::AXTriangle &t);
     
     /*!
-    * A function that will return if a point is inside of an Ellipse
+    * A function that will return if a point is inside of an AXEllipse
     *
     * @param point the point to be checked
-    * @param cp the center point of the Ellipse
+    * @param cp the center point of the AXEllipse
     * @param xR the radius in the x direction
     * @param yR the radius in the y direction
     * @return if the point is inside of the ellipse
     */    
-    bool isInsideEllipse(const Vector2D &point, const Vector2D &cp, float xR, float yR);
+    bool isInsideEllipse(const AXVector2D &point, const AXVector2D &cp, float xR, float yR);
     /*!
-    * A function that will return if a point is inside of an Ellipse
+    * A function that will return if a point is inside of an AXEllipse
     *
     * @param point the point to be checked
     * @param cp the center point of the ellipse
     * @param r the radius of the  ellpise
     * @return if the point is inside of the ellipse
     */  
-    bool isInsideEllipse(const Vector2D &point, const Vector2D &cp, float r);
+    bool isInsideEllipse(const AXVector2D &point, const AXVector2D &cp, float r);
     /*!
-    * A function that will return if a point is inside of an Ellipse
+    * A function that will return if a point is inside of an AXEllipse
     *
     * @param point the point to be checked
-    * @param e the Ellipse to be calculated
+    * @param e the AXEllipse to be calculated
     * @return if the point is inside of the ellipse
     */ 
-    bool isInsideEllipse(const Vector2D &point, const AXGraphics::Ellipse &e);
+    bool isInsideEllipse(const AXVector2D &point, const AXGraphics::AXEllipse &e);
     
     /*!
     * A function that will return a distance between two vectors
@@ -161,7 +161,7 @@ namespace Math {
     * @param v2 the second vector
     * @return the distance between the two vectors
     */ 
-    float vectorDistance(const Vector2D& v1, const Vector2D& v2);
+    float vectorDistance(const AXVector2D& v1, const AXVector2D& v2);
     /*!
     * A function that will return a distance between two vectors
     *

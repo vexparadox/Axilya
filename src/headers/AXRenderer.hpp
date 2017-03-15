@@ -47,7 +47,7 @@ class AXRenderer : public AXComponent{
     AXText* currentText = 0;
     AXEntity* owner = 0;
     //set a colour to be used in place of a sprite
-    AXGraphics::Colour colour;
+    AXGraphics::AXColour colour;
     //default to drawing a rect
     int drawType = AX_DRAW_RECT;
 public:
@@ -108,44 +108,44 @@ public:
    */
     AXSprite* getCurrentSprite();
    /*!
-   * A method to get the Colour of this AXRenderer
+   * A method to get the AXColour of this AXRenderer
    * 
-   * Note that colours only take place when drawing basic shapes, AXText and AXSprite's have their own Colour methods
-   * @return the current Colour of this AXRenderer
+   * Note that colours only take place when drawing basic shapes, AXText and AXSprite's have their own AXColour methods
+   * @return the current AXColour of this AXRenderer
    */
-    AXGraphics::Colour& getColour();
+    AXGraphics::AXColour& getColour();
    /*!
-   * A method to set the Colour of this AXRenderer
+   * A method to set the AXColour of this AXRenderer
    * 
-   * Note that colours only take place when drawing basic shapes, AXText and AXSprite's have their own Colour methods
+   * Note that colours only take place when drawing basic shapes, AXText and AXSprite's have their own AXColour methods
    *
-   * Colour values are clamped (0-255)
-   * @param r the red value of this Colour
-   * @param g the green value of this Colour
-   * @param b the blue value of this Colour
-   * @param a the alpha value of this Colour
+   * AXColour values are clamped (0-255)
+   * @param r the red value of this AXColour
+   * @param g the green value of this AXColour
+   * @param b the blue value of this AXColour
+   * @param a the alpha value of this AXColour
    */
     void setColour(float r, float g, float b, float a);
    /*!
-   * A method to set the Colour of this AXRenderer
+   * A method to set the AXColour of this AXRenderer
    * 
-   * Note that colours only take place when drawing basic shapes, AXText and AXSprite's have their own Colour methods
+   * Note that colours only take place when drawing basic shapes, AXText and AXSprite's have their own AXColour methods
    *
-   * Colour values are clamped (0-255)
-   * @param r the red value of this Colour
-   * @param g the green value of this Colour
-   * @param b the blue value of this Colour
+   * AXColour values are clamped (0-255)
+   * @param r the red value of this AXColour
+   * @param g the green value of this AXColour
+   * @param b the blue value of this AXColour
    *
    * The alpha value will default to 255
    */
     void setColour(float r, float g, float b);
    /*!
-   * A method to set the Colour of this AXRenderer
+   * A method to set the AXColour of this AXRenderer
    * 
-   * Note that colours only take place when drawing basic shapes, AXText and AXSprite's have their own Colour methods
-   * @param c the Colour object to set this AXRenderer to
+   * Note that colours only take place when drawing basic shapes, AXText and AXSprite's have their own AXColour methods
+   * @param c the AXColour object to set this AXRenderer to
    */
-    void setColour(const AXGraphics::Colour& c);
+    void setColour(const AXGraphics::AXColour& c);
    /*!
    * A method to get the DrawType of this AXRenderer
    * 
@@ -164,7 +164,7 @@ public:
    * This method is called by the AXEntity and AXScene class, don't call it yourself
    * @param offset the offset to draw by
    */
-    void draw(const Math::Vector2D& offset);
+    void draw(const AXVector2D& offset);
    /*!
    * A method to clone this AXRenderer
    * 

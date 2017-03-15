@@ -4,10 +4,10 @@
 AXBoxCollider::AXBoxCollider(){
 }
 
-int AXBoxCollider::worldCollideCheck(Math::Vector2D& v){
+int AXBoxCollider::worldCollideCheck(AXVector2D& v){
     //get the bounds
-    Math::Vector2D position = bounds->getPosition();
-    Math::Vector2D size = bounds->getSize();
+    AXVector2D position = bounds->getPosition();
+    AXVector2D size = bounds->getSize();
     //  get the offset between the collider and the entity
     int screenWidth = AXWindow::getWidth()-owner->getScene()->getRenderOffset().x;
     int screenHeight = AXWindow::getHeight()-owner->getScene()->getRenderOffset().y;
@@ -40,11 +40,11 @@ int AXBoxCollider::worldCollideCheck(Math::Vector2D& v){
     return 0;
 }
 
-int AXBoxCollider::checkMovement(AXEntity* e, Math::Vector2D& proposedMovement){
+int AXBoxCollider::checkMovement(AXEntity* e, AXVector2D& proposedMovement){
     //the entities
-    Shape* box1 = e->getCollider()->getBounds();
+    AXShape* box1 = e->getCollider()->getBounds();
     //these bounds
-    Shape* box2 = this->bounds;
+    AXShape* box2 = this->bounds;
     float w = 0.5 * (box1->getSize().x + box2->getSize().x);
     float h = 0.5 * (box1->getSize().y + box2->getSize().y);
     float deltax = (box1->getPosition().x+(box1->getSize().x/2)) - (box2->getPosition().x+(box2->getSize().x/2));

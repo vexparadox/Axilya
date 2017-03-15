@@ -3,7 +3,7 @@
 
 #include <Axilya/AXMain.h>
 
-class Invader : public CustomComponent<Invader>{
+class Invader : public AXCustomComponent<Invader>{
 public:
 	void onCollision(AXEntity* e);
 };

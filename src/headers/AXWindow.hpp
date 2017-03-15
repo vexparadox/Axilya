@@ -63,15 +63,15 @@ public:
     */
     static SDL_Renderer* renderer;
     /*!
-    * A static Colour variable that defines the background colour of the AXWindow
+    * A static AXColour variable that defines the background colour of the AXWindow
     * @see AXGraphics::setBackground()
     */
-    static AXGraphics::Colour backgroundColour;
+    static AXGraphics::AXColour backgroundColour;
     /*!
-    * A static Colour variable that defines the colour that shapes will be rendered in
+    * A static AXColour variable that defines the colour that shapes will be rendered in
     * @see AXGraphics::fill()
     */
-    static AXGraphics::Colour renderColour;
+    static AXGraphics::AXColour renderColour;
     
     /*!
     * A static method initialise the AXWindow

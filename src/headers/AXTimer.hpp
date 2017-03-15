@@ -28,7 +28,7 @@
  *
  * @section DESCRIPTION
  *
- * This class describes a Timer, it allows you to get the elapsed time between two points.
+ * This class describes a AXTimer, it allows you to get the elapsed time between two points.
  */
 #ifndef Timer_hpp
 #define Timer_hpp
@@ -38,7 +38,7 @@
 
 
 namespace Math {
-    class Timer{
+    class AXTimer{
     private:
         //stores the begin and end time of the timer
         unsigned long beginTime;
@@ -47,18 +47,18 @@ namespace Math {
         bool running, started;
     public:
         /*!
-        * Constructor of Timer
+        * Constructor of AXTimer
         * @param startNow if the timer should start when it's created
         */
-        Timer(bool startNow);
-        Timer();
+        AXTimer(bool startNow);
+        AXTimer();
         /*!
         * Starts the timer
         */
         void start();
         /*!
         * Stops the timer
-        * @see Timer::elapsedTime()
+        * @see AXTimer::elapsedTime()
         */
         void stop();
         /*!

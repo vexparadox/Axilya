@@ -63,7 +63,7 @@ public:
     /*!
     * The virtual deconstructor of this AXComponent.
     *
-    * Implement your own in the CustomComponent<custom>
+    * Implement your own in the AXCustomComponent<custom>
     */ 
     virtual ~AXComponent();
     /*!
@@ -88,7 +88,7 @@ public:
     /*!
     * A virtual method that returns a clone of this AXComponent.
     *
-    * Implement your own when inheriting from AXComponent, this is done automatically if you use CustomComponent< custom > 
+    * Implement your own when inheriting from AXComponent, this is done automatically if you use AXCustomComponent< custom > 
     * @return a clone of this AXComponent
     */ 
     virtual AXComponent* clone() = 0;

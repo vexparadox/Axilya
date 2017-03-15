@@ -3,7 +3,7 @@
 
 #include <Axilya/AXMain.h>
 
-class GameMaster : public CustomComponent<GameMaster>{
+class GameMaster : public AXCustomComponent<GameMaster>{
 	int player1score;
 	int player2score;
 public:

@@ -28,25 +28,33 @@
  *
  * @section DESCRIPTION
  *
- * The base class used when users define their own AXEntity Components, this follows a CRTP paradigm and allows classes to be auto-cloned.
+ * This is a type of World that exists as a list of Tiles.
  */
-#ifndef CustomComponent_hpp
-#define CustomComponent_hpp
+#ifndef TiledWorld_hpp
+#define TiledWorld_hpp
 
-#include "AXComponent.hpp"
-template <typename custom>
-class CustomComponent : public AXComponent{
+#include "World.hpp"
+#include "AXTile.hpp"
+#include <unordered_map>
+
+class AXTiledWorld : public World {
+    //tile types loaded into the world
+    std::unordered_map<char, AXTile*> tileTypes;
+    std::vector<AXTile*> worldMatrix;
+    bool isLoaded;
+    int width, height;
 public:
-    /*!
-    * This method returns a clone of the AXComponent that was given in the template of CustomComponent< custom >
-    *
-    * It will return a clone of your AXComponent but will not keep values, it will be reconstructed.
-    *
-    * Inherit from AXComponent and implement your own clone method to keep values over clone.
-    */ 
-	virtual AXComponent* clone(){
-        return new custom(static_cast<custom const&>(*this));
-	}
+    ~AXTiledWorld();
+    AXTiledWorld(int width, int height);
+    //allows the user to add a new tile type
+    void addTileType(char key, AXTile* tile);
+    //returns a tile type based on a char
+    AXTile* getTileType(char key);
+    //load a world in the data path, CSV
+    void loadWorld(const std::string& path, int tileSize);
+    virtual void draw();
+    virtual void update();
 };
 
-#endif
+
+#endif //Axilya_TILEDWORLD_H

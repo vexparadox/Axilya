@@ -3,7 +3,7 @@
 
 #include <Axilya/AXMain.h>
 
-class PlayerTwoController : public CustomComponent<PlayerTwoController>{
+class PlayerTwoController : public AXCustomComponent<PlayerTwoController>{
 public:
 	void update();
 };

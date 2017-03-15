@@ -8,7 +8,7 @@
 #include <Axilya/AXMain.h>
 
 SDL_Texture* texture; // let's save the texture
-Math::Vector2D size;
+AXVector2D size;
 
 void update(){
 
@@ -24,7 +24,7 @@ int main(int argc, char const *argv[]){
 	//load the font
 	AXFont font("Arial.ttf", 20);
 	//make a red colour
-	AXGraphics::Colour colour(255, 0, 0, 255);
+	AXGraphics::AXColour colour(255, 0, 0, 255);
 	//bake a texture
 	texture = font.bakeTexture("Hello world!", colour);
 	size = font.getStringSize("Hello world!");

@@ -28,44 +28,50 @@
  *
  * @section DESCRIPTION
  *
- * An unfinished random class that will return random numbers.
+ * This class describes a AXTriangle shape.
  */
-#ifndef Random_h
-#define Random_h
 
-namespace Math {
-    class random {
-        int seed;
+#ifndef Triangle_h
+#define Triangle_h
+#include "AXVector2D.h"
+
+namespace AXGraphics{
+    class AXTriangle{
+        AXVector2D v1, v2, v3;
     public:
-        random(unsigned seed = 0x9bac7615) : seed(seed) {
+        AXTriangle(const AXVector2D &v1, const AXVector2D &v2, const AXVector2D &v3){
+            this->v1=v1;
+            this->v2=v2;
+            this->v3=v3;
+        }
+        AXTriangle(float x1, float y1, float x2, float y2, float x3, float y3){
+            this->v1 = AXVector2D(x1, y1);
+            this->v2 = AXVector2D(x2, y2);
+            this->v3 = AXVector2D(x3, y3);
         }
         
-        void set_seed(unsigned seed) {
-            this->seed = seed;
+        void set(const AXVector2D &v1, const AXVector2D &v2, const AXVector2D &v3){
+            this->v1=v1;
+            this->v2=v2;
+            this->v3=v3;
         }
         
-        // get a floating point value
-        float get(float min, float max) {
-            // todo: test for period
-            seed = ( ( seed >> 31 ) & 0xa67b9c35 ) ^ ( seed << 1 );
-            seed = ( ( seed >> 31 ) & 0xcb73194c ) ^ ( seed << 1 );
-            return min + ( ( seed >> 8 ) & 0xffff ) * ( ( max - min ) / 0xffff );
+        void set(float x1, float y1, float x2, float y2, float x3, float y3){
+            this->set(AXVector2D(x1, y1), AXVector2D(x2, y2), AXVector2D(x3, y3));
         }
         
-        // get an int value in a small range
-        int get(int min, int max) {
-            assert(max - min <= 0x7fff);
-            seed = ( ( seed >> 31 ) & 0xa67b9c35 ) ^ ( seed << 1 );
-            return min + ( ( seed >> 8 ) & 0xffff ) * ( max - min ) / 0xffff;
+        const AXVector2D& getV1() const {
+            return v1;
         }
         
-        // get an value between 0 and 0xffff
-        unsigned get0xffff() {
-            seed = ( ( seed >> 31 ) & 0xa67b9c35 ) ^ ( seed << 1 );
-            return ( ( seed >> 8 ) & 0xffff );
+        const AXVector2D& getV2() const{
+            return v2;
+        }
+        
+        const AXVector2D& getV3() const{
+            return v3;
         }
     };
-} }
+}
 
-
-#endif /* Random_h */
+#endif /* Triangle_h */

@@ -43,7 +43,7 @@ protected:
    int height, width;
    std::string name;
    AXEntity* owner = 0;
-   AXGraphics::Colour colour;
+   AXGraphics::AXColour colour;
 public:
    /*!
    * A method to sets the owner of this AXText
@@ -74,7 +74,7 @@ public:
    */
    virtual bool bakeText() = 0;
    /*!
-   * A method to set the Colour of this text
+   * A method to set the AXColour of this text
    * @param r the red value of the colour
    * @param g the green value of the colour
    * @param b the blue value of the colour

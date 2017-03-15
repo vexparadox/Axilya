@@ -28,23 +28,23 @@
  *
  * @section DESCRIPTION
  *
- * The base class used when users define their own Tile Components, this follows a CRTP paradigm and allows classes to be auto-cloned.
+ * The base class used when users define their own AXTile Components, this follows a CRTP paradigm and allows classes to be auto-cloned.
  */
 #ifndef CustomTileComponent_hpp
 #define CustomTileComponent_hpp
-#include "TileComponent.hpp"
+#include "AXTileComponent.hpp"
 
 template <typename custom>
-class CustomTileComponent : public TileComponent{
+class CustomTileComponent : public AXTileComponent{
 public:
     /*!
-    * This method returns a clone of the TileComponent that was given in the template of CustomTileComponent< custom >
+    * This method returns a clone of the AXTileComponent that was given in the template of CustomTileComponent< custom >
     *
-    * It will return a clone of your TileComponent but will not keep values, it will be reconstructed.
+    * It will return a clone of your AXTileComponent but will not keep values, it will be reconstructed.
     * 
-    * Inherit from TileComponent and implement your own clone method to keep values over clone.
+    * Inherit from AXTileComponent and implement your own clone method to keep values over clone.
     */ 
-	virtual TileComponent* clone(){
+	virtual AXTileComponent* clone(){
         return new custom(static_cast<custom const&>(*this));
 	}
 };

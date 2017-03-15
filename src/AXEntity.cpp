@@ -16,7 +16,7 @@ AXEntity::AXEntity(const std::string& name, float x, float y, float w, float h) 
     renderer->setOwner(this);
 }
 
-AXEntity::AXEntity(const std::string& name, const Math::Vector2D& pos, const Math::Vector2D& size) : name(name){
+AXEntity::AXEntity(const std::string& name, const AXVector2D& pos, const AXVector2D& size) : name(name){
     transform = new AXTransform(pos, size);
     transform->setOwner(this);
     renderer = new AXRenderer();
@@ -54,7 +54,7 @@ void AXEntity::start(){
     }
 }
 
-void AXEntity::draw(const Math::Vector2D& renderOffset){
+void AXEntity::draw(const AXVector2D& renderOffset){
     if(renderer){
         renderer->draw(renderOffset);
     }
@@ -100,7 +100,7 @@ void AXEntity::handle_eptr(std::exception_ptr eptr){
 }
 
 void AXEntity::moveEntity(float x, float y){
-    this->moveEntity(Math::Vector2D(x, y));
+    this->moveEntity(AXVector2D(x, y));
 }
 
 void AXEntity::resizeEntity(float w, float h){
@@ -111,8 +111,8 @@ void AXEntity::resizeEntity(float w, float h){
     }
 }
 
-void AXEntity::moveEntity(Math::Vector2D v){
-    Math::Vector2D newPos = transform->getPosition() + v;
+void AXEntity::moveEntity(AXVector2D v){
+    AXVector2D newPos = transform->getPosition() + v;
     if(collider){
         //reset the current Collisions
         memset(currentCollisions, 0, 18);
@@ -262,8 +262,8 @@ void AXEntity::addCollider(AXCollider* c){
         c->setOwner(this);
         //this is temporary, it was causing a seg fault if set in the AXBoxCollider constructor 
         //because owner was not set until after the creation of the collider
-        c->bounds = new AXGraphics::Rect(transform->getPosition(), transform->getSize());
-        c->center = Math::Vector2D(transform->getPosition()+(transform->getSize()/2));
+        c->bounds = new AXGraphics::AXRect(transform->getPosition(), transform->getSize());
+        c->center = AXVector2D(transform->getPosition()+(transform->getSize()/2));
         c->halfSize = transform->getSize()/2;
         this->collider = c;
     }
@@ -327,10 +327,10 @@ void AXEntity::setColour(float r, float g, float b){
     renderer->setColour(r, g, b, 255);
 }
 
-void AXEntity::setColour(const AXGraphics::Colour& c){
+void AXEntity::setColour(const AXGraphics::AXColour& c){
     renderer->setColour(c.getR(), c.getG(), c.getB(), c.getA());
 }
 
-AXGraphics::Colour& AXEntity::getColour(){
+AXGraphics::AXColour& AXEntity::getColour(){
     return renderer->getColour();
 }

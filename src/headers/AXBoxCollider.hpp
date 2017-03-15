@@ -52,7 +52,7 @@ public:
     * @param v the proposed movement of this AXEntity, the values will be set to 0 if a collision occurs.
     * @return Will return the direction of the collision that happened AX_COLLIDE_UP/DOWN/RIGHT/LEFT or 0 if none occurred.
     */
-    int worldCollideCheck(Math::Vector2D& v);
+    int worldCollideCheck(AXVector2D& v);
 	/*!
     * A method to check this AXCollider's bounds against the  and correct collisions that occur.
     *
@@ -61,7 +61,7 @@ public:
     * @param v the proposed movement of e, the values will be set to 0 if a collision occurs.
     * @return Will return the direction of the collision that happened AX_COLLIDE_UP/DOWN/RIGHT/LEFT or 0 if none occurred.
     */
-    int checkMovement(AXEntity* e, Math::Vector2D& v);
+    int checkMovement(AXEntity* e, AXVector2D& v);
 	/*!
     * A method to check the mouse position is over this AXCollider's bounds.
     *

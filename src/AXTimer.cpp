@@ -1,38 +1,38 @@
 //
-//  Timer.cpp
+//  AXTimer.cpp
 //  Project2
 //
 //  Created by William Meaton on 26/02/2016.
 //  Copyright © 2016 WillMeaton.uk. All rights reserved.
 //
 
-#include "headers/Timer.hpp"
+#include "headers/AXTimer.hpp"
 namespace Math{
-    Timer::Timer(bool startNow) : beginTime(0), endTime(0), started(false), running(false) {
+    AXTimer::AXTimer(bool startNow) : beginTime(0), endTime(0), started(false), running(false) {
         if(startNow){
             this->start();
         }
     }
-    Timer::Timer() : beginTime(0), endTime(0), started(false), running(false){
+    AXTimer::AXTimer() : beginTime(0), endTime(0), started(false), running(false){
         
     }
-    void Timer::start(){
+    void AXTimer::start(){
         beginTime = clock();
         started = true;
         running = true;
     }
-    void Timer::stop(){
+    void AXTimer::stop(){
         endTime = clock();
         running = false;
     }
-    void Timer::reset(){
+    void AXTimer::reset(){
         running = false;
         started = false;
         beginTime = 0;
         endTime = 0;
     }
 
-    float Timer::elapsedTime(){
+    float AXTimer::elapsedTime(){
         if(running){
             return ((float) clock() - beginTime)/CLOCKS_PER_SEC;
         }
@@ -41,11 +41,11 @@ namespace Math{
         }
         return ((float) endTime - beginTime)/CLOCKS_PER_SEC;
     }
-    bool Timer::isRunning(){
+    bool AXTimer::isRunning(){
         return running;
     }
     
-    bool Timer::isStarted(){
+    bool AXTimer::isStarted(){
         return started;
     }
 }

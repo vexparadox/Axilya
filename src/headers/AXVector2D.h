@@ -37,61 +37,61 @@
 #include <iostream>
 
 namespace Math {
-    class Vector2D{
+    class AXVector2D{
     public:
         float x, y;
-        Vector2D(float x, float y);
-        Vector2D();
-        ~Vector2D();
-        bool operator== (const Vector2D&) const;
-        bool operator!= (const Vector2D&) const;
-        bool operator> (const Vector2D&) const;
+        AXVector2D(float x, float y);
+        AXVector2D();
+        ~AXVector2D();
+        bool operator== (const AXVector2D&) const;
+        bool operator!= (const AXVector2D&) const;
+        bool operator> (const AXVector2D&) const;
         bool operator> (float i);
 
-        bool operator< (const Vector2D& v2);
+        bool operator< (const AXVector2D& v2);
 
         bool operator< (float i);
 
 
-        bool operator<= (const Vector2D& v2);
+        bool operator<= (const AXVector2D& v2);
  
         bool operator<= (float i);
 
-        bool operator>= (const Vector2D& v2);
+        bool operator>= (const AXVector2D& v2);
 
         bool operator>= (float i);
         
-        void operator+= (const Vector2D&);
+        void operator+= (const AXVector2D&);
 
-        void operator-= (const Vector2D&);
+        void operator-= (const AXVector2D&);
         
-        Vector2D operator+ (const Vector2D&) const;
+        AXVector2D operator+ (const AXVector2D&) const;
         
-        Vector2D operator+ (const float&) const;
+        AXVector2D operator+ (const float&) const;
         
-        Vector2D& operator= (const Vector2D&);
+        AXVector2D& operator= (const AXVector2D&);
         
-        Vector2D operator* (const Vector2D&) const;
+        AXVector2D operator* (const AXVector2D&) const;
         
-        Vector2D operator*(const float&) const;
+        AXVector2D operator*(const float&) const;
         
-        void operator*= (const Vector2D&);
+        void operator*= (const AXVector2D&);
         
-        Vector2D operator- (const Vector2D&) const ;
+        AXVector2D operator- (const AXVector2D&) const ;
         
-        Vector2D operator- (const float&) const;
+        AXVector2D operator- (const float&) const;
         
-        Vector2D operator/ (const Vector2D&) const;
+        AXVector2D operator/ (const AXVector2D&) const;
         
-        Vector2D operator/ (float n) const;
+        AXVector2D operator/ (float n) const;
         
-        void operator/= (const Vector2D&);
+        void operator/= (const AXVector2D&);
         void zero();
 
-        float dot(const Vector2D&) const;
+        float dot(const AXVector2D&) const;
         
         //normalise
-        Vector2D& normalise();
+        AXVector2D& normalise();
         float magnitude() const;
 
     };

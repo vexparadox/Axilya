@@ -28,52 +28,52 @@
  *
  * @section DESCRIPTION
  *
- * This class describes a Colour class, it carries RGBA values from 0-255.
+ * This class describes a AXColour class, it carries RGBA values from 0-255.
  */
 #ifndef Colour_h
 #define Colour_h
 #include <SDL2/SDL.h>
 namespace AXGraphics{
-    class Colour{
+    class AXColour{
         //#todo add static presets
         float r, g, b, a;
     public:
         /*!
-        * The constructor for this Colour
+        * The constructor for this AXColour
         *
         * Note that values will be clamped to 0-255
-        * @param r the red value of this Colour (0-255)
-        * @param g the green value of this Colour (0-255)
-        * @param b the blue value of this Colour (0-255)
-        * @param a the alpha value of this Colour (0-255)
+        * @param r the red value of this AXColour (0-255)
+        * @param g the green value of this AXColour (0-255)
+        * @param b the blue value of this AXColour (0-255)
+        * @param a the alpha value of this AXColour (0-255)
         */ 
 
-        Colour(float r, float g, float b, float a) {
+        AXColour(float r, float g, float b, float a) {
             colourAssign(this->r, r);
             colourAssign(this->g, g);
             colourAssign(this->b, b);
             colourAssign(this->a, a);
         }
         /*!
-        * The constructor for this Colour
+        * The constructor for this AXColour
         *
         * The r, g, b values will be set to 0 by default
         * The a value will be set to 255
         */ 
-        Colour(){
+        AXColour(){
             r = 0;
             g = 0;
             b = 0;
             a = 255;
         }
         /*!
-        * A method to set this Colour's values
+        * A method to set this AXColour's values
         *
         * Note that values will be clamped to 0-255
-        * @param r the red value to set this Colour (0-255)
-        * @param g the green value to set this Colour (0-255)
-        * @param b the blue value to set this Colour (0-255)
-        * @param a the alpha value to set this Colour (0-255)
+        * @param r the red value to set this AXColour (0-255)
+        * @param g the green value to set this AXColour (0-255)
+        * @param b the blue value to set this AXColour (0-255)
+        * @param a the alpha value to set this AXColour (0-255)
         */ 
         void set(float r, float g, float b, float a){
             colourAssign(this->r, r);
@@ -84,7 +84,7 @@ namespace AXGraphics{
         /*!
         * A method to get the red value
         *
-        * @return The red value of this Colour
+        * @return The red value of this AXColour
         */ 
         float getR() const{
             return r;
@@ -92,7 +92,7 @@ namespace AXGraphics{
         /*!
         * A method to get the green value
         *
-        * @return The green value of this Colour
+        * @return The green value of this AXColour
         */ 
         float getG() const{
             return g;
@@ -100,7 +100,7 @@ namespace AXGraphics{
         /*!
         * A method to get the blue value
         *
-        * @return The blue value of this Colour
+        * @return The blue value of this AXColour
         */ 
         float getB() const{
             return b;
@@ -108,13 +108,13 @@ namespace AXGraphics{
         /*!
         * A method to get the alpha value
         *
-        * @return The alpha value of this Colour
+        * @return The alpha value of this AXColour
         */ 
         float getA() const{
             return a;
         }
         /*!
-        * A method to get an SDL_Color from this Colour
+        * A method to get an SDL_Color from this AXColour
         *
         * @return a SDL_Color
         */
@@ -122,7 +122,7 @@ namespace AXGraphics{
             SDL_Color color = {(Uint8)r, (Uint8)g, (Uint8)b, (Uint8)a};
             return color;
         }
-        inline Colour& operator- (const Colour& c){
+        inline AXColour& operator- (const AXColour& c){
             colourAssign(this->r, (this->r - c.r));
             colourAssign(this->g, (this->g - c.g));
             colourAssign(this->b, (this->b - c.b));
@@ -130,12 +130,12 @@ namespace AXGraphics{
             return *this;
         }
         
-        friend inline void operator-= (Colour& c1, const Colour& c2){
+        friend inline void operator-= (AXColour& c1, const AXColour& c2){
             c1 = c1-c2;
             return;
         }
         
-        inline Colour& operator+ (const Colour& c){
+        inline AXColour& operator+ (const AXColour& c){
             colourAssign(this->r, (this->r + c.r));
             colourAssign(this->g, (this->g + c.g));
             colourAssign(this->b, (this->b + c.b));
@@ -143,7 +143,7 @@ namespace AXGraphics{
             return *this;
         }
         
-        friend inline void operator+= (Colour& c1, const Colour& c2){
+        friend inline void operator+= (AXColour& c1, const AXColour& c2){
             c1 = c1+c2;
             return;
         }

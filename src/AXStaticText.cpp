@@ -29,7 +29,7 @@ bool AXStaticText::bakeText(){
 				isBaked = false;
 				return false;
 			}
-			Math::Vector2D t = this->font->getStringSize(this->text);
+			AXVector2D t = this->font->getStringSize(this->text);
 			width = t.x;
 			height = t.y;
 			if(owner){

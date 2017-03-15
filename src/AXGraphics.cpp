@@ -5,7 +5,7 @@
 //  Created by William Meaton on 07/12/2015.
 //  Copyright © 2015 WillMeaton.uk. All rights reserved.
 //
-//Ellipse work by Charlie Ringer
+//AXEllipse work by Charlie Ringer
 //
 
 #include "headers/AXGraphics.hpp"
@@ -41,15 +41,15 @@ namespace AXGraphics{
         }
     }
     //TRIANGLES
-    void drawTriangle(Triangle& t){
+    void drawTriangle(AXTriangle& t){
         drawTriangle(t.getV1(), t.getV2(), t.getV3());
     }
 
-    void drawTriangle(const Math::Vector2D &v1, const Math::Vector2D &v2, const Math::Vector2D &v3){
+    void drawTriangle(const AXVector2D &v1, const AXVector2D &v2, const AXVector2D &v3){
         drawTriangle(v1.x, v1.y, v2.x, v2.y, v3.x, v3.y);
     }
 
-    void drawPoint(const Math::Vector2D &v){
+    void drawPoint(const AXVector2D &v){
         SDL_RenderDrawPoint(AXWindow::renderer, v.x, v.y);
     }
 
@@ -69,11 +69,11 @@ namespace AXGraphics{
         drawLine(x, y, x2, y2, 0);
     }
 
-    void drawLine(const Math::Vector2D& v1, const Math::Vector2D& v2, float width){
+    void drawLine(const AXVector2D& v1, const AXVector2D& v2, float width){
         drawLine(v1.x, v1.y, v2.x, v2.y, width);
     }
 
-    void drawLine(const Math::Vector2D& v1, const Math::Vector2D& v2){
+    void drawLine(const AXVector2D& v1, const AXVector2D& v2){
         drawLine(v1.x, v1.y, v2.x, v2.y, 0);
     }
 
@@ -91,16 +91,16 @@ namespace AXGraphics{
         drawRect(x-w/2, y-h/2, w, h);
     }
 
-    void drawRect(const Math::Vector2D &v, float w, float h){
+    void drawRect(const AXVector2D &v, float w, float h){
         drawRect(v.x, v.y, w, h);
     }
     
     //POLYGONS
-    void drawPoly(const Polygon &p){
+    void drawPoly(const AXPolygon &p){
         drawPoly(p.getVerticies());
     }
     
-    void drawPoly(const std::vector<Math::Vector2D>& v){
+    void drawPoly(const std::vector<AXVector2D>& v){
         glDisable(GL_TEXTURE_2D);
         glBegin(GL_POLYGON);
         for(auto& points : v){
@@ -110,15 +110,15 @@ namespace AXGraphics{
     }
     
     //ELLIPSES
-    void drawEllipse(Ellipse &e){
+    void drawEllipse(AXEllipse &e){
         drawEllipse(e.getPosition().x, e.getPosition().y, e.getSize().x, e.getSize().y);
     }
     
-    void drawEllipse(const Math::Vector2D &cp, float xR, float yR){
+    void drawEllipse(const AXVector2D &cp, float xR, float yR){
         drawEllipse(cp.x, cp.y, xR, yR);
     }
     
-    void drawEllipse(const Math::Vector2D &cp, float r){
+    void drawEllipse(const AXVector2D &cp, float r){
         drawEllipse(cp.x, cp.y, r, r);
     }
     
@@ -142,7 +142,7 @@ namespace AXGraphics{
         drawEllipse(x-r/2, y-r/2, r, r);
     }
 
-    void drawEllipseCenter(const Math::Vector2D &cp, float r){
+    void drawEllipseCenter(const AXVector2D &cp, float r){
         drawEllipse(cp.x-r/2, cp.y-r/2, r, r);
     }
         
@@ -155,7 +155,7 @@ namespace AXGraphics{
         setBackground(r, g, b, 0);
     }
     
-    void setBackground(const Colour &c){
+    void setBackground(const AXColour &c){
         setBackground(c.getR(), c.getG(), c.getB(), c.getA());
     }
 
@@ -180,17 +180,17 @@ namespace AXGraphics{
     //     glTranslatef(x, y, 0);
     // }
     
-    // void translate(const Math::Vector2D &v){
+    // void translate(const AXVector2D &v){
     //     glTranslatef(v.x, v.y, 0);
     // }
     
-    // void translate(const Math::Vector3D &v){
+    // void translate(const Math::AXVector3D &v){
     //     glTranslatef(v.x, v.y, v.z);
     // }
     
     
     //FILLS
-    void fill(const AXGraphics::Colour &c){
+    void fill(const AXGraphics::AXColour &c){
         AXWindow::renderColour.set(c.getR(), c.getG(), c.getB(), c.getA());
         SDL_SetRenderDrawColor(AXWindow::renderer, c.getR(), c.getG(), c.getB(), c.getA());
     }

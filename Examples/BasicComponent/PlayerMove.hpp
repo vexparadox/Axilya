@@ -2,7 +2,7 @@
 #define PlayerMove_hpp
 #include <Axilya/AXMain.h>
 
-class PlayerMove : public CustomComponent<PlayerMove>{
+class PlayerMove : public AXCustomComponent<PlayerMove>{
 	AXRigidBody* rb;
 public:
 	void start();

@@ -38,7 +38,7 @@
 
 class AXRigidBody : public AXComponent{
     bool gravity;
-    Math::Vector2D velocity, drag, previousVelocity;
+    AXVector2D velocity, drag, previousVelocity;
     float maxVelocityY, maxVelocityX, maxFallingVelocity;
     void applyDrag();
     void applyGravity();
@@ -53,18 +53,18 @@ public:
     * Adds a force to the rigid body 
     * @param x directional force
     * @param y directional force
-    * @see AXRigidBody::addForce(cont Math::Vector2D& force)
+    * @see AXRigidBody::addForce(cont AXVector2D& force)
     */
     void addForce(float x, float y);
-    void addForce(const Math::Vector2D& force);
-    const Math::Vector2D& getForce();
+    void addForce(const AXVector2D& force);
+    const AXVector2D& getForce();
     /*!
     * Sets the force on an object
     */
-    void setForce(const Math::Vector2D& force);
+    void setForce(const AXVector2D& force);
     void setForce(float x, float y);
 
-    void setDrag(const Math::Vector2D& drag);
+    void setDrag(const AXVector2D& drag);
     void setDrag(float x, float y);
     /*!
     * returns if this rigidbody is moving

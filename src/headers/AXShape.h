@@ -28,28 +28,35 @@
  *
  * @section DESCRIPTION
  *
- * This class describes a Tile, it acts like an AXEntity inside of a TiledWorld.
- * Tiles can have TileComponents.
+ * This is the base class for all shapes used in collision and rendering.
  */
-#ifndef Tile_hpp
-#define Tile_hpp
-
-#include "AXResourceManager.hpp"
-#include "TileComponent.hpp"
-#include "AXGraphics.hpp"
-class AXTexture;
-class Tile{
-    AXResourceManager* resourceManager;
-    AXTexture* texture;
-    AXScene* scene;
-    std::vector<TileComponent*> components;
+#ifndef Shape_H
+#define Shape_H
+#include "AXVector2D.h"
+class AXShape{
+protected:
+    AXVector2D position, size;
 public:
-    Tile(int textureID);
-    Tile(AXTexture* texture);
-    void draw(float x, float y, int w, int h);
-    void update();
-    void setScene(AXScene* scene);
-    AXScene* getScene();
-    void addComponent(TileComponent* tileComponent);
+    /*!
+    * Constructor of Shapes
+    * Rects, Ellipses (and Triangles) are Shapes
+    * @param v the center position of the AXShape
+    */
+    AXShape(const AXVector2D& v, const AXVector2D& size){
+        this->position = v;
+        this->size = size;
+    }
+    virtual ~AXShape(){};
+    virtual const float getWidth() const = 0;
+    virtual const float getHeight() const = 0;
+    virtual void set(float x, float y, float w, float h) = 0;
+    virtual void set(const AXVector2D &v, const AXVector2D &s) = 0;
+    virtual void set(const AXVector2D &v, float r) = 0;
+    virtual void moveShape(const AXVector2D& v){
+        this->position += v;
+    }
+    virtual const AXVector2D& getPosition() const = 0;
+    virtual const AXVector2D& getSize() const = 0; 
+    virtual AXShape* clone() = 0;
 };
 #endif

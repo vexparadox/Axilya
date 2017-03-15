@@ -76,11 +76,11 @@ void AXRigidBody::addForce(float x, float y){
     this->velocity.y += y;
 }
 
-void AXRigidBody::addForce(const Math::Vector2D& f){
+void AXRigidBody::addForce(const AXVector2D& f){
     velocity += f;
 }
 
-const Math::Vector2D& AXRigidBody::getForce(){
+const AXVector2D& AXRigidBody::getForce(){
     return velocity;
 }
 
@@ -89,7 +89,7 @@ void AXRigidBody::setDrag(float x, float y){
     this->drag.y = y;
 }
 
-void AXRigidBody::setDrag(const Math::Vector2D& drag){
+void AXRigidBody::setDrag(const AXVector2D& drag){
     this->drag = drag;
 }
 
@@ -98,7 +98,7 @@ void AXRigidBody::setForce(float x, float y){
     this->velocity.y = y;
 }
 
-void AXRigidBody::setForce(const Math::Vector2D& force){
+void AXRigidBody::setForce(const AXVector2D& force){
     this->setForce(force.x, force.y);
 }
 AXComponent* AXRigidBody::clone(){

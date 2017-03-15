@@ -28,35 +28,25 @@
  *
  * @section DESCRIPTION
  *
- * This is the base class for all shapes used in collision and rendering.
+ * The base class used when users define their own AXEntity Components, this follows a CRTP paradigm and allows classes to be auto-cloned.
  */
-#ifndef Shape_H
-#define Shape_H
-#include "Vector2D.h"
-class Shape{
-protected:
-    Math::Vector2D position, size;
+#ifndef CustomComponent_hpp
+#define CustomComponent_hpp
+
+#include "AXComponent.hpp"
+template <typename custom>
+class AXCustomComponent : public AXComponent{
 public:
     /*!
-    * Constructor of Shapes
-    * Rects, Ellipses (and Triangles) are Shapes
-    * @param v the center position of the Shape
-    */
-    Shape(const Math::Vector2D& v, const Math::Vector2D& size){
-        this->position = v;
-        this->size = size;
-    }
-    virtual ~Shape(){};
-    virtual const float getWidth() const = 0;
-    virtual const float getHeight() const = 0;
-    virtual void set(float x, float y, float w, float h) = 0;
-    virtual void set(const Math::Vector2D &v, const Math::Vector2D &s) = 0;
-    virtual void set(const Math::Vector2D &v, float r) = 0;
-    virtual void moveShape(const Math::Vector2D& v){
-        this->position += v;
-    }
-    virtual const Math::Vector2D& getPosition() const = 0;
-    virtual const Math::Vector2D& getSize() const = 0; 
-    virtual Shape* clone() = 0;
+    * This method returns a clone of the AXComponent that was given in the template of AXCustomComponent< custom >
+    *
+    * It will return a clone of your AXComponent but will not keep values, it will be reconstructed.
+    *
+    * Inherit from AXComponent and implement your own clone method to keep values over clone.
+    */ 
+	virtual AXComponent* clone(){
+        return new custom(static_cast<custom const&>(*this));
+	}
 };
+
 #endif

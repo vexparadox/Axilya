@@ -2,7 +2,7 @@
 #define PlayerController_hpp
 #include <Axilya/AXMain.h>
 class Bullet;
-class PlayerController : public CustomComponent<PlayerController>{
+class PlayerController : public AXCustomComponent<PlayerController>{
 	Bullet* bullet;
 public:
 	void update();

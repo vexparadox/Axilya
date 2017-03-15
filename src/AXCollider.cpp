@@ -8,7 +8,7 @@ AXCollider::~AXCollider(){
 	delete bounds;
 }
 
-Shape* AXCollider::getBounds(){
+AXShape* AXCollider::getBounds(){
     return bounds;
 }
 

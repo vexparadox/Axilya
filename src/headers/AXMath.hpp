@@ -33,9 +33,9 @@
 #ifndef AXMath_hpp
 #define AXMath_hpp
 
-#include "Vector2D.h"
-#include "Collision.h"
-#include "Vector3D.h"
+#include "AXVector2D.h"
+#include "AXCollision.h"
+#include "AXVector3D.h"
 #include "Utils.h"
-#include "Timer.hpp"
+#include "AXTimer.hpp"
 #endif /* AXMath_hpp */

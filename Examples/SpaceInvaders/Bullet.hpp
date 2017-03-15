@@ -3,7 +3,7 @@
 
 #include <Axilya/AXMain.h>
 #include "PlayerController.hpp"
-class Bullet : public CustomComponent<Bullet>{
+class Bullet : public AXCustomComponent<Bullet>{
 public:
 	PlayerController* pc;
 	void update();

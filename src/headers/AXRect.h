@@ -35,45 +35,45 @@
 #define Rect_h
 
 #include "Math.h"
-#include "Shape.h"
+#include "AXShape.h"
 namespace AXGraphics{
-    class Rect : public Shape{
+    class AXRect : public AXShape{
     public:
-        ~Rect(){};
+        ~AXRect(){};
       /*!
-       * The constructor of a Rect
+       * The constructor of a AXRect
        * @param x a float to set the x position
        * @param y a float to set the y position
        * @param w a float to set the width to
        * @param h a float to set the height to
-       * @see Shape constructor
+       * @see AXShape constructor
        */
-        Rect(float x, float y, float w, float h) : Shape(Math::Vector2D(x, y), Math::Vector2D(w, h)){
+        AXRect(float x, float y, float w, float h) : AXShape(AXVector2D(x, y), AXVector2D(w, h)){
         }
       /*!
-       * The constructor of a Rect
+       * The constructor of a AXRect
        * @param v1 2D vector to set the position
        * @param w a float to set the width to
        * @param h a float to set the height to
-       * @see Shape constructor
+       * @see AXShape constructor
        */
-        Rect(const Math::Vector2D &v1, float w, float h): Shape(v1, Math::Vector2D(w, h)){
+        AXRect(const AXVector2D &v1, float w, float h): AXShape(v1, AXVector2D(w, h)){
         }
       /*!
-       * The constructor of a Rect
+       * The constructor of a AXRect
        * @param v1 2D vector to set the position (x, y)
        * @param size 2D vector to set the size (w, h)
-       * @see Shape constructor
+       * @see AXShape constructor
        */
-        Rect(const Math::Vector2D &v1, const Math::Vector2D& size): Shape(v1, size){
+        AXRect(const AXVector2D &v1, const AXVector2D& size): AXShape(v1, size){
         }
        /*!
-       * A method to set the Rect's parameters
+       * A method to set the AXRect's parameters
        * @param x a float to set the x value to
        * @param y a float to set the y value to
        * @param w a float to set the width to
        * @param h a float to set the height to
-       * @see Other Rect::set methods
+       * @see Other AXRect::set methods
        */
         void set(float x, float y, float w, float h){
             this->position.x = x;
@@ -82,66 +82,66 @@ namespace AXGraphics{
             this->size.y = h;
         }
        /*!
-       * A method to set the Rect's parameters
+       * A method to set the AXRect's parameters
        * @param v a 2D vector to set the position (x, y)
        * @param size a 2D vector to set the size (w, h)
-       * @see Other Rect::set methods
+       * @see Other AXRect::set methods
        */
-        void set(const Math::Vector2D &v, const Math::Vector2D &size){
+        void set(const AXVector2D &v, const AXVector2D &size){
             this->set(v.x, v.y, size.x, size.y);
         }
        /*!
-       * A method to set the Rect's parameters
+       * A method to set the AXRect's parameters
        * @param v a 2D vector to set the position (x, y)
        * @param r a float to set both the width and height
-       * @see Other Rect::set methods
+       * @see Other AXRect::set methods
        */
-        void set(const Math::Vector2D &v, float r){
+        void set(const AXVector2D &v, float r){
             this->set(v.x, v.y, r, r);
         }
 
         /*!
-       * A method to get the Rect's position
+       * A method to get the AXRect's position
        */
-        const Math::Vector2D& getPosition() const{
+        const AXVector2D& getPosition() const{
             return position;
         }
         /*!
-       * A method to get the Rect's size
+       * A method to get the AXRect's size
        */
-        const Math::Vector2D& getSize() const{
+        const AXVector2D& getSize() const{
             return size;
         }
        /*!
-       * A method to get the Rect's x position
+       * A method to get the AXRect's x position
        */
         const float getX() const{
             return position.x;
         }
        /*!
-       * A method to get the Rect's y position
+       * A method to get the AXRect's y position
        */
         const float getY() const{
             return position.y;
         }
        /*!
-       * A method to get the Rect's width
+       * A method to get the AXRect's width
        */
         const float getWidth() const{
             return size.x;
         }
        /*!
-       * A method to get the Rect's height
+       * A method to get the AXRect's height
        */
         const float getHeight() const{
             return size.y;
         }
        /*!
        * A method that clones the shape
-       * @return A clone of this Rect
+       * @return A clone of this AXRect
        */
-        virtual Shape* clone(){
-          return new Rect(this->position, this->size);
+        virtual AXShape* clone(){
+          return new AXRect(this->position, this->size);
         }
     };
 }

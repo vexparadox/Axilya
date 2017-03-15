@@ -28,29 +28,40 @@
  *
  * @section DESCRIPTION
  *
- * This is the base class for all TileComponents that can be attached to a Tile.
+ * This class is used by the AXInput class to store the values of individual inputs.
  */
-#ifndef TileComponent_hpp
-#define TileComponent_hpp
+#ifndef Key_h
+#define Key_h
 
-class Tile;
-class AXScene;
-class TileComponent {
-    Tile* owner;
-protected:
-    virtual ~TileComponent(){};
+#include <string>
+#include <iostream>
+
+class AXKey {
+    std::string identifier;
+    int keyCode;
+    int value;
 public:
-    //set the owner of the component
-    void setOwner(Tile* owner);
-    //returns the owner of this component
-    Tile* getOwner();
-    //returns the scene that the owner belongs to
-    AXScene* getScene();
+    AXKey(const std::string& identifier, int keyCode){
+        this->identifier = identifier;
+        this->keyCode = keyCode;
+        this->value = 0;
+    }
+    void setValue(int v){
+        this->value = v;
+    }
 
-    virtual void start(){};
-    virtual void update(){};
+    int getValue(){
+        return this->value;
+    }
 
+    std::string getIdentifier(){
+        return this->identifier;
+    }
+
+    const int getKeyCode(){
+        return this->keyCode;
+    }
 };
 
 
-#endif
+#endif //Axilya_KEY_H

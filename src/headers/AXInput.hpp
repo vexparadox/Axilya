@@ -35,16 +35,16 @@
 
 #include <vector>
 #include <unordered_map>
-#include "Key.h"
+#include "AXKey.h"
 #include <SDL2/SDL.h>
 #define AX_INPUT_CONTROLLER_OFFSET 300
 #define AX_INPUT_CONTROLLER_AXIS_OFFSET 20
 class AXInput{
     AXInput(){};
     ~AXInput(){};
-    static std::unordered_map<int, Key*> inputCodes;
-    static std::unordered_map<std::string, Key*> inputNames;
-    static std::vector<Key*> inputs;
+    static std::unordered_map<int, AXKey*> inputCodes;
+    static std::unordered_map<std::string, AXKey*> inputNames;
+    static std::vector<AXKey*> inputs;
     
     static int inputsPressed, mouseButtonsPressed;
     public:
