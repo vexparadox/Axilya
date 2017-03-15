@@ -28,38 +28,17 @@
  *
  * @section DESCRIPTION
  *
- * This that describes all AXResources, AXFont, AXTexture and AXAudioChunk.
+ * This class describes methods for playing Audio in Axilya
  */
-#ifndef AXResource_hpp
-#define AXResource_hpp
-#include <string>
-#include <iostream>
-class AXResource{
-protected:
-	int id;
-	bool loaded = false;
-	std::string path;
-	AXResource(int id) : id(id){};
-public:
-	/*!
-   * A method to get the ID of this AXResource given by the AXResourceManager
-   * @return the ID of the AXResource
-   */
-	int getID(){ return id; };
-	/*!
-   * A method to set the loaded path of this AXResource
-   * @return Whether the AXResouce is loaded
-   */
-	void setPath(const std::string s){ this->path = s;}
-	/*!
-   * A method to get the path of the loaded AXResource
-   * @return the path of the loaded AXResource
-   */
-	std::string getPath(){ return path; }
-	/*!
-   * A method to check if the AXResource has been loaded
-   * @return Whether the AXResouce is loaded
-   */
-	bool isLoaded(){ return loaded; }
+
+#ifndef AXAudio_hpp
+#define AXAudio_hpp
+#include "AXAudioChunk.hpp"
+#include <SDL2_mixer/SDL_mixer.h>
+namespace AXAudio{
+	void playAudioChunk(AXAudioChunk* chunk, int channel, int loopNumber);
+	void playAudioChunk(AXAudioChunk* chunk, int loopNumber);
+	void playAudioChunk(AXAudioChunk* chunk);
 };
+
 #endif

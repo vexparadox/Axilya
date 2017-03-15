@@ -39,9 +39,7 @@
 class AXTexture : public AXResource{
   SDL_Texture* texture;
   unsigned char* imageDataPtr = 0;
-  std::string path;
   int w = 0, h = 0;
-  bool loaded = false;
 public:
 	/*!
    * The constructor of an AXTexture 
@@ -86,19 +84,9 @@ public:
    */  
     int getHeight();
     /*!
-   * A method to check if the AXTexture has been loaded
-   * @return If the texture has been loaded
-   */      
-    bool isLoaded();
-    /*!
    * A method to get the texture data that's been loaded
    * @return The texture data that's been loaded
    */     
     SDL_Texture* getTextureData();
-    /*!
-   * A method to get the path of the loaded AXTexture
-   * @return The path of the loaded texture
-   */      
-    std::string getPath();
 };
 #endif

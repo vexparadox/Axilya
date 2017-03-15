@@ -37,6 +37,7 @@
 #include "AXTypes.h"
 #include "AXNetwork.hpp"
 #include "AXGraphics.hpp"
+#include "AXAudio.hpp"
 #include "AXComponents.h"
 #include "AXEntity.hpp"
 #include "AXScene.hpp"

@@ -38,6 +38,7 @@
 #include "AXWindowTypes.hpp"
 #include "AXNetwork.hpp"
 #include <SDL2/SDL.h>
+#include <SDl2_mixer/SDl_mixer.h>
 #include "glad.h"
 #include <SDL2_ttf/SDL_ttf.h>
 typedef void (*AXFunction)();

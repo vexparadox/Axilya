@@ -13,7 +13,7 @@ AXFont::~AXFont(){
 }
 
 bool AXFont::loadFont(const std::string& p, int size){
-	if(hasLoaded){
+	if(loaded){
 		//freeup the surface
 		TTF_CloseFont(fontData);
 	}
@@ -26,12 +26,13 @@ bool AXFont::loadFont(const std::string& p, int size){
 		return false;
 	}
 	fontHeight = TTF_FontHeight(fontData);
-	hasLoaded = true;
+	setPath(path);
+	loaded = true;
 	return true;
 }
 
 SDL_Texture* AXFont::bakeTexture(const std::string string, AXColour& colour){
-	if(hasLoaded){
+	if(loaded){
 		SDL_Surface* temp = TTF_RenderUTF8_Blended(fontData, string.c_str(), colour.toSDL());
 		if(!temp){
 			std::cout << "Font failed to bake! SDL Error: " << TTF_GetError() << std::endl;
@@ -51,7 +52,7 @@ SDL_Texture* AXFont::bakeTexture(const std::string string, AXColour& colour){
 
 AXVector2D AXFont::getStringSize(const std::string string){
 	AXVector2D size;
-	if(hasLoaded){
+	if(loaded){
 		int width, height;
 		TTF_SizeText(fontData, string.c_str(), &width, &height);
 		size.x = width;
@@ -62,11 +63,4 @@ AXVector2D AXFont::getStringSize(const std::string string){
 
 TTF_Font* AXFont::getFontData(){
 	return fontData;
-}
-bool AXFont::isLoaded(){
-	return hasLoaded;
-}
-
-const std::string& AXFont::getPath(){
-	return path;
 }

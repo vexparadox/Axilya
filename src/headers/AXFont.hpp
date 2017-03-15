@@ -37,8 +37,6 @@
 #include "AXGraphics.hpp"
 #include "AXResource.hpp"
 class AXFont : public AXResource{
-	bool hasLoaded;
-	std::string path;
    TTF_Font* fontData;
    int fontHeight;
 public:
@@ -91,21 +89,10 @@ public:
    * @return Whether the font file successfully loaded
    */
 	bool loadFont(const std::string& path, int size);
-	/*!
-   * A method to check if the AXFont has been loaded
-   * @return Whether the font is loaded
-   */
-	bool isLoaded();
    /*!
    * A method to get the font data
    * @return the loaded font data
    */
-
    TTF_Font* getFontData();
-	/*!
-   * A method to get the path of the loaded font file
-   * @return The path of the loaded font file
-   */
-	const std::string& getPath();
 };
 #endif

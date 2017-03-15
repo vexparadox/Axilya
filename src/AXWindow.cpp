@@ -51,8 +51,19 @@ int AXWindow::init(float wWidth, float wHeight, int windowStyle, const char* tit
         return -1;
     }
 
-    if (TTF_Init() < 0) {
+    if(TTF_Init() < 0){
         printf("SDLTTF could not initialise! SDL_Error: %s\n", TTF_GetError());
+        return -1;
+    }
+    // int mixFlags = (MIX_INIT_FLAC | MIX_INIT_MOD | MIX_INIT_MP3 | MIX_INIT_OGG);
+    // if ((Mix_Init(mixFlags)&mixFlags) != mixFlags){
+    //     printf("SDL_Mixer could not all of it's parts! SDL_Error: %s\n", Mix_GetError());
+    //     return -1;
+    // }
+
+    //open the aduio channel
+    if(Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 1024) != 0){
+        printf("Mix_OpenAudio failed: %s\n", Mix_GetError());
         return -1;
     }
 
@@ -181,8 +192,14 @@ int AXWindow::run(){
     }
     SDL_DestroyWindow(window);
     SDL_DestroyRenderer(renderer);
+    //quit the SDLMix
+    while(Mix_Init(0)){
+        Mix_Quit();
+    }
+    Mix_CloseAudio();
     //Quit SDL subsystems
     SDL_Quit();
+
     return 0;
 }
 

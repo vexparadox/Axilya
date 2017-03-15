@@ -56,7 +56,7 @@ namespace AXGraphics{
             std::cout << "The AXTexture data is empty, canceling draw." << std::endl;
             return;
         }
-        SDL_Rect dest = {.x = (int)v.x, .y = (int)v.y, .w = w, .h = h};
+        SDL_Rect dest = {.x = (int)v.x, .y = (int)v.y, .w = (int)w, .h = (int)h};
         if(SDL_RenderCopy(AXWindow::renderer, t->getTextureData(), NULL, &dest) != 0){
             std::cout << SDL_GetError() << std::endl;
         }

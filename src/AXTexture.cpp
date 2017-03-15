@@ -32,22 +32,25 @@ bool AXTexture::loadImage(const std::string& path){
     imageDataPtr = stbi_load(temp.c_str(), &this->w, &this->h, &formatFound, format);
     if(imageDataPtr == NULL){
         std::cout << stbi_failure_reason() << std::endl;
+        loaded = false;
         return false;
     }
     SDL_Surface* surface = SDL_CreateRGBSurfaceWithFormatFrom(imageDataPtr, this->w, this->h, 32, 4*this->w, SDL_PIXELFORMAT_RGBA32);
     if (surface == NULL) {
         std::cout << SDL_GetError() << std::endl;
         stbi_image_free(imageDataPtr);
+        loaded = false;
         return false;
     }
     texture = SDL_CreateTextureFromSurface(AXWindow::renderer, surface);
     if(texture == NULL){
         std::cout << SDL_GetError() << std::endl;
+        loaded = false;
         return false;
     }
     stbi_image_free(imageDataPtr);
     SDL_FreeSurface(surface);
-    this->path = temp;
+    setPath(temp);
     loaded = true;
     return true;
 }
@@ -65,12 +68,4 @@ int AXTexture::getWidth(){
 
 int AXTexture::getHeight(){
 	return h;
-}
-
-bool AXTexture::isLoaded(){
-	return loaded;
-}
-
-std::string AXTexture::getPath(){
-	return path;
 }
