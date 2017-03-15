@@ -1,3 +1,9 @@
+## v0.9.0
+- Allowed non-ECS use ( you can render AXFonts and AXTextures without the ResourceManager)
+- Renamed all classes to a prefix of AX
+- New examples
+- More documentation
+
 ## v0.8.4
 
 - Font rendering
