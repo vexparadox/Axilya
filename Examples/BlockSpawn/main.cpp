@@ -16,7 +16,7 @@ void update(){
     if(AXInput::mouseIsPressed && !down){
         down = true;
         s->instantiate("box" + std::to_string(blockCount++),
-            PrefabManager::getInstance()->getPrefab("block"),
+            AXPrefabManager::getInstance()->getPrefab("block"),
             new AXTransform(AXInput::mouseX - 10, 
                           AXInput::mouseY - 10,
                           20,
@@ -53,7 +53,7 @@ int main(int argc, char *argv[])
 
     e = new AXEntity("block", 0, 0, 20, 20);
     e->addCollider(new AXBoxCollider());
-    PrefabManager::getInstance()->addPrefab(e);
+    AXPrefabManager::getInstance()->addPrefab(e);
     //return the window run
     return AXWindow::run();
 }

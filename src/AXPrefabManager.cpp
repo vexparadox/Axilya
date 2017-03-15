@@ -1,23 +1,23 @@
-#include "headers/PrefabManager.hpp"
+#include "headers/AXPrefabManager.hpp"
 #include "headers/AXEntity.hpp"
 
-PrefabManager* PrefabManager::instance = new PrefabManager();
+AXPrefabManager* AXPrefabManager::instance = new AXPrefabManager();
 
-PrefabManager::~PrefabManager(){
+AXPrefabManager::~AXPrefabManager(){
     for(auto it = entityMap.begin(); it != entityMap.end(); it++){
         delete it->second;
         it->second = 0;
     }
 }
 
-PrefabManager* PrefabManager::getInstance(){
+AXPrefabManager* AXPrefabManager::getInstance(){
 	if(!instance){
-		instance = new PrefabManager();
+		instance = new AXPrefabManager();
 	}
 	return instance;
 }
 
-bool PrefabManager::addPrefab(AXEntity* e){
+bool AXPrefabManager::addPrefab(AXEntity* e){
     if (entityMap.find(e->getName()) == entityMap.end() && e){
 	    entityMap.insert(std::pair<std::string, AXEntity*>(e->getName(), e));
     	return true;
@@ -25,14 +25,14 @@ bool PrefabManager::addPrefab(AXEntity* e){
     return false;
 }
 
-AXEntity* PrefabManager::getPrefab(const std::string& name){
+AXEntity* AXPrefabManager::getPrefab(const std::string& name){
 	if (entityMap.find(name) != entityMap.end()){
 		return entityMap.at(name);
     }
     return 0;
 }
 
-bool PrefabManager::doesPrefabExist(const std::string& name){
+bool AXPrefabManager::doesPrefabExist(const std::string& name){
     if (entityMap.find(name) != entityMap.end()){
         return true;
     }

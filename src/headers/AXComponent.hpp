@@ -34,7 +34,7 @@
 #define Component_hpp
 
 #include "ResourceManager.hpp"
-#include "PrefabManager.hpp"
+#include "AXPrefabManager.hpp"
 #include <stdio.h>
 #include "AXMath.hpp"
 
@@ -45,7 +45,7 @@ class AXRenderer;
 class AXComponent{
 protected:
     ResourceManager* resourceManager = ResourceManager::getInstance();
-    PrefabManager* prefabManager = PrefabManager::getInstance();
+    AXPrefabManager* prefabManager = AXPrefabManager::getInstance();
     /*!
     * The AXEntity that owns this AXComponent
     */ 

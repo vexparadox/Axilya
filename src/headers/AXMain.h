@@ -48,7 +48,7 @@
 #include "Tile.hpp"
 #include "AXInput.hpp"
 #include "ResourceManager.hpp"
-#include "PrefabManager.hpp"
+#include "AXPrefabManager.hpp"
 #include "EntityDrawTypes.hpp"
 #include "WindowTypes.hpp"
 

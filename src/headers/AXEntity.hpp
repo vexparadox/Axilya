@@ -39,7 +39,7 @@
 
 #include "Math.h"
 #include "ResourceManager.hpp"
-#include "PrefabManager.hpp"
+#include "AXPrefabManager.hpp"
 //components
 #include "Components.h"
 #include "AXRenderer.hpp"

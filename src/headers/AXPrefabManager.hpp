@@ -28,7 +28,7 @@
  *
  * @section DESCRIPTION
  *
- * The PrefabManager allows users to store AXEntities in a template-style format and recall them later by name.
+ * The AXPrefabManager allows users to store AXEntities in a template-style format and recall them later by name.
  */
 #ifndef PrefabManager_hpp
 #define PrefabManager_hpp
@@ -36,13 +36,13 @@
 #include <unordered_map>
 #include <iostream>
 class AXEntity;
-class PrefabManager{
-    PrefabManager(){};
-    static PrefabManager* instance;
-    ~PrefabManager();
+class AXPrefabManager{
+    AXPrefabManager(){};
+    static AXPrefabManager* instance;
+    ~AXPrefabManager();
     std::unordered_map<std::string, AXEntity*> entityMap;
 public:
-	static PrefabManager* getInstance();
+	static AXPrefabManager* getInstance();
 	bool addPrefab(AXEntity* e);
 	AXEntity* getPrefab(const std::string& name);
 	bool doesPrefabExist(const std::string& name);

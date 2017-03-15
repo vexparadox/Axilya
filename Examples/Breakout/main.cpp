@@ -15,11 +15,11 @@ void MakeBlocks(AXScene* scene){
     SDL_assert(block);
     block->setColour(230, 230, 230);
     block->addCollider(new AXBoxCollider());
-    PrefabManager::getInstance()->addPrefab(block);
+    AXPrefabManager::getInstance()->addPrefab(block);
     for(int j = 0; j < 6; j++){
         for(int i = 0; i < 15; i++){
             scene->instantiate("block_"+std::to_string(i)+"_"+std::to_string(j), 
-            PrefabManager::getInstance()->getPrefab("block1"),
+            AXPrefabManager::getInstance()->getPrefab("block1"),
             new AXTransform((i*80)+60, (j*40)+30, 40, 10));
         }
     }

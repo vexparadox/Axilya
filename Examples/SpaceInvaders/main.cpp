@@ -24,11 +24,11 @@ void SpawnPlayer(AXScene* scene){
     bullet->addComponent(new Bullet());
     ss = new AXStaticSprite("bullet", "bullet.jpg");
     bullet->getRenderer()->addSprite(ss);
-    PrefabManager::getInstance()->addPrefab(bullet);
+    AXPrefabManager::getInstance()->addPrefab(bullet);
 }
 
 void SpawnInvaders(AXScene* scene){
-    PrefabManager* prefabManager = PrefabManager::getInstance();
+    AXPrefabManager* prefabManager = AXPrefabManager::getInstance();
     //A prefab of the invaders
     AXEntity* enemy = new AXEntity("enemy", 0, 0, 64, 64);
     enemy->addCollider(new AXBoxCollider());
