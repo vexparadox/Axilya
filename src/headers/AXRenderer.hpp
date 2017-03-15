@@ -35,7 +35,7 @@
 
 #include <unordered_map>
 #include <SDL2/SDL.h>
-#include "EntityDrawTypes.hpp"
+#include "AXEntityDrawTypes.hpp"
 #include "AXSprite.hpp"
 #include "AXComponent.hpp"
 class AXEntity;

@@ -145,7 +145,7 @@ public:
     * A method that sets a flag how this AXEntity should be drawn
     *
     * @param type can be AX_DRAW_RECT/AX_DRAW_ELLIPSE/AX_DRAW_TEXT/AX_DRAW_SPRITE/AX_DRAW_NONE
-    * @see EntityDrawTypes.hpp
+    * @see AXEntityDrawTypes.hpp
     */ 
     void setDrawType(int type);
 

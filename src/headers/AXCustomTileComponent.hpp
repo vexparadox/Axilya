@@ -35,10 +35,10 @@
 #include "AXTileComponent.hpp"
 
 template <typename custom>
-class CustomTileComponent : public AXTileComponent{
+class AXCustomTileComponent : public AXTileComponent{
 public:
     /*!
-    * This method returns a clone of the AXTileComponent that was given in the template of CustomTileComponent< custom >
+    * This method returns a clone of the AXTileComponent that was given in the template of AXCustomTileComponent< custom >
     *
     * It will return a clone of your AXTileComponent but will not keep values, it will be reconstructed.
     * 

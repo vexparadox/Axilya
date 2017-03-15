@@ -39,6 +39,6 @@
 #include "AXBoxCollider.hpp"
 #include "AXCustomComponent.hpp"
 #include "AXCollideDirections.hpp"
-#include "EntityDrawTypes.hpp"
+#include "AXEntityDrawTypes.hpp"
 #include "AXStaticText.hpp"
 #endif /* Components_h */

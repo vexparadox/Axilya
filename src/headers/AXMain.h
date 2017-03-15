@@ -42,14 +42,14 @@
 #include "AXScene.hpp"
 #include "AXTiledWorld.hpp"
 #include "AXStaticWorld.hpp"
-#include "CustomTileComponent.hpp"
+#include "AXCustomTileComponent.hpp"
 #include "AXStaticSprite.hpp"
 #include "AXAnimatedSprite.hpp"
 #include "AXTile.hpp"
 #include "AXInput.hpp"
 #include "AXResourceManager.hpp"
 #include "AXPrefabManager.hpp"
-#include "EntityDrawTypes.hpp"
+#include "AXEntityDrawTypes.hpp"
 #include "AXWindowTypes.hpp"
 
 #endif /* AXMain_h */

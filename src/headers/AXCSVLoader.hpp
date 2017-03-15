@@ -37,19 +37,19 @@
 #include <stdio.h>
 #include <vector>
 
-class CSVLoader{
+class AXCSVLoader{
     std::string name;
     char seperator = ',', ignore = '/';
     //where the last load will be saved
     std::vector<vector<int> > fileVector;
 public:
     //create the object
-    CSVLoader(const std::string &name, const char &seperator, const char &ignore){
+    AXCSVLoader(const std::string &name, const char &seperator, const char &ignore){
         this->name = name;
         this->seperator = seperator;
         this->ignore = ignore;
     }
-    CSVLoader(const std::string &name){
+    AXCSVLoader(const std::string &name){
         this->name = name;
     }
 
