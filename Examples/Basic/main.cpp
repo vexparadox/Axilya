@@ -9,9 +9,10 @@
 int main(int argc, char *argv[])
 {
     //initialise the AXWindow, this follows:
-    //init(width, height, windowStyle, title)
+    //init(width, height, title, flags)
+    //you can | (or) flags together - AX_DEFAULT | AX_NOAUDIO means we want default settings but no audio
     //it will return -1 on failure
-    if(!AXWindow::init(720, 480, AX_WINDOWED, "Basic Example")){
+    if(!AXWindow::init(720, 480, "Basic Example", AX_DEFAULT | AX_NOAUDIO)){
     	std::cout << "AXWindow failed to initialise" << std::endl;
     	return -1;
     }
@@ -32,4 +33,5 @@ int main(int argc, char *argv[])
 
     //return the window run, this is where the game will loop
     return AXWindow::run();
+
 }

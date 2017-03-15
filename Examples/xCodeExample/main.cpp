@@ -10,7 +10,7 @@
 #include <Axilya/AXMain.h>
 
 int main(int argc, const char * argv[]) {
-    if(!AXWindow::init(720, 480, AX_WINDOWED, "Basic Example")){
+    if(!AXWindow::init(720, 480, "Basic Example", AX_DEFAULT)){
         std::cout << "AXWindow failed to initialise" << std::endl;
         return -1;
     }

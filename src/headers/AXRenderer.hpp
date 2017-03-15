@@ -43,9 +43,8 @@ class AXText;
 class AXRenderer : public AXComponent{
     std::unordered_map<std::string, AXSprite*> sprites;
     std::unordered_map<std::string, AXText*> texts;
-    AXSprite* currentSprite = 0;
-    AXText* currentText = 0;
-    AXEntity* owner = 0;
+    std::unordered_map<std::string, AXText*>::iterator currentText;
+    std::unordered_map<std::string, AXSprite*>::iterator currentSprite;
     //set a colour to be used in place of a sprite
     AXColour colour;
     //default to drawing a rect
@@ -75,9 +74,10 @@ public:
    * This AXSprite will be set to the current one to be drawn and added to the list, you can use this AXSprite's name in setSprite()
    *
    * This method will also set the draw type
-   * @param sprite the new sprite
+   * @param sprite the new AXSprite
+   * @param name the name you want to associate with this AXSprite
    */
-    void addSprite(AXSprite* sprite);
+    void addSprite(AXSprite* sprite, const std::string& name);
    /*!
    * A method to set the current AXSprite
    * 
@@ -91,9 +91,10 @@ public:
    * This AXText will be set to the current one to be drawn and added to the list, you can use this AXText's name in setText()
    *
    * This method will also set the draw type
-   * @param text the next AXText
+   * @param text the new AXText to add
+   * @param anme the name you want to associate with this AXText
    */
-    void addText(AXText* text);
+    void addText(AXText* text, const std::string& name);
    /*!
    * A method to set the current AXText
    * 

@@ -46,7 +46,7 @@ public:
    * @param text the text that will be drawn
    * @param font the AXFont that will be used to draw the text
    */    
-	AXStaticText(const std::string& name, const std::string& text, AXFont* font);
+	AXStaticText(const std::string& text, AXFont* font);
 	/*!
    * The constructor of an AXStaticText
    *
@@ -54,7 +54,7 @@ public:
    * @param text the text that will be drawn
    * @param id the ID of the AXFont (given by the AXResourceManager) that will be used to draw the text
    */    
-	AXStaticText(const std::string& name, const std::string& text, int fontID);
+	AXStaticText(const std::string& text, int fontID);
    /*!
    * The deconstructor of an AXStaticText
    *

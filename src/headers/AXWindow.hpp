@@ -52,9 +52,18 @@ class AXWindow{
     static SDL_Window* window;
     static AXFunction draw, update;
     static bool initiated;
+    
     AXWindow(){};
     ~AXWindow(){};
 public:
+    /*!    
+    * if the window has video initialised
+    */
+    static bool videoStatus;
+    /*!    
+    * if the window has audio initialised
+    */
+    static bool audioStatus;
     /*!    
     * the runpath of the Axilya application
     */
@@ -84,7 +93,7 @@ public:
     * @param flags
     * @return Returns 1 on success and -1 on failure
     */
-    static int init(float windowWidth, float windowHeight, int windowStyle, const char* title, unsigned int flags);
+    static int init(float windowWidth, float windowHeight, const char* title, unsigned int flags);
     /*!
     * A static method initialise the AXWindow
     *

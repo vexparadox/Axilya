@@ -26,13 +26,16 @@ std::string AXWindow::runPath = "";
 
 //if it's already been initated
 bool AXWindow::initiated = false;
+//if this window has video status or not
+bool AXWindow::videoStatus = false;
+bool AXWindow::audioStatus = false;
 
 //the update and draw methods
 AXFunction AXWindow::draw = 0;
 AXFunction AXWindow::update = 0;
 
 int AXWindow::init(float wWidth, float wHeight, const char* title, unsigned int flags){
-    return AXWindow::init(wWidth, wHeight, windowStyle, title, nullptr, nullptr);
+    return AXWindow::init(wWidth, wHeight, title, flags, nullptr, nullptr);
 }
 
 
@@ -45,7 +48,7 @@ int AXWindow::init(float wWidth, float wHeight, const char* title, unsigned int 
     //The window we'll be rendering to
     runPath = SDL_GetBasePath();
     //Initialize SDL
-    bool videoStatus = !(flags & NO_VIDEO); // will be true if there's video
+    videoStatus = !(flags & AX_NOWINDOW); // will be true if there's video
     //if the video is enabled
     if(videoStatus){
         if(SDL_Init(SDL_INIT_EVERYTHING) < 0)
@@ -104,11 +107,12 @@ int AXWindow::init(float wWidth, float wHeight, const char* title, unsigned int 
         SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
     }
     //check the flags for noaudio
-    if(!(flags & AX_NOAUDIO)){
+    audioStatus = !(flags & AX_NOAUDIO);
+    if(audioStatus){
         //open the aduio channel
         if(Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 1024) != 0){
-            printf("Mix_OpenAudio failed: %s\n", Mix_GetError());
-            return -1;
+            printf("Audio failed to initialise: %s\n", Mix_GetError());
+            audioStatus = false;
         }
     }
 
@@ -189,7 +193,6 @@ int AXWindow::run(){
             }
             SDL_RenderPresent(AXWindow::renderer);
         }
-        draw();
     }
     //only destroy them if there's video
     if(videoStatus){

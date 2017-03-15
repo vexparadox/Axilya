@@ -44,7 +44,7 @@ void SpawnBall(AXScene* scene){
 int main(int argc, char *argv[])
 {
     //You can use axilya like a framework by passing the window update and draw methods
-    if(!AXWindow::init(1280, 720, AX_WINDOWED, "Breakout")){
+    if(!AXWindow::init(1280, 720, "Breakout", AX_DEFAULT)){
     	std::cout << "AXWindow failed to initialise" << std::endl;
     	return -1;
     }

@@ -8,7 +8,7 @@ AXAnimatedSprite::~AXAnimatedSprite(){
     
 }
 
-AXAnimatedSprite::AXAnimatedSprite(const std::string &name, int frameLength) : AXSprite(name), frameLength(frameLength), frameCount(0), texturePosition(0){
+AXAnimatedSprite::AXAnimatedSprite(int frameLength) : frameLength(frameLength), frameCount(0), texturePosition(0){
 
 }
 
@@ -39,7 +39,7 @@ void AXAnimatedSprite::addTexture(int textureID) {
 }
 
 AXSprite* AXAnimatedSprite::clone(){
-    AXAnimatedSprite* as = new AXAnimatedSprite(this->getName(), this->frameLength);
+    AXAnimatedSprite* as = new AXAnimatedSprite(this->frameLength);
     for(auto& t : textures){
         as->addTexture(t->getID());
     }

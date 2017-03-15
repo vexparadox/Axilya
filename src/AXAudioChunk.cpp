@@ -9,6 +9,10 @@ AXAudioChunk::AXAudioChunk(const std::string& path) : AXResource(-1){
 	loadAudio(path);
 }
 
+AXAudioChunk::~AXAudioChunk(){
+	Mix_FreeChunk(chunk);
+}
+
 bool AXAudioChunk::loadAudio(const std::string& path){
 	std::string temp = AXWindow::runPath+ "data/" + path;
 	if(loaded){

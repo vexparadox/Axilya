@@ -8,7 +8,7 @@
 #include <Axilya/AXMain.h>
 int main(int argc, char const *argv[])
 {
-	AXWindow::init(720, 480, AX_WINDOWED, "Text Example");
+	AXWindow::init(720, 480, "Text Example", AX_DEFAULT);
 	AXScene* scene = new AXScene();
 	AXWindow::setCurrentScene(scene);
 	// AXGraphics::setBackground(0, 0, 0, 255);
@@ -19,9 +19,11 @@ int main(int argc, char const *argv[])
 	AXEntity* e = new AXEntity("text_entity", 0, 0, 0, 0); // The size of an AXEntity will be changed to fit the text you attach to it
 	e->addCollider(new AXBoxCollider()); // Entities that display text can also have Colliders and Rigidbodies
 	e->addRigidBody(true);
-	//We give the renderer a AXStaticText with a name, a string to show and a fontID to use
-	//we can use this name later, this works the same as Sprites
-	e->getRenderer()->addText(new AXStaticText("example_text", "This is an object with gravity and a collider!", fontID));
+	//We give the make a AXStaticText with a string to show and a fontID to use
+	// and then give it to the AXRenderer with a name
+	//we can use this name later, this works the same as AXSprites
+	AXStaticText staticText = new AXStaticText("This is an object with gravity and a collider!", fontID);
+	e->getRenderer()->addText(staticText, "example_text");
 	scene->addEntity(e);
 	return AXWindow::run();
 }

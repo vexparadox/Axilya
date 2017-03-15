@@ -9,6 +9,8 @@
 
 AXRenderer::AXRenderer(){
      this->colour = AXColour(0, 0, 0, 255);
+     currentSprite = sprites.end();
+     currentText = sprites.end();
 }
 
 AXRenderer::~AXRenderer(){
@@ -20,28 +22,41 @@ AXRenderer::~AXRenderer(){
     }
 }
 
-void AXRenderer::addSprite(AXSprite *s) {
+void AXRenderer::addSprite(AXSprite *s, const std::string& name) {
     if(s) {
-        sprites.insert(std::pair<std::string, AXSprite *>(s->getName(), s));
-        currentSprite = s;
+        auto temp = sprites.insert(std::pair<std::string, AXSprite *>(name, s));
+        if(temp.second){
+            currentSprite = temp.first;
+        }
         this->setDrawType(AX_DRAW_SPRITE);
     }
 }
 
-void AXRenderer::addText(AXText* text){
+void AXRenderer::addText(AXText* text, const std::string& name){
     if(text){
-        this->currentText = text;
-        currentText->setOwner(owner);
-        currentText->bakeText();
+        text->setOwner(owner);
+        text->bakeText();
         this->setDrawType(AX_DRAW_TEXT);
-        this->texts.insert(std::pair<std::string, AXText*>(text->getName(), text));
+        auto temp = this->texts.insert(std::pair<std::string, AXText*>(name, text));
+        if(temp.second){
+            currentText = temp.first;
+        }
     }
 }
 
 void AXRenderer::setText(const std::string& name){
-    if(texts.find(name) != texts.end()){
-        this->currentText = texts.at(name);
+    std::unordered_map<std::string, AXText*>::iterator x = texts.find(name);
+    if(x != texts.end()){
+        this->currentText = x;
         this->setDrawType(AX_DRAW_TEXT);
+    }
+}
+
+void AXRenderer::setSprite(const std::string &name) {
+    std::unordered_map<std::string, AXSprite*>::iterator x = sprites.find(name);
+    if(x != sprites.end()){
+        this->currentSprite = x;
+        this->setDrawType(AX_DRAW_SPRITE);
     }
 }
 
@@ -53,15 +68,8 @@ void AXRenderer::setDrawType(int type){
     this->drawType = type;
 }
 
-void AXRenderer::setSprite(const std::string &name) {
-    if(sprites.find(name) != sprites.end()){
-        this->currentSprite = sprites.at(name);
-        this->setDrawType(AX_DRAW_SPRITE);
-    }
-}
-
 AXSprite* AXRenderer::getCurrentSprite(){
-    return currentSprite;
+    return currentSprite->second;
 }
 
 void AXRenderer::draw(const AXVector2D& renderOffset) {
@@ -69,13 +77,13 @@ void AXRenderer::draw(const AXVector2D& renderOffset) {
     AXVector2D size = owner->getTransform()->getSize();
     //if there's a sprite
     int drawType = owner->getDrawType();
-    if(drawType == AX_DRAW_SPRITE && currentSprite){
+    if(drawType == AX_DRAW_SPRITE && currentSprite->second){
         //make sure the colour is transparent
         AXGraphics::fill(255,255,255, 0);
-        currentSprite->draw(position.x, position.y, size.x, size.y);
-    }else if(drawType == AX_DRAW_TEXT && currentText){
+        currentSprite->second->draw(position.x, position.y, size.x, size.y);
+    }else if(drawType == AX_DRAW_TEXT && currentText->second){
         //if there's a text
-        currentText->draw(position.x, position.y);
+        currentText->second->draw(position.x, position.y);
     }else{
         //if it's set to shapes
         AXGraphics::fill(colour);
@@ -111,16 +119,21 @@ void AXRenderer::setColour(const AXColour& c){
 
 AXRenderer* AXRenderer::clone(){
     AXRenderer* a = new AXRenderer();
-    for(auto it = sprites.begin(); it != sprites.end(); it++){
-        a->addSprite(it->second->clone());
-    }
-    if(this->currentSprite){
-        a->setSprite(this->currentSprite->getName());
-    }
-    if(this->currentText){
-        a->addText(currentText->clone());
-    }
     a->setDrawType(this->drawType);
+    for(auto it = sprites.begin(); it != sprites.end(); it++){
+        //for each sprite, make a clone of the sprite and give it the same name
+        a->addSprite(it->second->clone(), it->first);
+    }
+    for(auto it = texts.begin(); it != texts.end(); it++){
+        //for each text, make a clone of the sprite and give it the same name
+        a->addText(it->second->clone(), it->first);
+    }
+    if(this->currentSprite != sprites.end()){
+        a->setSprite(currentSprite->first);
+    }
+    if(this->currentText != texts.end()){
+        a->setText(currentText->first);
+    }
     a->colour = this->colour;
     return a;
 }

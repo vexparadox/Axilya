@@ -35,15 +35,14 @@
 
 #include "AXTexture.hpp"
 #include "AXFont.hpp"
+#include "AXAudioChunk.hpp"
 #include <vector>
 #include <unordered_map>
-class AXTexture;
-class AXFont;
-class AXAudioChunk;
 class AXResourceManager{
     AXResourceManager(){}
     std::vector<AXTexture*> textures;
     std::vector<AXFont*> fonts;
+    std::vector<AXAudioChunk*> chunks;
     std::unordered_map<std::string, AXTexture*> textureMap;
     std::unordered_map<std::string, AXAudioChunk*> audioMap;
     std::unordered_map<std::string, AXFont*> fontMap;

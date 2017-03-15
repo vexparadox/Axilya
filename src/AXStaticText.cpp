@@ -1,14 +1,12 @@
 #include "headers/AXStaticText.hpp"
 #include "headers/AXGraphics.hpp"
 
-AXStaticText::AXStaticText(const std::string& name, const std::string& text, AXFont* font) : text(text){
-	this->name = name;
+AXStaticText::AXStaticText(const std::string& text, AXFont* font) : text(text){
 	setFont(font);
 	isBaked = false;
 }
 
-AXStaticText::AXStaticText(const std::string& name, const std::string& text, int fontID) : text(text){
-	this->name = name;
+AXStaticText::AXStaticText(const std::string& text, int fontID) : text(text){
 	setFont(fontID);
 	isBaked = false;
 }
@@ -65,7 +63,7 @@ void AXStaticText::draw(float x, float y){
 }
 
 AXText* AXStaticText::clone(){
-	AXText* a = new AXStaticText(this->name, this->text, this->font);
+	AXText* a = new AXStaticText(this->text, this->font);
 	a->setOwner(this->owner);
 	a->bakeText();
 	return a;

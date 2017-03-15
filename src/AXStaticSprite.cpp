@@ -8,10 +8,10 @@ AXStaticSprite::~AXStaticSprite(){
 	
 }
 
-AXStaticSprite::AXStaticSprite(const std::string& name) : AXSprite(name), texture(0){
+AXStaticSprite::AXStaticSprite() : texture(0){
 }
 
-AXStaticSprite::AXStaticSprite(const std::string &name, const std::string &filename) : AXSprite(name), texture(0){
+AXStaticSprite::AXStaticSprite(const std::string &filename) : texture(0){
     this->setTexture(resourceManager->addTexture(filename));
 }
 
@@ -31,7 +31,7 @@ void AXStaticSprite::setTexture(int textureID) {
 }
 
 AXSprite* AXStaticSprite::clone(){
-	AXStaticSprite* ss = new AXStaticSprite(this->getName());
+	AXStaticSprite* ss = new AXStaticSprite();
 	ss->texture = this->texture;
 	return ss;
 }

@@ -54,6 +54,12 @@ public:
     */
 	AXAudioChunk(const std::string& path);
     /*!    
+    * The deconstructor for an AXAudioChunk
+    *
+    * This will release the audio data loaded. 
+    */
+    ~AXAudioChunk();
+    /*!    
     * A method to load an audio file into this AXAudioChunk
     *
     * Any previous data loaded will be released

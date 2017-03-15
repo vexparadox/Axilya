@@ -51,10 +51,9 @@ public:
     ~AXAnimatedSprite();
    /*!
    * The constructor of an AXAnimatedSprite
-   * @param name the name of this AXAnimatedSprite
    * @param frameLength how many frames each AXTexture will be displayed for
    */
-    AXAnimatedSprite(const std::string& name, int frameLength);
+    AXAnimatedSprite(int frameLength);
    /*!
    * A method to draw the AXAnimatedSprite
    * @param x the x position to draw the sprite

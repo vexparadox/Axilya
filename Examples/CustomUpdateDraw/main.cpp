@@ -22,7 +22,7 @@ void draw(){
 int main(int argc, char *argv[])
 {
     //You can use axilya like a framework by passing the window update and draw methods
-    if(!AXWindow::init(720, 480, AX_WINDOWED, "Custom Update Draw", update, draw)){
+    if(!AXWindow::init(720, 480, "Custom Update Draw", AX_DEFAULT, update, draw)){
     	std::cout << "AXWindow failed to initialise" << std::endl;
     	return -1;
     }

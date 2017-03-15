@@ -15,15 +15,16 @@ void SpawnPlayer(AXScene* scene){
     AXEntity* player = new AXEntity("player", 0, AXWindow::getHeight()-64, 64, 64);
     player->addComponent(new PlayerController());
     //create a sprite
-    AXStaticSprite* ss = new AXStaticSprite("player_static", "player_1.jpg");
-    player->getRenderer()->addSprite(ss);
+    AXStaticSprite* ss = new AXStaticSprite("player_1.jpg");
+    player->getRenderer()->addSprite(ss, "player_static");
     scene->addEntity(player);
 
     AXEntity* bullet = new AXEntity("bullet", 0, 0, 32, 64);
     bullet->addCollider(new AXBoxCollider());
     bullet->addComponent(new Bullet());
-    ss = new AXStaticSprite("bullet", "bullet.jpg");
-    bullet->getRenderer()->addSprite(ss);
+    ss = new AXStaticSprite("bullet.jpg");
+    //add a sprite with a name
+    bullet->getRenderer()->addSprite(ss, "bullet");
     AXPrefabManager::getInstance()->addPrefab(bullet);
 }
 
@@ -34,12 +35,12 @@ void SpawnInvaders(AXScene* scene){
     enemy->addCollider(new AXBoxCollider());
     enemy->addComponent(new Invader());
     //create a new animated sprite
-    AXAnimatedSprite* as = new AXAnimatedSprite("enemy_move", 30);
+    AXAnimatedSprite* as = new AXAnimatedSprite(30);
     as->addTexture("enemy_1.jpg");
     as->addTexture("enemy_2.jpg");
-    //add the sprite to the enemy
+    //add the sprite to the enemy with a given name
     //this will also set it to the current one
-    enemy->getRenderer()->addSprite(as);
+    enemy->getRenderer()->addSprite(as, "enemy_sprite");
 
     //make the enemy a prefab so we can make copies easily
     prefabManager->addPrefab(enemy);
@@ -62,7 +63,7 @@ void SpawnInvaders(AXScene* scene){
 int main(int argc, char *argv[])
 {
     //You can use axilya like a framework by passing the window update and draw methods
-    if(!AXWindow::init(720, 480, AX_WINDOWED, "Space Invaders")){
+    if(!AXWindow::init(720, 480, "Space Invaders", AX_DEFAULT)){
     	std::cout << "AXWindow failed to initialise" << std::endl;
     	return -1;
     }

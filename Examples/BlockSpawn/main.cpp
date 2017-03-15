@@ -32,7 +32,7 @@ void update(){
 int main(int argc, char *argv[])
 {
     //initialise the window
-    if(!AXWindow::init(720, 480, AX_WINDOWED, "BlockSpawn Example", update, 0)){
+    if(!AXWindow::init(720, 480, "BlockSpawn Example", AX_DEFAULT, update, 0)){
     	std::cout << "AXWindow failed to initialise" << std::endl;
     	return -1;
     }

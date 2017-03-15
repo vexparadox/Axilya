@@ -41,7 +41,6 @@ protected:
 	AXFont* font = 0;
 	AXResourceManager* resourceManager = AXResourceManager::getInstance();
    int height, width;
-   std::string name;
    AXEntity* owner = 0;
    AXColour colour;
 public:
@@ -83,11 +82,6 @@ public:
    void setColour(int r, int g, int b, int a){
       colour.set(r, g, b, a);
    }
-      /*!
-   * A method to get the name of this AXText
-   * @return the name of this AXText
-   */  
-   std::string getName(){ return this->name; }
 	/*!
    * A virtual method to draw the AXText
    * @param x the x position that the text will be drawn at

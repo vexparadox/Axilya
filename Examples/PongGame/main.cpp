@@ -14,7 +14,7 @@
 int main(int argc, char *argv[])
 {
     //You can use axilya like a framework by passing the window update and draw methods
-    if(!AXWindow::init(720, 480, AX_WINDOWED, "Pong Game")){
+    if(!AXWindow::init(720, 480, "Pong Game", AX_DEFAULT)){
     	std::cout << "AXWindow failed to initialise" << std::endl;
     	return -1;
     }
