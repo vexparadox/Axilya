@@ -41,7 +41,7 @@
 #include "AXEntity.hpp"
 #include "AXScene.hpp"
 #include "TiledWorld.hpp"
-#include "StaticWorld.hpp"
+#include "AXStaticWorld.hpp"
 #include "CustomTileComponent.hpp"
 #include "AXStaticSprite.hpp"
 #include "AXAnimatedSprite.hpp"

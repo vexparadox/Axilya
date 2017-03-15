@@ -28,7 +28,7 @@
  *
  * @section DESCRIPTION
  *
- * This class describes a StaticWorld, it holds and draws a single texture as a background.
+ * This class describes a AXStaticWorld, it holds and draws a single texture as a background.
  */
 #ifndef StaticWorld_hpp
 #define StaticWorld_hpp
@@ -36,11 +36,11 @@
 #include "AXResourceManager.hpp"
 #include "World.hpp"
 
-class StaticWorld : public World {
+class AXStaticWorld : public World {
     AXTexture* texture;
     AXResourceManager* resourceManager = AXResourceManager::getInstance();
 public:
-    StaticWorld();
+    AXStaticWorld();
     void loadTexture(int textureID);
     void loadTexture(AXTexture* t);
     void draw();
