@@ -20,7 +20,7 @@ void draw(){
 }
 
 int main(int argc, char const *argv[]){	
-	AXWindow::init(720, 480, "Audio Raw", AX_NOWINDOW | AX_WINDOWED, update, draw);
+	AXWindow::init(720, 480, "Audio Raw", AX_WINDOWED, update, draw);
 	//create the audio chunk
 	chunk = new AXAudioChunk("example.wav");
 	return AXWindow::run();
