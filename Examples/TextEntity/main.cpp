@@ -22,7 +22,7 @@ int main(int argc, char const *argv[])
 	//We give the make a AXStaticText with a string to show and a fontID to use
 	// and then give it to the AXRenderer with a name
 	//we can use this name later, this works the same as AXSprites
-	AXStaticText staticText = new AXStaticText("This is an object with gravity and a collider!", fontID);
+	AXStaticText* staticText = new AXStaticText("This is an object with gravity and a collider!", fontID);
 	e->getRenderer()->addText(staticText, "example_text");
 	scene->addEntity(e);
 	return AXWindow::run();
