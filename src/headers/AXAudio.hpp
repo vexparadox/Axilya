@@ -34,7 +34,11 @@
 #ifndef AXAudio_hpp
 #define AXAudio_hpp
 #include "AXAudioChunk.hpp"
+#ifdef __linux__
+#include <SDL2/SDL_mixer.h>
+#else
 #include <SDL2_mixer/SDL_mixer.h>
+#endif
 namespace AXAudio{
 	void playAudioChunk(AXAudioChunk* chunk, int channel, int loopNumber);
 	void playAudioChunk(AXAudioChunk* chunk, int loopNumber);

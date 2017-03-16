@@ -14,6 +14,8 @@ AXEntity::AXEntity(const std::string& name, float x, float y, float w, float h) 
     transform->setOwner(this);
     renderer = new AXRenderer();
     renderer->setOwner(this);
+    audioPlayer = new AXAudioPlayer();
+    audioPlayer->setOwner(this);
 }
 
 AXEntity::AXEntity(const std::string& name, const AXVector2D& pos, const AXVector2D& size) : name(name){
@@ -21,6 +23,8 @@ AXEntity::AXEntity(const std::string& name, const AXVector2D& pos, const AXVecto
     transform->setOwner(this);
     renderer = new AXRenderer();
     renderer->setOwner(this);
+    audioPlayer = new AXAudioPlayer();
+    audioPlayer->setOwner(this);
 }
 
 AXEntity::AXEntity(const std::string& name): name(name){
@@ -29,6 +33,8 @@ AXEntity::AXEntity(const std::string& name): name(name){
     renderer = new AXRenderer();
     renderer->setOwner(this);
     renderer->setDrawType(AX_DRAW_NONE);
+    audioPlayer = new AXAudioPlayer();
+    audioPlayer->setOwner(this);
 }
 
 AXEntity::~AXEntity(){
@@ -42,6 +48,8 @@ AXEntity::~AXEntity(){
     rigidBody = 0;
     delete renderer;
     renderer = 0;
+    delete audioPlayer;
+    audioPlayer = 0;
     for(auto c : components){
         delete c;
         c = 0;
@@ -150,6 +158,7 @@ AXEntity* AXEntity::clone(){
     }
     if(rigidBody){
         e->addRigidBody(rigidBody->clone());
+        //because rigidbody returns a component, the exact values won't be copied
         e->getRigidBody()->setGravity(rigidBody->getGravity());
         e->getRigidBody()->setOwner(e);
     }
@@ -164,6 +173,11 @@ AXEntity* AXEntity::clone(){
     e->renderer = this->renderer->clone();
     e->renderer->setColour(this->renderer->getColour());
     e->renderer->setOwner(e);
+
+    delete e->audioPlayer;
+    e->audioPlayer = this->audioPlayer->clone();
+    e->audioPlayer->setOwner(e);
+
     e->active = this->active;
     e->dead = this->dead;
     return e;
@@ -319,6 +333,11 @@ std::string& AXEntity::getName(){
 AXRenderer* AXEntity::getRenderer() {
     return renderer;
 }
+
+AXAudioPlayer* AXEntity::getAudioPlayer(){
+    return audioPlayer;
+}
+
 void AXEntity::setColour(float r, float g, float b, float a){
     renderer->setColour(r, g, b, a);
 }

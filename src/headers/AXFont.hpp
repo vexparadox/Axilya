@@ -33,7 +33,11 @@
  */
 #ifndef AXFont_hpp
 #define AXFont_hpp
+#ifdef __linux__
+#include <SDL2/SDL_ttf.h>
+#else
 #include <SDL2_ttf/SDL_ttf.h>
+#endif
 #include "AXGraphics.hpp"
 #include "AXResource.hpp"
 class AXFont : public AXResource{

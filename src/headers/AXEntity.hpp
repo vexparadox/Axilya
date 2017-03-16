@@ -43,6 +43,7 @@
 //components
 #include "AXComponents.h"
 #include "AXRenderer.hpp"
+#include "AXAudioPlayer.hpp"
 #include "AXCollideDirections.hpp"
 class AXScene;
 class AXEntity{
@@ -76,8 +77,11 @@ class AXEntity{
     //a list of custom components
     std::vector<AXComponent*> components;
 
-    //AXRenderer holds all of the drawing capabilities of the Entitity
+    //AXRenderer holds all of the drawing capabilities of the AXEntity
     AXRenderer* renderer = 0;
+
+    //AXAudioPlayer holds the audio play back methods fo this AXEntity
+    AXAudioPlayer* audioPlayer = 0;
 
     void handle_eptr(std::exception_ptr);
 public:
@@ -365,9 +369,15 @@ public:
     /*!
     * A method that gets the AXRenderer attached to this AXEntity
     *
-    * @return the AXRenderer attache do this AXEntity
+    * @return the AXRenderer attached do this AXEntity
     */
     AXRenderer* getRenderer();
+    /*!
+    * A method that gets the AXAudioPlayer attached to this AXEntity
+    *
+    * @return the AXAudioPlayer attached do this AXEntity
+    */
+    AXAudioPlayer* getAudioPlayer();
     /*!
     * A method that gets the name of this AXEntity
     *

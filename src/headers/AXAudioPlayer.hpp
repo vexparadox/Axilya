@@ -36,15 +36,18 @@
 #include "AXComponent.hpp"
 #include <unordered_map>
 #include "AXAudio.hpp"
+#include "AXResourceManager.hpp"
 
 class AXAudioPlayer : public AXComponent{
 	std::unordered_map<std::string, AXAudioChunk*> chunks;
+    AXResourceManager* resourceManager = AXResourceManager::getInstance();
 public:
     /*!
     * A method to add an AXAudioChunk to this AXAudioPlayer
     * @param chunkID the ID of the AXAudioChunk loaded in by the AXResourceManager
+    * @param name the name given to this AXAudioChunk, you can use this to play it later
     */
-	void addAudioChunk(int chunkID);
+	void addAudioChunk(int chunkID, const std::string name);
     /*!
     * A method to play an AXAudioChunk already added to this AXAudioPlayer using the name given
     * 
@@ -64,7 +67,7 @@ public:
     * 
     * @return a clone of this AXAudioPlayer
     */
-	AXComponent* clone();
+	AXAudioPlayer* clone();
 };
 
 #endif
