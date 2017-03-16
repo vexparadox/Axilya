@@ -8,6 +8,8 @@ Note that the repo is a fair sight larger than the final install because of exam
 
 Docs: http://axilya.com/docs
 
+Features: http://axilya.com/about.php
+
 ## Compiling+installing on Linux+OSX
 
 A quick list of [dependencies](https://github.com/vexparadox/Axilya/wiki/Dependencies):
