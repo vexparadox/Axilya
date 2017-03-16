@@ -9,6 +9,7 @@ all:
 	@cd ./TextEntity && make
 	@cd ./TextRaw && make
 	@cd ./AudioRaw && make
+	@cd ./AudioEntity && make
 clean:
 	@cd ./Basic && make clean
 	@cd ./BasicComponent && make clean
@@ -21,3 +22,4 @@ clean:
 	@cd ./TextEntity && make clean
 	@cd ./TextRaw && make clean
 	@cd ./AudioRaw && make clean
+	@cd ./AudioEntity && make clean
