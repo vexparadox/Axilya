@@ -10,7 +10,7 @@
 AXRenderer::AXRenderer(){
      this->colour = AXColour(0, 0, 0, 255);
      currentSprite = sprites.end();
-     currentText = sprites.end();
+     currentText = texts.end();
 }
 
 AXRenderer::~AXRenderer(){

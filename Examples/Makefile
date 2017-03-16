@@ -6,6 +6,7 @@ all:
 	@cd ./PongGame && make
 	@cd ./SpaceInvaders && make
 	@cd ./Breakout && make
+	@cd ./TextEntity && make
 	@cd ./TextRaw && make
 	@cd ./AudioRaw && make
 clean:
