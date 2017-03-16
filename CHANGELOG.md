@@ -1,3 +1,10 @@
+## v0.9.5
+
+- AXAudio playback - load in WAV files
+- Attach audio to AXEntities
+- Play raw audio
+- Slight change to how AXSprites work
+
 ## v0.9.0
 - Allowed non-ECS use ( you can render AXFonts and AXTextures without the ResourceManager)
 - Renamed all classes to a prefix of AX
