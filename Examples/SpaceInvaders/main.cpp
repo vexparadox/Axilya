@@ -10,6 +10,26 @@
 #include "Invader.hpp"
 #include "Bullet.hpp"
 
+void SpawnText(AXScene* scene){
+    // create a new entity
+    // you can give 0 width and height because the text will bake it
+    AXEntity* text = new AXEntity("text", 20, AXWindow::getHeight()-150, 0, 0);
+    // load the font in and save the ID
+    int fontID = AXResourceManager::getInstance()->addFont("Arial.ttf", 20);
+    // load the audio file
+    int audioID = AXResourceManager::getInstance()->addAudioChunk("fire.wav");
+    std::cout << audioID;
+    // create a new AXStaticText with the font we loaded
+    AXStaticText* st = new AXStaticText("Score: 0", fontID);
+    // set the colour to greyish
+    st->setColour(240, 240, 240, 255);
+    // get the renderer and add the text, give it a name "score" for next time
+    text->getRenderer()->addText(st, "score");
+    // load the audio file in
+    text->getAudioPlayer()->addAudioChunk(audioID, "fire");
+    // add the new text entity to the scene
+    scene->addEntity(text);
+}
 
 void SpawnPlayer(AXScene* scene){
     AXEntity* player = new AXEntity("player", 0, AXWindow::getHeight()-64, 64, 64);
@@ -76,6 +96,8 @@ int main(int argc, char *argv[])
     SpawnInvaders(scene);
     //spawn the player
     SpawnPlayer(scene);
+    //spawn the Text Entity
+    SpawnText(scene);
 
     return AXWindow::run();
 }

@@ -15,6 +15,8 @@ void AXAudioPlayer::playAudioChunk(const std::string& name, int channel, int tim
 	auto temp = chunks.find(name);
 	if(temp != chunks.end()){
 		AXAudio::playAudioChunk(temp->second, channel, times);
+	}else{
+		std::cout << "No AXAudioChunk with the name: " << name << std::endl;
 	}
 }
 

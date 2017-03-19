@@ -4,6 +4,7 @@
 #include <Axilya/AXMain.h>
 #include "PlayerController.hpp"
 class Bullet : public AXCustomComponent<Bullet>{
+	bool hasScored = false;
 public:
 	PlayerController* pc;
 	void update();

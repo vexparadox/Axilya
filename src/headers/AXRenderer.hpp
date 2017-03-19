@@ -109,6 +109,12 @@ public:
    */
     AXSprite* getCurrentSprite();
    /*!
+   * A method to get the current AXText
+   * 
+   * @return the current AXText
+   */
+    AXText* getCurrentText();
+   /*!
    * A method to get the AXColour of this AXRenderer
    * 
    * Note that colours only take place when drawing basic shapes, AXText and AXSprite's have their own AXColour methods

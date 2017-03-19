@@ -4,8 +4,11 @@
 class Bullet;
 class PlayerController : public AXCustomComponent<PlayerController>{
 	Bullet* bullet;
+	AXText* text;
+	int score = 0;
 public:
+	void start();
 	void update();
-	void bulletDead();
+	void bulletDead(bool hitEnemy);
 };
 #endif

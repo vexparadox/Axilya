@@ -62,7 +62,7 @@ int AXResourceManager::addAudioChunk(const std::string& path){
         return audioMap.at(path)->getID();
     }
     //attempt to load the file given
-    int id = fonts.size(); // get the new id
+    int id = chunks.size(); // get the new id
     AXAudioChunk* tempChunk = new AXAudioChunk(id, path); // create the AXTexture
     if(tempChunk->isLoaded()){
         chunks.push_back(tempChunk); // push it back

@@ -1,6 +1,10 @@
 #include "PlayerController.hpp"
 #include "Bullet.hpp"
 
+void PlayerController::start(){
+	text = getScene()->findEntity("text")->getRenderer()->getCurrentText();
+}
+
 void PlayerController::update(){
 	if(AXInput::getValue("D") || AXInput::getValue("RIGHT")){
 		owner->moveEntity(3, 0);
@@ -17,10 +21,15 @@ void PlayerController::update(){
 		if(e != 0){
 			bullet = e->getComponent<Bullet>();
 			bullet->pc = this;
+			owner->getAudioPlayer()->playAudioChunk("fire");
 		}
 	}
 }
 
-void PlayerController::bulletDead(){
+void PlayerController::bulletDead(bool hitEnemy){
+	if(hitEnemy){
+		score++;
+		text->setText("Score: "+std::to_string(score));
+	}
 	bullet = 0;
 }

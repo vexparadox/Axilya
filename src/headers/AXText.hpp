@@ -73,6 +73,11 @@ public:
    */
    virtual bool bakeText() = 0;
    /*!
+   * A virtual method to set the text of this AXText
+   * @param text the text to set
+   */
+   virtual void setText(const std::string& text) = 0;
+   /*!
    * A method to set the AXColour of this text
    * @param r the red value of the colour
    * @param g the green value of the colour

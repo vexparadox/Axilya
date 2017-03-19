@@ -72,6 +72,10 @@ AXSprite* AXRenderer::getCurrentSprite(){
     return currentSprite->second;
 }
 
+AXText* AXRenderer::getCurrentText(){
+    return currentText->second;
+}
+
 void AXRenderer::draw(const AXVector2D& renderOffset) {
     AXVector2D position = owner->getTransform()->getPosition()+renderOffset;
     AXVector2D size = owner->getTransform()->getSize();
