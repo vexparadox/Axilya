@@ -47,7 +47,7 @@ public:
     * @param chunkID the ID of the AXAudioChunk loaded in by the AXResourceManager
     * @param name the name given to this AXAudioChunk, you can use this to play it later
     */
-	void addAudioChunk(int chunkID, const std::string name);
+	bool addAudioChunk(int chunkID, const std::string name);
     /*!
     * A method to play an AXAudioChunk already added to this AXAudioPlayer using the name given
     * 

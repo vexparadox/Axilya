@@ -1,10 +1,12 @@
 #include "headers/AXAudioPlayer.hpp"
 
-void AXAudioPlayer::addAudioChunk(int chunkID, const std::string name){
+bool AXAudioPlayer::addAudioChunk(int chunkID, const std::string name){
 	AXAudioChunk* temp = resourceManager->getAudioChunk(chunkID);
 	if(temp){
-		chunks.insert(std::pair<std::string, AXAudioChunk*>(name, temp));
+		auto response = chunks.insert(std::pair<std::string, AXAudioChunk*>(name, temp));
+		return response.second;
 	}
+	return false;
 }
 
 void AXAudioPlayer::playAudioChunk(const std::string& name){

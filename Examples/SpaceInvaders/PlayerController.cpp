@@ -11,7 +11,6 @@ void PlayerController::update(){
 	}else if(AXInput::getValue("A") || AXInput::getValue("LEFT")){
 		owner->moveEntity(-3, 0);
 	}
-
 	if(AXInput::getValue("SPACE") && bullet == 0){
 		AXEntity* e = getScene()->instantiate("bullet", 
 			prefabManager->getPrefab("bullet"),

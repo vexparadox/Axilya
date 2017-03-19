@@ -76,8 +76,9 @@ public:
    * This method will also set the draw type
    * @param sprite the new AXSprite
    * @param name the name you want to associate with this AXSprite
+   * @return if the AXSprite was added
    */
-    void addSprite(AXSprite* sprite, const std::string& name);
+    bool addSprite(AXSprite* sprite, const std::string& name);
    /*!
    * A method to set the current AXSprite
    * 
@@ -93,8 +94,9 @@ public:
    * This method will also set the draw type
    * @param text the new AXText to add
    * @param anme the name you want to associate with this AXText
+   * @return if the AXText was added
    */
-    void addText(AXText* text, const std::string& name);
+    bool addText(AXText* text, const std::string& name);
    /*!
    * A method to set the current AXText
    * 

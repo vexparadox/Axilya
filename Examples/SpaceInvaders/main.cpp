@@ -7,7 +7,6 @@
 //
 #include <Axilya/AXMain.h>
 #include "PlayerController.hpp"
-#include "Invader.hpp"
 #include "Bullet.hpp"
 
 void SpawnText(AXScene* scene){
@@ -16,27 +15,26 @@ void SpawnText(AXScene* scene){
     AXEntity* text = new AXEntity("text", 20, AXWindow::getHeight()-150, 0, 0);
     // load the font in and save the ID
     int fontID = AXResourceManager::getInstance()->addFont("Arial.ttf", 20);
-    // load the audio file
-    int audioID = AXResourceManager::getInstance()->addAudioChunk("fire.wav");
-    std::cout << audioID;
     // create a new AXStaticText with the font we loaded
     AXStaticText* st = new AXStaticText("Score: 0", fontID);
     // set the colour to greyish
     st->setColour(240, 240, 240, 255);
     // get the renderer and add the text, give it a name "score" for next time
     text->getRenderer()->addText(st, "score");
-    // load the audio file in
-    text->getAudioPlayer()->addAudioChunk(audioID, "fire");
     // add the new text entity to the scene
     scene->addEntity(text);
 }
 
 void SpawnPlayer(AXScene* scene){
     AXEntity* player = new AXEntity("player", 0, AXWindow::getHeight()-64, 64, 64);
+    // load the audio file
+    int audioID = AXResourceManager::getInstance()->addAudioChunk("fire.wav");
     player->addComponent(new PlayerController());
     //create a sprite
     AXStaticSprite* ss = new AXStaticSprite("player_1.jpg");
     player->getRenderer()->addSprite(ss, "player_static");
+    // add the audio loaded
+    player->getAudioPlayer()->addAudioChunk(audioID, "fire");
     scene->addEntity(player);
 
     AXEntity* bullet = new AXEntity("bullet", 0, 0, 32, 64);
@@ -53,7 +51,6 @@ void SpawnInvaders(AXScene* scene){
     //A prefab of the invaders
     AXEntity* enemy = new AXEntity("enemy", 0, 0, 64, 64);
     enemy->addCollider(new AXBoxCollider());
-    enemy->addComponent(new Invader());
     //create a new animated sprite
     AXAnimatedSprite* as = new AXAnimatedSprite(30);
     as->addTexture("enemy_1.jpg");
@@ -91,13 +88,11 @@ int main(int argc, char *argv[])
     AXScene* scene = new AXScene();
     AXWindow::setCurrentScene(scene);
     AXGraphics::setBackground(16, 16, 16, 255);
-
     //spawn the invaders
     SpawnInvaders(scene);
     //spawn the player
     SpawnPlayer(scene);
     //spawn the Text Entity
     SpawnText(scene);
-
     return AXWindow::run();
 }

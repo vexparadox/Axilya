@@ -22,17 +22,19 @@ AXRenderer::~AXRenderer(){
     }
 }
 
-void AXRenderer::addSprite(AXSprite *s, const std::string& name) {
+bool AXRenderer::addSprite(AXSprite *s, const std::string& name) {
     if(s) {
         auto temp = sprites.insert(std::pair<std::string, AXSprite *>(name, s));
         if(temp.second){
+            this->setDrawType(AX_DRAW_SPRITE);
             currentSprite = temp.first;
+            return true;
         }
-        this->setDrawType(AX_DRAW_SPRITE);
     }
+    return false;
 }
 
-void AXRenderer::addText(AXText* text, const std::string& name){
+bool AXRenderer::addText(AXText* text, const std::string& name){
     if(text){
         text->setOwner(owner);
         text->bakeText();
@@ -40,8 +42,10 @@ void AXRenderer::addText(AXText* text, const std::string& name){
         auto temp = this->texts.insert(std::pair<std::string, AXText*>(name, text));
         if(temp.second){
             currentText = temp.first;
+            return true;
         }
     }
+    return false;
 }
 
 void AXRenderer::setText(const std::string& name){
