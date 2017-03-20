@@ -4,10 +4,12 @@
 //
 //  Created by William Meaton on 31/01/2017.
 //  Copyright © 2017 willmeaton.com. All rights reserved.
+//  Audio from http://www.wavsource.com and http://www.freesoundeffects.com
 //
 #include <Axilya/AXMain.h>
 #include "PlayerController.hpp"
 #include "Bullet.hpp"
+#include "Invader.hpp"
 
 void SpawnText(AXScene* scene){
     // create a new entity
@@ -33,7 +35,8 @@ void SpawnPlayer(AXScene* scene){
     //create a sprite
     AXStaticSprite* ss = new AXStaticSprite("player_1.jpg");
     player->getRenderer()->addSprite(ss, "player_static");
-    // add the audio loaded
+    // add the audio loaded with the name "fire"
+    // we can use this name to play the sound
     player->getAudioPlayer()->addAudioChunk(audioID, "fire");
     scene->addEntity(player);
 
@@ -48,9 +51,16 @@ void SpawnPlayer(AXScene* scene){
 
 void SpawnInvaders(AXScene* scene){
     AXPrefabManager* prefabManager = AXPrefabManager::getInstance();
+    // let's load in a death sound
+    int audioID = AXResourceManager::getInstance()->addAudioChunk("death.wav");
     //A prefab of the invaders
     AXEntity* enemy = new AXEntity("enemy", 0, 0, 64, 64);
+    // add a collider
     enemy->addCollider(new AXBoxCollider());
+    // add the Invader component
+    enemy->addComponent(new Invader());
+    //add the death sound with the name "death"
+    enemy->getAudioPlayer()->addAudioChunk(audioID, "death");
     //create a new animated sprite
     AXAnimatedSprite* as = new AXAnimatedSprite(30);
     as->addTexture("enemy_1.jpg");
