@@ -1,22 +1,3 @@
-## Worlds
-addFocus(Entity) on the worlds - allow worlds to follow players (side scrollers etc)
-setCenter on worlds - pin the world to a position
-add world rendering (smart)
-add example code of getting entities in tile components
-add predefined components for tiles (TileCollider)
-
-## General
-implement TiledWorld collisions (see TileCollider)
-## input
-add mouseClicked calls to basecore again
-## colours
-Entity colours arn't filling out properly
-
-##collisions
-fix via closest entity, collect them all and evaluate
-
-##axwindow
-add mouse curse disable
-REMEMBER
-
-CustomComponent clone doesn't copy variables
+Need rendering and collision layer (inside the layers too)
+Offseting the camera in a good way
+UI boxing

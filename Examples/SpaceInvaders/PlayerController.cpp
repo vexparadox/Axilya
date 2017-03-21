@@ -15,7 +15,7 @@ void PlayerController::update(){
 		AXEntity* e = getScene()->instantiate("bullet", 
 			prefabManager->getPrefab("bullet"),
 			new AXTransform(
-				transform->getPosition().x+owner->getTransform()->getSize().x/2,
+				transform->getPosition().x-8+owner->getTransform()->getSize().x/2,
 				transform->getPosition().y, 16, 32));
 		if(e != 0){
 			bullet = e->getComponent<Bullet>();

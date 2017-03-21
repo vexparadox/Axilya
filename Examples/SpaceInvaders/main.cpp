@@ -16,7 +16,7 @@ void SpawnText(AXScene* scene){
     // you can give 0 width and height because the text will bake it
     AXEntity* text = new AXEntity("text", 20, AXWindow::getHeight()-150, 0, 0);
     // load the font in and save the ID
-    int fontID = AXResourceManager::getInstance()->addFont("Arial.ttf", 20);
+    int fontID = AXResourceManager::getInstance()->addFont("Arial.ttf", 32);
     // create a new AXStaticText with the font we loaded
     AXStaticText* st = new AXStaticText("Score: 0", fontID);
     // set the colour to greyish
@@ -32,6 +32,7 @@ void SpawnPlayer(AXScene* scene){
     // load the audio file
     int audioID = AXResourceManager::getInstance()->addAudioChunk("fire.wav");
     player->addComponent(new PlayerController());
+    player->addCollider(new AXBoxCollider());
     //create a sprite
     AXStaticSprite* ss = new AXStaticSprite("player_1.jpg");
     player->getRenderer()->addSprite(ss, "player_static");
@@ -53,23 +54,23 @@ void SpawnInvaders(AXScene* scene){
     AXPrefabManager* prefabManager = AXPrefabManager::getInstance();
     // let's load in a death sound
     int audioID = AXResourceManager::getInstance()->addAudioChunk("death.wav");
-    //A prefab of the invaders
+    // A prefab of the invaders
     AXEntity* enemy = new AXEntity("enemy", 0, 0, 64, 64);
     // add a collider
     enemy->addCollider(new AXBoxCollider());
     // add the Invader component
     enemy->addComponent(new Invader());
-    //add the death sound with the name "death"
+    // add the death sound with the name "death"
     enemy->getAudioPlayer()->addAudioChunk(audioID, "death");
-    //create a new animated sprite
+    // create a new animated sprite
     AXAnimatedSprite* as = new AXAnimatedSprite(30);
     as->addTexture("enemy_1.jpg");
     as->addTexture("enemy_2.jpg");
-    //add the sprite to the enemy with a given name
-    //this will also set it to the current one
+    // add the sprite to the enemy with a given name
+    // this will also set it to the current one
     enemy->getRenderer()->addSprite(as, "enemy_sprite");
 
-    //make the enemy a prefab so we can make copies easily
+    // make the enemy a prefab so we can make copies easily
     prefabManager->addPrefab(enemy);
 
     int cols = (AXWindow::getWidth()/64);

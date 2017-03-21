@@ -29,7 +29,7 @@
  * @section DESCRIPTION
  *
  * This class handles window creation and event handling, it's the entry point of Axilya.
- */
+*/
 #ifndef AXWindow_hpp
 #define AXWindow_hpp
 #include <vector>
@@ -38,9 +38,15 @@
 #include "AXWindowFlags.hpp"
 #include "AXNetwork.hpp"
 #include <SDL2/SDL.h>
-#include <SDl2_mixer/SDl_mixer.h>
+#ifdef __linux__
+    #include <SDL2/SDL_ttf.h>
+    #include <SDL2/SDL_mixer.h>
+#else
+    #include <SDL2_ttf/SDL_ttf.h>
+    #include <SDL2_mixer/SDL_mixer.h>
+#endif
+
 #include "glad.h"
-#include <SDL2_ttf/SDL_ttf.h>
 typedef void (*AXFunction)();
 //this class controls the main game loop, calls BaseCore update and render
 class AXWindow{
