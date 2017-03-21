@@ -79,30 +79,32 @@ void AXScene::collideCheck(AXEntity* e, AXVector2D& proposedMovement, unsigned c
     memset(colls, 0, 16);
     //if colliding on a specific layer
     if(e->getCollisionLayer() != -1){
-        for(int i = 0; i < layers[e->getCollisionLayer()].size(); i++){
-            AXEntity* compE = layers[e->getCollisionLayer()][i];
-            //if it's collided 4 times, stop
-            if(collisions >= 3){
-                break;
-            }
-            if(compE->getCollider() && compE->isActive() && !compE->isDead() && compE->getCollisionLayer() == e->getCollisionLayer()){
-                //don't compare against the proposed
-                if(compE != e){
-                    int j;
-                    for(j = 0; j < 4; j++){
-                        //get the result of the collision and save it
-                        colls[j+(4*collisions)] = compE->getCollider()->checkMovement(e, proposedMovement);
-                        //if it's dead 
-                        if(colls[j+(4*collisions)] != 0){
-                            compE->onCollision(e, colls[j+(4*collisions)]);
-                            e->onCollision(compE, colls[j+(4*collisions)]);
-                        }else{
-                            break;
+        for(int j = 0; j < layers.size(); j++){
+            for(int i = 0; i < layers[j].size(); i++){
+                AXEntity* compE = layers[j][i];
+                //if it's collided 4 times, stop
+                if(collisions >= 3){
+                    break;
+                }
+                if(compE->getCollider() && compE->isActive() && !compE->isDead() && compE->getCollisionLayer() == e->getCollisionLayer()){
+                    //don't compare against the proposed
+                    if(compE != e){
+                        int j;
+                        for(j = 0; j < 4; j++){
+                            //get the result of the collision and save it
+                            colls[j+(4*collisions)] = compE->getCollider()->checkMovement(e, proposedMovement);
+                            //if it's dead 
+                            if(colls[j+(4*collisions)] != 0){
+                                compE->onCollision(e, colls[j+(4*collisions)]);
+                                e->onCollision(compE, colls[j+(4*collisions)]);
+                            }else{
+                                break;
+                            }
                         }
-                    }
-                    //if there was any collisions at all, move the counter fowards
-                    if(j > 0){
-                        collisions++;
+                        //if there was any collisions at all, move the counter fowards
+                        if(j > 0){
+                            collisions++;
+                        }
                     }
                 }
             }

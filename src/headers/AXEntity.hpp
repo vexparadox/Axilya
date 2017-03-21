@@ -301,7 +301,7 @@ public:
     /*!
     * A method that calls onCollision on all Components attached to this Enitity
     *
-    * This is called by the AXScene when a collision occurs with another AXEntity
+    * This is called by the AXScene when a collision occurs with another AXEntity, it will only collide if the layers are correct
     *
     * Catch this call inside of a AXComponent
     * @param e the AXEntity that collided with this one
