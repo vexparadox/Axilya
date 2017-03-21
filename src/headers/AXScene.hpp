@@ -42,7 +42,7 @@ class AXEntity;
 class AXTransform;
 class AXScene{
     //the vector of entities
-    std::vector<AXEntity*> entities;
+    std::vector<std::vector<AXEntity*>> layers;
     AXWorld* world;
     AXEntity* gameMaster;
     AXVector2D renderOffset;
@@ -112,10 +112,20 @@ public:
     /*!
     * A method to add an AXEntity to this AXScene
     *
+    * This will default to layer 0
     * @param e the AXEntity to add
     * @return if the AXEntity was added successfully
     */
     bool addEntity(AXEntity* e);
+    /*!
+    * A method to add an AXEntity to this AXScene with a specific layer
+    *
+    * This value will be clamped 0 - 17
+    * @param e the AXEntity to add
+    * @param layer the later the AXEntity will be added to
+    * @return if the AXEntity was added successfully
+    */
+    bool addEntity(AXEntity* e, int layer);
     /*!
     * A method to set the GameMaster in this AXScene
     *
@@ -138,22 +148,16 @@ public:
     */
     void setWorld(AXWorld* w);
     /*!
-    * A method to remove a specific AXEntity
-    *
-    * It's better to use the destroy() method on an AXEntity
-    * @param e the entity to destroy
-    */
-    void removeEntity(AXEntity* e);
-    /*!
     * A method to instantiate a new AXEntity in this AXScene
     *
     * Instatniated AXEntity's will be put straight into the AXScene
     * @param name the name of this new AXEntity
     * @param e the AXEntity this new one will copy
     * @param t a new AXTransform for this new AXEntity to be given
+    * @param layer the layer this AXEntity will be added to
     * @return a pointer to the new AXEntity
     */
-    AXEntity* instantiate(const std::string& name, AXEntity* e, AXTransform* t);
+    AXEntity* instantiate(const std::string& name, AXEntity* e, AXTransform* t, int layer);
     /*!
     * A method to instantiate a new AXEntity in this AXScene
     *
@@ -181,10 +185,14 @@ public:
     */
     void collideCheck(AXEntity* e, AXVector2D& proposedMovement, unsigned char* colls);
     /*!
+    * Returns the layers and AXEntitys in this AXScene
+    * @return the  AXEntitys in this AXScene
+    */
+    std::vector<std::vector<AXEntity*>>& getEntities();
+    /*!
     * Returns the number of Entities in this AXScene
     * @return number of Entities in the AXScene vector
     */
-    std::vector<AXEntity*>& getEntities();
     int numEntities();
 };
 

@@ -58,7 +58,6 @@ class AXWindow{
     static SDL_Window* window;
     static AXFunction draw, update;
     static bool initiated;
-    
     AXWindow(){};
     ~AXWindow(){};
 public:

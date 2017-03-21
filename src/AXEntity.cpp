@@ -152,6 +152,8 @@ void AXEntity::moveEntity(AXVector2D v){
 
 AXEntity* AXEntity::clone(){
     AXEntity* e = new AXEntity(this->name, transform->getPosition(), transform->getSize());
+    e->setLayer(this->layer);
+    e->setCollisionLayer(this->collisionLayer);
     if(collider){
        e->addCollider(collider->clone());
        e->getCollider()->setOwner(e);
@@ -324,6 +326,29 @@ AXCollider* AXEntity::getCollider(){
 
 bool AXEntity::isDead(){
     return dead;
+}
+
+int AXEntity::getLayer(){
+    return layer;
+}
+
+void AXEntity::setLayer(int layer){
+    this->layer = layer;
+}
+
+
+void AXEntity::setCollisionLayer(int layer){
+    if(layer > 17){
+        layer = 17;
+    }
+    if(layer < -1){
+        layer = -1;
+    }
+    this->collisionLayer = layer;
+}
+
+int AXEntity::getCollisionLayer(){
+    return this->collisionLayer;
 }
 
 std::string& AXEntity::getName(){

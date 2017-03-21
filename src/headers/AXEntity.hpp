@@ -1,37 +1,36 @@
 /**
- * @file
- * @author William Meaton <will.meaton@gmail.com>
- *
- * @section LICENSE
- *
- * The MIT License
- * 
- * Copyright (c) 2017 WillMeaton http://willmeaton.com
- * 
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- * 
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- * 
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- *
- * @section DESCRIPTION
- *
- * This class describes an Axilya AXEntity, all game objects are Entities in Axilya.
- * Entities are a collection of Components that update and draw, AXTransform and AXRenderer are attached by default.
- */
-
+* @file
+* @author William Meaton <will.meaton@gmail.com>
+*
+* @section LICENSE
+*
+* The MIT License
+* 
+* Copyright (c) 2017 WillMeaton http://willmeaton.com
+* 
+* Permission is hereby granted, free of charge, to any person obtaining a copy
+* of this software and associated documentation files (the "Software"), to deal
+* in the Software without restriction, including without limitation the rights
+* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+* copies of the Software, and to permit persons to whom the Software is
+* furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in
+* all copies or substantial portions of the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+* THE SOFTWARE.
+*
+* @section DESCRIPTION
+*
+* This class describes an Axilya AXEntity, all game objects are Entities in Axilya.
+* Entities are a collection of Components that update and draw, AXTransform and AXRenderer are attached by default.
+*/
 #ifndef AXEntity_hpp
 #define AXEntity_hpp
 
@@ -61,6 +60,9 @@ class AXEntity{
 
     //the scene this entity belongs to
     AXScene* scene = 0;
+    //the AXScene layer this entity is in
+    int layer = 0;
+    int collisionLayer = -1;
 
     //a list of standard components, these are presets
     AXTransform* transform = 0;
@@ -384,6 +386,31 @@ public:
     * @return the name of this AXEntity
     */
     std::string& getName();
+    /*!
+    * A method that gets the AXScene layer of this AXEntity
+    *
+    * @return the layer this AXEntity is in
+    */
+    int getLayer();
+    /*!
+    * A method that sets the AXScene layer of this AXEntity
+    *
+    * This method doesn't change the layer, it's when a AXEntity is added to an AXScene
+    * @param layer the layer to set this AXEntity in
+    */
+    void setLayer(int layer);
+    /*!
+    * A method that sets the AXScene collision of this AXEntity
+    *
+    * @param layer the layer which this AXEntity will collide on, 0-17 or -1 for all
+    */
+    void setCollisionLayer(int layer);
+    /*!
+    * A method that gets the AXScene collision of this AXEntity
+    *
+    * @return the layer which this AXEntity will collide on, 0-17 or -1 for all
+    */
+    int getCollisionLayer();
     /*!
     * A method that sets the name of this AXEntity
     *

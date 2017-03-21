@@ -83,7 +83,8 @@ void SpawnInvaders(AXScene* scene){
             scene->instantiate(
                 "enemy_"+std::to_string(i)+"_"+std::to_string(j), 
                 prefabManager->getPrefab("enemy"),
-                new AXTransform((i*64)+10, j*64, 64, 64));
+                new AXTransform((i*64)+10, j*64, 64, 64),
+                0);
         }
     }
 }

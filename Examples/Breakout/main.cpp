@@ -20,7 +20,8 @@ void MakeBlocks(AXScene* scene){
         for(int i = 0; i < 15; i++){
             scene->instantiate("block_"+std::to_string(i)+"_"+std::to_string(j), 
             AXPrefabManager::getInstance()->getPrefab("block1"),
-            new AXTransform((i*80)+60, (j*40)+30, 40, 10));
+            new AXTransform((i*80)+60, (j*40)+30, 40, 10),
+            0);
         }
     }
 }
