@@ -42,7 +42,7 @@ class AXEntity;
 class AXTransform;
 class AXScene{
     //the vector of entities
-    std::vector<std::vector<AXEntity*>> layers;
+    std::vector<std::vector<AXEntity*> > layers;
     AXWorld* world;
     AXEntity* gameMaster;
     AXVector2D renderOffset;
@@ -188,7 +188,7 @@ public:
     * Returns the layers and AXEntitys in this AXScene
     * @return the  AXEntitys in this AXScene
     */
-    std::vector<std::vector<AXEntity*>>& getEntities();
+    std::vector<std::vector<AXEntity*> >& getEntities();
     /*!
     * Returns the number of Entities in this AXScene
     * @return number of Entities in the AXScene vector

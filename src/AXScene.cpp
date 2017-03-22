@@ -221,7 +221,7 @@ AXEntity* AXScene::findEntity(const std::string &name) {
     }
 }
 
-std::vector<std::vector<AXEntity*>>& AXScene::getEntities(){
+std::vector<std::vector<AXEntity*> >& AXScene::getEntities(){
     return this->layers;    
 }
 
