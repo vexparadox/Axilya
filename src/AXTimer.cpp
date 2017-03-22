@@ -1,11 +1,10 @@
 //
 //  AXTimer.cpp
-//  Project2
+//  Axilya
 //
 //  Created by William Meaton on 26/02/2016.
 //  Copyright © 2016 WillMeaton.uk. All rights reserved.
 //
-
 #include "headers/AXTimer.hpp"
 AXTimer::AXTimer(bool startNow) : beginTime(0), endTime(0), started(false), running(false) {
     if(startNow){
@@ -16,12 +15,12 @@ AXTimer::AXTimer() : beginTime(0), endTime(0), started(false), running(false){
     
 }
 void AXTimer::start(){
-    beginTime = clock();
+    beginTime = SDL_GetTicks();
     started = true;
     running = true;
 }
 void AXTimer::stop(){
-    endTime = clock();
+    endTime = SDL_GetTicks();
     running = false;
 }
 void AXTimer::reset(){
@@ -31,14 +30,14 @@ void AXTimer::reset(){
     endTime = 0;
 }
 
-float AXTimer::elapsedTime(){
+Uint32 AXTimer::elapsedTime(){
     if(running){
-        return ((float) clock() - beginTime)/CLOCKS_PER_SEC;
+        return (Uint32)(SDL_GetTicks() - beginTime);
     }
     if(!started){
         return 0;
     }
-    return ((float) endTime - beginTime)/CLOCKS_PER_SEC;
+    return ((Uint32) endTime - beginTime)/CLOCKS_PER_SEC;
 }
 bool AXTimer::isRunning(){
     return running;
