@@ -1,6 +1,6 @@
 OS = $(shell uname)
 ifeq ($(OS), Linux)
-	CPFLAGS += 
+	CPFLAGS += `curl-config --libs` -I/usr/local/include/SDL2 -lSDL2_mixer -lSDL2_ttf
 	SDLRUN := @echo "SDL install isn't supported from makefile on Linux, got to https://github.com/vexparadox/Axilya/wiki/Dependencies to see how to install the required libraries"
 else
 ifeq ($(OS), Darwin)

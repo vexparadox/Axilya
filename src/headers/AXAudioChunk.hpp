@@ -33,7 +33,11 @@
 #ifndef AXAudioChunk_hpp
 #define AXAudioChunk_hpp
 #include "AXResource.hpp"
+#ifdef __linux__
+#include <SDL2/SDL_mixer.h>
+#else
 #include <SDL2_mixer/SDL_mixer.h>
+#endif
 class AXAudioChunk : public AXResource{
 	Mix_Chunk* chunk;
 public:
