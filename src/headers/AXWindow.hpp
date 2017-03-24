@@ -58,6 +58,8 @@ class AXWindow{
     static SDL_Window* window;
     static AXFunction draw, update;
     static bool initiated;
+    static Uint64 previousDeltaTime;
+    static Uint64 deltaTime;
     AXWindow(){};
     ~AXWindow(){};
 public:
@@ -129,6 +131,11 @@ public:
     * @return The window height 
     */
     static int getHeight();
+    /*!
+    * A static method to get the time the previous frame took to complete
+    * @return the time taken in seconds
+    */
+    static double getDeltaTime();
     /*!
     * A static method to set if the cursor should be hidden or not
     * @param value if the cursor should be hidden or not 

@@ -30,6 +30,11 @@ bool AXWindow::initiated = false;
 bool AXWindow::videoStatus = false;
 bool AXWindow::audioStatus = false;
 
+//delta time value
+Uint64 AXWindow::deltaTime = 0;
+Uint64 AXWindow::previousDeltaTime = 0;
+
+
 //the update and draw methods
 AXFunction AXWindow::draw = 0;
 AXFunction AXWindow::update = 0;
@@ -129,6 +134,8 @@ int AXWindow::run(){
     SDL_Event event;
     bool inFocus = true;
     while(go == 1){
+        AXWindow::deltaTime = SDL_GetPerformanceCounter() - AXWindow::previousDeltaTime;
+        AXWindow::previousDeltaTime = SDL_GetPerformanceCounter();
         while(SDL_PollEvent(&event) != 0 ){
             //User requests quit
             if(event.type == SDL_QUIT){
@@ -238,6 +245,10 @@ void AXWindow::lockCursor(bool value){
 
 SDL_Window* AXWindow::getWindow(){
     return window;
+}
+
+double AXWindow::getDeltaTime(){
+    return (double)((double)(deltaTime)/(double)SDL_GetPerformanceFrequency());
 }
 
 int AXWindow::getWidth(){
