@@ -38,12 +38,12 @@
 #include "AXWindowFlags.hpp"
 #include "AXNetwork.hpp"
 #include <SDL2/SDL.h>
-#ifdef __linux__
-    #include <SDL2/SDL_ttf.h>
-    #include <SDL2/SDL_mixer.h>
-#else
+#ifdef __APPLE__
     #include <SDL2_ttf/SDL_ttf.h>
     #include <SDL2_mixer/SDL_mixer.h>
+#else
+    #include <SDL2/SDL_ttf.h>
+    #include <SDL2/SDL_mixer.h>
 #endif
 
 #include "glad.h"
