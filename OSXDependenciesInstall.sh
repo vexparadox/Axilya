@@ -16,19 +16,19 @@ echo "Copying SDL2"
 hdiutil attach -quiet -noverify SDL2-2.0.5.dmg
 sudo cp -r /Volumes/SDL2/SDL2.framework /Library/Frameworks
 echo "Copy complete"
-diskutil unmount /Volumes/SDL2
+diskutil eject /Volumes/SDL2
 #install sdl2 TTF
 echo "Copying SDL2 ttf"
 hdiutil attach -quiet -noverify SDL2_ttf-2.0.14.dmg
 sudo cp -r /Volumes/SDL2_ttf/SDL2_ttf.framework /Library/Frameworks
 echo "Copy complete"
-diskutil unmount /Volumes/SDL2_ttf
+diskutil eject /Volumes/SDL2_ttf
 #install sdl2 mixer
 echo "Copying SDL2 mixer"
 hdiutil attach -quiet -noverify SDL2_mixer-2.0.1.dmg
 sudo cp -r /Volumes/SDL2_mixer/SDL2_mixer.framework /Library/Frameworks
 echo "Copy complete"
-diskutil unmount /Volumes/SDL2_mixer
+diskutil eject /Volumes/SDL2_mixer
 cd ../
 rm -rf temp
 echo "Install complete."

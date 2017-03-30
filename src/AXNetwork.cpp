@@ -1,4 +1,5 @@
 #include "headers/AXNetwork.hpp"
+#include <iostream>
 
 bool AXNetwork::hasInit = false;
 
@@ -53,6 +54,7 @@ bool AXNetwork::POSTRequestSimple(const std::string& url, const std::vector<AXNe
 	      return false;
 	    }
 	    curl_easy_cleanup(curl);
+	    std::cout << std::endl;
 	    return true;
     }else{
     	return false;
@@ -64,7 +66,7 @@ void AXNetwork::MTPOSTRequestSimple(const std::string& url, const std::vector<AX
 	t.detach();
 }
 
-bool AXNetwork::POSTRequest(const std::string& url, const std::vector<AXNetworkPair>& pair, AXNetworkCallback callback){
+bool AXNetwork::POSTRequest(const std::string& url, const std::vector<AXNetworkPair>& pair, const std::vector<AXNetworkPair>& headers, AXNetworkCallback callback){
 	CURL* curl = curl_easy_init();
 	CURLcode res;
 	if(curl) {
@@ -85,6 +87,17 @@ bool AXNetwork::POSTRequest(const std::string& url, const std::vector<AXNetworkP
 		    //set the post fields
 		    curl_easy_setopt(curl, CURLOPT_POSTFIELDS, post.c_str());
 		}
+
+
+		struct curl_slist *chunk = 0;
+		for(int i = 0; i < headers.size(); i++){
+			std::string temp;
+			temp.append(headers[i].first);
+			temp.append(": ");
+			temp.append(headers[i].second);
+			chunk = curl_slist_append(chunk, temp.c_str());
+		}
+
 		if(callback){
 			curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, callback);
 		}else{
@@ -93,6 +106,9 @@ bool AXNetwork::POSTRequest(const std::string& url, const std::vector<AXNetworkP
 			return false;
 		}
 		curl_easy_setopt(curl, CURLOPT_USERAGENT, "libcurl-agent/1.0");
+		if(chunk){
+			res = curl_easy_setopt(curl, CURLOPT_HTTPHEADER, chunk);
+		}
 		//send
 	    res = curl_easy_perform(curl);
 	    //if it broke
@@ -109,7 +125,7 @@ bool AXNetwork::POSTRequest(const std::string& url, const std::vector<AXNetworkP
     }
 }
 
-void AXNetwork::MTPOSTRequest(const std::string& url, const std::vector<AXNetworkPair>& pair, AXNetworkCallback callback){
-	std::thread t(AXNetwork::POSTRequest, url, pair, callback);
+void AXNetwork::MTPOSTRequest(const std::string& url, const std::vector<AXNetworkPair>& pair, const std::vector<AXNetworkPair>& headers, AXNetworkCallback callback){
+	std::thread t(AXNetwork::POSTRequest, url, pair, headers, callback);
 	t.detach();
 }
