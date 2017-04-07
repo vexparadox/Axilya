@@ -1,6 +1,6 @@
 # Axilya v0.9.5
 
-A 2D Game Engine Library written in C++ by William Meaton.
+A 2D Game Engine Library written in C++ by [William Meaton](http://willmeaton.com).
 
 See the examples and [wiki](http://axilya.com/wiki) for a better idea of what's happening.
 
