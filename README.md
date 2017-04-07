@@ -12,13 +12,13 @@ Features: http://axilya.com/about.php
 
 ## Compiling+installing on Linux+OSX
 
-A quick list of [dependencies](https://github.com/vexparadox/Axilya/wiki/Dependencies):
-
 For OSX you'll need: `g++`, `make`, `libcurl`, `tar` and `SDL`(see below). These can be installed using `xcode-select --install` in your Terminal. They're also install when you install xCode.
 
 For Linux you'll need: `g++`, `make`, `libcurl`, `tar` and `SDL`. All but SDL are available via `apt-get`, see the commands below for how to install SDL.
 
 There are a few commands you can use to compile and install.
+
+If you get stuck, see the [wiki](http://axilya.com/wiki/index.php?title=Installing) for help.
 
 To install SDL2:
 ```Shell
