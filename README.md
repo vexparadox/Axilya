@@ -2,7 +2,7 @@
 
 A 2D Game Engine Library written in C++ by William Meaton.
 
-See the examples and [wiki]{http://axilya.com/wiki} for a better idea of what's happening.
+See the examples and [wiki](http://axilya.com/wiki) for a better idea of what's happening.
 
 It's recomended you download as a zip or go to the releases page.
 
@@ -55,7 +55,7 @@ If you get issues with permissions it might just be that your /usr/local/lib or 
 
 ## Compiling+installing on Windows
 
-To install Axilya on please see start on this [wiki]{http://axilya.com/wiki/index.php?title=Downloading} page.
+To install Axilya on please see start on this [wiki](http://axilya.com/wiki/index.php?title=Downloading) page.
 
 
 
