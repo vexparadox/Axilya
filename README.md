@@ -2,9 +2,9 @@
 
 A 2D Game Engine Library written in C++ by William Meaton.
 
-See the examples and wiki for a better idea of what's happening.
+See the examples and [wiki]{http://axilya.com/wiki} for a better idea of what's happening.
 
-Note that the repo is a fair sight larger than the final install because of example projects and SDL source files included.
+It's recomended you download as a zip or go to the releases page.
 
 Docs: http://axilya.com/docs
 
@@ -14,13 +14,13 @@ Features: http://axilya.com/about.php
 
 A quick list of [dependencies](https://github.com/vexparadox/Axilya/wiki/Dependencies):
 
-For OSX you'll need: `g++`, `make`, `libcurl`, `unzip` and `SDL`(see below). These can be installed using `xcode-select --install` in your Terminal. They're also install when you install xCode.
+For OSX you'll need: `g++`, `make`, `libcurl`, `tar` and `SDL`(see below). These can be installed using `xcode-select --install` in your Terminal. They're also install when you install xCode.
 
-For Linux you'll need: `g++`, `make`, `libcurl`, `unzip` and `SDL`. All but SDL are available via `apt-get`, see the [dependencies](https://github.com/vexparadox/Axilya/wiki/Dependencies) page for how to install SDL.
+For Linux you'll need: `g++`, `make`, `libcurl`, `tar` and `SDL`. All but SDL are available via `apt-get`, see the commands below for how to install SDL.
 
 There are a few commands you can use to compile and install.
 
-To install SDL2 (OSX only):
+To install SDL2:
 ```Shell
 	sudo make sdl
 ```
@@ -51,9 +51,12 @@ To remove the install use:
 ```Shell
 	make cleaninstall
 ```
-
-
 If you get issues with permissions it might just be that your /usr/local/lib or /usr/local/include folders haven't been initialised, you can either run these commands in `sudo` mode or create the folders and try again.
+
+## Compiling+installing on Windows
+
+To install Axilya on please see start on this [wiki]{http://axilya.com/wiki/index.php?title=Downloading} page.
+
 
 
 ## Other
