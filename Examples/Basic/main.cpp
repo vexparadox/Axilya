@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
     //you can | (or) flags together - AX_DEFAULT | AX_NOAUDIO means we want default settings but no audio
     //it will return -1 on failure
     if(!AXWindow::init(720, 480, "Basic Example", AX_DEFAULT | AX_NOAUDIO)){
-    	std::cout << "AXWindow failed to initialise" << std::endl;
+        AXLog::log("Window failed to initialise", "Quitting", AX_LOG_ERROR);
     	return -1;
     }
     //create a AXScene

@@ -4,6 +4,9 @@ namespace AXLog{
 	int logType = AX_LOG_OUT;
 	std::string logFilename = "logfile.txt";
 	void log(const std::string& name, const std::string& data, int logLevel){
+		if(logType == AX_LOG_NONE){
+			return;
+		}
 		//get the time
      	std::time_t t = std::time(nullptr);
      	std::tm tm = *std::localtime(&t);

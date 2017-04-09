@@ -3,6 +3,7 @@
 #define AX_LOG_DEBUG 0
 #define AX_LOG_WARNING 1
 #define AX_LOG_ERROR 2
+#define AX_LOG_NONE -1
 #define AX_LOG_FILE 0
 #define AX_LOG_OUT 1
 #define AX_LOG_BOTH 2

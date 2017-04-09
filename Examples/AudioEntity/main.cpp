@@ -11,7 +11,7 @@
 int main(int argc, char *argv[])
 {
     if(!AXWindow::init(720, 480, "Basic Example", AX_DEFAULT)){
-    	std::cout << "AXWindow failed to initialise" << std::endl;
+    	AXLog::log("Window failed to initialise", "Quitting", AX_LOG_ERROR);
     	return -1;
     }
     //build a scene

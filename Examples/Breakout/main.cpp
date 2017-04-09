@@ -46,7 +46,7 @@ int main(int argc, char *argv[])
 {
     //You can use axilya like a framework by passing the window update and draw methods
     if(!AXWindow::init(1280, 720, "Breakout", AX_DEFAULT)){
-    	std::cout << "AXWindow failed to initialise" << std::endl;
+        AXLog::log("Window failed to initialise", "Quitting", AX_LOG_ERROR);
     	return -1;
     }
     AXWindow::hideCursor(true);

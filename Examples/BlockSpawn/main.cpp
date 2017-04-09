@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
 {
     //initialise the window
     if(!AXWindow::init(720, 480, "BlockSpawn Example", AX_DEFAULT, update, 0)){
-    	std::cout << "AXWindow failed to initialise" << std::endl;
+        AXLog::log("Window failed to initialise", "Quitting", AX_LOG_ERROR);
     	return -1;
     }
     //create a AXScene
