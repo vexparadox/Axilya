@@ -35,6 +35,7 @@
 
 #include "AXMath.hpp"
 #include "AXTypes.h"
+#include "AXLog.hpp"
 #include "AXNetwork.hpp"
 #include "AXGraphics.hpp"
 #include "AXAudio.hpp"

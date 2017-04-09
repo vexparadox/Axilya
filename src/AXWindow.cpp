@@ -7,6 +7,7 @@
 //
 
 #include "headers/AXWindow.hpp"
+#include "headers/AXLog.hpp"
 //render colours
 AXColour AXWindow::backgroundColour;
 AXColour AXWindow::renderColour;
@@ -22,7 +23,10 @@ SDL_Renderer* AXWindow::renderer = 0;
 SDL_Window* AXWindow::window = 0;
 //the running variable
 int AXWindow::go = 1;
+//the run path
 std::string AXWindow::runPath = "";
+//the start time
+std::time_t AXWindow::startTime;
 
 //if it's already been initated
 bool AXWindow::initiated = false;
@@ -48,6 +52,7 @@ int AXWindow::init(float wWidth, float wHeight, const char* title, unsigned int 
     if(initiated){
         return -1;
     }
+    startTime = std::time(0);
     AXWindow::update = update;
     AXWindow::draw = draw;
     //The window we'll be rendering to
@@ -58,11 +63,11 @@ int AXWindow::init(float wWidth, float wHeight, const char* title, unsigned int 
     if(videoStatus){
         if(SDL_Init(SDL_INIT_EVERYTHING) < 0)
         {
-            printf( "SDL could not initialize! SDL_Error: %s\n", SDL_GetError() );
+            AXLog::log("SDL could not initialize!", SDL_GetError(), AX_LOG_ERROR);
             return -1;
         }
         if(TTF_Init() < 0){
-            printf("SDLTTF could not initialise! SDL_Error: %s\n", TTF_GetError());
+            AXLog::log("SDL_TTF could not initialise!", TTF_GetError(), AX_LOG_ERROR);
             return -1;
         }
         //get the display size

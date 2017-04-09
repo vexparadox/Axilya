@@ -37,6 +37,7 @@
 #include "AXInput.hpp"
 #include "AXWindowFlags.hpp"
 #include "AXNetwork.hpp"
+#include <ctime>
 #include <SDL2/SDL.h>
 #ifdef __APPLE__
     #include <SDL2_ttf/SDL_ttf.h>
@@ -71,6 +72,10 @@ public:
     * if the window has audio initialised
     */
     static bool audioStatus;
+    /*!    
+    * the start time of the application
+    */
+    static std::time_t startTime;
     /*!    
     * the runpath of the Axilya application
     */
