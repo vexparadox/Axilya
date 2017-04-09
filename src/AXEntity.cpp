@@ -103,7 +103,7 @@ void AXEntity::handle_eptr(std::exception_ptr eptr){
             std::rethrow_exception(eptr);
         }
     } catch(const std::exception& e) {
-        std::cout << "Caught exception \"" << e.what() << "\"\n";
+        AXLog::log("Caught an exception", e.what(), AX_LOG_ERROR);
     }
 }
 

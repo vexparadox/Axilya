@@ -31,20 +31,20 @@ bool AXTexture::loadImage(const std::string& path){
     int formatFound;
     imageDataPtr = stbi_load(temp.c_str(), &this->w, &this->h, &formatFound, format);
     if(imageDataPtr == NULL){
-        std::cout << stbi_failure_reason() << std::endl;
+        AXLog::log("Image file failed to load", stbi_failure_reason(), AX_LOG_ERROR);
         loaded = false;
         return false;
     }
     SDL_Surface* surface = SDL_CreateRGBSurfaceWithFormatFrom(imageDataPtr, this->w, this->h, 32, 4*this->w, SDL_PIXELFORMAT_RGBA32);
     if (surface == NULL) {
-        std::cout << SDL_GetError() << std::endl;
+        AXLog::log("SDLSurface failed to create", SDL_GetError(), AX_LOG_ERROR);
         stbi_image_free(imageDataPtr);
         loaded = false;
         return false;
     }
     texture = SDL_CreateTextureFromSurface(AXWindow::renderer, surface);
     if(texture == NULL){
-        std::cout << SDL_GetError() << std::endl;
+        AXLog::log("SDLTexture failed to create", SDL_GetError(), AX_LOG_ERROR);
         loaded = false;
         return false;
     }

@@ -172,7 +172,7 @@ bool AXScene::addEntity(AXEntity* e, int layer){
             this->entityMap[e->getName()] = e;
             return true;
         }else{
-            std::cout << "AXEntity with the name: " << e->getName() << " already in this scene." << std::endl;
+            AXLog::log("AXEntity name duplicate in scene", e->getName(), AX_LOG_ERROR);
             return false;
         }
     }else{
@@ -214,7 +214,7 @@ void AXScene::setWorld(AXWorld *w) {
 
 AXEntity* AXScene::findEntity(const std::string &name) {
     if(entityMap.find(name) == entityMap.end()){
-        std::cout << "AXEntity not found with name: " << name << ". Returning null" << std::endl;
+        AXLog::log("AXEntity not found using name", name, AX_LOG_WARNING);
         return 0;
     }else{
         return entityMap.at(name);

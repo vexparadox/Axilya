@@ -22,7 +22,7 @@ bool AXAudioChunk::loadAudio(const std::string& path){
 	loaded = false;
 	chunk = Mix_LoadWAV(temp.c_str());
 	if(!chunk){
-		std::cout << "Audio chunk failed to load: " << Mix_GetError() << std::endl;
+		AXLog::log("Audio chunk failed to load.", Mix_GetError(), AX_LOG_ERROR);
 		loaded = false;
 		return false;
 	}

@@ -36,6 +36,7 @@
 #include "AXTexture.hpp"
 #include "AXFont.hpp"
 #include "AXAudioChunk.hpp"
+#include "AXLog.hpp"
 #include <vector>
 #include <unordered_map>
 class AXResourceManager{

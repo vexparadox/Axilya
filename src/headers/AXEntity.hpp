@@ -41,6 +41,7 @@
 #include "AXPrefabManager.hpp"
 //components
 #include "AXComponents.h"
+#include "AXLog.hpp"
 #include "AXRenderer.hpp"
 #include "AXAudioPlayer.hpp"
 #include "AXCollideDirections.hpp"

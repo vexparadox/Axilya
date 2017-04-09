@@ -16,49 +16,39 @@ namespace AXGraphics{
     void drawSDLTexture(SDL_Texture* t, float x, float y, float w, float h){
         SDL_Rect dest = {.x = (int)x, .y = (int)y, .w = (int)w, .h = (int)h};
         if(SDL_RenderCopy(AXWindow::renderer, t, NULL, &dest) != 0){
-            std::cout << SDL_GetError() << std::endl;
-        }
-    }
-    void drawTexture(AXTexture* t, float x, float y, float w, float h){
-        if(!t->isLoaded()){
-            std::cout << "The AXTexture data is empty, canceling draw." << std::endl;
-            return;
-        }
-        SDL_Rect dest = {.x = (int)x, .y = (int)y, .w = (int)w, .h = (int)h};
-        if(SDL_RenderCopy(AXWindow::renderer, t->getTextureData(), NULL, &dest) != 0){
-            std::cout << SDL_GetError() << std::endl;
+            AXLog::log("SDL Render copy failed", SDL_GetError(), AX_LOG_ERROR);
         }
     }
 
     void drawTexture(AXTexture* t, float x, float y){
-        if(!t->isLoaded()){
-            std::cout << "The AXTexture data is empty, canceling draw." << std::endl;
-            return;
-        }
-        SDL_Rect dest = {.x = (int)x, .y = (int)y, .w = t->getWidth(), .h = t->getHeight()};
-        if(SDL_RenderCopy(AXWindow::renderer, t->getTextureData(), NULL, &dest) != 0){
-            std::cout << SDL_GetError() << std::endl;
-        }
+        drawTexture(t, x, y, -1, -1);
     }
 
     void drawTexture(AXTexture* t, AXVector2D v){
-        if(!t->isLoaded()){
-            std::cout << "The AXTexture data is empty, canceling draw." << std::endl;
-            return;
-        }
-        SDL_Rect dest = {.x = (int)v.x, .y = (int)v.y, .w = t->getWidth(), .h = t->getHeight()};
-        if(SDL_RenderCopy(AXWindow::renderer, t->getTextureData(), NULL, &dest) != 0){
-            std::cout << SDL_GetError() << std::endl;
-        }
+        drawTexture(t, v.x, v.y, -1, -1);
     }
     void drawTexture(AXTexture* t, AXVector2D v, float w, float h){
-        if(!t->isLoaded()){
-            std::cout << "The AXTexture data is empty, canceling draw." << std::endl;
+        drawTexture(t, v.x, v.y, w, h);
+    }
+
+    void drawTexture(AXTexture* t, float x, float y, float w, float h){
+        if(!t){
+            AXLog::log("Texture data invalide", "Nullptr was passed", AX_LOG_ERROR);
             return;
         }
-        SDL_Rect dest = {.x = (int)v.x, .y = (int)v.y, .w = (int)w, .h = (int)h};
+        if(!t->isLoaded()){
+            AXLog::log("Texture failed to draw", "AXTexture isn't loaded", AX_LOG_ERROR);
+            return;
+        }
+        if(w == -1){
+            w = t->getWidth();
+        }
+        if(h == -1){
+            h = t->getHeight();
+        }
+        SDL_Rect dest = {.x = (int)x, .y = (int)y, .w = (int)w, .h = (int)h};
         if(SDL_RenderCopy(AXWindow::renderer, t->getTextureData(), NULL, &dest) != 0){
-            std::cout << SDL_GetError() << std::endl;
+            AXLog::log("SDL Render copy failed", SDL_GetError(), AX_LOG_ERROR);
         }
     }
     //TRIANGLES

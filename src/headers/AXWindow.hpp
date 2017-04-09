@@ -35,6 +35,7 @@
 #include <vector>
 #include "AXScene.hpp"
 #include "AXInput.hpp"
+#include "AXLog.hpp"
 #include "AXWindowFlags.hpp"
 #include "AXNetwork.hpp"
 #include <ctime>

@@ -35,6 +35,7 @@
 
 #include "AXResourceManager.hpp"
 #include "AXPrefabManager.hpp"
+#include "AXLog.hpp"
 #include <stdio.h>
 #include "AXMath.hpp"
 

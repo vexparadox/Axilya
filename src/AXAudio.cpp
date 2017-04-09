@@ -5,7 +5,7 @@ namespace AXAudio{
 		//only play if audio is inited
 		if(AXWindow::audioStatus){
 			if(Mix_PlayChannel(channel, chunk->getAudioData(), loopNumber) == -1){
-				std::cout << "AudioChunk failed to play: " << Mix_GetError() << std::endl;
+				AXLog::log("AudioChunk failed to play", Mix_GetError(), AX_LOG_ERROR);
 			}
 		}
 	}

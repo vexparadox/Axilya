@@ -36,6 +36,7 @@
 #define AXNetwork_hpp
 #include <curl/curl.h>
 #include <vector>
+#include "AXLog.hpp"
 #include <utility>
 #include <string>
 #include <thread>

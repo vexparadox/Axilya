@@ -48,8 +48,7 @@ bool AXNetwork::POSTRequestSimple(const std::string& url, const std::vector<AXNe
 	    res = curl_easy_perform(curl);
 	    //if it broke
 	    if(res != CURLE_OK){
-	      fprintf(stderr, "POSTRequestSimple failed to send: %s\n", curl_easy_strerror(res));
-	      fprintf(stderr, "Args: %s\n", post.c_str());
+	      AXLog::log("POSTRequestSimple failed to send", curl_easy_strerror(res), AX_LOG_ERROR);
 	      curl_easy_cleanup(curl);
 	      return false;
 	    }
@@ -101,7 +100,7 @@ bool AXNetwork::POSTRequest(const std::string& url, const std::vector<AXNetworkP
 		if(callback){
 			curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, callback);
 		}else{
-		    fprintf(stderr, "Invalid callback method.\n");
+		    AXLog::log("Invalid callback", "AXNetwork::POSTRequest", AX_LOG_ERROR);
 		    curl_easy_cleanup(curl);
 			return false;
 		}
@@ -113,8 +112,7 @@ bool AXNetwork::POSTRequest(const std::string& url, const std::vector<AXNetworkP
 	    res = curl_easy_perform(curl);
 	    //if it broke
 	    if(res != CURLE_OK){
-	      	fprintf(stderr, "POSTRequestSimple failed to send: %s\n", curl_easy_strerror(res));
-	      	fprintf(stderr, "Args: %s\n", post.c_str());
+	      	AXLog::log("POSTRequestSimple failed to send", curl_easy_strerror(res), AX_LOG_ERROR);
 	      	curl_easy_cleanup(curl);
 	      	return false;
 	    }

@@ -41,17 +41,6 @@
 #include "glad.h"
 namespace AXGraphics{
     /*!
-    * A function that draws an SDL_Texture
-    *
-    * Use this in conjunction with baked AXFonts or your own data
-    * @param t the baked SDL_Texture
-    * @param x the x position to draw the texture
-    * @param y the y position to draw the texture
-    * @param w the width to draw this texture
-    * @param h the height to draw this texture
-    */
-    void drawSDLTexture(SDL_Texture* t, float x, float y, float w, float h);
-    /*!
     * A function that draws an AXTexture
     * @param t the loaded AXTexture
     * @param x the x position to draw the texture
@@ -63,8 +52,6 @@ namespace AXGraphics{
     /*!
     * A function that draws an AXTexture
     * @param t the loaded AXTexture
-    * @param x the x position to draw the texture
-    * @param y the y position to draw the texture
     */
     void drawTexture(AXTexture* t, float x, float y);
     /*!
@@ -81,6 +68,16 @@ namespace AXGraphics{
     * @param h the height to draw the texture
     */
     void drawTexture(AXTexture* t, AXVector2D v, float w, float h);
+    /*!
+    * A function that draws an AXTexture
+    * @param t the loaded AXTexture
+    * @param x the x position to draw the texture
+    * @param y the y position to draw the texture
+    * @param w the width to draw the texture (-1 will default to texture size)
+    * @param h the height to draw the texture (-1 will default to texture size)
+    */
+    void drawTexture(AXTexture* t, float x, float y, float w, float h);
+
 
 
     /*!

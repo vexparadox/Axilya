@@ -21,8 +21,7 @@ bool AXFont::loadFont(const std::string& p, int size){
 
 	fontData = TTF_OpenFont(path.c_str(), size);
 	if(!fontData){
-		std::cout << "Font failed load at: " << p << std::endl;
-		std::cout << TTF_GetError() << std::endl;
+		AXLog::log("Font failed load.", TTF_GetError(), AX_LOG_ERROR);
 		return false;
 	}
 	fontHeight = TTF_FontHeight(fontData);
@@ -35,18 +34,18 @@ SDL_Texture* AXFont::bakeTexture(const std::string string, AXColour& colour){
 	if(loaded){
 		SDL_Surface* temp = TTF_RenderUTF8_Blended(fontData, string.c_str(), colour.toSDL());
 		if(!temp){
-			std::cout << "Font failed to bake! SDL Error: " << TTF_GetError() << std::endl;
+			AXLog::log("Font failed to bake!", TTF_GetError(), AX_LOG_ERROR);
 			return 0;
 		}
 		SDL_Texture* texture = SDL_CreateTextureFromSurface(AXWindow::renderer, temp);
 		if(!texture){
-			std::cout << "Font failed to bake! SDL Error: " << SDL_GetError() << std::endl;
+			AXLog::log("Font failed to bake!", TTF_GetError(), AX_LOG_ERROR);
 			return 0;
 		}
 		SDL_FreeSurface(temp);
 		return texture;
 	}
-	std::cout << "Font not loaded, bake failed" << std::endl;
+	AXLog::log("Font failed to bake!", "Font file not loaded.", AX_LOG_ERROR);
 	return 0;
 }
 

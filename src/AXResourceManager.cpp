@@ -35,7 +35,7 @@ int AXResourceManager::addTexture(const std::string& path){
         textureMap.insert(std::pair<std::string, AXTexture*>(path, tempTexture));
         return id; // return the new id
     }
-    std::cout << "AXTexture data failed to load." << std::endl;
+    AXLog::log("AXTexture failed to load.", "", AX_LOG_ERROR);
     return -1;
 }
 
@@ -53,7 +53,7 @@ int AXResourceManager::addFont(const std::string& path, int size){
     }else{
         delete tempFont;
     }
-    std::cout << "AXFont data failed to load." << std::endl;
+    AXLog::log("AXFont failed to load.", "", AX_LOG_ERROR);
     return -1;
 }
 
@@ -71,7 +71,7 @@ int AXResourceManager::addAudioChunk(const std::string& path){
     }else{
         delete tempChunk;
     }
-    std::cout << "AXAudioChunk data failed to load." << std::endl;
+    AXLog::log("AXAudioChunk failed to load.", "", AX_LOG_ERROR);
     return -1;
 
 }
@@ -101,7 +101,7 @@ AXTexture* AXResourceManager::getTexture(int id){
     if(id >= 0 && id < textures.size()){
         return textures[id];
     }else{
-        std::cout << "No AXTexture with this id. Has it been loaded?" << std::endl;
+        AXLog::log("No AXTexture with this id", "Has it been loaded?", AX_LOG_WARNING);
         return 0;
     }
 }
@@ -110,7 +110,7 @@ AXTexture* AXResourceManager::getTexture(const std::string &path) {
     if(isTextureLoaded(path)){
         return textureMap.at(path);
     }else{
-        std::cout << "No AXTexture with this path. Has it been loaded?" << std::endl;
+        AXLog::log("No AXTexture with this path", "Has it been loaded?", AX_LOG_WARNING);
         return 0;
     }
 }
@@ -119,7 +119,7 @@ AXFont* AXResourceManager::getFont(int id){
     if(id >= 0 && id < fonts.size()){
         return fonts[id];
     }else{
-        std::cout << "No AXFont with this id. Has it been loaded?" << std::endl;
+        AXLog::log("No AXFont with this id", "Has it been loaded?", AX_LOG_WARNING);
         return 0;
     }
 }
@@ -128,7 +128,7 @@ AXFont* AXResourceManager::getFont(const std::string &path) {
     if(isFontLoaded(path)){
         return fontMap.at(path);
     }else{
-        std::cout << "No AXFont with this path. Has it been loaded?" << std::endl;
+        AXLog::log("No AXFont with this path", "Has it been loaded?", AX_LOG_WARNING);
         return 0;
     }
 }
@@ -137,7 +137,7 @@ AXAudioChunk* AXResourceManager::getAudioChunk(const std::string& path){
     if(isAudioChunkLoaded(path)){
         return audioMap.at(path);
     }else{
-        std::cout << "No AXAudioChunk with this path. Has it been loaded?" << std::endl;
+        AXLog::log("No AXAudioChunk with this path", "Has it been loaded?", AX_LOG_WARNING);
         return 0;
     }
 }
@@ -146,7 +146,7 @@ AXAudioChunk* AXResourceManager::getAudioChunk(int id){
     if(id >= 0 && id < chunks.size()){
         return chunks[id];
     }else{
-        std::cout << "No AXAudioChunk with this id. Has it been loaded?" << std::endl;
+        AXLog::log("No AXAudioChunk with this id", "Has it been loaded?", AX_LOG_WARNING);
         return 0;
     }
 }
