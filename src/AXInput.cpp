@@ -4,10 +4,10 @@
 bool AXInput::keyIsPressed = false;
 bool AXInput::mouseIsPressed = false;
 int AXInput::keyCode = 0;
-int AXInput::mouseButton = -1;
 int AXInput::mouseX = 0;
 int AXInput::mouseY = 0;
 int AXInput::inputsPressed = 0;
+int AXInput::mouseButton = -1;
 int AXInput::mouseButtonsPressed = 0;
 SDL_GameController* AXInput::controllers[4];
 std::vector<AXKey*> AXInput::inputs;
@@ -15,7 +15,9 @@ std::unordered_map<int, AXKey*> AXInput::inputCodes;
 std::unordered_map<std::string, AXKey*> AXInput::inputNames;
 
 void AXInput::init() {
-    inputs.reserve(111);
+    inputs.reserve(113);
+    inputs.push_back(new AXKey("MB1", -2));
+    inputs.push_back(new AXKey("MB2", -1));
     inputs.push_back(new AXKey("SPACE", SDL_SCANCODE_SPACE));
     inputs.push_back(new AXKey("A", SDL_SCANCODE_A));
     inputs.push_back(new AXKey("B", SDL_SCANCODE_B));
@@ -172,9 +174,18 @@ void AXInput::init() {
 
 
 void AXInput::mousePressed(int button){
-    mouseButton = button;
     mouseIsPressed = true;
+    mouseButton = button;
     mouseButtonsPressed++;
+    int key;
+    if(button == 1){
+        key = -2;
+    }else if(button == 2){
+        key = -1;
+    }
+    if(inputCodes.find(key) != inputCodes.end()){
+        inputCodes.at(key)->setValue(1);
+    }
 }
 
 void AXInput::mouseReleased(int button){
@@ -183,6 +194,16 @@ void AXInput::mouseReleased(int button){
         mouseIsPressed = false;
         mouseButton = -1;
     }
+    int key;
+    if(button == 1){
+        key = -2;
+    }else if(button == 2){
+        key = -1;
+    }
+    if(inputCodes.find(key) != inputCodes.end()){
+        inputCodes.at(key)->setValue(0);
+    }
+
 }
 
 void AXInput::setKeyDown(int key){
