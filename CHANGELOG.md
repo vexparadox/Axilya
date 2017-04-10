@@ -1,3 +1,12 @@
+## v0.9.6
+
+- AXLog logging class
+- Analytics added
+- Windows support
+- New OSX and Linux install scripts
+- New timer and deltaTime functions
+
+
 ## v0.9.5
 
 - AXAudio playback - load in WAV files

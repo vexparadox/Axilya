@@ -43,7 +43,7 @@ bool AXNetwork::POSTRequestSimple(const std::string& url, const std::vector<AXNe
 		if(!shouldPrint){
 			curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, AXNetwork::eatOutput);
 		}
-		curl_easy_setopt(curl, CURLOPT_USERAGENT, "libcurl-agent/1.0");
+		curl_easy_setopt(curl, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36");
 		//send
 	    res = curl_easy_perform(curl);
 	    //if it broke
@@ -104,7 +104,7 @@ bool AXNetwork::POSTRequest(const std::string& url, const std::vector<AXNetworkP
 		    curl_easy_cleanup(curl);
 			return false;
 		}
-		curl_easy_setopt(curl, CURLOPT_USERAGENT, "libcurl-agent/1.0");
+		curl_easy_setopt(curl, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36");
 		if(chunk){
 			res = curl_easy_setopt(curl, CURLOPT_HTTPHEADER, chunk);
 		}

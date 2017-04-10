@@ -121,6 +121,12 @@ int AXWindow::init(float wWidth, float wHeight, const char* title, unsigned int 
 
     AXInput::init();
     AXNetwork::init();
+    if(!(flags&AX_NOANALYTICS)){
+        std::vector<AXNetworkPair> pairs;
+        pairs.push_back(AXNetworkPair("v", std::to_string(AX_VERSION)));
+        pairs.push_back(AXNetworkPair("t", std::to_string(startTime)));
+        AXNetwork::MTPOSTRequestSimple("http://axilya.com/analytics.php", pairs, false);
+    }
     initiated = true;
     return 1;
 }

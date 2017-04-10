@@ -11,7 +11,7 @@
 int main(int argc, char *argv[])
 {
     //initialise the window
-    if(!AXWindow::init(720, 480, "BasicComponent Example", AX_DEFAULT)){
+    if(!AXWindow::init(720, 480, "BasicComponent Example", AX_DEFAULT | AX_NOANALYTICS)){
         AXLog::log("Window failed to initialise", "Quitting", AX_LOG_ERROR);
     	return -1;
     }

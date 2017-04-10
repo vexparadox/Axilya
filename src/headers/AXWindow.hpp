@@ -32,6 +32,7 @@
 */
 #ifndef AXWindow_hpp
 #define AXWindow_hpp
+#define AX_VERSION 97
 #include <vector>
 #include "AXScene.hpp"
 #include "AXInput.hpp"

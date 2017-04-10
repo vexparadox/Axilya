@@ -30,5 +30,8 @@ namespace AXLog{
     * @param logLevel the level at which to log AX_LOG_DEBUG, AX_LOG_WARNING or AX_LOG_ERROR
     */
 	void log(const std::string& name, const std::string& data, int logLevel);
+    void debug(const std::string& data);
+    void warning(const std::string& data);
+    void error(const std::string& data);
 };
 #endif

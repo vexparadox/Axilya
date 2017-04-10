@@ -49,4 +49,15 @@ namespace AXLog{
 			}
 		}
 	}
+
+    void debug(const std::string& data){
+    	log("AXLog Debug", data, AX_LOG_DEBUG);
+    }
+    void warning(const std::string& data){
+    	log("AXLog Warning", data, AX_LOG_WARNING);
+    }
+    void error(const std::string& data){
+    	log("AXLog Error", data, AX_LOG_ERROR);
+    }
+
 };
