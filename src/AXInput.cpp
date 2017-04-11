@@ -173,63 +173,73 @@ void AXInput::init() {
 }
 
 
-void AXInput::mousePressed(int button){
+const std::string& AXInput::mousePressed(int button){
     mouseIsPressed = true;
     mouseButton = button;
     mouseButtonsPressed++;
     int key;
-    if(button == 1){
+    if(button == SDL_BUTTON_LEFT){
         key = -2;
-    }else if(button == 2){
+    }else if(button == SDL_BUTTON_RIGHT){
         key = -1;
     }
     if(inputCodes.find(key) != inputCodes.end()){
         inputCodes.at(key)->setValue(1);
+        return inputCodes.at(key)->getIdentifier();
     }
+    return "";
 }
 
-void AXInput::mouseReleased(int button){
+const std::string& AXInput::mouseReleased(int button){
     mouseButtonsPressed--;
     if(mouseButtonsPressed < 1){
         mouseIsPressed = false;
         mouseButton = -1;
     }
+    std::cout << button << " BUT" << std::endl;
     int key;
-    if(button == 1){
+    if(button == SDL_BUTTON_LEFT){
         key = -2;
-    }else if(button == 2){
+    }else if(button == SDL_BUTTON_RIGHT){
         key = -1;
     }
     if(inputCodes.find(key) != inputCodes.end()){
         inputCodes.at(key)->setValue(0);
+        return inputCodes.at(key)->getIdentifier();
     }
-
+    return "";
 }
 
-void AXInput::setKeyDown(int key){
+const std::string& AXInput::setKeyDown(int key){
     keyCode = key;
     inputsPressed++;
     keyIsPressed = true;
     if(inputCodes.find(key) != inputCodes.end()){
         inputCodes.at(key)->setValue(1);
+        return inputCodes.at(key)->getIdentifier();
     }
+    return "";
 }
 
-void AXInput::setAxisValue(int key, int value){
+const std::string& AXInput::setAxisValue(int key, int value){
     if(inputCodes.find(key) != inputCodes.end()){
         inputCodes.at(key)->setValue(value);
+        return inputCodes.at(key)->getIdentifier();
     }
+    return "";
 }
 
-void AXInput::setKeyUp(int key){
-    inputsPressed++;
-    if(inputCodes.find(key) != inputCodes.end()){
-        inputCodes.at(key)->setValue(0);
-    }
+const std::string& AXInput::setKeyUp(int key){
+    inputsPressed--;
     if(inputsPressed < 1){
         keyIsPressed = false;
         keyCode = -1;
     }
+    if(inputCodes.find(key) != inputCodes.end()){
+        inputCodes.at(key)->setValue(0);
+        return inputCodes.at(key)->getIdentifier();
+    }
+    return "";
 }
 
 int AXInput::getValue(const std::string& key){
@@ -247,17 +257,4 @@ int AXInput::numControllers(){
         }
     }
     return i;
-}
-
-int AXInput::keyUp(){
-    return getValue("UP");
-}
-int AXInput::keyDown(){
-    return getValue("DOWN");
-}
-int AXInput::keyRight(){
-    return getValue("RIGHT");
-}
-int AXInput::keyLeft(){
-    return getValue("LEFT");
 }

@@ -69,14 +69,20 @@ public:
     *
     * This method is called every frame by the AXWindow
     */
-    void update();
-    
+    void update();  
     /*!
     * A method to draw all AXEntity's and therefore AXRenderer's in the AXScene
     *
     * This method is called every frame by the AXWindow
     */
     void draw();
+    /*!
+    * A method that is called when inputs change
+    *
+    * @param identifier identifier is the same as when using AXInput::getValue
+    * @param value the new value of input
+    */
+    void inputChange(const std::string& identifier, int value);
     /*!
     * A method to get the AXRenderer offset
     *

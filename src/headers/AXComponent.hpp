@@ -118,6 +118,12 @@ public:
     */
     virtual void onWorldCollision(int direction){};
     /*!
+    * A virtual method that is when input devices change values.
+    * @param identifier is the same as when using AXInput::getValue
+    * @param value is the new value
+    */
+    virtual void onInput(const std::string& identifier, int value){};
+    /*!
     * A virtual method that is called if a Collider is present the AXEntity is clicked on.
     * @param mouseButton the mouse button that's pressed 0, 1, 2
     */

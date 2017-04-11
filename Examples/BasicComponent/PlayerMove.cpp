@@ -14,10 +14,6 @@ void PlayerMove::update(){
 		if(AXInput::getValue("A")){
 			rb->addForce(-1, 0);
 		}
-		//if the S key is pressed, move upwards
-		if(AXInput::getValue("W") && owner->isGrounded()){
-			rb->addForce(0, -30);
-		}	
 	}
 
 	//if the player is touching the ground, make them red
@@ -26,4 +22,14 @@ void PlayerMove::update(){
 	}else{
 		owner->setColour(0, 0, 0);
 	}
+}
+
+void PlayerMove::onInput(const std::string& identifier, int value){
+	// onInput tells you when keys have been pressed
+	if(identifier == "W" && value == 1 && owner->isGrounded()){
+		if(rb){
+			rb->addForce(0, -30);
+		}
+	}
+
 }

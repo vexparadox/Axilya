@@ -145,24 +145,43 @@ int AXWindow::run(){
             if(event.type == SDL_QUIT){
                 go = 0;
             }else if( event.type == SDL_KEYDOWN){
-                AXInput::setKeyDown(event.key.keysym.scancode);
+                const std::string& temp = AXInput::setKeyDown(event.key.keysym.scancode);
+                if(activeScene){
+                    activeScene->inputChange(temp, 1);
+                }
             }else if(event.type == SDL_KEYUP){
                 if(event.key.keysym.scancode == SDL_SCANCODE_ESCAPE){
                     go = 0;
                     break;
                 }
-                AXInput::setKeyUp(event.key.keysym.scancode);
+                const std::string& temp = AXInput::setKeyUp(event.key.keysym.scancode);
+                if(activeScene){
+                    activeScene->inputChange(temp, 0);
+                }
             }else if(event.type == SDL_MOUSEMOTION){
                 AXInput::mouseX = event.motion.x;
                 AXInput::mouseY = event.motion.y;
             }else if(event.type == SDL_MOUSEBUTTONDOWN){
-                AXInput::mousePressed(event.button.button);
+                const std::string& temp = AXInput::mousePressed(event.button.button);
+                if(activeScene){
+                    activeScene->inputChange(temp, 1);
+                }
             }else if(event.type == SDL_MOUSEBUTTONUP){
-                AXInput::mouseReleased(event.button.button);
+                const std::string& temp = AXInput::mouseReleased(event.button.button);
+                if(activeScene){
+                    activeScene->inputChange(temp, 0);
+                }
             }else if(event.type == SDL_CONTROLLERBUTTONDOWN){
-                AXInput::setKeyDown((SDL_GameControllerButton)event.cbutton.button+(AX_INPUT_CONTROLLER_OFFSET*(event.cdevice.which+1)));
+                const std::string& temp = AXInput::setKeyDown((SDL_GameControllerButton)event.cbutton.button+(AX_INPUT_CONTROLLER_OFFSET*(event.cdevice.which+1)));
+                if(activeScene){
+                    activeScene->inputChange(temp, 1);
+                }
+
             }else if(event.type == SDL_CONTROLLERBUTTONUP){
-                AXInput::setKeyUp((SDL_GameControllerButton)event.cbutton.button+(AX_INPUT_CONTROLLER_OFFSET*(event.cdevice.which+1)));
+                const std::string& temp = AXInput::setKeyUp((SDL_GameControllerButton)event.cbutton.button+(AX_INPUT_CONTROLLER_OFFSET*(event.cdevice.which+1)));
+                if(activeScene){
+                    activeScene->inputChange(temp, 0);
+                }
             }else if(event.type == SDL_CONTROLLERDEVICEADDED){
                 AXInput::controllers[event.cdevice.which] = SDL_GameControllerOpen(event.cdevice.which);
             }else if(event.type == SDL_CONTROLLERDEVICEREMOVED){

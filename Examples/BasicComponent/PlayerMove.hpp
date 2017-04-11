@@ -7,6 +7,7 @@ class PlayerMove : public AXCustomComponent<PlayerMove>{
 public:
 	void start();
 	void update();
+	void onInput(const std::string& identifier, int value);
 };
 
 #endif

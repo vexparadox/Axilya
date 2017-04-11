@@ -53,11 +53,11 @@ class AXInput{
     static int keyCode, mouseButton;
     static int mouseX, mouseY;
     static void init();
-    static void setKeyDown(int key);
-    static void setAxisValue(int key, int value);
-    static void setKeyUp(int key);
-    static void mousePressed(int button);
-    static void mouseReleased(int button);
+    static const std::string& setKeyDown(int key);
+    static const std::string& setAxisValue(int key, int value);
+    static const std::string& setKeyUp(int key);
+    static const std::string& mousePressed(int button);
+    static const std::string& mouseReleased(int button);
     static int keyUp();
     static int keyDown();
     static int keyRight();

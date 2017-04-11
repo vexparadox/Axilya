@@ -310,6 +310,14 @@ public:
     */
     void onCollision(AXEntity* e, int direction);
     /*!
+    * A method that calls onInput on all Components attached to this Enitity
+    *
+    * Catch this call inside of a AXComponent
+    * @param identifier the same used in AXInput::getValue
+    * @param value the new input value
+    */
+    void onInput(const std::string& identifier, int value);
+    /*!
     * A method that calls onWorldCollision on all Components attached to this Enitity
     *
     * This is called by the AXScene when a collision occurs with the AXWorld or screen

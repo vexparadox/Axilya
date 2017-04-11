@@ -73,6 +73,17 @@ void AXScene::update() {
     }
 }
 
+void AXScene::inputChange(const std::string& identifier, int value){
+    if(gameMaster){
+        gameMaster->onInput(identifier, value);
+    }
+    for(auto& l : layers){
+        for(auto& e : l){
+            e->onInput(identifier, value);
+        }
+    }
+}
+
 void AXScene::collideCheck(AXEntity* e, AXVector2D& proposedMovement, unsigned char* colls){
     //a collision counter to make sure it doesn't check past 4 entities 
     char collisions = 0;

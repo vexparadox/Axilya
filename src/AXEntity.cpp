@@ -226,6 +226,12 @@ void AXEntity::addComponent(AXComponent* c){
     }
 }
 
+void AXEntity::onInput(const std::string& identifier, int value){
+    for(auto& c : components){
+        c->onInput(identifier, value);
+    } 
+}
+
 void AXEntity::addRigidBody(AXRigidBody* r) {
     if (r) {
         if(rigidBody){

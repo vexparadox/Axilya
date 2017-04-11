@@ -6,7 +6,6 @@
 class PlayerOneController : public AXCustomComponent<PlayerOneController>{
 public:
 	void update();
-	
 };
 
 #endif

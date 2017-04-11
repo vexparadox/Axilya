@@ -54,7 +54,7 @@ public:
         return this->value;
     }
 
-    std::string getIdentifier(){
+    const std::string& getIdentifier(){
         return this->identifier;
     }
 
