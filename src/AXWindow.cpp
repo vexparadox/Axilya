@@ -222,10 +222,12 @@ int AXWindow::run(){
     SDL_DestroyWindow(window);
     SDL_DestroyRenderer(renderer);
     //quit the SDLMix
-    while(Mix_Init(0)){
-        Mix_Quit();
+    if(audioStatus){
+        while(Mix_Init(0)){
+            Mix_Quit();
+        }
+        Mix_CloseAudio();
     }
-    Mix_CloseAudio();
     //Quit SDL subsystems
     SDL_Quit();
 

@@ -1,8 +1,4 @@
-Need rendering and collision layer (inside the layers too)
-Offseting the camera in a good way
-UI boxing
-
 include a example makefile
 make sure there's no tabs in the wiki makefile
 
-get people to use it for 2/3 hours at a aeo
+Make sure the audio device doesn't try to close if it never opened
