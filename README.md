@@ -2,6 +2,8 @@
 
 A 2D Game Engine Library written in C++ by [William Meaton](http://willmeaton.com).
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 See the examples and [wiki](http://axilya.com/wiki) for a better idea of what's happening.
 
 It's recomended you download as a zip or go to the releases page.
