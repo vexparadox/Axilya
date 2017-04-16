@@ -26,35 +26,35 @@ curl -s https://www.libsdl.org/projects/SDL_mixer/release/SDL2_mixer-2.0.1.tar.g
 echo "Installing FreeType"
 tar -xzf freetype-2.7.tar.gz
 cd freetype-2.7
-./configure
+./configure --quiet
 make && sudo make install
 cd ../
 #install libcurl
 echo "Installing libCurl"
 tar -xzf curl-7.53.1.tar.gz
 cd curl-7.53.1
-./configure
+./configure --quiet
 make && sudo make install
 cd ../
 #install SDL2
 echo "Installing SDL2"
 tar -xzf SDL2-2.0.5.tar.gz
 cd SDL2-2.0.5
-./configure
+./configure --quiet
 make && sudo make install
 cd ../
 #install SDL2 ttf
 echo "Installing SDL2_ttf"
 tar -xzf SDL2_ttf-2.0.14.tar.gz
 cd SDL2_ttf-2.0.14
-./configure
+./configure --quiet
 make && sudo make install
 cd ../
 #install SDL2 mixer
 echo "Installing SDL2_mixer"
 tar -xzf SDL2_mixer-2.0.1.tar.gz
 cd SDL2_mixer-2.0.1
-./configure
+./configure --quiet
 make && sudo make install
 cd ../../
 echo "Complete, cleaning up"
