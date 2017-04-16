@@ -4,20 +4,23 @@ cd temp
 echo "This script will download and install g++, libGL, SDL2, FreeType, libCurl, SDL2_ttf and SDL2_mixer"
 echo "It may require your password to login or a response to confirm downloads."
 #apts
-sudo apt-get update
-sudo apt-get install g++
-sudo apt-get install libgl-dev
+echo "Updating repos..."
+sudo apt-get -qq update
+echo "Checking for g++..."
+sudo apt-get -qq -y install g++
+echo "Checking for libgl-dev..."
+sudo apt-get -qq -y install libgl-dev
 #Download all the files
 echo "Downloading freetype"
-curl -L http://download.savannah.gnu.org/releases/freetype/freetype-2.7.tar.gz -o freetype-2.7.tar.gz
+curl -Ls http://download.savannah.gnu.org/releases/freetype/freetype-2.7.tar.gz -o freetype-2.7.tar.gz
 echo "Downloading libcurl"
-curl https://curl.haxx.se/download/curl-7.53.1.tar.gz -o curl-7.53.1.tar.gz
+curl -s https://curl.haxx.se/download/curl-7.53.1.tar.gz -o curl-7.53.1.tar.gz
 echo "Downloading SDL2.0.5"
-curl https://libsdl.org/release/SDL2-2.0.5.tar.gz -o SDL2-2.0.5.tar.gz
+curl -s https://libsdl.org/release/SDL2-2.0.5.tar.gz -o SDL2-2.0.5.tar.gz
 echo "Downloading SDL2 ttf"
-curl https://www.libsdl.org/projects/SDL_ttf/release/SDL2_ttf-2.0.14.tar.gz -o SDL2_ttf-2.0.14.tar.gz
+curl -s https://www.libsdl.org/projects/SDL_ttf/release/SDL2_ttf-2.0.14.tar.gz -o SDL2_ttf-2.0.14.tar.gz
 echo "Downloading SDL2 mixer"
-curl https://www.libsdl.org/projects/SDL_mixer/release/SDL2_mixer-2.0.1.tar.gz -o SDL2_mixer-2.0.1.tar.gz
+curl -s https://www.libsdl.org/projects/SDL_mixer/release/SDL2_mixer-2.0.1.tar.gz -o SDL2_mixer-2.0.1.tar.gz
 
 #install free type
 echo "Installing FreeType"
