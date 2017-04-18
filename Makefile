@@ -41,7 +41,7 @@ install: lib
 	@echo "Copy complete"
 	@echo "Install complete"
 
-.PHONY: clean cleaninstall examples sdl
+.PHONY: clean cleaninstall examples depends
 examples:
 	@echo "Building examples..."
 	@cd ./Examples/ && make
@@ -56,5 +56,5 @@ cleaninstall:
 	@rm -rf /usr/local/include/Axilya 2> /dev/null
 	@rm -f /usr/local/lib/libAxilya.a 2> /dev/null
 	@echo "Install removed."
-sdl:
+depends:
 	$(SDLRUN)

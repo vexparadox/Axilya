@@ -1,15 +1,15 @@
 #!/bin/bash
-mkdir temp
+mkdir -p temp
 cd temp
 echo "This script will download and install SDL2, SDL2 TTF and SDL2 Mixer"
 echo "Your password is required because we're installing to the system directory."
 #download files
 sudo echo "Downloading SDL2"
-curl https://www.libsdl.org/release/SDL2-2.0.5.dmg -o SDL2-2.0.5.dmg
+curl -s https://www.libsdl.org/release/SDL2-2.0.5.dmg -o SDL2-2.0.5.dmg
 echo "Downloading SDL2 TTF"
-curl https://www.libsdl.org/projects/SDL_ttf/release/SDL2_ttf-2.0.14.dmg -o SDL2_ttf-2.0.14.dmg
+curl -s https://www.libsdl.org/projects/SDL_ttf/release/SDL2_ttf-2.0.14.dmg -o SDL2_ttf-2.0.14.dmg
 echo "Downloading SDL2 Mixer"
-curl https://www.libsdl.org/projects/SDL_mixer/release/SDL2_mixer-2.0.1.dmg -o SDL2_mixer-2.0.1.dmg
+curl -s https://www.libsdl.org/projects/SDL_mixer/release/SDL2_mixer-2.0.1.dmg -o SDL2_mixer-2.0.1.dmg
 
 #install sdl2
 echo "Copying SDL2"

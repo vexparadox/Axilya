@@ -12,11 +12,21 @@ Docs: http://axilya.com/docs
 
 Features: http://axilya.com/about.php
 
-## Compiling+installing on Linux+OSX
+## Linux+macOS Quick Install
 
-For OSX you'll need: `g++`, `make`, `libcurl`, `tar` and `SDL`(see below). These can be installed using `xcode-select --install` in your Terminal. They're also install when you install xCode.
+Open your terminal and type:
 
-For Linux you'll need: `g++`, `make`, `libcurl`, `tar` and `SDL`. All but SDL are available via `apt-get`, see the commands below for how to install SDL.
+```Shell
+	curl http://axilya.com/install.sh | sh
+```
+
+Note that macOS developers may have to install development tools first.
+
+## Linux+macOS Manual Install
+
+For macOS you'll need: `g++`, `make`, `libcurl`, `tar`. These can be installed using `xcode-select --install` in your Terminal. They're also install when you install xCode. Axilya comes with a script to install SDL2.
+
+For Linux you'll need: `g++`, `make`, `libcurl`, `tar` and `SDL`. Axilya comes with a Shell script to install all of these and SDL2.
 
 There are a few commands you can use to compile and install.
 
@@ -24,7 +34,7 @@ If you get stuck, see the [wiki](http://axilya.com/wiki/index.php?title=Installi
 
 To install SDL2:
 ```Shell
-	sudo make sdl
+	sudo make depends
 ```
 
 To build the library, install and build examples (reccomended):
@@ -35,7 +45,7 @@ To build the library, install and build examples (reccomended):
 To just install use:
 
 ```Shell
-	make install
+	sudo make install
 ```
 
 To just make the examples:
@@ -55,11 +65,9 @@ To remove the install use:
 ```
 If you get issues with permissions it might just be that your /usr/local/lib or /usr/local/include folders haven't been initialised, you can either run these commands in `sudo` mode or create the folders and try again.
 
-## Compiling+installing on Windows
+## Windows Manual Install
 
 To install Axilya on please see start on this [wiki](http://axilya.com/wiki/index.php?title=Downloading) page.
-
-
 
 ## Other
 
