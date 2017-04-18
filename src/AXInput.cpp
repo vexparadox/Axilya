@@ -15,7 +15,8 @@ std::unordered_map<int, AXKey*> AXInput::inputCodes;
 std::unordered_map<std::string, AXKey*> AXInput::inputNames;
 
 void AXInput::init() {
-    inputs.reserve(113);
+    inputs.reserve(114);
+    inputs.push_back(new AXKey("UNKNOWN", AX_INPUT_UNKNOWN));
     inputs.push_back(new AXKey("MB1", -2));
     inputs.push_back(new AXKey("MB2", -1));
     inputs.push_back(new AXKey("SPACE", SDL_SCANCODE_SPACE));
@@ -187,7 +188,7 @@ const std::string& AXInput::mousePressed(int button){
         inputCodes.at(key)->setValue(1);
         return inputCodes.at(key)->getIdentifier();
     }
-    return "";
+    return inputCodes.at(AX_INPUT_UNKNOWN)->getIdentifier();
 }
 
 const std::string& AXInput::mouseReleased(int button){
@@ -207,7 +208,7 @@ const std::string& AXInput::mouseReleased(int button){
         inputCodes.at(key)->setValue(0);
         return inputCodes.at(key)->getIdentifier();
     }
-    return "";
+    return inputCodes.at(AX_INPUT_UNKNOWN)->getIdentifier();
 }
 
 const std::string& AXInput::setKeyDown(int key){
@@ -218,7 +219,7 @@ const std::string& AXInput::setKeyDown(int key){
         inputCodes.at(key)->setValue(1);
         return inputCodes.at(key)->getIdentifier();
     }
-    return "";
+    return inputCodes.at(AX_INPUT_UNKNOWN)->getIdentifier();
 }
 
 const std::string& AXInput::setAxisValue(int key, int value){
@@ -226,7 +227,7 @@ const std::string& AXInput::setAxisValue(int key, int value){
         inputCodes.at(key)->setValue(value);
         return inputCodes.at(key)->getIdentifier();
     }
-    return "";
+    return inputCodes.at(AX_INPUT_UNKNOWN)->getIdentifier();
 }
 
 const std::string& AXInput::setKeyUp(int key){
@@ -239,7 +240,7 @@ const std::string& AXInput::setKeyUp(int key){
         inputCodes.at(key)->setValue(0);
         return inputCodes.at(key)->getIdentifier();
     }
-    return "";
+    return inputCodes.at(AX_INPUT_UNKNOWN)->getIdentifier();
 }
 
 int AXInput::getValue(const std::string& key){

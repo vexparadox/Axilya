@@ -39,6 +39,7 @@
 #include <SDL2/SDL.h>
 #define AX_INPUT_CONTROLLER_OFFSET 300
 #define AX_INPUT_CONTROLLER_AXIS_OFFSET 20
+#define AX_INPUT_UNKNOWN -999
 class AXInput{
     AXInput(){};
     ~AXInput(){};

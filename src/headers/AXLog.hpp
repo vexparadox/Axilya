@@ -17,6 +17,10 @@ namespace AXLog{
     * Defines where to save the logged data, AX_LOG_FILE for a file defined by @p logFilename, AX_LOG_OUT to print to cerr or AX_LOG_BOTH for both.
     */
 	extern int logType;
+    /*!    
+    * Defines the minimum log level to handle, defaults to AX_LOG_DEBUG
+    */
+    extern int minLogLevel;
 	/*!
 	* The name of the log file to use.
 	*/

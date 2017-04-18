@@ -2,9 +2,13 @@
 #include "headers/AXWindow.hpp"
 namespace AXLog{
 	int logType = AX_LOG_OUT;
+	int minLogLevel = AX_LOG_DEBUG;
 	std::string logFilename = "logfile.txt";
 	void log(const std::string& name, const std::string& data, int logLevel){
 		if(logType == AX_LOG_NONE){
+			return;
+		}
+		if(logLevel < minLogLevel){
 			return;
 		}
 		//get the time
