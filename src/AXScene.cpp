@@ -3,7 +3,7 @@
 #include "headers/AXScene.hpp"
 #include "headers/AXTransform.hpp"
 
-AXScene::AXScene() : world(0), gameMaster(0){
+AXScene::AXScene() : gameMaster(0){
     layers.reserve(18);
     for(int i = 0; i < 18; i++){
         std::vector<AXEntity*> t;
@@ -24,9 +24,6 @@ void AXScene::start(){
     if(gameMaster){
         gameMaster->start();
     }
-    if(world){
-        // this->world->start();
-    }
     for(auto& l : layers){
         for(auto& e : l){
             e->start();
@@ -35,9 +32,6 @@ void AXScene::start(){
 }
 
 void AXScene::draw(){
-    if(world) {
-        this->world->draw();
-    }
     for(auto& l : layers){
         for(auto& e : l){
             if(e->isActive() && !e->isDead()){
@@ -50,9 +44,6 @@ void AXScene::draw(){
 void AXScene::update() {
     if(gameMaster){
         gameMaster->update();
-    }
-    if (world) {
-        this->world->update();
     }
     for(auto& l : layers){
         for(auto& e : l){
@@ -215,13 +206,6 @@ AXEntity* AXScene::instantiate(const std::string& name, AXEntity* e, AXTransform
 AXEntity* AXScene::instantiate(const std::string& name, AXEntity* e){
     return this->instantiate(name, e, e->getTransform(), e->getLayer());
 }
-
-void AXScene::setWorld(AXWorld *w) {
-    if(w){
-        world = w;
-    }
-}
-
 
 AXEntity* AXScene::findEntity(const std::string &name) {
     if(entityMap.find(name) == entityMap.end()){

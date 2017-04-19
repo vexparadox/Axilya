@@ -28,14 +28,13 @@
  *
  * @section DESCRIPTION
  *
- * This is used as a collection of Entities and a AXWorld, AXWindow will call update and draw on this object.
+ * This is used as a collection of Entities, AXWindow will call update and draw on this object.
  */
 #ifndef AXScene_hpp
 #define AXScene_hpp
 #include <vector>
 #include <unordered_map>
 #include <algorithm>
-#include "AXWorld.hpp"
 #include "AXMath.hpp"
 
 class AXEntity;
@@ -43,7 +42,6 @@ class AXTransform;
 class AXScene{
     //the vector of entities
     std::vector<std::vector<AXEntity*> > layers;
-    AXWorld* world;
     AXEntity* gameMaster;
     AXVector2D renderOffset;
     std::unordered_map<std::string, AXEntity*> entityMap;
@@ -147,12 +145,6 @@ public:
     * @return the GameMaster
     */
     AXEntity* getGameMaster();
-    /*!
-    * A method to set the AXWorld of this AXScene
-    *
-    * @param w the world to set
-    */
-    void setWorld(AXWorld* w);
     /*!
     * A method to instantiate a new AXEntity in this AXScene
     *
