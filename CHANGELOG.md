@@ -5,6 +5,7 @@
 - Windows support
 - New OSX and Linux install scripts
 - New timer and deltaTime functions
+- Removed world and tile system
 
 
 ## v0.9.5
