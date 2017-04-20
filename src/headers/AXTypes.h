@@ -40,8 +40,5 @@
 #include "AXRect.h"
 #include "AXPolygon.h"
 #include "AXColour.h"
-#include "AXString.hpp"
-
 #include "AXTexture.hpp"
-
 #endif /* Types_h */

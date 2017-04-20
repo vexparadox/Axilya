@@ -147,7 +147,7 @@ namespace AXGraphics{
     * @param y2 the y position of the second point
     * @param width Not currently used
     */
-    void drawLine(float x, float y, float x2, float y2, float width);
+    void drawLine(float x1, float y1, float x2, float y2, float width);
     /*!
     * A function that draws a line between two points
     * @param x1 the x position of the first point
@@ -155,7 +155,7 @@ namespace AXGraphics{
     * @param x2 the x position of the second point
     * @param y2 the y position of the second point
     */
-    void drawLine(float x, float y, float x2, float y2);
+    void drawLine(float x1, float y1, float x2, float y2);
     /*!
     * A function that draws a line between two points
     * @param v1 the first point
@@ -167,10 +167,8 @@ namespace AXGraphics{
     * A function that draws a line between two points
     * @param v1 the first point
     * @param v2 the second point
-    * @param width Not currently used
     */
     void drawLine(const AXVector2D& v1, const AXVector2D& v2);
-
     /*!
     * A function that draws a AXPolygon (not tested)
     * @param p the polygon to draw

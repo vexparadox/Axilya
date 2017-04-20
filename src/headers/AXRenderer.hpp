@@ -93,7 +93,7 @@ public:
    *
    * This method will also set the draw type
    * @param text the new AXText to add
-   * @param anme the name you want to associate with this AXText
+   * @param name the name you want to associate with this AXText
    * @return if the AXText was added
    */
     bool addText(AXText* text, const std::string& name);

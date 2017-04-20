@@ -48,7 +48,6 @@ public:
 	int getID(){ return id; };
 	/*!
    * A method to set the loaded path of this AXResource
-   * @return Whether the AXResouce is loaded
    */
 	void setPath(const std::string s){ this->path = s;}
 	/*!

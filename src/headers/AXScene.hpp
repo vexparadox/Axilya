@@ -164,7 +164,7 @@ public:
     * @param e the AXEntity this new one will copy
     * @return a pointer to the new AXEntity
     *
-    * Without a seperate AXTransform this new AXEntity will get a copy of @param e's
+    * Without a seperate AXTransform this new AXEntity will get a copy of e
     */
     AXEntity* instantiate(const std::string& name, AXEntity* e);
     /*!
@@ -178,7 +178,7 @@ public:
     * A method to check collisions of an AXEntity against all over in this AXScene
     *
     * @param e the AXEntity to check
-    * @param proposedMovement the vector of movement being attempted by @param e
+    * @param proposedMovement the vector of movement being attempted by e
     * @param colls an array of collision directions that will be filled by the Collider's
     */
     void collideCheck(AXEntity* e, AXVector2D& proposedMovement, unsigned char* colls);

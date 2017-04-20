@@ -51,9 +51,6 @@ int AXBoxCollider::checkMovement(AXEntity* e, AXVector2D& proposedMovement){
     float deltay = (box1->getPosition().y+(box1->getSize().y/2)) - (box2->getPosition().y+(box2->getSize().y/2));
     if (AXMath::absolute(deltax) < w && AXMath::absolute(deltay) < h)
     {
-        //collision!
-        float wy = w * deltay;
-        float hx = h * deltax;
         //by evaluating the 4 quads that the entitiy could have been in before the movement, we can work out where the collision occured.
         if((box1->getPosition().y+box1->getSize().y)-proposedMovement.y <= box2->getPosition().y){
             // at the top

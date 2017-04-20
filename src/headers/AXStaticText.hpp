@@ -52,7 +52,7 @@ public:
    *
    * This method will bake the string you provide, this makes it fast to draw but slow to update.
    * @param text the text that will be drawn
-   * @param id the ID of the AXFont (given by the AXResourceManager) that will be used to draw the text
+   * @param fontID the ID of the AXFont (given by the AXResourceManager) that will be used to draw the text
    */    
 	AXStaticText(const std::string& text, int fontID);
    /*!

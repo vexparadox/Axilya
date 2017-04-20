@@ -76,7 +76,7 @@ public:
     * @param path the path of the audio file to load (auto prefixed with runpath+"data/")
     * @return the resourceID of the new AXFont or -1 on failure
     */
-    int addAudioChunk(const std::string&);
+    int addAudioChunk(const std::string& path);
     /*!
     * A method to check if the image file at @p path has been loaded already
     * 
