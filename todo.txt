@@ -1,4 +1,4 @@
 include a example makefile
 make sure there's no tabs in the wiki makefile
 
-Make sure the audio device doesn't try to close if it never opened
+Make sure the raw types can be copied, use clones not copy constructors

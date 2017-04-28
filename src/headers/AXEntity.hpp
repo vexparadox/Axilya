@@ -46,7 +46,7 @@
 #include "AXAudioPlayer.hpp"
 #include "AXCollideDirections.hpp"
 class AXScene;
-class AXEntity{
+class AXEntity final{
     //get an instance of the resourcemanager
     AXResourceManager* resourceManager = AXResourceManager::getInstance();
 
@@ -87,9 +87,9 @@ class AXEntity{
     AXAudioPlayer* audioPlayer = 0;
 
     void handle_eptr(std::exception_ptr);
-    AXEntity(const AXEntity& e){};
-    AXEntity(const AXEntity&& e){};
-    AXEntity& operator= (const AXEntity& other){ return *this;}
+    AXEntity(const AXEntity& e) = delete;
+    AXEntity(const AXEntity&& e) = delete;
+    AXEntity& operator= (const AXEntity& other) = delete;
 public:
     /*!
     * The constructor of an AXEntity

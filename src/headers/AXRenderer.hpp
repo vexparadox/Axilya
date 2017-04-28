@@ -49,9 +49,9 @@ class AXRenderer : public AXComponent{
     AXColour colour;
     //default to drawing a rect
     int drawType = AX_DRAW_RECT;
-    AXRenderer(const AXRenderer& r){};
-    AXRenderer(const AXRenderer&& r){};
-    AXRenderer& operator= (const AXRenderer& o){ return *this; }
+    AXRenderer(const AXRenderer& r) = delete;
+    AXRenderer(const AXRenderer&& r) = delete;
+    AXRenderer& operator= (const AXRenderer& o) = delete;
 public:
    /*!
    * The constructor of a AXRenderer

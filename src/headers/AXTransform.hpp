@@ -39,9 +39,9 @@
 class AXEntity;
 class AXTransform : public AXComponent{
     AXVector2D position, size, lastPosition;
-    AXTransform(const AXTransform& t){};
-    AXTransform(const AXTransform&& t){};
-    AXTransform& operator= (const AXTransform& o){ return *this; }
+    AXTransform(const AXTransform& t) = delete;
+    AXTransform(const AXTransform&& t) = delete;
+    AXTransform& operator= (const AXTransform& o) = delete;
 public:
     /*!
     * Constructor of the AXTransform

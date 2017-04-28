@@ -38,9 +38,9 @@
 #include "AXCollideDirections.hpp"
 class AXEntity;
 class AXBoxCollider : public AXCollider{
-    AXBoxCollider(const AXCollider& c){};
-    AXBoxCollider(const AXCollider&& c){};
-    AXBoxCollider& operator= (const AXCollider& o) { return *this; }
+    AXBoxCollider(const AXCollider& c) = delete;
+    AXBoxCollider(const AXCollider&& c) = delete;
+    AXBoxCollider& operator= (const AXCollider& o) = delete;
 
 public:
     /*!

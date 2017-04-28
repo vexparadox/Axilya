@@ -39,15 +39,15 @@
 
 class AXEntity;
 class AXTransform;
-class AXScene{
+class AXScene final{
     //the vector of entities
     std::vector<std::vector<AXEntity*> > layers;
     AXEntity* gameMaster;
     AXVector2D renderOffset;
     std::unordered_map<std::string, AXEntity*> entityMap;
-    AXScene(const AXScene& s) {};
-    AXScene(const AXScene&& s) {};
-    AXScene& operator= (const AXScene& other){ return *this; }
+    AXScene(const AXScene& s) = delete;
+    AXScene(const AXScene&& s) = delete;
+    AXScene& operator= (const AXScene& other) = delete;
 public:
     /*!
     * The constructor of a AXScene

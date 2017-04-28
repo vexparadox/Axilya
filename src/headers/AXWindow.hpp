@@ -52,7 +52,7 @@
 #include "glad.h"
 typedef void (*AXFunction)();
 //this class controls the main game loop, calls BaseCore update and render
-class AXWindow{
+class AXWindow final{
     double currentTime, lastTime;
     static AXScene* activeScene;
     static int go;
@@ -64,9 +64,9 @@ class AXWindow{
     static Uint64 previousDeltaTime;
     static Uint64 deltaTime;
     AXWindow(){};
-    AXWindow(const AXWindow& w){};
-    AXWindow(const AXWindow&& w){};
-    AXWindow& operator= (const AXWindow& other){ return *this; }
+    AXWindow(const AXWindow& w) = delete;
+    AXWindow(const AXWindow&& w) = delete;
+    AXWindow& operator= (const AXWindow& other) = delete;
     ~AXWindow(){};
 public:
     /*!    

@@ -39,12 +39,12 @@
 #include "AXLog.hpp"
 #include <vector>
 #include <unordered_map>
-class AXResourceManager{
+class AXResourceManager final{
     AXResourceManager(){}
     ~AXResourceManager();
-    AXResourceManager(const AXResourceManager& r) {};
-    AXResourceManager(const AXResourceManager&& r) {};
-    AXResourceManager& operator= (const AXResourceManager& o) { return *this; }
+    AXResourceManager(const AXResourceManager& r) = delete;
+    AXResourceManager(const AXResourceManager&& r) = delete;
+    AXResourceManager& operator= (const AXResourceManager& o) = delete;
     std::vector<AXTexture*> textures;
     std::vector<AXFont*> fonts;
     std::vector<AXAudioChunk*> chunks;

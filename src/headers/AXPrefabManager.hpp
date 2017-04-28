@@ -36,12 +36,12 @@
 #include <unordered_map>
 #include <iostream>
 class AXEntity;
-class AXPrefabManager{
+class AXPrefabManager final{
     AXPrefabManager(){};
     ~AXPrefabManager();
-    AXPrefabManager(const AXPrefabManager& p){};
-    AXPrefabManager(const AXPrefabManager&& p){};
-    AXPrefabManager& operator= (const AXPrefabManager& o) { return *this; }
+    AXPrefabManager(const AXPrefabManager& p) = delete;
+    AXPrefabManager(const AXPrefabManager&& p) = delete;
+    AXPrefabManager& operator= (const AXPrefabManager& o) = delete;
     static AXPrefabManager* instance;
     std::unordered_map<std::string, AXEntity*> entityMap;
 public:

@@ -43,6 +43,9 @@
 class AXFont : public AXResource{
    TTF_Font* fontData;
    int fontHeight;
+   AXFont(const AXFont& f) = delete;
+   AXFont(const AXFont&& f) = delete;
+   AXFont& operator= (const AXFont& o) = delete;
 public:
 	/*!
    * The constructor of an AXFont
