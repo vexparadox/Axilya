@@ -60,5 +60,10 @@ public:
    * @return Whether the AXResouce is loaded
    */
 	bool isLoaded(){ return loaded; }
+	/*!
+	* A method to clone this AXResource
+	* @return a clone of this AXResource
+	*/
+	virtual AXResource* clone() = 0;
 };
 #endif

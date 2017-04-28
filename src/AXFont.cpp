@@ -1,5 +1,6 @@
 #include "headers/AXFont.hpp"
 #include "headers/AXWindow.hpp"
+#include <cstring>
 AXFont::AXFont(int id, const std::string& p, int size) : AXResource(id){
 	loadFont(p, size);
 }
@@ -62,4 +63,14 @@ AXVector2D AXFont::getStringSize(const std::string string){
 
 TTF_Font* AXFont::getFontData(){
 	return fontData;
+}
+AXFont* AXFont::clone(){
+	AXFont* temp = new AXFont();
+	temp->setPath(path);
+	temp->fontHeight = fontHeight;
+	if(loaded){
+		temp->fontData = (TTF_Font*) std::malloc(sizeof(fontData));
+		std::memcpy(temp->fontData, fontData, sizeof(fontData));
+	}
+	return temp;
 }

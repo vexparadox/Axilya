@@ -2,6 +2,8 @@
 #include "headers/AXWindow.hpp"
 #define STB_IMAGE_IMPLEMENTATION
 #include "headers/stb_image.h"
+#include <cstdlib> // Used for copying data
+#include <cstring> // Used for copying data
 AXTexture::AXTexture(int id, const std::string& path) : AXResource(id){
 	this->loadImage(path);
 }
@@ -24,6 +26,7 @@ bool AXTexture::loadImage(const std::string& path){
     //if it's already loaded, free the data
     if(loaded){
     	SDL_DestroyTexture(texture);
+        stbi_image_free(imageDataPtr);
     }
     loaded = false;
     //load the image
@@ -48,7 +51,6 @@ bool AXTexture::loadImage(const std::string& path){
         loaded = false;
         return false;
     }
-    stbi_image_free(imageDataPtr);
     SDL_FreeSurface(surface);
     setPath(temp);
     loaded = true;
@@ -68,4 +70,39 @@ int AXTexture::getWidth(){
 
 int AXTexture::getHeight(){
 	return h;
+}
+
+unsigned char* AXTexture::getRawPixelData(){
+    if(loaded){
+        return imageDataPtr;
+    }else{
+        return 0;
+    }
+}
+
+AXTexture* AXTexture::clone(){
+    AXTexture* temp = new AXTexture();
+    if(loaded){
+        temp->imageDataPtr = (unsigned char*) std::malloc(sizeof(imageDataPtr));
+        std::memcpy(temp->imageDataPtr, imageDataPtr, sizeof(imageDataPtr));
+        temp->w = w;
+        temp->h = h;
+        SDL_Surface* tempSurface = SDL_CreateRGBSurfaceWithFormatFrom(temp->imageDataPtr, temp->w, temp->h, 32, 4*temp->w, SDL_PIXELFORMAT_RGBA32);
+        if (tempSurface == NULL) {
+            AXLog::log("SDLSurface failed to create", SDL_GetError(), AX_LOG_ERROR);
+            temp->loaded = false;
+            stbi_image_free(temp->imageDataPtr);
+            return temp;
+        }
+        temp->texture = SDL_CreateTextureFromSurface(AXWindow::renderer, tempSurface);
+        if (temp->texture == NULL){
+            AXLog::log("SDLTexture failed to create", SDL_GetError(), AX_LOG_ERROR);
+            temp->loaded = false;
+            stbi_image_free(temp->imageDataPtr);
+            return temp;
+        }
+        SDL_FreeSurface(tempSurface);
+        temp->loaded = true;
+    }
+    return temp;
 }

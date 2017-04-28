@@ -1,5 +1,6 @@
 #include "headers/AXAudioChunk.hpp"
 #include "headers/AXWindow.hpp"
+#include <cstring>
 
 AXAudioChunk::AXAudioChunk(int id, const std::string& path) : AXResource(id){
 	loadAudio(path);
@@ -43,4 +44,14 @@ Mix_Chunk* AXAudioChunk::getAudioData(){
 	}else{
 		return 0;
 	}
+}
+
+AXAudioChunk* AXAudioChunk::clone(){
+	AXAudioChunk* temp = new AXAudioChunk();
+	temp->setPath(path);
+	if (loaded){
+		temp->chunk = (Mix_Chunk*) std::malloc(sizeof(chunk));
+		std::memcpy(temp->chunk, chunk, sizeof(chunk));
+	}
+	return temp;
 }

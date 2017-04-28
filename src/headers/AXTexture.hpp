@@ -35,7 +35,6 @@
 #include "AXResource.hpp"
 #include <SDL2/SDL.h>
 #include "AXMath.hpp"
-
 class AXTexture : public AXResource{
   SDL_Texture* texture;
   unsigned char* imageDataPtr = 0;
@@ -88,5 +87,18 @@ public:
    * @return The texture data that's been loaded
    */     
     SDL_Texture* getTextureData();
+    /*!
+   * A method to get the raw pixel data that's been loaded
+   *
+   * This is not "live" data, this is just for observations. 
+   * To write changes to texture, make changes to the pixel data and clone this AXTexture, that will regenerate the SDL_Texture
+   * @return The raw pixel data that's been loaded
+   */  
+    unsigned char* getRawPixelData();
+    /*!
+    * A method to clone this AXTexture
+    * @return a clone of this AXTexture
+    */
+    AXTexture* clone();
 };
 #endif

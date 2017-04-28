@@ -40,6 +40,7 @@
 #endif
 class AXAudioChunk : public AXResource{
 	Mix_Chunk* chunk;
+    AXAudioChunk() : AXResource(-1) {};
 public:
     /*!    
     * The constructor for an AXAudioChunk
@@ -87,6 +88,11 @@ public:
     * @see AXAudio::playAudioChunk
     */
     Mix_Chunk* getAudioData();
+    /*!
+    * A method to clone this AXAudioChunk
+    * @return a clone of this AXAudioChunk
+    */
+    AXAudioChunk* clone();
 };
 
 #endif

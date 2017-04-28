@@ -46,6 +46,12 @@ class AXFont : public AXResource{
    AXFont(const AXFont& f) = delete;
    AXFont(const AXFont&& f) = delete;
    AXFont& operator= (const AXFont& o) = delete;
+   /*!
+   * The constructor of an AXFont
+   *
+   * This is used for cloning
+   */
+   AXFont() : AXResource(-1) {};
 public:
 	/*!
    * The constructor of an AXFont
@@ -101,5 +107,10 @@ public:
    * @return the loaded font data
    */
    TTF_Font* getFontData();
+   /*!
+   * A method to clone this AXFont
+   * @return a clone of this AXFont
+   */
+   AXFont* clone();
 };
 #endif
