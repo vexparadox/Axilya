@@ -64,6 +64,9 @@ class AXWindow{
     static Uint64 previousDeltaTime;
     static Uint64 deltaTime;
     AXWindow(){};
+    AXWindow(const AXWindow& w){};
+    AXWindow(const AXWindow&& w){};
+    AXWindow& operator= (const AXWindow& other){ return *this; }
     ~AXWindow(){};
 public:
     /*!    

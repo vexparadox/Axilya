@@ -41,6 +41,10 @@
 #include <unordered_map>
 class AXResourceManager{
     AXResourceManager(){}
+    ~AXResourceManager();
+    AXResourceManager(const AXResourceManager& r) {};
+    AXResourceManager(const AXResourceManager&& r) {};
+    AXResourceManager& operator= (const AXResourceManager& o) { return *this; }
     std::vector<AXTexture*> textures;
     std::vector<AXFont*> fonts;
     std::vector<AXAudioChunk*> chunks;
@@ -48,7 +52,6 @@ class AXResourceManager{
     std::unordered_map<std::string, AXAudioChunk*> audioMap;
     std::unordered_map<std::string, AXFont*> fontMap;
     static AXResourceManager* instance;
-    ~AXResourceManager();
 public:
     /*!
     * A method to get the singleton instance of this AXResourceManager

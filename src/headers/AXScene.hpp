@@ -45,6 +45,9 @@ class AXScene{
     AXEntity* gameMaster;
     AXVector2D renderOffset;
     std::unordered_map<std::string, AXEntity*> entityMap;
+    AXScene(const AXScene& s) {};
+    AXScene(const AXScene&& s) {};
+    AXScene& operator= (const AXScene& other){ return *this; }
 public:
     /*!
     * The constructor of a AXScene

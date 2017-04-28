@@ -43,6 +43,9 @@ class AXRigidBody : public AXComponent{
     void applyDrag();
     void applyGravity();
     void terminalVelocity();
+    AXRigidBody(const AXRigidBody& r){};
+    AXRigidBody(const AXRigidBody&& r){};
+    AXRigidBody& operator= (const AXRigidBody& o){ return *this; }
 public:
     /*!
     * Adds a force to the rigid body 

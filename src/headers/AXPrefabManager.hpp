@@ -38,8 +38,11 @@
 class AXEntity;
 class AXPrefabManager{
     AXPrefabManager(){};
-    static AXPrefabManager* instance;
     ~AXPrefabManager();
+    AXPrefabManager(const AXPrefabManager& p){};
+    AXPrefabManager(const AXPrefabManager&& p){};
+    AXPrefabManager& operator= (const AXPrefabManager& o) { return *this; }
+    static AXPrefabManager* instance;
     std::unordered_map<std::string, AXEntity*> entityMap;
 public:
 	static AXPrefabManager* getInstance();

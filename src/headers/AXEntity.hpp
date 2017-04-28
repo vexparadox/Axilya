@@ -87,6 +87,9 @@ class AXEntity{
     AXAudioPlayer* audioPlayer = 0;
 
     void handle_eptr(std::exception_ptr);
+    AXEntity(const AXEntity& e){};
+    AXEntity(const AXEntity&& e){};
+    AXEntity& operator= (const AXEntity& other){ return *this;}
 public:
     /*!
     * The constructor of an AXEntity

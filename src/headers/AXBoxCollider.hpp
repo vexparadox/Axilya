@@ -38,6 +38,10 @@
 #include "AXCollideDirections.hpp"
 class AXEntity;
 class AXBoxCollider : public AXCollider{
+    AXBoxCollider(const AXCollider& c){};
+    AXBoxCollider(const AXCollider&& c){};
+    AXBoxCollider& operator= (const AXCollider& o) { return *this; }
+
 public:
     /*!
     * The constructor of a AXBoxCollider
