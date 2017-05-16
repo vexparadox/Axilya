@@ -197,7 +197,6 @@ const std::string& AXInput::mouseReleased(int button){
         mouseIsPressed = false;
         mouseButton = -1;
     }
-    std::cout << button << " BUT" << std::endl;
     int key;
     if(button == SDL_BUTTON_LEFT){
         key = -2;
