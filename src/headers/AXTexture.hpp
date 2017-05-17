@@ -46,6 +46,13 @@ public:
    * @param path the path of the image file to load
    */  
     AXTexture(int id, const std::string& path);
+    /*!
+   * The constructor of an AXTexture 
+   *
+   * This constructor is for internal use only
+   * @param texture the SDL_Texture to be drawn
+   */  
+    AXTexture(SDL_Texture* texture);
   /*!
    * The constructor of an AXTexture 
    * 

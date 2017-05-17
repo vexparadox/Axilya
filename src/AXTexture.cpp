@@ -13,16 +13,26 @@ AXTexture::AXTexture(const std::string& path) : AXResource(-1){
 	this->loadImage(path);
 }
 
+AXTexture::AXTexture(SDL_Texture* texture) : AXResource(-1){
+    if(texture){
+        this->texture = texture;
+    }else{
+        AXLog::log("AXTexture", "Incorrect SDL_Texture data given.", AX_LOG_ERROR);
+    }
+}
+
 
 AXTexture::AXTexture() : AXResource(-1){
 }
 
 AXTexture::~AXTexture(){
-	SDL_DestroyTexture(texture);
+    if(texture){
+	   SDL_DestroyTexture(texture);
+    }
 }
 
 bool AXTexture::loadImage(const std::string& path){
-    std::string temp = AXWindow::runPath+"data/" + path;
+    std::string temp = AXWindow::runPath + path;
     //if it's already loaded, free the data
     if(loaded){
     	SDL_DestroyTexture(texture);
