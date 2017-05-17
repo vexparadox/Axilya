@@ -32,7 +32,7 @@ AXTexture::~AXTexture(){
 }
 
 bool AXTexture::loadImage(const std::string& path){
-    std::string temp = AXWindow::runPath + path;
+    std::string temp = AXWindow::runPath+ path;
     //if it's already loaded, free the data
     if(loaded){
     	SDL_DestroyTexture(texture);
