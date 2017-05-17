@@ -18,7 +18,7 @@ bool AXFont::loadFont(const std::string& p, int size){
 		//freeup the surface
 		TTF_CloseFont(fontData);
 	}
-	std::string path = AXWindow::runPath+"data/" + p;
+	std::string path = AXWindow::runPath + p;
 
 	fontData = TTF_OpenFont(path.c_str(), size);
 	if(!fontData){
