@@ -69,6 +69,10 @@ If you get issues with permissions it might just be that your /usr/local/lib or 
 
 To install Axilya on Windows please see the [wiki](http://axilya.com/wiki/index.php?title=Downloading) page.
 
+## Updating?
+
+See the [updating](http://axilya.com/wiki/index.php?title=Updating) page.
+
 ## Other
 
 To see the initial production of this project see: https://github.com/vexparadox/axInitial
