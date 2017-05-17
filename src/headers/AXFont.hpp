@@ -46,13 +46,15 @@ class AXFont : public AXResource{
    AXFont(const AXFont& f) = delete;
    AXFont(const AXFont&& f) = delete;
    AXFont& operator= (const AXFont& o) = delete;
+public:
+
    /*!
    * The constructor of an AXFont
    *
-   * This is used for cloning
+   * Font data must be loaded to work
    */
    AXFont() : AXResource(-1) {};
-public:
+
 	/*!
    * The constructor of an AXFont
    *
