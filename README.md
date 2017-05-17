@@ -67,7 +67,7 @@ If you get issues with permissions it might just be that your /usr/local/lib or 
 
 ## Windows Manual Install
 
-To install Axilya on please see start on this [wiki](http://axilya.com/wiki/index.php?title=Downloading) page.
+To install Axilya on Windows please see the [wiki](http://axilya.com/wiki/index.php?title=Downloading) page.
 
 ## Other
 
