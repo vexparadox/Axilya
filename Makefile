@@ -17,7 +17,6 @@ headers += $(wildcard ./src/headers/*.h)
 
 all: install examples
 
-
 lib: 
 	@mkdir -p ./Build/objs/
 	@echo "Compiling the Axilya library, this may take a while..."
@@ -41,7 +40,27 @@ install: lib
 	@echo "Copy complete"
 	@echo "Install complete"
 
-.PHONY: clean cleaninstall examples depends
+debug:
+	@mkdir -p ./Build/objs/
+	@echo "Compiling the Axilya library with debug symbols, this may take a while..."
+	@
+	@cd ./Build/objs/; $(foreach file,$(cppFiles), echo $(file) ;g++ $(file) -c $(CPFLAGS) -std=c++11 -g;)
+	@# @cd ./Build/objs/ && g++ $(cppFiles) -c $(CPFLAGS) -std=c++11 -O3; 
+	@ar rcs ./Build/libAxilyaDebug.a $(objFiles)
+	@echo "Debug Library compiled"
+	@echo "Starting debug install"
+	@echo "Copying static library to /usr/local/lib/"
+	@mkdir -p /usr/local/lib/
+	@cp ./Build/libAxilyaDebug.a /usr/local/lib/
+	@echo "Copy complete"
+	@echo "Removing old headers"
+	@rm -rf /usr/local/include/Axilya 2> /dev/null
+	@mkdir -p /usr/local/include/Axilya/
+	@echo "Copying headers to /usr/local/include/"
+	@cp $(headers) /usr/local/include/Axilya/
+	@echo "Copy complete"
+	@echo "Debug Install complete"
+.PHONY: clean cleaninstall examples depends debug
 examples:
 	@echo "Building examples..."
 	@cd ./Examples/ && make
@@ -55,6 +74,7 @@ cleaninstall:
 	@echo "Removing libraries and headers"
 	@rm -rf /usr/local/include/Axilya 2> /dev/null
 	@rm -f /usr/local/lib/libAxilya.a 2> /dev/null
+	@rm -f /usr/local/lib/libAxilyaDebug.a 2> /dev/null
 	@echo "Install removed."
 depends:
 	$(SDLRUN)
