@@ -53,6 +53,53 @@ public:
         colourAssign(this->b, b);
         colourAssign(this->a, a);
     }
+
+    /*!
+    * The constructor for this AXColour
+    *
+    * Note that values will be clamped to 0-255
+    * @param r the red value of this AXColour (0-255)
+    * @param g the green value of this AXColour (0-255)
+    * @param b the blue value of this AXColour (0-255)
+    * The alpha value is set to 255
+    */ 
+
+    AXColour(float r, float g, float b) {
+        colourAssign(this->r, r);
+        colourAssign(this->g, g);
+        colourAssign(this->b, b);
+        colourAssign(this->a, 255);
+    }
+
+    /*!
+    * The constructor for this AXColour
+    *
+    * Note that values will be clamped to 0-255
+    * @param gr is the greyscale value of this AXColour (0-255)
+    * The alpha value is set to 255
+    */ 
+
+    AXColour(float gr) {
+        colourAssign(this->r, gr);
+        colourAssign(this->g, gr);
+        colourAssign(this->b, gr);
+        colourAssign(this->a, 255);
+    }
+
+    /*!
+    * The constructor for this AXColour
+    *
+    * Note that values will be clamped to 0-255
+    * @param gr is the greyscale value of this AXColour (0-255)
+    * @param a the alpha value of this AXColour (0-255)
+    */ 
+
+    AXColour(float gr, float a) {
+        colourAssign(this->r, gr);
+        colourAssign(this->g, gr);
+        colourAssign(this->b, gr);
+        colourAssign(this->a, a);
+    }
     /*!
     * The constructor for this AXColour
     *
