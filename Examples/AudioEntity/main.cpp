@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
     AXWindow::setCurrentScene(s);
 
     //lets load the audio
-    int playerAudio = AXResourceManager::getInstance()->addAudioChunk("example.wav");
+    int playerAudio = AXResourceManager::getInstance()->addAudioChunk("data/example.wav");
     //create an entity
     AXEntity* e = new AXEntity("blob", 10, 10, 200, 200);
     //add a new component where we will play the sound when it hits the floor

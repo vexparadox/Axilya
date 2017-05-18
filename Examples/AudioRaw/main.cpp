@@ -22,6 +22,6 @@ void draw(){
 int main(int argc, char const *argv[]){	
 	AXWindow::init(720, 480, "Audio Raw", AX_WINDOWED, update, draw);
 	//create the audio chunk
-	chunk = new AXAudioChunk("example.wav");
+	chunk = new AXAudioChunk("data/example.wav");
 	return AXWindow::run();
 }

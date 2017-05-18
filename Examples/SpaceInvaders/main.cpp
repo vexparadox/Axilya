@@ -30,11 +30,11 @@ void SpawnText(AXScene* scene){
 void SpawnPlayer(AXScene* scene){
     AXEntity* player = new AXEntity("player", 0, AXWindow::getHeight()-64, 64, 64);
     // load the audio file
-    int audioID = AXResourceManager::getInstance()->addAudioChunk("fire.wav");
+    int audioID = AXResourceManager::getInstance()->addAudioChunk("data/fire.wav");
     player->addComponent(new PlayerController());
     player->addCollider(new AXBoxCollider());
     //create a sprite
-    AXStaticSprite* ss = new AXStaticSprite("player_1.jpg");
+    AXStaticSprite* ss = new AXStaticSprite("data/player_1.jpg");
     player->getRenderer()->addSprite(ss, "player_static");
     // add the audio loaded with the name "fire"
     // we can use this name to play the sound
@@ -44,7 +44,7 @@ void SpawnPlayer(AXScene* scene){
     AXEntity* bullet = new AXEntity("bullet", 0, 0, 32, 64);
     bullet->addCollider(new AXBoxCollider());
     bullet->addComponent(new Bullet());
-    ss = new AXStaticSprite("bullet.jpg");
+    ss = new AXStaticSprite("data/bullet.jpg");
     //add a sprite with a name
     bullet->getRenderer()->addSprite(ss, "bullet");
     AXPrefabManager::getInstance()->addPrefab(bullet);
@@ -53,7 +53,7 @@ void SpawnPlayer(AXScene* scene){
 void SpawnInvaders(AXScene* scene){
     AXPrefabManager* prefabManager = AXPrefabManager::getInstance();
     // let's load in a death sound
-    int audioID = AXResourceManager::getInstance()->addAudioChunk("death.wav");
+    int audioID = AXResourceManager::getInstance()->addAudioChunk("data/death.wav");
     // A prefab of the invaders
     AXEntity* enemy = new AXEntity("enemy", 0, 0, 64, 64);
     // add a collider
