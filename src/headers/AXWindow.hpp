@@ -59,7 +59,7 @@ class AXWindow final{
     static int windowWidth, windowHeight;
     static int displayWidth, displayHeight;
     static SDL_Window* window;
-    static AXFunction draw, update;
+    static AXFunction draw, update, setup;
     static bool initiated;
     static Uint64 previousDeltaTime;
     static Uint64 deltaTime;
@@ -123,7 +123,7 @@ public:
     * @param flags
     * @return Returns 1 on success and -1 on failure
     */
-    static int init(float windowWidth, float windowHeight, const char* title, unsigned int flags, AXFunction update, AXFunction draw);
+    static int init(float windowWidth, float windowHeight, const char* title, unsigned int flags, AXFunction setup, AXFunction update, AXFunction draw);
     /*!
     * A static method to start and maintain the game loop
     *

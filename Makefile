@@ -21,7 +21,7 @@ lib:
 	@mkdir -p ./Build/objs/
 	@echo "Compiling the Axilya library, this may take a while..."
 	@
-	@cd ./Build/objs/; $(foreach file,$(cppFiles), echo $(file) ;g++ $(file) -c $(CPFLAGS) -std=c++11 -O3;)
+	@cd ./Build/objs/; $(foreach file,$(cppFiles), echo $(file) ;g++ $(file) -c $(CPFLAGS) -Wno-sizeof-pointer-memaccess -std=c++11 -O3;)
 	@# @cd ./Build/objs/ && g++ $(cppFiles) -c $(CPFLAGS) -std=c++11 -O3; 
 	@ar rcs ./Build/libAxilya.a $(objFiles)
 	@echo "Library compiled"

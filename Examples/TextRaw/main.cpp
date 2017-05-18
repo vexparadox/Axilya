@@ -19,7 +19,7 @@ void draw(){
 }
 
 int main(int argc, char const *argv[]){	
-	AXWindow::init(720, 480, "Text Raw", AX_DEFAULT, update, draw);
+	AXWindow::init(720, 480, "Text Raw", AX_DEFAULT, nullptr, update, draw);
 	//load the font
 	AXFont font("data/Arial.ttf", 20);
 	//make a red colour

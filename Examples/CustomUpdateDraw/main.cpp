@@ -8,6 +8,11 @@
 #include <Axilya/AXMain.h>
 
 int x = 0;
+
+void setup(){
+    //called once
+}
+
 void update(){
     if(AXInput::getValue("D")){
         x++;
@@ -21,8 +26,8 @@ void draw(){
 
 int main(int argc, char *argv[])
 {
-    //You can use axilya like a framework by passing the window update and draw methods
-    if(!AXWindow::init(720, 480, "Custom Update Draw", AX_DEFAULT, update, draw)){
+    //You can use axilya like a framework by passing the window setup, update, and draw methods
+    if(!AXWindow::init(720, 480, "Custom Update Draw", AX_DEFAULT, setup, update, draw)){
         AXLog::log("Window failed to initialise", "Quitting", AX_LOG_ERROR);
     	return -1;
     }

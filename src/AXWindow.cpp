@@ -36,20 +36,22 @@ Uint64 AXWindow::deltaTime = 0;
 Uint64 AXWindow::previousDeltaTime = 0;
 
 
-//the update and draw methods
+//the setup, update and draw methods
 AXFunction AXWindow::draw = 0;
 AXFunction AXWindow::update = 0;
+AXFunction AXWindow::setup = 0;
 
 int AXWindow::init(float wWidth, float wHeight, const char* title, unsigned int flags){
-    return AXWindow::init(wWidth, wHeight, title, flags, nullptr, nullptr);
+    return AXWindow::init(wWidth, wHeight, title, flags, nullptr, nullptr, nullptr);
 }
 
 
-int AXWindow::init(float wWidth, float wHeight, const char* title, unsigned int flags, AXFunction update, AXFunction draw){
+int AXWindow::init(float wWidth, float wHeight, const char* title, unsigned int flags, AXFunction setup, AXFunction update, AXFunction draw){
     if(initiated){
         return -1;
     }
     startTime = std::time(0);
+    AXWindow::setup = setup;
     AXWindow::update = update;
     AXWindow::draw = draw;
     //The window we'll be rendering to
@@ -132,6 +134,9 @@ int AXWindow::init(float wWidth, float wHeight, const char* title, unsigned int 
 }
 
 int AXWindow::run(){
+    if(setup){
+        setup();
+    }
     if(activeScene){
         activeScene->start();
     }
