@@ -34,6 +34,9 @@ AXTexture::~AXTexture(){
     if(texture){
 	   SDL_DestroyTexture(texture);
     }
+    if(loaded){
+        stbi_image_free(imageDataPtr);
+    }
 }
 
 bool AXTexture::loadImage(const std::string& path){

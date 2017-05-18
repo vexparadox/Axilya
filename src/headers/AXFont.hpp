@@ -89,7 +89,16 @@ public:
    * @see AXGraphics::drawTexture to draw
    */
    AXTexture* bakeTexture(const std::string string, AXColour& colour);
-
+   /*!
+   * A method to quickly bake a texture of a string using this AXFont
+   *
+   * This method is better suited for quick changing text
+   * @param string the string to bake
+   * @param colour the colour to bake
+   * @return the quickly baked AXTexture
+   * @see AXGraphics::drawTexture to draw
+   */
+   AXTexture* quickBakeTexture(const std::string string, AXColour& colour);
    /*!
    * A method to get the pixel size of a baked string using this AXFont
    *

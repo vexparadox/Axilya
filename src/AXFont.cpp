@@ -52,6 +52,27 @@ AXTexture* AXFont::bakeTexture(const std::string string, AXColour& colour){
 	return 0;
 }
 
+AXTexture* AXFont::quickBakeTexture(const std::string string, AXColour& colour){
+	if(loaded){
+		SDL_Surface* temp = TTF_RenderUTF8_Solid(fontData, string.c_str(), colour.toSDL());
+		if(!temp){
+			AXLog::log("Font failed to bake!", TTF_GetError(), AX_LOG_ERROR);
+			return 0;
+		}
+		SDL_Texture* texture = SDL_CreateTextureFromSurface(AXWindow::renderer, temp);
+		if(!texture){
+			AXLog::log("Font failed to bake!", TTF_GetError(), AX_LOG_ERROR);
+			return 0;
+		}
+		SDL_FreeSurface(temp);
+		AXVector2D size = getStringSize(string);
+		AXTexture* axtexture = new AXTexture(texture, size.x, size.y);
+		return axtexture;
+	}
+	AXLog::log("Font failed to bake!", "Font file not loaded.", AX_LOG_ERROR);
+	return 0;
+}
+
 AXVector2D AXFont::getStringSize(const std::string string){
 	AXVector2D size;
 	if(loaded){
