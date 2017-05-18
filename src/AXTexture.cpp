@@ -13,9 +13,14 @@ AXTexture::AXTexture(const std::string& path) : AXResource(-1){
 	this->loadImage(path);
 }
 
-AXTexture::AXTexture(SDL_Texture* texture) : AXResource(-1){
+AXTexture::AXTexture(SDL_Texture* texture, int width, int height) : AXResource(-1){
+    //this is used mainly by AXFonts
     if(texture){
         this->texture = texture;
+        this->w = width;
+        this->h = height;
+        loaded = true;
+        setPath("SDL");
     }else{
         AXLog::log("AXTexture", "Incorrect SDL_Texture data given.", AX_LOG_ERROR);
     }

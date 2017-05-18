@@ -52,7 +52,7 @@ public:
    * This constructor is for internal use only
    * @param texture the SDL_Texture to be drawn
    */  
-    AXTexture(SDL_Texture* texture);
+    AXTexture(SDL_Texture* texture, int width, int height);
   /*!
    * The constructor of an AXTexture 
    * 

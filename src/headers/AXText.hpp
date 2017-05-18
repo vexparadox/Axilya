@@ -35,12 +35,12 @@
 #include "AXComponent.hpp"
 #include <stdio.h>
 #include "AXResourceManager.hpp"
+#include "AXTexture.hpp"
 #include "AXEntity.hpp"
 class AXText {
 protected:
 	AXFont* font = 0;
 	AXResourceManager* resourceManager = AXResourceManager::getInstance();
-   int height, width;
    AXEntity* owner = 0;
    AXColour colour;
 public:

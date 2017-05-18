@@ -36,7 +36,7 @@
 #include "AXText.hpp"
 class AXStaticText : public AXText{
 	std::string text;
-	SDL_Texture* texture;
+	AXTexture* texture;
 	bool isBaked;
 public:    
 	/*!

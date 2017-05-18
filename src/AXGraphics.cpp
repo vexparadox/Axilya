@@ -33,7 +33,7 @@ namespace AXGraphics{
 
     void drawTexture(AXTexture* t, float x, float y, float w, float h){
         if(!t){
-            AXLog::log("Texture data invalide", "Nullptr was passed", AX_LOG_ERROR);
+            AXLog::log("Texture data invalid", "Nullptr was passed", AX_LOG_ERROR);
             return;
         }
         if(!t->isLoaded()){

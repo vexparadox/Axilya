@@ -12,7 +12,7 @@ AXStaticText::AXStaticText(const std::string& text, int fontID) : text(text){
 }
 
 AXStaticText::~AXStaticText(){
-	SDL_DestroyTexture(this->texture);
+	delete this->texture;
 }
 
 bool AXStaticText::bakeText(){
@@ -20,19 +20,16 @@ bool AXStaticText::bakeText(){
 	if(this->font){
 		if(this->font->isLoaded()){
 			if(this->isBaked && this->texture){
-				SDL_DestroyTexture(this->texture);
+				delete this->texture;
 			}
 			this->texture = this->font->bakeTexture(this->text, this->colour);
 			if(!texture){
 				isBaked = false;
 				return false;
 			}
-			AXVector2D t = this->font->getStringSize(this->text);
-			width = t.x;
-			height = t.y;
 			if(owner){
 				//resize the entity to the size of this text
-				owner->resizeEntity(width, height);
+				owner->resizeEntity(texture->getWidth(), texture->getHeight());
 			}
 			isBaked = true;
 			return true;
@@ -58,7 +55,7 @@ void AXStaticText::setFont(int id){
 
 void AXStaticText::draw(float x, float y){
 	if(texture && isBaked){
-		AXGraphics::drawSDLTexture(texture, x, y, width, height);
+		AXGraphics::drawTexture(texture, x, y);
 	}
 }
 

@@ -31,7 +31,7 @@ bool AXFont::loadFont(const std::string& p, int size){
 	return true;
 }
 
-SDL_Texture* AXFont::bakeTexture(const std::string string, AXColour& colour){
+AXTexture* AXFont::bakeTexture(const std::string string, AXColour& colour){
 	if(loaded){
 		SDL_Surface* temp = TTF_RenderUTF8_Blended(fontData, string.c_str(), colour.toSDL());
 		if(!temp){
@@ -44,7 +44,9 @@ SDL_Texture* AXFont::bakeTexture(const std::string string, AXColour& colour){
 			return 0;
 		}
 		SDL_FreeSurface(temp);
-		return texture;
+		AXVector2D size = getStringSize(string);
+		AXTexture* axtexture = new AXTexture(texture, size.x, size.y);
+		return axtexture;
 	}
 	AXLog::log("Font failed to bake!", "Font file not loaded.", AX_LOG_ERROR);
 	return 0;

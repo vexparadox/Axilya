@@ -40,6 +40,7 @@
 #endif
 #include "AXGraphics.hpp"
 #include "AXResource.hpp"
+#include "AXTexture.hpp"
 class AXFont : public AXResource{
    TTF_Font* fontData;
    int fontHeight;
@@ -84,10 +85,10 @@ public:
    *
    * @param string the string to bake
    * @param colour the colour to bake
-   * @return the baked texture
-   * @see AXGraphics::drawSDLTexture to draw
+   * @return the baked AXTexture
+   * @see AXGraphics::drawTexture to draw
    */
-   SDL_Texture* bakeTexture(const std::string string, AXColour& colour);
+   AXTexture* bakeTexture(const std::string string, AXColour& colour);
 
    /*!
    * A method to get the pixel size of a baked string using this AXFont
