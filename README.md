@@ -47,6 +47,11 @@ To just install use:
 ```Shell
 	sudo make install
 ```
+To install the library with debug symbols (see the (wiki page)[http://axilya.com/wiki/index.php?title=Debug_install]):
+
+```Shell
+	sudo make debug
+```
 
 To just make the examples:
 ```Shell
