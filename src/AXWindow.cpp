@@ -119,6 +119,12 @@ int AXWindow::init(float wWidth, float wHeight, const char* title, unsigned int 
             AXLog::log("Audio failed to initialise.", Mix_GetError(), AX_LOG_ERROR);
             audioStatus = false;
         }
+        int flags=MIX_INIT_OGG;
+        int initted=Mix_Init(flags);
+        if((initted&flags) != flags) {
+            AXLog::log("Mix_Init", "Failed to init required ogg!", AX_LOG_ERROR);
+            AXLog::log("Mix_Init", Mix_GetError(), AX_LOG_ERROR);
+        }
     }
 
     AXInput::init();
