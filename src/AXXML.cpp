@@ -10,7 +10,9 @@ AXXML::AXXML(const std::string path){
 
 
 bool AXXML::loadFile(const std::string path){
-	pugi::xml_parse_result result = document.load_file(path.c_str());
+	std::string truePath = AXWindow::runPath;
+	truePath.append(path);
+	pugi::xml_parse_result result = document.load_file(truePath.c_str());
 	if(result){
 		return true;
 	}else{
