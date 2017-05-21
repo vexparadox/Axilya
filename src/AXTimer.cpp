@@ -37,7 +37,7 @@ Uint32 AXTimer::elapsedTime(){
     if(!started){
         return 0;
     }
-    return ((Uint32) endTime - beginTime)/CLOCKS_PER_SEC;
+    return ((Uint32) endTime - beginTime);
 }
 bool AXTimer::isRunning(){
     return running;

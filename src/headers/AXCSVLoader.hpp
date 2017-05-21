@@ -35,13 +35,14 @@
 #define AXCSVLoader_hpp
 
 #include <stdio.h>
+#include "AXLog.hpp"
 #include <vector>
 
 class AXCSVLoader{
     std::string name;
     char seperator = ',', ignore = '/';
     //where the last load will be saved
-    std::vector<vector<int> > fileVector;
+    std::vector<std::vector<int> > fileVector;
 public:
     //create the object
     AXCSVLoader(const std::string &name, const char &seperator, const char &ignore){
@@ -54,9 +55,10 @@ public:
     }
 
     //load the CSV and return a 2D vector of ints
-    std::vector<vector<int> >& loadfile(){
+    std::vector<std::vector<int> >& loadFile(){
         std::ifstream file(name, std::ios::in); //declare a file stream
-        if (worldFile.is_open()) //checks if the file is open??
+        fileVector.clear();
+        if (file.is_open()) //checks if the file is open??
         {
             std::string str;
             while (getline(file, str)){
@@ -83,13 +85,13 @@ public:
                 fileVector.push_back(readLine);
             }
         }else{
-            std::cout << "File failed to load" << std::endl;
+            AXLog::log("AXCSVLoader", "File failed to load.", AX_LOG_ERROR);
         }
         return fileVector;
     }
     
     //returns the fileVector
-    std::vector<vector<int> >& getFileVector(){
+    std::vector<std::vector<int> >& getFileVector(){
         return fileVector;
     }
 
