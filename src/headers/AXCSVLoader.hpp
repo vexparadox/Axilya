@@ -36,6 +36,7 @@
 
 #include <stdio.h>
 #include "AXLog.hpp"
+#include "AXWindow.hpp"
 #include <vector>
 
 class AXCSVLoader{
@@ -56,7 +57,7 @@ public:
 
     //load the CSV and return a 2D vector of ints
     std::vector<std::vector<int> >& loadFile(){
-        std::ifstream file(name, std::ios::in); //declare a file stream
+        std::ifstream file(AXWindow::runPath+name, std::ios::in); //declare a file stream
         fileVector.clear();
         if (file.is_open()) //checks if the file is open??
         {

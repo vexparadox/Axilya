@@ -118,6 +118,7 @@ public:
     * @param windowWidth the requested width of the window
     * @param windowHeight the requested height of the window
     * @param title the title that's shown in the top bar of the window
+    * @param setup the function pointer to a setup method, this will be called once at the start of the game loop
     * @param update the function pointer to an update method, this will be called in the game loop along side the current AXScene being updated
     * @param draw the function pointer to an draw method, this will be called in the game loop along side the current AXScene being updated
     * @param flags
