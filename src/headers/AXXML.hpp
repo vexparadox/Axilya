@@ -35,6 +35,7 @@
 #define AXXML_hpp
 #include <string>
 #include "AXLog.hpp"
+#include "AXWindow.hpp"
 #include "pugixml.hpp"
 //type defs
 typedef pugi::xml_document AXXMLdoc; // holds a collection of nodes
