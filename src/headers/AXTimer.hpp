@@ -75,7 +75,8 @@ public:
     bool isStarted();
     
     /*!
-    * Returns the elapsed time
+    * Returns the elapsed time in milliseconds.
+    *
     * If the timer has been stopped it will return between start and stop calls
     *
     * If the timer is still running it will return between start and elapsedTime calls
