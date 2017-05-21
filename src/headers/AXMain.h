@@ -50,5 +50,6 @@
 #include "AXEntityDrawTypes.hpp"
 #include "AXWindowFlags.hpp"
 #include "AXXML.hpp"
+#include "AXCSVLoader.hpp"
 
 #endif /* AXMain_h */
