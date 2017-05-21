@@ -149,16 +149,13 @@ int AXWindow::run(){
             //User requests quit
             if(event.type == SDL_QUIT){
                 go = 0;
+                break;
             }else if( event.type == SDL_KEYDOWN){
                 const std::string& temp = AXInput::setKeyDown(event.key.keysym.scancode);
                 if(activeScene){
                     activeScene->inputChange(temp, 1);
                 }
             }else if(event.type == SDL_KEYUP){
-                if(event.key.keysym.scancode == SDL_SCANCODE_ESCAPE){
-                    go = 0;
-                    break;
-                }
                 const std::string& temp = AXInput::setKeyUp(event.key.keysym.scancode);
                 if(activeScene){
                     activeScene->inputChange(temp, 0);

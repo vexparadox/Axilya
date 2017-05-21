@@ -15,7 +15,7 @@ std::unordered_map<int, AXKey*> AXInput::inputCodes;
 std::unordered_map<std::string, AXKey*> AXInput::inputNames;
 
 void AXInput::init() {
-    inputs.reserve(114);
+    inputs.reserve(115);
     inputs.push_back(new AXKey("UNKNOWN", AX_INPUT_UNKNOWN));
     inputs.push_back(new AXKey("MB1", -2));
     inputs.push_back(new AXKey("MB2", -1));
@@ -68,6 +68,7 @@ void AXInput::init() {
     inputs.push_back(new AXKey("RCTRL", SDL_SCANCODE_RCTRL));
     inputs.push_back(new AXKey("RALT", SDL_SCANCODE_RALT));
     inputs.push_back(new AXKey("RSHIFT", SDL_SCANCODE_RSHIFT));
+    inputs.push_back(new AXKey("ESC", SDL_SCANCODE_ESCAPE));
 
     inputs.push_back(new AXKey("GC1_A", SDL_CONTROLLER_BUTTON_A+AX_INPUT_CONTROLLER_OFFSET));
     inputs.push_back(new AXKey("GC1_B", SDL_CONTROLLER_BUTTON_B+AX_INPUT_CONTROLLER_OFFSET));
