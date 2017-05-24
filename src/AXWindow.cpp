@@ -150,7 +150,7 @@ int AXWindow::run(){
     SDL_Event event;
     bool inFocus = true;
     while(go == 1){
-        AXWindow::frameCount++:
+        AXWindow::frameCount++;
         AXWindow::deltaTime = SDL_GetPerformanceCounter() - AXWindow::previousDeltaTime;
         AXWindow::previousDeltaTime = SDL_GetPerformanceCounter();
         while(SDL_PollEvent(&event) != 0 ){
