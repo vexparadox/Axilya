@@ -125,6 +125,14 @@ namespace AXGraphics{
     */
     void drawRect(float x, float y, float w, float h);
     /*!
+    * A function that draws a AXRect outline
+    * @param x the x position of the rectangle
+    * @param y the y position of the rectangle
+    * @param w the width of the rectangle
+    * @param h the height of the recatangle
+    */
+    void drawRectOutline(float x, float y, float w, float h);
+    /*!
     * A function that draws a rectangle from the center outwards
     * @param x the x center position of the rectangle
     * @param y the y center position of the rectangle

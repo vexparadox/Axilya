@@ -105,6 +105,14 @@ namespace AXGraphics{
     void drawRect(const AXVector2D &v, float w, float h){
         drawRect(v.x, v.y, w, h);
     }
+
+    void drawRectOutline(float x, float y, float w, float h){
+        rectangleRGBA(AXWindow::renderer, x, y, w, h, 
+        AXWindow::renderColour.getR(),
+        AXWindow::renderColour.getG(),
+        AXWindow::renderColour.getB(),
+        AXWindow::renderColour.getA());
+    }
     
     //POLYGONS
     void drawPoly(const AXPolygon &p){
