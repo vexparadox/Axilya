@@ -15,6 +15,7 @@ int AXWindow::windowWidth = 0;
 int AXWindow::windowHeight = 0;
 int AXWindow::displayWidth = 0;
 int AXWindow::displayHeight = 0;
+Uint64 AXWindow::frameCount = 0;
 //the active scene
 AXScene* AXWindow::activeScene = 0;
 //store the SDL window and renderer
@@ -149,6 +150,7 @@ int AXWindow::run(){
     SDL_Event event;
     bool inFocus = true;
     while(go == 1){
+        AXWindow::frameCount++:
         AXWindow::deltaTime = SDL_GetPerformanceCounter() - AXWindow::previousDeltaTime;
         AXWindow::previousDeltaTime = SDL_GetPerformanceCounter();
         while(SDL_PollEvent(&event) != 0 ){

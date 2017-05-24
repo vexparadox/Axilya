@@ -74,6 +74,10 @@ public:
     */
     static bool videoStatus;
     /*!    
+    * the number of frames since the start of the program
+    */
+    static Uint64 frameCount;
+    /*!    
     * if the window has audio initialised
     */
     static bool audioStatus;
