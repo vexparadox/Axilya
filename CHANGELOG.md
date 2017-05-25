@@ -1,3 +1,11 @@
+## v0.9.8
+
+- Fixed up some bugs
+- Added a rectangle outline drawing
+- Enabled OGG support
+- Added XML and CSV parsing
+
+
 ## v0.9.7
 
 - AXLog logging class
