@@ -20,18 +20,34 @@ namespace AXGraphics{
         }
     }
 
-    void drawTexture(AXTexture* t, float x, float y){
+    void drawTexture(const std::unique_ptr<AXTexture>& t, float x, float y, float w, float h){
+        drawTexture(t.get(), x, y, w, h);
+    }
+
+    void drawTexture(const std::unique_ptr<AXTexture>& t, float x, float y){
+        drawTexture(t.get(), x, y, -1, -1);
+    }
+
+    void drawTexture(const std::unique_ptr<AXTexture>& t, const AXVector2D& v, float w, float h){
+        drawTexture(t.get(), v.x, v.y, w, h);
+    }
+
+    void drawTexture(const std::unique_ptr<AXTexture>& t, const AXVector2D& v){
+        drawTexture(t.get(), v.x, v.y, -1, -1);
+    }
+
+    void drawTexture(const AXTexture* t, float x, float y){
         drawTexture(t, x, y, -1, -1);
     }
 
-    void drawTexture(AXTexture* t, AXVector2D v){
+    void drawTexture(const AXTexture* t, const AXVector2D& v){
         drawTexture(t, v.x, v.y, -1, -1);
     }
-    void drawTexture(AXTexture* t, AXVector2D v, float w, float h){
+    void drawTexture(const AXTexture* t, const AXVector2D& v, float w, float h){
         drawTexture(t, v.x, v.y, w, h);
     }
 
-    void drawTexture(AXTexture* t, float x, float y, float w, float h){
+    void drawTexture(const AXTexture* t, float x, float y, float w, float h){
         if(!t){
             AXLog::log("Texture data invalid", "Nullptr was passed", AX_LOG_ERROR);
             return;

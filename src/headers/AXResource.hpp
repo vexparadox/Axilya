@@ -45,7 +45,7 @@ public:
    * A method to get the ID of this AXResource given by the AXResourceManager
    * @return the ID of the AXResource
    */
-	int getID(){ return id; };
+	int getID() const { return id; };
 	/*!
    * A method to set the loaded path of this AXResource
    */
@@ -54,12 +54,12 @@ public:
    * A method to get the path of the loaded AXResource
    * @return the path of the loaded AXResource
    */
-	std::string getPath(){ return path; }
+	std::string getPath() const { return path; }
 	/*!
    * A method to check if the AXResource has been loaded
    * @return Whether the AXResouce is loaded
    */
-	bool isLoaded(){ return loaded; }
+	bool isLoaded() const { return loaded; }
 	/*!
 	* A method to clone this AXResource
 	* @return a clone of this AXResource

@@ -75,22 +75,22 @@ bool AXTexture::loadImage(const std::string& path){
     return true;
 }
 
-SDL_Texture* AXTexture::getTextureData(){
+SDL_Texture* AXTexture::getTextureData() const{
 	if(loaded && texture){
 		return texture;
 	}
 	return 0;
 }
 
-int AXTexture::getWidth(){
+int AXTexture::getWidth() const{
 	return w;
 }
 
-int AXTexture::getHeight(){
+int AXTexture::getHeight() const{
 	return h;
 }
 
-unsigned char* AXTexture::getRawPixelData(){
+unsigned char* AXTexture::getRawPixelData() const{
     if(loaded){
         return imageDataPtr;
     }else{

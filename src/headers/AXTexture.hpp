@@ -83,17 +83,17 @@ public:
    * A method to get the width of the AXTexture
    * @return the width of the loaded texture
    */  
-    int getWidth();
+    int getWidth() const;
   /*!
    * A method to get the height of the AXTexture
    * @return the height of the loaded texture
    */  
-    int getHeight();
+    int getHeight() const;
     /*!
    * A method to get the texture data that's been loaded
    * @return The texture data that's been loaded
    */     
-    SDL_Texture* getTextureData();
+    SDL_Texture* getTextureData() const;
     /*!
    * A method to get the raw pixel data that's been loaded
    *
@@ -101,7 +101,7 @@ public:
    * To write changes to texture, make changes to the pixel data and clone this AXTexture, that will regenerate the SDL_Texture
    * @return The raw pixel data that's been loaded
    */  
-    unsigned char* getRawPixelData();
+    unsigned char* getRawPixelData() const;
     /*!
     * A method to clone this AXTexture
     * @return a clone of this AXTexture

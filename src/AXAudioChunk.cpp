@@ -38,7 +38,7 @@ int AXAudioChunk::setVolume(int volume){
 	return -1;
 }
 
-Mix_Chunk* AXAudioChunk::getAudioData(){
+Mix_Chunk* AXAudioChunk::getAudioData() const{
 	if(loaded){
 		return chunk;
 	}else{

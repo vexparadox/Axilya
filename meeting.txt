@@ -1,0 +1,69 @@
+Be more specfic about issues with openFrameworks
+ - get testimonys
+ - for some people it works well
+ - there's a GAP <<<*****
+
+Change to just design 
+ - explain why I made the descisions I did
+ - what did you actually make?
+ - what and how does the user see and interact
+ REQUIREMENTS
+  - Talk about who the developer is
+  
+
+Remove the list of stuff from intro, put it in the requirements list
+
+Documentation >> appendix 
+
+Using Doxygen and stuff >> implmentation
+
+Add performance to the requirements 
+
+Be specific about why I'm making it
+
+Original design and say in section EVAL that things were added
+
+EVAL
+ - Screenshot and code snippets
+
+Next Game Jam
+ - Build pong?
+ - A single person to build a bigger game
+ - OR a first, second and third
+ - get them to try it in openFrameworks, then in mine
+ - Side by side evaluation
+
+- Someone who has learnt some C++ but want to learn a game
+
+
+You can quote yourself
+
+###### ###### ###### ###### ###### ###### ###### ###### ###### ###### ###### ###### ###### ###### ###### ###### 
+###### ###### ###### ###### ###### ###### ###### ###### ###### ###### ###### ###### ###### ###### ###### ######
+###### ###### ###### ###### ###### ###### ###### ###### ###### ###### ###### ###### ###### ###### ###### ######
+###### ###### ###### ###### ###### ###### ###### ###### ###### ###### ###### ###### ###### ###### ###### ######
+###### ###### ###### ###### ###### ###### ###### ###### ###### ###### ###### ###### ###### ###### ###### ######
+I have 5 people for testing on the 6th of april
+
+Makea table
+
+Task: make a game of your own design
+Aim: If it's usable, intuitive (learnable) and meets expectectations(peformant) If you're getting them to make X, can they do it with a small amount of effort and does it work( effectiveness )
+
+What is the expeirnece of the users
+
+## Critera of usability
+page 19 of : Interaction Design beyond human-computer interaction
+Effectiveness
+effciency
+saftey
+utility
+learnability
+
+Data: 
+Observing and interviewing on a regular basis
+Take notes on bits where people stuck
+
+Record interviews - Audio only
+- get into issues that are flagged up
+There will be themes and specific issues

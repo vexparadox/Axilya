@@ -37,6 +37,7 @@
 #include "AXTypes.h"
 #include <SDL2/SDL.h>
 #include <vector>
+#include <memory>
 #include "AXMath.hpp"
 #include "glad.h"
 namespace AXGraphics{
@@ -50,18 +51,50 @@ namespace AXGraphics{
     * @param w the width to draw this texture
     * @param h the height to draw this texture
     */
-    void drawSDLTexture(SDL_Texture* t, float x, float y, float w, float h);
+    void drawSDLTexture(const SDL_Texture* t, float x, float y, float w, float h);
+    /*!
+    * A function that draws an AXTexture from a unique_ptr
+    * @param t the loaded AXTexture unique ptr
+    * @param x the x position to draw the texture
+    * @param y the y position to draw the texture
+    * @param w the width to draw the texture (-1 will default to texture size)
+    * @param h the height to draw the texture (-1 will default to texture size)
+    */
+    void drawTexture(const std::unique_ptr<AXTexture>& t, float x, float y, float w, float h);
+    /*!
+    * A function that draws an AXTexture unique_ptr
+    * @param t the loaded AXTexture unique_ptr
+    * @param x the x position of the texture
+    * @param y the y position of the texture
+    */
+    void drawTexture(const std::unique_ptr<AXTexture>& t, float x, float y);
+    /*!
+    * A function that draws an AXTexture unique_ptr
+    * @param t the loaded AXTexture unique_ptr
+    * @param v the position to draw the texture
+    * @param w the width to draw the texture
+    * @param h the height to draw the texture
+    */
+    void drawTexture(const std::unique_ptr<AXTexture>& t, const AXVector2D& v, float w, float h);
+    /*!
+    * A function that draws an AXTexture unique_ptr
+    * @param t the loaded AXTexture unique_ptr
+    * @param v the position to draw the texture
+    */
+    void drawTexture(const std::unique_ptr<AXTexture>& t, const AXVector2D& v);
     /*!
     * A function that draws an AXTexture
     * @param t the loaded AXTexture
+    * @param x the x position of the texture
+    * @param y the y position of the texture
     */
-    void drawTexture(AXTexture* t, float x, float y);
+    void drawTexture(const AXTexture* t, float x, float y);
     /*!
     * A function that draws an AXTexture
     * @param t the loaded AXTexture
     * @param v the position to draw the texture
     */
-    void drawTexture(AXTexture* t, AXVector2D v);
+    void drawTexture(const AXTexture* t, const AXVector2D& v);
     /*!
     * A function that draws an AXTexture
     * @param t the loaded AXTexture
@@ -69,7 +102,7 @@ namespace AXGraphics{
     * @param w the width to draw the texture
     * @param h the height to draw the texture
     */
-    void drawTexture(AXTexture* t, AXVector2D v, float w, float h);
+    void drawTexture(const AXTexture* t, const AXVector2D& v, float w, float h);
     /*!
     * A function that draws an AXTexture
     * @param t the loaded AXTexture
@@ -78,7 +111,7 @@ namespace AXGraphics{
     * @param w the width to draw the texture (-1 will default to texture size)
     * @param h the height to draw the texture (-1 will default to texture size)
     */
-    void drawTexture(AXTexture* t, float x, float y, float w, float h);
+    void drawTexture(const AXTexture* t, float x, float y, float w, float h);
 
 
 

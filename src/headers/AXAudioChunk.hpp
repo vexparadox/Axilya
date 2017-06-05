@@ -87,7 +87,7 @@ public:
     * @return the audio data that's been loaded
     * @see AXAudio::playAudioChunk
     */
-    Mix_Chunk* getAudioData();
+    Mix_Chunk* getAudioData() const;
     /*!
     * A method to clone this AXAudioChunk
     * @return a clone of this AXAudioChunk

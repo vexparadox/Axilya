@@ -1,7 +1,19 @@
 #include "headers/AXAudio.hpp"
 #include "headers/AXWindow.hpp"
 namespace AXAudio{
-	void playAudioChunk(AXAudioChunk* chunk, int channel, int loopNumber){
+	void playAudioChunk(const std::unique_ptr<AXAudioChunk>& chunk, int channel, int loopNumber){
+		playAudioChunk(chunk.get(), channel, loopNumber);
+	}
+
+	void playAudioChunk(const std::unique_ptr<AXAudioChunk>& chunk, int channel){
+		playAudioChunk(chunk.get(), channel);
+	}
+
+	void playAudioChunk(const std::unique_ptr<AXAudioChunk>& chunk){
+		playAudioChunk(chunk.get());
+	}
+
+	void playAudioChunk(const AXAudioChunk* chunk, int channel, int loopNumber){
 		//only play if audio is inited
 		if(AXWindow::audioStatus){
 			if(Mix_PlayChannel(channel, chunk->getAudioData(), loopNumber) == -1){
