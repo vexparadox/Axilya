@@ -21,10 +21,10 @@ namespace AXAudio{
 			}
 		}
 	}
-	void playAudioChunk(AXAudioChunk* chunk, int loopNumber){
+	void playAudioChunk(const AXAudioChunk* chunk, int loopNumber){
 		playAudioChunk(chunk, -1, loopNumber);
 	}
-	void playAudioChunk(AXAudioChunk* chunk){
+	void playAudioChunk(const AXAudioChunk* chunk){
 		playAudioChunk(chunk, -1, 0);
 	}
 };

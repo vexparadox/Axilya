@@ -41,6 +41,25 @@
 #include <SDL2/SDL_mixer.h>
 #endif
 namespace AXAudio{
+   /*!
+   * Will play an AXAudioChunk
+   * @param chunk an AXAudioChunk
+   * @param channel which buffer to play on
+   * @param loopNumber how many times to loop
+   */
+   void playAudioChunk(const AXAudioChunk* chunk, int channel, int loopNumber);
+   /*!
+   * Will play an AXAudioChunk
+   * @param chunk an AXAudioChunk
+   * @param loopNumber how many times to loop
+   */
+   void playAudioChunk(const AXAudioChunk* chunk, int loopNumber);
+   /*!
+   * Will play an AXAudioChunk
+   * @param chunk an AXAudioChunk
+   */
+   void playAudioChunk(const AXAudioChunk* chunk);
+
 	/*!
    * Will play an AXAudioChunk unique_ptr
    * @param chunk an AXAudioChunk unqiue_ptr
@@ -59,24 +78,6 @@ namespace AXAudio{
    * @param chunk an AXAudioChunk unqiue_ptr
    */
 	void playAudioChunk(const std::unique_ptr<AXAudioChunk>& chunk);
-	/*!
-   * Will play an AXAudioChunk
-   * @param chunk an AXAudioChunk
-   * @param channel which buffer to play on
-   * @param loopNumber how many times to loop
-   */
-	void playAudioChunk(const AXAudioChunk* chunk, int channel, int loopNumber);
-	/*!
-   * Will play an AXAudioChunk
-   * @param chunk an AXAudioChunk
-   * @param loopNumber how many times to loop
-   */
-	void playAudioChunk(const AXAudioChunk* chunk, int loopNumber);
-	/*!
-   * Will play an AXAudioChunk
-   * @param chunk an AXAudioChunk
-   */
-	void playAudioChunk(const AXAudioChunk* chunk);
 };
 
 #endif
